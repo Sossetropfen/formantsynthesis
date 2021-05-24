@@ -10,3 +10,5 @@ Quellen:
 	
 	Audio Signal Visualization:
 		- https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
+		
+		- maybe https://wavesurfer-js.org/
