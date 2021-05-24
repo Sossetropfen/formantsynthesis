@@ -1,0 +1,5 @@
+Quellen:
+
+
+	Sprachsynthese:
+		- https://dev.to/asaoluelijah/text-to-speech-in-3-lines-of-javascript-b8h (24.05.2021)
