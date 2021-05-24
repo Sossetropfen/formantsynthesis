@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+
+        <script>
+
+            // check if browser supports speechsynthesis
+            if ('speechSynthesis' in window) {
+                    // Speech Synthesis supported 🎉
+                    alert("Yay, your browser supports text to speech!");
+                    }else{
+                    // Speech Synthesis Not Supported 😣
+                    alert("Sorry, your browser doesn't support text to speech!");
+                }
+
+            // regular speechsynthesis
+            function speech() {
+                var msg = new SpeechSynthesisUtterance();
+                msg.text = document.getElementById("speechelement").value;
+                msg.lang='en';
+
+                var a = window.speechSynthesis.speak(msg);
+            }
+        </script>
+
+
+
+        <input type="text" id="speechelement" placeholder="Bitte geben Sie hier einen Satz ein" size="30">
+        <button type="button" onclick="speech()">SPRACHSYNTHESE DURCHFÜHREN</button>
+    </body>
+</html>
