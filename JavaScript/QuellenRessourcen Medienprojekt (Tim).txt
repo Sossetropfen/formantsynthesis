@@ -3,3 +3,10 @@ Quellen:
 
 	Sprachsynthese:
 		- https://dev.to/asaoluelijah/text-to-speech-in-3-lines-of-javascript-b8h (24.05.2021)
+		- https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance/rate
+		- https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis
+		
+	
+	
+	Audio Signal Visualization:
+		- https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API/Visualizations_with_Web_Audio_API
