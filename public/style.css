@@ -1,24 +1,49 @@
 body {
-  font-family: sans-serif;
-  margin: auto;
-  max-width: 1280px;
+  background-color: #81B3FF;
+  height: 100%;
 }
 
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
-  max-width: 800px;
+.card-title{
+  font-family: 'Roboto', sans-serif;
+  font-size: 48;
+  text-align: center;
 }
 
-.navbar a {
-  color: #aaa;
-  display: inline-block;
-  font-size: 15px;
-  padding: 10px;
-  text-decoration: none;
+.container {
+  position: relative;
+  height: 100%;
 }
 
-.navbar a:hover {
-  color: #ffffff;
+.card{
+  /* Karte genau in die Mitte zentrieren */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+background: #FFFFFF;
+box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
+border-radius: 102px;
 }
 
+.form-control{
+  background: rgba(196, 196, 196, 0.5);
+  mix-blend-mode: multiply;
+  border-radius: 40px;
+  text-align: center; 
+}
+
+.form-control:focus {
+  background: rgba(196, 196, 196, 0.33);
+  mix-blend-mode: multiply;
+}
+
+#dreieck{
+  position: fixed;
+  top: 45%;
+  left: 65%;
+}
+
+#dreieck:hover{
+fill: #456fad;
+}

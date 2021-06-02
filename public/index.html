@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="GitLab Pages">
-    <title>Plain HTML site using GitLab Pages</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <div class="navbar">
-      <a href="https://pages.gitlab.io/plain-html/">Plain HTML Example</a>
-      <a href="https://gitlab.com/pages/plain-html/">Repository</a>
-      <a href="https://gitlab.com/pages/">Other Examples</a>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="GitLab Pages">
+  <title>Plain HTML site using GitLab Pages</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css" />
+
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="card d-flex p-2 mx-auto my-auto" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title"><b>Hello, my name is</b></h5>
+        <div class="form-group">
+
+          <div class="col-12">
+          <input type="text" class="form-control grau" maxlength='25' id="usrName"/>
+        </div>
+        </div>
+      </div>
     </div>
 
-    <h1>Hello das ist belas  World!</h1>
+    <!-- Von Bootstrap Icons - Das Weiter Dreieck -->
+    <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="#628BC8" class="bi bi-caret-right-fill" viewBox="0 0 16 16" onclick="namenwahl();">
+      <path d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z"/>
+    </svg>
+  </input>
 
-    <p>Das ist hier mein eigener Branch. Ich kümmere mich um die Scope-Umsetzung der Landing Page, also basic gestaltung.</p>
 
-  </body>
+</body>
+
+<!-- von Bootstrap benötigtes JS -->
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function namenwahl() {
+    var input = document.getElementById("usrName").value;
+    alert(input);
+  }
+
+  // Weiter-Dreieck erst nach eingabe sichtbar
+  $('input').keyup(function(){
+   if($.trim(this.value).length > 0)
+       $('#dreieck').show()
+    else
+       $('#dreieck').hide()
+});
+
+</script>
+
 </html>
-
