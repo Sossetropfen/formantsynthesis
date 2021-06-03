@@ -1,6 +1,10 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
-    
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">      
     
     <!--Hier Boostraop überschreiben. ID's benutzen!!!-->
     <style>
@@ -16,9 +20,16 @@
         border-radius: 25px;
       }
       #body{
-          max-width: 900px;
+        max-width: 1000px;
+        min-width: 500px;
       }
     </style>
+    
+    <script>
+      $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+      });
+    </script>
 
     <title>Hello, world!</title>
   </head>
@@ -30,46 +41,64 @@
 
 
     <!--fangen wir hier mal an-->
-    <div class="container justify-content-center" id="body">
-    
-    <div class="container col-10 justify-content-center p-3">
-        some heading    
-    </div>
+    <div class="row mx-auto" id="body">
+      
+      <!--linke seite - Hauptcontent-->
+      <div class="col-1"></div>
 
-    <div class="container col-10 justify-content-center p-3">
-      Text oben    
-    </div>
+      <div class="col-9">
 
-    <div class="container col-10 justify-content-center p-3" id="bluecontainer">
-      <div class="card" id="card">
-        <div class="card-body p-3" >
-          <div class="container " >
-            <div class="card" id="innercard">
-              <div class="card-body p-4" >
-                some text
-              </div>
-              <div class="container p-4" >
-                <div class="pagination justify-content-center">
-                  <p>next
-                  <button class="btn btn-default">
-                    <img src="dreieck.png" width="20" /> 
-                  </button>
+        <div >
+          <div class=" container p-3">
+            some heading    
+          </div>
+          
+          <div class="container p-3">
+            Text oben    
+          </div>
+          
+          <div class="container " id="bluecontainer">
+          <div class="card" id="card">
+            <div class="card-body p-3" >
+              <div class="container " >
+                <div class="card" id="innercard">
+                  <div class="card-body p-4" >
+                    some text
+                  </div>
+                  <div class="container p-4" >
+                    <div class="pagination justify-content-center">
+                      <p>next
+                      <button class="btn btn-default">
+                        <img src="dreieck.png" width="20" /> 
+                      </button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          </div>
+          
+          <div class="container justify-content-center p-3">
+            Text unten    
+          </div>
+          
+          <div class="container justify-content-center p-3">
+            weiter unten    
+          </div>
         </div>
+
       </div>
-    </div>
+      
+      <!--rechte Seite - Infobutton-->
+      <div class="col-2">
 
-    <div class="container col-10 justify-content-center p-3">
-        Text unten    
-    </div>
+        <button class="btn btn-default" data-toggle="popover" title="Popover Header" data-content="Some content inside the popover">
+          <img src="info-btn.png" width="40" /> 
+        </button>
 
-    <div class="container col-10 justify-content-center p-3">
-        weiter unten    
-    </div>
-
+      </div>
+    
     </div>
 
   </body>
