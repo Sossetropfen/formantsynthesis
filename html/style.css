@@ -1,0 +1,55 @@
+body {
+  background-color: #81B3FF;
+  height: 100%;
+}
+
+.card-title {
+  font-family: 'Roboto', sans-serif;
+  font-size: 48;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.card {
+  /* Karte genau in die Mitte zentrieren */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #FFFFFF;
+  box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
+  border-radius: 102px;
+}
+
+.form-control {
+  background: rgba(196, 196, 196, 0.5);
+  mix-blend-mode: multiply;
+  border-radius: 40px;
+  text-align: center;
+}
+
+.form-control:focus {
+  background: rgba(196, 196, 196, 0.33);
+  mix-blend-mode: multiply;
+}
+
+#dreieck {
+  position: fixed;
+  top: 45%;
+  left: 65%;
+    /* PROBLEM: Muss auf andere Art positioniert werden, da es sich sonst in die Box verschiebt */
+
+}
+
+#dreieck:hover {
+  fill: #456fad;
+}
+
+a {
+  color: whitesmoke;
+  font-style: italic;
+}
