@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Speech Synthesis - A learning experience!</title>
+
+  <!-- Bootstrap einbinden -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="landing-style.css" />
+
+  <!-- GoogleFont einbinden -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Weisse Box mit Input -->
+  <div class="container" style="min-height:95vh">
+    <div class="card d-flex p-2 mx-auto my-auto" style="width: 20rem;">
+      <div class="card-body">
+        <h5 class="card-title"><b>Hello, my name is</b></h5>
+        <div class="form-group">
+
+          <div class="col-12">
+            <input autocomplete='off' type="text" class="form-control grau" maxlength='25' id="usrName" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Von Bootstrap Icons - Das Weiter Dreieck -->
+    <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="#628BC8"
+      class="bi bi-caret-right-fill" viewBox="0 0 16 16" onclick="namenwahl();">
+      <path
+        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+    </svg>
+    </input>
+  </div>
+
+  <!-- Footer unten -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+        <span><a href="">Impressum</a></span>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <span><a href="">Data Privacy</a></span>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <span> <a href="">Copyright</a></span>
+      </div>
+    </div>
+  </div>
+
+</body>
+<!-- von Bootstrap benötigtes JS: jQuery library, Popper JS, Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Fetche Namen aus Input und displaye als alert
+  function namenwahl() {
+    var input = document.getElementById("usrName").value;
+    alert(input);
+  }
+
+  // Weiter-Dreieck erst nach Eingabe von Buchstaben sichtbar PROBLEM: Nach Seiten-reload verschwindet eingabe aber dreieck bleibt. lsg: nicht nur bei key-up checken.
+  document.addEventListener("DOMContentLoaded", function(){
+    $('#dreieck').hide()
+  });
+  
+  $('input').keyup(function () {
+    if ($.trim(this.value).length > 0)
+      $('#dreieck').show()
+    else
+      $('#dreieck').hide()
+  });
+
+</script>
+
+
+</html>
