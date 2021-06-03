@@ -24,7 +24,7 @@
         <div class="form-group">
 
           <div class="col-12">
-            <input type="text" class="form-control grau" maxlength='25' id="usrName" />
+            <input autocomplete='off' type="text" class="form-control grau" maxlength='25' id="usrName" />
           </div>
         </div>
       </div>
@@ -70,6 +70,10 @@
   }
 
   // Weiter-Dreieck erst nach Eingabe von Buchstaben sichtbar PROBLEM: Nach Seiten-reload verschwindet eingabe aber dreieck bleibt. lsg: nicht nur bei key-up checken.
+  document.addEventListener("DOMContentLoaded", function(){
+    $('#dreieck').hide()
+  });
+  
   $('input').keyup(function () {
     if ($.trim(this.value).length > 0)
       $('#dreieck').show()
