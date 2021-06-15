@@ -2,18 +2,12 @@
 body {
     background-color: #81B3FF;
     height: 100%;
-    padding-top: 2rem;
   }
   
   .card-title {
     font-family: 'Roboto', sans-serif;
     font-size: 48;
     text-align: center;
-  }
-  
-  .container {
-    position: relative;
-    height: 100%;
   }
   
   .card {
@@ -42,4 +36,11 @@ body {
   a {
     color: whitesmoke;
     font-style: italic;
+  }
+
+  #info{
+      margin: 2rem;
+      position: fixed;
+      top: 0%;
+      right: 0%;
   }

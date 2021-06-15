@@ -10,11 +10,6 @@ body {
     text-align: center;
   }
   
-  .container {
-    position: relative;
-    height: 100%;
-  }
-  
   .card {
     /* Karte genau in die Mitte zentrieren */
     position: fixed;

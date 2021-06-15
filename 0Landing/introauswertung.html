@@ -18,42 +18,66 @@
   <div class="container" style="min-height:95vh">
     <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
 
-    <!-- Weisse Box mit Name aus Landing-Input -->
-    <div class="card d-flex p-2" style="width: 20rem;">
-      <div class="card-body">
-        <h5 class="card-title ">Hello, my name is</b></h5>
-        <div class="col-12">
-          <p id="outputName" class="graubox">There was an error.</p>
-        </div>
-      </div>
-    </div>
-
     <div class="row">
-    <!-- Weisse Box mit IPA Transformation -->
-    <div class="card d-flex p-2" style="width: 20rem;">
-      <div class="card-body px-4">
-        <h6 class="card-title text-left px-4"><b>Hello, my name is</b></h6>
-        <div class="col-12">
-          <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
-        </div>
-        <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
-      </div>
-    </div>
-
-        <!-- Weisse Box mit Spektogramm -->
-        <div class="card d-flex p-2" style="width: 20rem;">
-          <div class="card-body px-4">
-            <div class="col-12">
-              <img src="/assets/fakeSpektogram.png" class="img-fluid rounded-lg mt-2 " alt="Image of a spectogram ">
-              <img src="/assets/fakewaveform.png" class="img-fluid rounded-lg mt-2 " alt="Image of a waveform ">
-            </div>
+      <!-- Weisse Box mit Name aus Landing-Input -->
+      <div class="card d-flex p-2" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title ">Hello, my name is</b></h5>
+          <div class="col-12">
+            <p id="outputName" class="graubox">There was an error.</p>
           </div>
         </div>
       </div>
 
+      <!-- InfoBox-SVG -->
+      <svg width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+        <g filter="url(#filter0_d)">
+          <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+        </g>
+        <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+        <defs>
+          <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+          </filter>
+        </defs>
+      </svg>
+
+    </div> <!-- obere row Ende -->
+
+    <div class="row">
+      <!-- Weisse Box mit IPA Transformation -->
+      <div class="card d-flex p-2" style="width: 20rem;">
+        <div class="card-body px-4">
+          <h6 class="card-title text-left px-4"><b>Hello, my name is</b></h6>
+          <div class="col-12">
+            <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
+          </div>
+          <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
+        </div>
+      </div>
+
+      <!-- Weisse Box mit Spektogramm -->
+      <div class="card d-flex p-2" style="width: 20rem;">
+        <div class="card-body px-4">
+          <div class="col-12">
+            <img src="/assets/fakeSpektogram.png" class="img-fluid rounded-lg mt-2 " alt="Image of a spectogram ">
+            <img src="/assets/fakewaveform.png" class="img-fluid rounded-lg mt-2 " alt="Image of a waveform ">
+          </div>
+        </div>
+      </div>
+    </div> <!-- mittlere row Ende -->
+
     <div class="row">
       <div class="mx-auto">
-        <p class="d-inline-flex text-light font-weight-light font-italic">How did all of this work? <br> Let´s take a closer look!</p>
+        <p class="d-inline-flex text-light font-weight-light font-italic">How did all of this work? <br> Let´s take a
+          closer look!</p>
         <!-- Von Bootstrap Icons - Das Weiter Dreieck -->
         <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="#628BC8"
           class="bi bi-caret-right-fill pt-3" viewBox="0 0 16 16" onclick="nextpage();">
