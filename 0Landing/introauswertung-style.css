@@ -1,0 +1,45 @@
+
+body {
+    background-color: #81B3FF;
+    height: 100%;
+    padding-top: 2rem;
+  }
+  
+  .card-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 48;
+    text-align: center;
+  }
+  
+  .container {
+    position: relative;
+    height: 100%;
+  }
+  
+  .card {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 6rem;
+    background: #FFFFFF;
+    box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 102px;
+  }
+  
+  .graubox {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    background: rgba(196, 196, 196, 0.5);
+    mix-blend-mode: multiply;
+    border-radius: 40px;
+    text-align: center;
+  }
+  
+
+  #dreieck:hover {
+    fill: #456fad;
+  }
+  
+  a {
+    color: whitesmoke;
+    font-style: italic;
+  }

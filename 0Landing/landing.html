@@ -65,8 +65,10 @@
 <script>
   // Fetche Namen aus Input und displaye als alert
   function namenwahl() {
-    var input = document.getElementById("usrName").value;
-    alert(input);
+    var inputName = document.getElementById("usrName").value;
+    //alert(inputName);
+    sessionStorage.setItem("inputName", inputName);
+    window.location.replace('introauswertung.html')
   }
 
   // Weiter-Dreieck erst nach Eingabe von Buchstaben sichtbar PROBLEM: Nach Seiten-reload verschwindet eingabe aber dreieck bleibt. lsg: nicht nur bei key-up checken.
