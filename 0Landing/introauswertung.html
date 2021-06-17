@@ -12,9 +12,19 @@
   <!-- GoogleFont einbinden -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+  <script src="/IPAtransformJS/text-to-ipa.js"></script>
+  <script src="/IPAtransformJS/converter-form.js"></script>
+  <script>
+    window.onload = TextToIPA.loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+  </script>
+
 </head>
 
 <body onload="inputName()">
+
+
   <div class="container" style="min-height:95vh">
     <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
 
@@ -22,7 +32,7 @@
       <!-- Weisse Box mit Name aus Landing-Input -->
       <div class="card d-flex p-2" style="width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title ">Hello, my name is</b></h5>
+          <h5 class="card-title">Hello, my name is</h5>
           <div class="col-12">
             <p id="outputName" class="graubox">There was an error.</p>
           </div>
@@ -61,7 +71,7 @@
               <h3>How to use?</h3>
               <p>On this page you’ll be able to learn about Pre-Processing, Prosody Generation and  Speech Signal Generation. All shown step by step with your chosen example. This learning tool is developed by students of the Technische Universität Berlin, to help others getting fit for exams or just to go in depth with this topic.<br>
                 We tried to give as much visualisation as possible. <br>
-                You’ll also have Quiz-Parts at every section, to test your knowledge. Whether you work in depth or just play around is up to you!
+                You’ll also have quiz parts at every section, to test your knowledge. Whether you work in depth or just play around is up to you!
                 <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3" data-dismiss="modal">Close</button>
               </p>
                 
@@ -109,6 +119,27 @@
       </div>
     </div>
 
+<!-- Sandbox IPA-Transformer --- Später wieder löschen -->
+    <div id="js-text-to-ipa-form">
+      ​
+          <ul style="list-style-type: none;">
+            <li><textarea id="ipa-in" placeholder="Write text here" rows="4" cols="50"></textarea></li>
+            <li class="button"><button type="button" id="js-ipa-submit" onClick="ConverterForm.convert('ipa-in', 'ipa-out', 'ipa-err')">Convert!</button></li>
+            <li><textarea readonly id="ipa-out" placeholder="aʊtpʊt gəʊz hɪə" rows="4" cols="50"></textarea></li>
+      ​
+          </ul>
+      ​
+          <ul style="list-style-type: none;">
+            <li><noscript><p>This converter will not work unless Javascript is enabled.</p></noscript></li>
+            <li>
+              <div id="ipa-err">
+                <p>Errors will go here if you make any. (This will be overwritten)</p>
+              </div>
+            </li>
+          </ul>
+      ​
+        </div>
+
   </div> <!-- Alles beinhaltender Container - Ende -->
 
 
@@ -136,19 +167,41 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+
 <script>
   //Holt sich Variable aus Input von Landing-Page und überschreibt entsprechende Textfelder hier auf der Seite
   function inputName() {
     var inputName = sessionStorage.getItem("inputName");
-    document.getElementById('outputName').innerHTML = inputName;
+    document.getElementById('outputName').innerHTML = inputName;     
+   
 
     //Führe IPA Transformation auf Text in inputName aus NOCH FAKE
-    var fake = "Hier in IPA "
-    document.getElementById('outputIPA').innerHTML = fake.concat(inputName);
+    var fake = "Hier in IPA: "
+    document.getElementById('outputIPA').innerHTML = fake.concat(inputName);  
+    //Ansatz echt:
+    // var outputIPAname = ConverterForm.convert(inputName);
+    // document.getElementById('outputIPA').innerHTML = outputIPAname;
+
+    
+
 
     //Analysiere IPA Text auf Bestandteile und gebe extra Infos darunter aus NOCH FAKE
     var fakeElements = "eɪ ➔ able /ˈeɪbəl/, make /ˈmeɪk/ <br> ə ➔ about /əˈbaʊt/, people /ˈpipəl/"
     document.getElementById('IPAelements').innerHTML = fakeElements;
+
+  /* BAUSTEINE-ABFANGER (IN ARBEIT)
+    var elementsString = "";
+    for (let i = 0; i < 2; i++) {
+      if(outputIPAname.search("ej")){
+        elementsString.concat("ej ➔ able /ˈejbəl/, make /ˈmeɪk/ \n")
+      }
+
+      //cases für alle buchstaben
+      
+    }
+    */
+
 
     //Erstelle Spektogramm von Ausgabe als jpg NOCH FAKE
 
@@ -159,7 +212,7 @@
   }
 
   function nextpage() {
-    window.location.replace('1Lautsprache/lautsprache.html')
+    window.location.replace('lautsprache.html')
   }
   
 
