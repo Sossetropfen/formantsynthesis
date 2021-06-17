@@ -29,8 +29,11 @@
         </div>
       </div>
 
+
+
+
       <!-- InfoBox-SVG -->
-      <svg width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+      <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
         <g filter="url(#filter0_d)">
           <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
         </g>
@@ -49,6 +52,30 @@
         </defs>
       </svg>
 
+      <!-- Modal -->
+      <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog rounded-lg" role="document">
+          <div class="modal-content rounded-lg">
+            <div class="modal-header">
+              <h4 class="modal-title" id="exampleModalLabel">How to use?</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>On this page you’ll be able to learn about Pre-Processing, Prosody Generation and  Speech Signal Generation. All shown step by step with your chosen example. This learning tool is developed by students of the Technische Universität Berlin, to help others getting fit for exams or just to go in depth with this topic.<br>
+                We tried to give as much visualisation as possible. <br>
+                You’ll also have Quiz-Parts at every section, to test your knowledge. Whether you work in depth or just play around is up to you!
+              
+                <button type="button" class="btn btn-secondary rounded-lg float-right mt-2" data-dismiss="modal">Close</button>
+              </p>
+                
+              </div>
+          </div>
+        </div>
+      </div>
+      
     </div> <!-- obere row Ende -->
 
     <div class="row">
@@ -78,7 +105,7 @@
       <div class="mx-auto">
         <p class="d-inline-flex text-light font-weight-light font-italic">How did all of this work? <br> Let´s take a
           closer look!</p>
-        <!-- Von Bootstrap Icons - Das Weiter Dreieck -->
+        <!-- Das Weiter Dreieck -->
         <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="#628BC8"
           class="bi bi-caret-right-fill pt-3" viewBox="0 0 16 16" onclick="nextpage();">
           <path
@@ -133,12 +160,16 @@
 
     //Erstelle Waveform von Ausgabe als jpg NOCH FAKE
 
+
+
   }
 
   function nextpage() {
     window.location.replace('1Lautsprache/lautsprache.html')
   }
+  
 
+  
 </script>
 
 
