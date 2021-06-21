@@ -7,7 +7,7 @@
 
   <!-- Bootstrap einbinden -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="fujisaki-style.css" /> <!--das ist einfach das CSS aus Landing-->
+  <link rel="stylesheet" href="fujisaki-style.css" />
 
   <!-- GoogleFont einbinden -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -16,33 +16,142 @@
 
 <body>
 
-    <!--Überschrift-->
-    <h1>Überschrift</h1>
+    
 
     <!--Hintergrund weiß-->
-    <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
-    <div class="row mx-auto" id="body">
-        
-        <!-- links - leer -->
-        <div class="col-1"></div>
-
-        <!-- Mitte - Hauptteil -->
-        <div class="col-9">
-
-            <!--Äußere Karte blau-->
-
-            <!--innere Karte weiß-->
     
-            <!--Content unten drunter-->
+    <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
+    <!--die Farben und styles sind allesamt nur zur erkennung der Spalten und Verständniss, können entfernt werden-->
+    <!--überhaupt uss ide CSS noch angepasst werden. Ein paar Dinge welche das Layout gesört haben habe ich rausgelöscht (Eigentlich alles was irgendwas mit der position zu tun hatte, Ist aber noch in allen anderen .css enthalten)-->
+    <div class="container-fluid">
+        <div class="row">
 
-            <!--Quiz einbinden-->
+            <!-- links - leer -->           
+            <div class="col-lg-2" style="background-color: grey"></div>
+
+
+            <!-- Mitte - Hauptteil -->           
+            <div class="col-lg-6" style="background-color: darkgray;">
+                
+                <!--Überschrift-->
+                <h1>Überschrift</h1>
+                
+                <p>Mitte, Hauptteil</p>
+                
+                <!--Karte blau-->
+                <div class="container" >
+                    <div class="card p-3 " style="background-color: lightblue;">
+                        <div class="card-body bg-white">
+
+                            <!--Beginn der Eingabeformulare-->
+                            <!--Bias-Eingabe-->
+                            <div id="bias">
+                                <form id="form_bias">
+                                    <label for="bias_input">Enter the bias level F_b:</label>
+                                    <br>
+                                    <input id="bias_input" value="0"></input>
+                                </form> 
+                            </div>
+                            <div id="button">
+                                <button class="btn btn-info" id="btn_bias">enter bias level</button>
+                            </div>
+
+                            <!--Phrase command Eingabe-->
+                            <div id="phrase">
+                                <form id="form_phrase">
+                                    <label for="A_pi_input">Enter A_pi:</label>
+                                    <br>
+                                    <input id="A_pi_input" value="0"></input>
+                                    <br>
+                                    <label for="T_0i_input">Enter T_0i:</label>
+                                    <br>
+                                    <input id="T_0i_input" value="0"></input>
+                                    <br>
+                                    <label for="a_i_input">Enter a_i:</label>
+                                    <br>
+                                    <input id="a_i_input" value="0"></input>
+                                </form> 
+                            </div>
+                            <div id="button">
+                                <button class="btn btn-info" id="btn_phrase">submit phrase command</button>
+                            </div>
+
+                            <!--Accent command Eingabe-->
+                            <div id="accent">
+                                <form id="form_accent">
+                                    <label for="A_aj_input">Enter A_aj:</label>
+                                    <br>
+                                    <input id="A_aj_input" value="0"></input>
+                                    <br>
+                                    <label for="T_1j_input">Enter T_1j:</label>
+                                    <br>
+                                    <input id="T_1j_input" value="0"></input>
+                                    <br>
+                                    <label for="T_2j_input">Enter T_2j:</label>
+                                    <br>
+                                    <input id="T_2j_input" value="0"></input>
+                                    <br>
+                                    <label for="b_j_input">Enter b_j:</label>
+                                    <br>
+                                    <input id="b_j_input" value="0"></input>
+                                    <br>
+                                    <label for="v_j_input">Enter v_j:</label>
+                                    <br>
+                                    <input id="v_j_input" value="0"></input>
+                                </form> 
+                            </div>
+                            <div id="button">
+                                <button class="btn btn-info" id="btn_accent">submit accent command</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Content unten drunter-->
+                <p>content unten drunter</p>
+
+                <!--Quiz einbinden-->
+                <a href="#" class="btn btn-info" role="button">its a link to a quiz!</a>
+
+
+            </div>
+
+
+            <!-- rechts - Info-btn -->
+            <div class="col-lg-4" style="background-color: gray;"> 
+                
+            
+                <!-- InfoBox-SVG -->
+                <button class="btn btn-default pt-5">
+                    <svg width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                        <g filter="url(#filter0_d)">
+                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                        </g>
+                        <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                        <defs>
+                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                            <feOffset dy="4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                        </filter>
+                        </defs>
+                    </svg>
+                </button>
+
+            </div>
 
         </div>
+   
+    </div>
 
-        <!-- rechts - Info-btn -->
-        <div class="col-9"></div>
-
-    </div> 
+    
 
 </body>
 
@@ -52,12 +161,80 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<!--die Fujiaki.js-Einbindung-->
+<script src="fujisaki.js"></script> 
 
+<!----
 <script>
   
-    //Hier kommt Konstantins Script rein
+  /* -------------------------Variables and arrays-------------------------*/
+    var bias = 0;  // bias level of instance - Fb
+    var phr_cnt = 0; // Number of phrase-controls - I
+    var acc_cnt = 0; // Number of accent-controls - J
+    const A_pi = []; // magnitude levels of phrase commands - A_pi
+    const A_aj = []; // amplitude levels of accent commands 
+    const T_0i = []; // Instants of prhase commands
+    const T_1j = []; // onsets of accent commands
+    const T_2j = []; // ends of accent commands
+    const a_i = []; // nat. angular freq. of phrase-control to phrase commands
+    const b_j = []; // nat. angular freq. of accent-control to accent commands
+    const v_j = []; // ceilling level of accent component in accent commands
+  /*-------------------------Variables end----------------------------------*/
+
+  
+  /*-------------------------Event Listeners--------------------------------*/
+  document.getElementById("btn_bias").addEventListener("click", BiasInput);
+  document.getElementById("btn_phrase").addEventListener("click", PhraseInput);
+  document.getElementById("btn_accent").addEventListener("click", AccentInput);
+  document.getElementById("btn_plot").addEventListener("click", PlotOutput);
+
+  /*-------------------------Event Listeners end----------------------------*/
+
+
+  /*-------------------------Functions--------------------------------------*/
+  function BiasInput(){
+        bias = document.getElementById("bias_input").value;
+        document.getElementById("btn_bias").innerText = "change bias level";
+        //alert(bias);
+  };
+
+  function PhraseInput(){
+        phr_cnt++;
+        A_pi.push(document.getElementById("A_pi_input").value);
+        T_0i.push(document.getElementById("T_0i_input").value);
+        a_i.push(document.getElementById("a_i_input").value);
+        document.getElementById("btn_phrase").innerText = "add phrase command";
+        //alert(phr_cnt);
+        //alert(A_pi);
+        //alert(T_0i);
+        //alert(a_i);
+  };
+
+  function AccentInput(){
+        acc_cnt++;
+        A_aj.push(document.getElementById("A_aj_input").value);
+        T_1j.push(document.getElementById("T_1j_input").value);
+        T_2j.push(document.getElementById("T_2j_input").value);
+        b_j.push(document.getElementById("b_j_input").value);
+        v_j.push(document.getElementById("v_j_input").value);
+        document.getElementById("btn_accent").innerText = "add accent command";
+        //alert(acc_cnt);
+        //alert(A_ai);
+        //alert(T_1j);
+        //alert(T_2j);
+        //alert(b_j);
+        //alert(v_j);
+  };
+
+  function PlotOutput(){
+
+        //here's some stuff to do!!!!!!!!!!!!!!!!!!!!!!
+
+  };
+  /*-------------------------Functions end----------------------------------*/
 
 </script>
-
+-->
+    
 
 </html>
