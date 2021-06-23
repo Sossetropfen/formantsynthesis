@@ -16,7 +16,10 @@
 </head>
 
 <body>
-
+  <script src="../IPAtransformJS/converter-form2.js"></script>
+  <script>
+    window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+  </script>
 
   <div class="container" style="min-height:95vh">
     <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
@@ -142,6 +145,10 @@
   function satzwahl() {
     var inputSentence = document.getElementById("inputSentence").value;
     alert(inputSentence);
+      var inputTextIPA = convertText(inputSentence);
+      inputTextIPA = inputTextIPAIPA.join(' ');
+      console.log(inputTextIPA);
+      sessionStorage.setItem("inputSentenceIPA", inputTextIPA);
     sessionStorage.setItem("inputSentence", inputSentence);
     window.location.replace('eingabe.html')
   }
