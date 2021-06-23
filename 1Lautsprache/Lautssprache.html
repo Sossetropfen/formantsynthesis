@@ -26,16 +26,13 @@
     <div class="container-fluid">
         <div class="row">
 
+
             <!-- links - leer -->           
             <div class="col-lg-3" ></div>
 
-
-
-
-
-
             <!-- Mitte - Hauptteil -->           
             <div class="col-lg-6" >
+ 
                 
                 <!--Überschrift-->
                 <h1 >I. Symbolic Pre-Processing</h1>
@@ -67,32 +64,28 @@
                         <h1 id="heading">"Check yourself"-Corner </h1>
                         <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names? Interested in puzzling together the “Ortographic text ➔ Symbolic description”-flowchart?</p>
                         <p>Check out those questions and more in the quiz down below:</p>
+
+                        <!--Quiz einbinden-->
+                        <div class="row">
+                            <div class="container">
+                            <span class="font-weight-light font-italic align-left"> Start the quiz</span>
+                            <!-- Das Weiter Dreieck -->
+                            <button class="btn">
+                                <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                                </svg>
+                            </button>
+                            </div>
+                        </div>
+
                     </div>
+
+                    
+
                 </div>
                 
 
-                <!--Quiz einbinden-->
-                <div class="container-fluid">
-                    <div class="row">
-                        <div >
-                          <span class="font-weight-light font-italic align-left"> Start the quiz</span>
-                          <!-- Das Weiter Dreieck -->
-                          <button class="btn">
-                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
-                            </svg>
-                          </button>
-                        </div>
-                    </div>
-                    
-                </div>
-
-
             </div>
-
-
-
-
 
             
             <!-- rechts - Info-btn -->
@@ -121,39 +114,59 @@
                     </svg>
                 </button>
 
-                
+                <!-- Modal -->
+                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog rounded-lg" role="document">
+                        <div class="modal-content rounded-lg">
+                        <div class="modal-body">
+                            <h3>How to use?</h3>
+                            <p>On this page you’ll be able to learn about Pre-Processing, Prosody Generation and Speech Signal
+                            Generation. All shown step by step with your chosen example. This learning tool is developed by students
+                            of the Technische Universität Berlin, to help others getting fit for exams or just to go in depth with
+                            this topic.<br>
+                            We tried to give as much visualisation as possible. <br>
+                            You’ll also have quiz parts at every section, to test your knowledge. Whether you work in depth or just
+                            play around is up to you!
+                            <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                data-dismiss="modal">Close</button>
+                            </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
-
-            
 
         </div>
    
     </div>
 
+
     <!------------------------------Der footer-------------------------->
-    <div class="container fluid">
+    <div class="container-fluid my-5">
         <div class="row">
-            <div class="col-lg-3">
-                <!--DER back-bUTTON-->
-                <div class="align-bottom">
-                    <!----der back button---->
+
+            <div class="col-lg-3 ">
+                <div class="float-right">
+                    <!--DER back-bUTTON-->
                     <button class="btn">
                         <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z" fill="#628BC8"/>
                         </svg>
                     </button>
-
+                    <!--DER WEITER-text-->
                     <span class="font-weight-light ">Back</span>
                 </div>
-                
-            </div class="col-lg-6">
-            <div>
+            </div>
 
-            </div class="col-lg-3">
-            <div>
-                <!--DER WEITER-bUTTON-->
-                <div class="align-bottom">
+            <div class="col-lg-6">
+            </div>
+
+            <div class="col-lg-3">
+                <div class="float-left">
+                    <!--DER WEITER-text-->
                     <span class="font-weight-light ">Next</span>
                     <!-- Das Weiter Dreieck -->
                     <button class="btn">
@@ -162,8 +175,8 @@
                         </svg>
                     </button>
                 </div>
-
             </div>
+
         </div>
     </div>
 
