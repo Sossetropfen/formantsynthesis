@@ -22,8 +22,7 @@
     <!--Hintergrund weiß-->
     
     <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
-    <!--die Farben und styles sind allesamt nur zur erkennung der Spalten und Verständniss, können entfernt werden-->
-    <!--überhaupt uss ide CSS noch angepasst werden. Ein paar Dinge welche das Layout gesört haben habe ich rausgelöscht (Eigentlich alles was irgendwas mit der position zu tun hatte, Ist aber noch in allen anderen .css enthalten)-->
+    
     <div class="container-fluid">
         <div class="row">
 
@@ -53,22 +52,24 @@
                 </div>
                 
                 <!--Content unten drunter-->
-
-                <div class="my-5">
-                    <h1 id="heading">How does this work?</h1>
-                    <p>blablabla</p>
+                <div class="container">
+                    <div class="my-5">
+                        <h1 id="heading">How does this work?</h1>
+                        <p>blablabla</p>
+                    </div>
+    
+                    <div class="my-5">
+                        <h1 id="heading">Do you want to edit your Input?</h1>
+                        <p>Soon you will able to use our phonetics keyboard to to modify, delete, and change your IPA  text. Further you can use special characters to put stress on certain parts of the sentence. Feel free to experiment with the IPA characters to your own liking.</p>
+                    </div>
+    
+                    <div class="mt-5">
+                        <h1 id="heading">"Check yourself"-Corner </h1>
+                        <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names? Interested in puzzling together the “Ortographic text ➔ Symbolic description”-flowchart?</p>
+                        <p>Check out those questions and more in the quiz down below:</p>
+                    </div>
                 </div>
-
-                <div class="my-5">
-                    <h1 id="heading">Do you want to edit your Input?</h1>
-                    <p>Soon you will able to use our phonetics keyboard to to modify, delete, and change your IPA  text. Further you can use special characters to put stress on certain parts of the sentence. Feel free to experiment with the IPA characters to your own liking.</p>
-                </div>
-
-                <div class="mt-5">
-                    <h1 id="heading">"Check yourself"-Corner </h1>
-                    <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names? Interested in puzzling together the “Ortographic text ➔ Symbolic description”-flowchart?</p>
-                    <p>Check out those questions and more in the quiz down below:</p>
-                </div>
+                
 
                 <!--Quiz einbinden-->
                 <div class="container ">
@@ -76,8 +77,10 @@
                         <div >
                           <span class="font-weight-light font-italic align-left"> Start the quiz</span>
                           <!-- Das Weiter Dreieck -->
-                          <button>
-                              <img src="speech\assets\info.svg">
+                          <button class="btn">
+                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                            </svg>
                           </button>
                         </div>
                     </div>
@@ -118,10 +121,50 @@
                     </svg>
                 </button>
 
+                
+
             </div>
+
+            
 
         </div>
    
+    </div>
+
+    <!------------------------------Der footer-------------------------->
+    <div class="container fluid">
+        <div class="row">
+            <div class="col-lg-3">
+                <!--DER back-bUTTON-->
+                <div class="align-bottom">
+                    <!----der back button---->
+                    <button class="btn">
+                        <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z" fill="#628BC8"/>
+                        </svg>
+                    </button>
+
+                    <span class="font-weight-light ">Back</span>
+                </div>
+                
+            </div class="col-lg-6">
+            <div>
+
+            </div class="col-lg-3">
+            <div>
+                <!--DER WEITER-bUTTON-->
+                <div class="align-bottom">
+                    <span class="font-weight-light ">Next</span>
+                    <!-- Das Weiter Dreieck -->
+                    <button class="btn">
+                        <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     
