@@ -1,6 +1,6 @@
 
 body {
-  background: #e5e5e5;
+  background: #FFFFFF;
     height: 100%;
   }
   
@@ -12,15 +12,8 @@ body {
   
   .card {
     background-color: #81B3FF;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
-    border-radius: 116px;
-    padding: 25px 35px 40px 35px;
-  }
-
-  .card-body {
-    background-color: #FFFFFF;
-    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 98px;
+    box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
+    border-radius: 102px;
   }
   
   .form-control {
