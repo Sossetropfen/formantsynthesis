@@ -58,3 +58,8 @@ body {
     color: whitesmoke;
     font-style: italic;
   }
+
+  #info{
+    margin: 2rem;
+    float: left;
+}

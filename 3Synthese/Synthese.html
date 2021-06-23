@@ -24,10 +24,6 @@
             <div class="col-lg-3" ></div>
 
 
-
-
-
-
             <!-- Mitte - Hauptteil -->           
             <div class="col-lg-6" >
                 
@@ -38,8 +34,8 @@
                     Check out and compare the different models if you feel like it!</p>
                 
                 <!--Karte blau-->
-                <div class="container" >
-                    <div class="card p-3 " id="card">
+                <div class="container my-5" >
+                    <div class="card " id="card">
                         <div class="card-body" id="card-body">
                             <p>content</p>
                         </div>
@@ -47,17 +43,43 @@
                 </div>
                 
                 <!--Content unten drunter-->
-                <p>content unten drunter</p>
+                <div class="container">
+                    <div class="my-5">
+                        <h1 id="heading">How does this work?</h1>
+                        <p>blablabla</p>
+                    </div>
+    
+                    <div class="my-5">
+                        <h1 id="heading">Do you want to edit your Input?</h1>
+                        <p>Soon you will able to use our phonetics keyboard to to modify, delete, and change your IPA  text. Further you can use special characters to put stress on certain parts of the sentence. Feel free to experiment with the IPA characters to your own liking.</p>
+                    </div>
+    
+                    <div class="mt-5">
+                        <h1 id="heading">"Check yourself"-Corner </h1>
+                        <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names? Interested in puzzling together the “Ortographic text ➔ Symbolic description”-flowchart?</p>
+                        <p>Check out those questions and more in the quiz down below:</p>
 
-                <!--Quiz einbinden-->
-                <a href="#" class="btn btn-info" role="button">its a link to a quiz!</a>
+                        <!--Quiz einbinden-->
+                        <div class="row">
+                            <div class="container">
+                            <span class="font-weight-light font-italic align-left"> Start the quiz</span>
+                            <!-- Das Weiter Dreieck -->
+                            <button class="btn">
+                                <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                                </svg>
+                            </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
 
 
             </div>
-
-
-
-
 
             
             <!-- rechts - Info-btn -->
@@ -65,31 +87,91 @@
                 
             
                 <!-- InfoBox-SVG -->
-                <button class="btn btn-default pt-5">
-                    <svg width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
-                        <g filter="url(#filter0_d)">
-                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
-                        </g>
-                        <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
-                        <defs>
-                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
-                            color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                            <feOffset dy="4" />
-                            <feGaussianBlur stdDeviation="2" />
-                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                        </filter>
-                        </defs>
-                    </svg>
-                </button>
+                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                    <g filter="url(#filter0_d)">
+                    <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                    </g>
+                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                    </filter>
+                    </defs>
+                </svg>
+
+                <!-- Modal -->
+                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog rounded-lg" role="document">
+                        <div class="modal-content rounded-lg">
+                            <div class="modal-body">
+                                <h3>How to use?</h3>
+                                <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
+                                <p>In this step you're about to learn how the fujiaski model for prosody generation works. Based on a formular you got to give to linear 
+                                filters as an input. If you want to know what th single components exactly mean and what the model does for the genration of synthetic speech,
+                                check out the explanation of the fujisaki model beneath the interactive box. But first of all:<br>
+                                <h3>What exactly is prosody? </h3> 
+                                Here comes an understandable explanation of prosody that every student can understand!
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
 
         </div>
    
+    </div>
+
+    <!------------------------------Der footer-------------------------->
+    <div class="container-fluid my-5">
+        <div class="row">
+
+            <div class="col-lg-3 ">
+                <div class="float-right">
+                    <!--DER back-bUTTON-->
+                    <a href="../1Lautsprache\lautsprache-style.css" class="btn " role="button">
+                        <button class="btn">
+                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z" fill="#628BC8"/>
+                            </svg>
+                        </button>
+                        <!--DER WEITER-text-->
+                        <span class="font-weight-light">Back</span>
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+            </div>
+
+            <div class="col-lg-3">
+                <div class="float-left">
+                    <a href="../4Auswertung_Quizende\auswertung.html" class="btn" role="button">
+                        <!--DER WEITER-text-->
+                        <span class="font-weight-light ">Next</span>
+                        <!-- Das Weiter Dreieck -->
+                        <button class="btn">
+                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+        </div>
     </div>
 
 </body>
