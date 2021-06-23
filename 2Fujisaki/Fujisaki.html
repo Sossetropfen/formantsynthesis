@@ -34,76 +34,85 @@
             <div class="col-lg-6" style="background-color: darkgray;">
                 
                 <!--Überschrift-->
-                <h1>Überschrift</h1>
+                <h1>II. Fujisaki Model & Prosody</h1>
                 
-                <p>Mitte, Hauptteil</p>
+                <p>Before the pre-processed phonetic components can be synthesized to an audio signal, the format synthesis will generate a prosody for the voice we are about to hear. Out of multiple models existing we are going to show the Fujisaki-Model for prosody-generation.</p>
                 
                 <!--Karte blau-->
                 <div class="container" >
                     <div class="card p-3 " style="background-color: lightblue;">
                         <div class="card-body bg-white">
+                            
+                            <div class="row">
 
-                            <!--Beginn der Eingabeformulare-->
-                            <!--Bias-Eingabe-->
-                            <div id="bias">
-                                <form id="form_bias">
-                                    <label for="bias_input">Enter the bias level F_b:</label>
-                                    <br>
-                                    <input id="bias_input" value="0"></input>
-                                </form> 
-                            </div>
-                            <div id="button">
-                                <button class="btn btn-info" id="btn_bias">enter bias level</button>
-                            </div>
+                                <!--Beginn der Eingabeformulare-->
+                                <!--Bias-Eingabe-->
+                                <div class="col-lg-4" >
+                                    <div id="bias">
+                                        <form id="form_bias">
+                                            <label for="bias_input">Enter the bias level F_b:</label>
+                                            <br>
+                                            <input id="bias_input" value="0"></input>
+                                        </form> 
+                                    </div>
+                                    <div id="button">
+                                        <button class="btn btn-info" id="btn_bias">enter bias level</button>
+                                    </div>
+                                </div>
 
-                            <!--Phrase command Eingabe-->
-                            <div id="phrase">
-                                <form id="form_phrase">
-                                    <label for="A_pi_input">Enter A_pi:</label>
-                                    <br>
-                                    <input id="A_pi_input" value="0"></input>
-                                    <br>
-                                    <label for="T_0i_input">Enter T_0i:</label>
-                                    <br>
-                                    <input id="T_0i_input" value="0"></input>
-                                    <br>
-                                    <label for="a_i_input">Enter a_i:</label>
-                                    <br>
-                                    <input id="a_i_input" value="0"></input>
-                                </form> 
-                            </div>
-                            <div id="button">
-                                <button class="btn btn-info" id="btn_phrase">submit phrase command</button>
-                            </div>
+                                <!--Phrase command Eingabe-->
+                                <div class="col-lg-4" >
+                                    <div id="phrase">
+                                        <form id="form_phrase">
+                                            <label for="A_pi_input">Enter A_pi:</label>
+                                            <br>
+                                            <input id="A_pi_input" value="0"></input>
+                                            <br>
+                                            <label for="T_0i_input">Enter T_0i:</label>
+                                            <br>
+                                            <input id="T_0i_input" value="0"></input>
+                                            <br>
+                                            <label for="a_i_input">Enter a_i:</label>
+                                            <br>
+                                            <input id="a_i_input" value="0"></input>
+                                        </form> 
+                                    </div>
+                                    <div id="button">
+                                        <button class="btn btn-info" id="btn_phrase">submit phrase command</button>
+                                    </div>
+                                </div>
 
-                            <!--Accent command Eingabe-->
-                            <div id="accent">
-                                <form id="form_accent">
-                                    <label for="A_aj_input">Enter A_aj:</label>
-                                    <br>
-                                    <input id="A_aj_input" value="0"></input>
-                                    <br>
-                                    <label for="T_1j_input">Enter T_1j:</label>
-                                    <br>
-                                    <input id="T_1j_input" value="0"></input>
-                                    <br>
-                                    <label for="T_2j_input">Enter T_2j:</label>
-                                    <br>
-                                    <input id="T_2j_input" value="0"></input>
-                                    <br>
-                                    <label for="b_j_input">Enter b_j:</label>
-                                    <br>
-                                    <input id="b_j_input" value="0"></input>
-                                    <br>
-                                    <label for="v_j_input">Enter v_j:</label>
-                                    <br>
-                                    <input id="v_j_input" value="0"></input>
-                                </form> 
+                                <!--Accent command Eingabe-->
+                                <div class="col-lg-4" >
+                                    <div id="accent">
+                                        <form id="form_accent">
+                                            <label for="A_aj_input">Enter A_aj:</label>
+                                            <br>
+                                            <input id="A_aj_input" value="0"></input>
+                                            <br>
+                                            <label for="T_1j_input">Enter T_1j:</label>
+                                            <br>
+                                            <input id="T_1j_input" value="0"></input>
+                                            <br>
+                                            <label for="T_2j_input">Enter T_2j:</label>
+                                            <br>
+                                            <input id="T_2j_input" value="0"></input>
+                                            <br>
+                                            <label for="b_j_input">Enter b_j:</label>
+                                            <br>
+                                            <input id="b_j_input" value="0"></input>
+                                            <br>
+                                            <label for="v_j_input">Enter v_j:</label>
+                                            <br>
+                                            <input id="v_j_input" value="0"></input>
+                                        </form> 
+                                    </div>
+                                    <div id="button">
+                                        <button class="btn btn-info" id="btn_accent">submit accent command</button>
+                                    </div>
+                                </div>
+                                
                             </div>
-                            <div id="button">
-                                <button class="btn btn-info" id="btn_accent">submit accent command</button>
-                            </div>
-
 
                         </div>
                     </div>
