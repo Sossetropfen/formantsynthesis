@@ -36,6 +36,10 @@ body {
     border-radius: 40px;
     text-align: center;
   }
+  .headerbalken{
+    margin-top:30px;
+    margin-bottom:30px;
+}
   
   .form-control:focus {
     background: rgba(196, 196, 196, 0.33);
