@@ -19,7 +19,7 @@ body {
   
   .card {
     background-color: #81B3FF;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border-radius: 116px;
     padding: 25px 35px 40px 35px;
   }
@@ -58,3 +58,9 @@ body {
     color: whitesmoke;
     font-style: italic;
   }
+
+  #info{
+    margin: 2rem;
+    float: left;
+    position: fixed;
+}
