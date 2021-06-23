@@ -2,10 +2,16 @@
 body {
   background: #e5e5e5;
     height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+
+  #heading{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
   }
   
   .card-title {
-    font-family: 'Roboto', sans-serif;
     font-size: 48;
     text-align: center;
   }
