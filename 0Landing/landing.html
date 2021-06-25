@@ -15,7 +15,8 @@
     
     <script src="../IPAtransformJS/converter-form2.js"></script>
 	<script>
-		window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+		//window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+		window.onload = loadDict("https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt");
 	</script>
 </head>
 
@@ -72,7 +73,7 @@
     var inputName = document.getElementById("usrName").value;
     //alert(inputName);
       var inputNameIPA = convertText(inputName);
-      inputNameIPA = inputNameIPA.join(' ');
+      inputNameIPA = inputNameIPA.join(' ').replaceAll("/","").replaceAll(",","");
       console.log(inputNameIPA);
       sessionStorage.setItem("inputNameIPA", inputNameIPA);
     sessionStorage.setItem("inputName", inputName);

@@ -186,6 +186,7 @@
     //Führe IPA Transformation auf Text in inputName aus NOCH FAKE
     //var fake = "Hier in IPA: ";
     var inputNameIPA = sessionStorage.getItem("inputNameIPA");
+      console.log(inputNameIPA);
     document.getElementById('outputIPA').innerHTML = inputNameIPA;
 
     //Ansatz echt:
@@ -200,17 +201,17 @@
       
       
     function selectRandomFromIPA(){
-		var IPAString = inputNameIPA.replace("ˈ","").replace("ˈ","");
-		IPAString = IPAString.replace(" ","");
-		//console.log(IPAString)
+		var IPAString = inputNameIPA.replaceAll("ˈ","").replaceAll("ˈ","").replaceAll("/","").replaceAll("ˌ","");
+		IPAString = IPAString.replaceAll(" ","");
+        console.log(IPAString)
         var rand;
         var buchst;
         for(var z = 0; z < 2; z++){
             rand = Math.floor(Math.random() * IPAString.length);
             if (!(IPAString[rand]==buchst)){
-                console.log(IPAString.length, rand);
+                //console.log(IPAString.length, rand);
                 addToElementsString(IPAString[rand]);
-				console.log(IPAString[rand]);
+				//console.log(IPAString[rand]);
                 buchst = IPAString[rand];
                 IPAString = IPAString.slice(0, rand) + IPAString.slice(rand+1);
             }
@@ -219,8 +220,9 @@
     }
       
     function addToElementsString(b){
-        console.log("dior");
+        //console.log("dior");
         //cases für alle buchstaben
+        console.log(b);
         if (b == "ɪɹ") {
           elementsString += "ɪɹ ➔ ear / ɪˈɹ/, years / jɪˈɹz/<br>";
         }
@@ -333,8 +335,8 @@
         }
     }
       
-    selectRandomFromIPA("zɪwɪˈki hʌlowˈ");
-    console.log(elementsString);
+    //selectRandomFromIPA("zɪwɪˈki hʌlowˈ");
+      selectRandomFromIPA(inputNameIPA);
         
 
     //ueberschreibe html element um erklaerung anzuzeigen

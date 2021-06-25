@@ -70,7 +70,7 @@
                 <div class="container my-5" >
                     <div class="card " id="card">
                         <div class="card-body" id="card-body">
-                            <p>content</p>
+                            <p id="inputSentenceIPA">content</p>
                         </div>
                     </div>
                 </div>
@@ -221,8 +221,9 @@
 
 
 <script>
-  
-    //Hier kommt Konstantins Script rein
+    var inputSentenceIPA = sessionStorage.getItem("inputSentenceIPA");
+    console.log(inputSentenceIPA);
+    document.getElementById('inputSentenceIPA').innerHTML = inputSentenceIPA;
 
 </script>
 
