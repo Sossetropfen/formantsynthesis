@@ -14,10 +14,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
 
 
-  <script src="/IPAtransformJS/text-to-ipa.js"></script>
-  <script src="/IPAtransformJS/converter-form.js"></script>
+  <script src="../IPAtransformJS/converter-form2.js"></script>
   <script>
-    window.onload = TextToIPA.loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+    window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
   </script>
 
 </head>
@@ -121,7 +120,6 @@
           <path
             d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
         </svg>
-        </input>
       </div>
     </div>
 
@@ -186,9 +184,9 @@
 
 
     //Führe IPA Transformation auf Text in inputName aus NOCH FAKE
-    var fake = "Hier in IPA: ";
-    inputName = "fɑˈðɚɪɹɛɹ";            //TESTING
-    document.getElementById('outputIPA').innerHTML = fake.concat(inputName);
+    //var fake = "Hier in IPA: ";
+    var inputNameIPA = sessionStorage.getItem("inputNameIPA");
+    document.getElementById('outputIPA').innerHTML = inputNameIPA;
 
     //Ansatz echt:
     // var outputIPAname = ConverterForm.convert(inputName);
@@ -196,150 +194,148 @@
 
 
     // BAUSTEINE-ABFANGER - Analysiere IPA Text auf Bestandteile und gebe extra Infos darunter aus 
-    let outputIPAname = "ðaw" //FAKE
+    let outputIPAname = inputNameIPA //FAKE
     var elementsString = "";
-    let zaehler = 0;
-
+    //let zaehler = 0;
+      
+      
+    function selectRandomFromIPA(){
+		var IPAString = inputNameIPA.replace("ˈ","").replace("ˈ","");
+		IPAString = IPAString.replace(" ","");
+		//console.log(IPAString)
+        var rand;
+        var buchst;
+        for(var z = 0; z < 2; z++){
+            rand = Math.floor(Math.random() * IPAString.length);
+            if (!(IPAString[rand]==buchst)){
+                console.log(IPAString.length, rand);
+                addToElementsString(IPAString[rand]);
+				console.log(IPAString[rand]);
+                buchst = IPAString[rand];
+                IPAString = IPAString.slice(0, rand) + IPAString.slice(rand+1);
+            }
+        }        
+    
+    }
+      
+    function addToElementsString(b){
+        console.log("dior");
         //cases für alle buchstaben
-    if (outputIPAname.includes("ɪɹ") && zaehler < 2) {
-      elementsString += "ɪɹ ➔ ear / ɪˈɹ/, years / jɪˈɹz/<br>";
-      zaehler++;
-    }
+        if (b == "ɪɹ") {
+          elementsString += "ɪɹ ➔ ear / ɪˈɹ/, years / jɪˈɹz/<br>";
+        }
+        else if (b == "ɛɹ") {
+          elementsString += "ɛɹ ➔ air / ɛˈɹ/, where / wɛˈɹ/<br>";
+        }
 
-    if (outputIPAname.includes("ɛɹ") && zaehler < 2) {
-      elementsString += "ɛɹ ➔ air / ɛˈɹ/, where / wɛˈɹ/<br>";
-      zaehler++;
-    }
+        if (b == "ɔɹ") {
+          elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/, morning / mɔˈɹnɪŋ/<br>";
+        }
 
-    if (outputIPAname.includes("ɔɹ") && zaehler < 2) {
-      elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/, morning / mɔˈɹnɪŋ/<br>";
-      zaehler++;
-    }
+        if (b == "ɑɹ") {
+          elementsString += "ɑɹ ➔ art / ɑˈɹt/, large / lɑˈɹdʒ/<br>";
+        }
 
-    if (outputIPAname.includes("ɑɹ") && zaehler < 2) {
-      elementsString += "ɑɹ ➔ art / ɑˈɹt/, large / lɑˈɹdʒ/<br>";
-      zaehler++;
-    }
+        if (b == "ɔj") {
+          elementsString += "ɔj ➔ oil / ɔjˈl/, point / pɔjˈnt/<br>";
+        }
 
-    if (outputIPAname.includes("ɔj") && zaehler < 2) {
-      elementsString += "ɔj ➔ oil / ɔjˈl/, point / pɔjˈnt/<br>";
-      zaehler++;
-    }
+        if (b == "tʃ") {
+          elementsString += "tʃ ➔ child / tʃajˈld/, teacher / tiˈtʃɚ/<br>";
+        }
 
-    if (outputIPAname.includes("tʃ") && zaehler < 2) {
-      elementsString += "tʃ ➔ child / tʃajˈld/, teacher / tiˈtʃɚ/<br>";
-      zaehler++;
-    }
+        if (b == "dʒ") {
+          elementsString += "dʒ ➔ just / dʒʌˈst/, age / ejˈdʒ/<br>";
+        }
 
-    if (outputIPAname.includes("dʒ") && zaehler < 2) {
-      elementsString += "dʒ ➔ just / dʒʌˈst/, age / ejˈdʒ/<br>";
-      zaehler++;
-    }
+        if (b == "i") {
+          elementsString += "i ➔ even / iˈvɪn/, these / ðiˈz/<br>";
+        }
 
-    if (outputIPAname.includes("i") && zaehler < 2) {
-      elementsString += "i ➔ even / iˈvɪn/, these / ðiˈz/<br>";
-      zaehler++;
-    }
+        if (b == "ɪ") {
+          elementsString += "ɪ ➔ if / ɪf/, which / wɪˈtʃ/<br>";
+        }
 
-    if (outputIPAname.includes("ɪ") && zaehler < 2) {
-      elementsString += "ɪ ➔ if / ɪf/, which / wɪˈtʃ/<br>";
-      zaehler++;
-    }
+        if (b == "u") {
+          elementsString += "u ➔ school / skuˈl/, who / huˈ/<br>";
+        }
 
-    if (outputIPAname.includes("u") && zaehler < 2) {
-      elementsString += "u ➔ school / skuˈl/, who / huˈ/<br>";
-      zaehler++;
-    }
+        if (b == "æ") {
+          elementsString += "æ ➔ ask / æˈsk/, back / bæˈk/<br>";
+        }
 
-    if (outputIPAname.includes("æ") && zaehler < 2) {
-      elementsString += "æ ➔ ask / æˈsk/, back / bæˈk/<br>";
-      zaehler++;
-    }
+        if (b == "ɑ") {
+          elementsString += "ɑ ➔ father / fɑˈðɚ/, not / nɑˈt/<br>";
+        }
 
-    if (outputIPAname.includes("ɑ") && zaehler < 2) {
-      elementsString += "ɑ ➔ father / fɑˈðɚ/, not / nɑˈt/<br>";
-      zaehler++;
-    }
+        if (b == "ɛ") {
+          elementsString += "ɛ ➔ said / sɛˈd/, bed / bɛˈd/<br>";
+        }
 
-    if (outputIPAname.includes("ɛ") && zaehler < 2) {
-      elementsString += "ɛ ➔ said / sɛˈd/, bed / bɛˈd/<br>";
-      zaehler++;
-    }
+        if (b == "ʊ") {
+          elementsString += "ʊ ➔ good / ɡʊˈd/, book / bʊˈk/<br>";
+        }
 
-    if (outputIPAname.includes("ʊ") && zaehler < 2) {
-      elementsString += "ʊ ➔ good / ɡʊˈd/, book / bʊˈk/<br>";
-      zaehler++;
-    }
+        if (b == "ɔ") {
+          elementsString += "ɔ ➔ all / ɔˈl/, want / wɔˈnt/<br>";
+        }
 
-    if (outputIPAname.includes("ɔ") && zaehler < 2) {
-      elementsString += "ɔ ➔ all / ɔˈl/, want / wɔˈnt/<br>";
-      zaehler++;
-    }
+        if (b == "ʌ") {
+          elementsString += "ʌ ➔ other /ʌˈðɚ/, one / wʌˈn/<br>";
+        }
 
-    if (outputIPAname.includes("ʌ") && zaehler < 2) {
-      elementsString += "ʌ ➔ other /ʌˈðɚ/, one / wʌˈn/<br>";
-      zaehler++;
-    }
+        if (b == "ɚ") {
+          elementsString += "ɚ ➔ percent / pɚsɛˈnt/, never / nɛˈvɚ/<br>";
+        }
 
-    if (outputIPAname.includes("ɚ") && zaehler < 2) {
-      elementsString += "ɚ ➔ percent / pɚsɛˈnt/, never / nɛˈvɚ/<br>";
-      zaehler++;
-    }
+        if (b == "ŋ") {
+          elementsString += "ŋ ➔ thing / θɪˈŋ/, going / ɡowˈɪŋ/<br>";
+        }
 
-    if (outputIPAname.includes("ŋ") && zaehler < 2) {
-      elementsString += "ŋ ➔ thing / θɪˈŋ/, going / ɡowˈɪŋ/<br>";
-      zaehler++;
-    }
+        if (b == "θ") {
+          elementsString += "θ ➔ three / θɹiˈ/, nothing / nʌˈθɪŋ/<br>";
+        }
 
-    if (outputIPAname.includes("θ") && zaehler < 2) {
-      elementsString += "θ ➔ three / θɹiˈ/, nothing / nʌˈθɪŋ/<br>";
-      zaehler++;
-    }
+        if (b == "ð") {
+          elementsString += "ð ➔ there / ðɛˈɹ/, mother / mʌˈðɚ/<br>";
+        }
 
-    if (outputIPAname.includes("ð") && zaehler < 2) {
-      elementsString += "ð ➔ there / ðɛˈɹ/, mother / mʌˈðɚ/<br>";
-      zaehler++;
-    }
+        if (b == "ʃ") {
+          elementsString += "ʃ ➔ she / ʃiˈ/, social / sowˈʃʌl/<br>";
+        }
 
-    if (outputIPAname.includes("ʃ") && zaehler < 2) {
-      elementsString += "ʃ ➔ she / ʃiˈ/, social / sowˈʃʌl/<br>";
-      zaehler++;
-    }
+        if (b == "ʒ") {
+          elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/, measure / mɛˈʒɚ/<br>";
+        }
 
-    if (outputIPAname.includes("ʒ") && zaehler < 2) {
-      elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/, measure / mɛˈʒɚ/<br>";
-      zaehler++;
-    }
+        if (b == "j") {
+          elementsString += "j ➔ yet / jɛˈt/, yesterday / jɛˈstɚdej/<br>";
+        }
 
-    if (outputIPAname.includes("j") && zaehler < 2) {
-      elementsString += "j ➔ yet / jɛˈt/, yesterday / jɛˈstɚdej/<br>";
-      zaehler++;
-    }
+        if (b == "ɹ") {
+          elementsString += "ɹ ➔ right / ɹajˈt/, through / θɹuˈ/<br>";
+        }
 
-    if (outputIPAname.includes("ɹ") && zaehler < 2) {
-      elementsString += "ɹ ➔ right / ɹajˈt/, through / θɹuˈ/<br>";
-      zaehler++;
-    }
+        if (b == "ej") {
+          elementsString += "ej ➔ able / ejˈbʌl/, make / mejˈk/<br>";
+        }
 
-    if (outputIPAname.includes("ej") && zaehler < 2) {
-      elementsString += "ej ➔ able / ejˈbʌl/, make / mejˈk/<br>";
-      zaehler++;
-    }
+        if (b == "ow") {
+          elementsString += "ow ➔ over / owˈvɚ/, both / bowˈθ/<br>";
+        }
 
-    if (outputIPAname.includes("ow") && zaehler < 2) {
-      elementsString += "ow ➔ over / owˈvɚ/, both / bowˈθ/<br>";
-      zaehler++;
-    }
+        if (b == "aj") {
+          elementsString += "aj ➔ eyes / ajˈz/, time / tajˈm/<br>";
+        }
 
-    if (outputIPAname.includes("aj") && zaehler < 2) {
-      elementsString += "aj ➔ eyes / ajˈz/, time / tajˈm/<br>";
-      zaehler++;
+        if (b == "aw") {
+          elementsString += "aw ➔ out / awˈt/, down / dawˈn/<br>";
+        }
     }
-
-    if (outputIPAname.includes("aw") && zaehler < 2) {
-      elementsString += "aw ➔ out / awˈt/, down / dawˈn/<br>";
-      zaehler++;
-    }
+      
+    selectRandomFromIPA("zɪwɪˈki hʌlowˈ");
+    console.log(elementsString);
+        
 
     //ueberschreibe html element um erklaerung anzuzeigen
     document.getElementById('IPAelements').innerHTML = elementsString;

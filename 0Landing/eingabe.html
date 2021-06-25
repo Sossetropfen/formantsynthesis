@@ -16,7 +16,10 @@
 </head>
 
 <body>
-
+  <script src="../IPAtransformJS/converter-form2.js"></script>
+  <script>
+    window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+  </script>
 
   <div class="container" style="min-height:95vh">
     <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
@@ -34,13 +37,15 @@
 
               <div class="row">
                 <div class="mx-auto">
-                  <span class="d-inline-flex  font-weight-light font-italic align-middle"> Looks good!</span>
-                  <!-- Das Weiter Dreieck -->
-                  <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" fill="#628BC8"
-                    class="bi bi-caret-right-fill" viewBox="0 0 16 16" onclick="satzwahl();">
-                    <path
-                      d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
-                  </svg>
+                  <a href="../1Lautsprache\Lautsprache.html" class="btn " role="button">
+                    <span class="d-inline-flex  font-weight-light font-italic align-middle"> Looks good!</span>
+                    <!-- Das Weiter Dreieck -->
+                    <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" fill="#628BC8"
+                      class="bi bi-caret-right-fill" viewBox="0 0 16 16" onclick="satzwahl();">
+                      <path
+                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                    </svg>
+                  </a>
                 </div>
               </div>
 
@@ -140,6 +145,10 @@
   function satzwahl() {
     var inputSentence = document.getElementById("inputSentence").value;
     alert(inputSentence);
+      var inputTextIPA = convertText(inputSentence);
+      inputTextIPA = inputTextIPAIPA.join(' ');
+      console.log(inputTextIPA);
+      sessionStorage.setItem("inputSentenceIPA", inputTextIPA);
     sessionStorage.setItem("inputSentence", inputSentence);
     window.location.replace('eingabe.html')
   }

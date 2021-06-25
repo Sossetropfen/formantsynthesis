@@ -120,43 +120,41 @@
                 
             
                 <!-- InfoBox-SVG -->
-                <button class="btn btn-default pt-5">
-                    <svg width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
-                        <g filter="url(#filter0_d)">
-                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
-                        </g>
-                        <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
-                        <defs>
-                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
-                            color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                            <feOffset dy="4" />
-                            <feGaussianBlur stdDeviation="2" />
-                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                        </filter>
-                        </defs>
-                    </svg>
-                </button>
+                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                    <g filter="url(#filter0_d)">
+                    <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                    </g>
+                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                    </filter>
+                    </defs>
+                </svg>
 
                 <!-- Modal -->
                 <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog rounded-lg" role="document">
                         <div class="modal-content rounded-lg">
-                        <div class="modal-body">
-                            <h3>How to use?</h3>
-                            <p>On this page you’ll be able to learn about Pre-Processing, Prosody Generation and Speech Signal
-                            Generation. All shown step by step with your chosen example. This learning tool is developed by students
-                            of the Technische Universität Berlin, to help others getting fit for exams or just to go in depth with
-                            this topic.<br>
-                            We tried to give as much visualisation as possible. <br>
-                            You’ll also have quiz parts at every section, to test your knowledge. Whether you work in depth or just
-                            play around is up to you!
-                            <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
-                                data-dismiss="modal">Close</button>
-                            </p>
+                            <div class="modal-body">
+                                <h3>How to use?</h3>
+                                <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
+                                <p>You're are now in the step of symbolic pre-processing. Here you can see your pre-processed sentence from before,
+                                 with additional explanation. You can hover over the single words to lern more about the special transformation wich was used
+                                or modify it yourself with the IPA keyboard beneath and see what happens based on your input.<br>
+                                We tried to give as much visualisation as possible. <br>
+                                You’ll also have quiz parts at every section, to test your knowledge. Whether you work in depth or just
+                                play around is up to you!
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
+                                </p>
 
                             </div>
                         </div>
@@ -178,13 +176,15 @@
             <div class="col-lg-3 ">
                 <div class="float-right">
                     <!--DER back-bUTTON-->
-                    <button class="btn">
-                        <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z" fill="#628BC8"/>
-                        </svg>
-                    </button>
-                    <!--DER WEITER-text-->
-                    <span class="font-weight-light ">Back</span>
+                    <a href="../0Landing\landing.html" class="btn " role="button">
+                        <button class="btn">
+                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z" fill="#628BC8"/>
+                            </svg>
+                        </button>
+                        <!--DER WEITER-text-->
+                        <span class="font-weight-light">Back</span>
+                    </a>
                 </div>
             </div>
 
@@ -193,14 +193,16 @@
 
             <div class="col-lg-3">
                 <div class="float-left">
-                    <!--DER WEITER-text-->
-                    <span class="font-weight-light ">Next</span>
-                    <!-- Das Weiter Dreieck -->
-                    <button class="btn">
-                        <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
-                        </svg>
-                    </button>
+                    <a href="../2Fujisaki\fujisaki.html" class="btn" role="button">
+                        <!--DER WEITER-text-->
+                        <span class="font-weight-light ">Next</span>
+                        <!-- Das Weiter Dreieck -->
+                        <button class="btn">
+                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                            </svg>
+                        </button>
+                    </a>
                 </div>
             </div>
 

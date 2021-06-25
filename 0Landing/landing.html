@@ -12,6 +12,11 @@
   <!-- GoogleFont einbinden -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    <script src="../IPAtransformJS/converter-form2.js"></script>
+	<script>
+		window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+	</script>
 </head>
 
 <body>
@@ -36,7 +41,6 @@
       <path
         d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
     </svg>
-    </input>
   </div>
 
   <!-- Footer unten -->
@@ -67,8 +71,12 @@
   function namenwahl() {
     var inputName = document.getElementById("usrName").value;
     //alert(inputName);
+      var inputNameIPA = convertText(inputName);
+      inputNameIPA = inputNameIPA.join(' ');
+      console.log(inputNameIPA);
+      sessionStorage.setItem("inputNameIPA", inputNameIPA);
     sessionStorage.setItem("inputName", inputName);
-    window.location.replace('introauswertung.html')
+    window.location.replace('introauswertung.html');
   }
 
   // Weiter-Dreieck erst nach Eingabe von Buchstaben sichtbar PROBLEM: Nach Seiten-reload verschwindet eingabe aber dreieck bleibt. lsg: nicht nur bei key-up checken.
