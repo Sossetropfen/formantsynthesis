@@ -29,7 +29,7 @@ body {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 98px;
   }
-  
+ 
   .form-control {
     background: rgba(196, 196, 196, 0.5);
     mix-blend-mode: multiply;
@@ -39,6 +39,10 @@ body {
   .headerbalken{
     margin-top:30px;
     margin-bottom:30px;
+  
+}
+#header-bild{
+  max-height: 40%;
 }
   
   .form-control:focus {
