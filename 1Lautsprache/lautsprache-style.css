@@ -1,3 +1,9 @@
+.headerbild {
+    max-width: 100%;
+    height: auto;
+    padding-top:20px;
+    padding-bottom:20px;
+  }
 
 body {
   background: #f3f3f3;
@@ -36,14 +42,7 @@ body {
     border-radius: 40px;
     text-align: center;
   }
-  .headerbalken{
-    margin-top:30px;
-    margin-bottom:30px;
-  
-}
-#header-bild{
-  max-height: 40%;
-}
+
   
   .form-control:focus {
     background: rgba(196, 196, 196, 0.33);
