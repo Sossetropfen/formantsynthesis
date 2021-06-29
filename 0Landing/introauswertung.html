@@ -199,7 +199,7 @@
     var elementsString = "";
     //let zaehler = 0;
       
-      
+   /*   
     function selectRandomFromIPA(){
 		var IPAString = inputNameIPA.replaceAll("ˈ","").replaceAll("ˈ","").replaceAll("/","").replaceAll("ˌ","");
 		IPAString = IPAString.replaceAll(" ","");
@@ -338,7 +338,153 @@
       
     //selectRandomFromIPA("zɪwɪˈki hʌlowˈ");
       selectRandomFromIPA(inputNameIPA);
-        
+  */      
+
+  var elementsString = "";
+    let zaehler = 0;
+
+    //cases für alle buchstaben
+    if (outputIPAname.includes("ɪɹ") && zaehler < 2) {
+      elementsString += "ɪɹ ➔ ear / ɪˈɹ/, years / jɪˈɹz/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɛɹ") && zaehler < 2) {
+      elementsString += "ɛɹ ➔ air / ɛˈɹ/, where / wɛˈɹ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔɹ") && zaehler < 2) {
+      elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/, morning / mɔˈɹnɪŋ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɑɹ") && zaehler < 2) {
+      elementsString += "ɑɹ ➔ art / ɑˈɹt/, large / lɑˈɹdʒ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔj") && zaehler < 2) {
+      elementsString += "ɔj ➔ oil / ɔjˈl/, point / pɔjˈnt/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("tʃ") && zaehler < 2) {
+      elementsString += "tʃ ➔ child / tʃajˈld/, teacher / tiˈtʃɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("dʒ") && zaehler < 2) {
+      elementsString += "dʒ ➔ just / dʒʌˈst/, age / ejˈdʒ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("i") && zaehler < 2) {
+      elementsString += "i ➔ even / iˈvɪn/, these / ðiˈz/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɪ") && zaehler < 2) {
+      elementsString += "ɪ ➔ if / ɪf/, which / wɪˈtʃ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("u") && zaehler < 2) {
+      elementsString += "u ➔ school / skuˈl/, who / huˈ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("æ") && zaehler < 2) {
+      elementsString += "æ ➔ ask / æˈsk/, back / bæˈk/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɑ") && zaehler < 2) {
+      elementsString += "ɑ ➔ father / fɑˈðɚ/, not / nɑˈt/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɛ") && zaehler < 2) {
+      elementsString += "ɛ ➔ said / sɛˈd/, bed / bɛˈd/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʊ") && zaehler < 2) {
+      elementsString += "ʊ ➔ good / ɡʊˈd/, book / bʊˈk/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔ") && zaehler < 2) {
+      elementsString += "ɔ ➔ all / ɔˈl/, want / wɔˈnt/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʌ") && zaehler < 2) {
+      elementsString += "ʌ ➔ other /ʌˈðɚ/, one / wʌˈn/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɚ") && zaehler < 2) {
+      elementsString += "ɚ ➔ percent / pɚsɛˈnt/, never / nɛˈvɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ŋ") && zaehler < 2) {
+      elementsString += "ŋ ➔ thing / θɪˈŋ/, going / ɡowˈɪŋ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("θ") && zaehler < 2) {
+      elementsString += "θ ➔ three / θɹiˈ/, nothing / nʌˈθɪŋ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ð") && zaehler < 2) {
+      elementsString += "ð ➔ there / ðɛˈɹ/, mother / mʌˈðɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʃ") && zaehler < 2) {
+      elementsString += "ʃ ➔ she / ʃiˈ/, social / sowˈʃʌl/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʒ") && zaehler < 2) {
+      elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/, measure / mɛˈʒɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("j") && zaehler < 2) {
+      elementsString += "j ➔ yet / jɛˈt/, yesterday / jɛˈstɚdej/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɹ") && zaehler < 2) {
+      elementsString += "ɹ ➔ right / ɹajˈt/, through / θɹuˈ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ej") && zaehler < 2) {
+      elementsString += "ej ➔ able / ejˈbʌl/, make / mejˈk/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ow") && zaehler < 2) {
+      elementsString += "ow ➔ over / owˈvɚ/, both / bowˈθ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("aj") && zaehler < 2) {
+      elementsString += "aj ➔ eyes / ajˈz/, time / tajˈm/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("aw") && zaehler < 2) {
+      elementsString += "aw ➔ out / awˈt/, down / dawˈn/<br>";
+      zaehler++;
+    }
+
+
 
     //ueberschreibe html element um erklaerung anzuzeigen
     document.getElementById('IPAelements').innerHTML = elementsString;
