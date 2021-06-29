@@ -78,7 +78,7 @@
                             </p>
                             <div class="graubox">
                                 <button type="button" id="inputSentence" class="small btn btn-link"
-                                    data-toggle="popover" data-placement="top" data-trigger="focus"
+                                    data-toggle="popover" data-placement="top" data-trigger="focus" data-html="true"
                                     title="Translation explanation"
                                     data-content="Dieser Text wird später durch Bausteine Erklärung ersetzt.">content</button>
                                 <p id="inputSentenceIPA" class="pl-3">content</p>
@@ -338,22 +338,21 @@
     //Für Popover, das nochmal genauer das zustandekommen der übersetzung erklärt
     //Berechne String der Teilwörter erklärt
 
-    var erklaerungstext = "Here is how we translated your sentence (showcased by the first 3 words): \n\n "
+    var erklaerungstext = "Here is how we translated your sentence (showcased by the first 3 words):\n\n"
 
     var woerter = inputSentence.split(" ", 3);
     var IPAwoerter = inputSentenceIPA.split(" ", 3);
     
     for (let i = 0; i < 3; i++) {
-        erklaerungstext += woerter[i];
+        erklaerungstext += "<b>" + woerter[i] + "</b>";
         erklaerungstext += " → ";
         erklaerungstext += IPAwoerter[i];
+        erklaerungstext += " | |  ";
+        erklaerungstext += ipaElementsExplainer(IPAwoerter[i]);         // Added ein Baustein-Erklärung (Code ist ganz unten weil lang)
 
-
-        
         erklaerungstext += "\n";
     }
-    alert(erklaerungstext);
-
+    erklaerungstext += "\n";
 
     //Überschreibe Content des Popovers mit der Erklärung
     $('#inputSentence').popover('hide');
@@ -667,6 +666,157 @@
 
     window.onload = initDragDropScript;
 
+
+//-----------------------------------ENDE DRAG AND DROP QUIZ -------------------------------------------------
+
+function ipaElementsExplainer(outputIPAname){
+        var elementsString = "";
+        let zaehler = 0;
+        let n = 1; //Anzahl an auszugebenden elements
+
+        //cases für alle buchstaben
+    if (outputIPAname.includes("ɪɹ") && zaehler < n) {
+      elementsString += "ɪɹ ➔ ear / ɪˈɹ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɛɹ") && zaehler < n) {
+      elementsString += "ɛɹ ➔ air / ɛˈɹ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔɹ") && zaehler < n) {
+      elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɑɹ") && zaehler < n) {
+      elementsString += "ɑɹ ➔ art / ɑˈɹt/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔj") && zaehler < n) {
+      elementsString += "ɔj ➔ oil / ɔjˈl/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("tʃ") && zaehler < n) {
+      elementsString += "tʃ ➔ child / tʃajˈld/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("dʒ") && zaehler < n) {
+      elementsString += "dʒ ➔ just / dʒʌˈst/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("i") && zaehler < n) {
+      elementsString += "i ➔ even / iˈvɪn/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɪ") && zaehler < n) {
+      elementsString += "ɪ ➔ if / ɪf/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("u") && zaehler < n) {
+      elementsString += "u ➔ school / skuˈl//";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("æ") && zaehler < n) {
+      elementsString += "æ ➔ ask / æˈsk/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɑ") && zaehler < n) {
+      elementsString += "ɑ ➔ father / fɑˈðɚ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɛ") && zaehler < n) {
+      elementsString += "ɛ ➔ said / sɛˈd/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʊ") && zaehler < n) {
+      elementsString += "ʊ ➔ good / ɡʊˈd/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔ") && zaehler < n) {
+      elementsString += "ɔ ➔ all / ɔˈl/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʌ") && zaehler < n) {
+      elementsString += "ʌ ➔ other /ʌˈðɚ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɚ") && zaehler < n) {
+      elementsString += "ɚ ➔ percent / pɚsɛˈnt/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ŋ") && zaehler < n) {
+      elementsString += "ŋ ➔ thing / θɪˈŋ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("θ") && zaehler < n) {
+      elementsString += "θ ➔ three / θɹiˈ//";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ð") && zaehler < n) {
+      elementsString += "ð ➔ there / ðɛˈɹ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʃ") && zaehler < n) {
+      elementsString += "ʃ ➔ she / ʃiˈ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʒ") && zaehler < n) {
+      elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("j") && zaehler <n) {
+      elementsString += "j ➔ yet / jɛˈt/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɹ") && zaehler < n) {
+      elementsString += "ɹ ➔ right / ɹajˈt/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ej") && zaehler < n) {
+      elementsString += "ej ➔ able / ejˈbʌl/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ow") && zaehler < n) {
+      elementsString += "ow ➔ over / owˈvɚ/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("aj") && zaehler < n) {
+      elementsString += "aj ➔ eyes / ajˈz/";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("aw") && zaehler < n) {
+      elementsString += "aw ➔ out / awˈt/";
+      zaehler++;
+    }
+
+    return elementsString;
+    }
 </script>
 
 
