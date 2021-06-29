@@ -74,16 +74,16 @@
                 <div class="container my-5">
                     <div class="card " id="card">
                         <div class="card-body" id="card-body">
-                            <p>We transformed your input sentence from English to International Phonetic Alphabet (IPA).
+                            <p class="pl-3 pr-3">We transformed your input sentence from English to International Phonetic Alphabet (IPA).
                             </p>
                             <div class="graubox">
-                                <button type="button" id="inputSentence" class="small btn btn-link"
+                                <button type="button" id="inputSentence" class="btn btn-link btn-sm"
                                     data-toggle="popover" data-placement="top" data-trigger="focus" data-html="true"
                                     title="Translation explanation"
                                     data-content="Dieser Text wird später durch Bausteine Erklärung ersetzt.">content</button>
                                 <p id="inputSentenceIPA" class="pl-3">content</p>
-
                             </div>
+                            <p class="pl-3 pr-3 small"><br>Hint: If you want to learn more you can click on the sentence of your input or check out the info box in the upper right corner.</p>
                         </div>
                     </div>
                 </div>
@@ -333,7 +333,7 @@
     var inputSentence = sessionStorage.getItem("inputSentence");
     console.log(inputSentenceIPA);
     document.getElementById('inputSentence').innerHTML = inputSentence;
-    document.getElementById('inputSentenceIPA').innerHTML = inputSentenceIPA;
+    document.getElementById('inputSentenceIPA').innerHTML = "→ " + inputSentenceIPA;
 
     //Für Popover, das nochmal genauer das zustandekommen der übersetzung erklärt
     //Berechne String der Teilwörter erklärt
