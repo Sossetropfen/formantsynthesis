@@ -2,23 +2,23 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Speech Synthesis - A learning experience!</title>
+    <meta charset="utf-8">
+    <title>Speech Synthesis - A learning experience!</title>
 
-  <!-- Bootstrap einbinden -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="lautsprache-style.css" />
+    <!-- Bootstrap einbinden -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="lautsprache-style.css" />
 
-  <!-- GoogleFont einbinden -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
+    <!-- GoogleFont einbinden -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-<!-- header -->
-<div class="headerbalken">
-    <img src="\assets/header.svg" class="headerbild"  >
-</img>
-</div>
+    <!-- header -->
+    <div class="headerbalken">
+        <img src="\assets/header.svg" class="headerbild">
+        </img>
+    </div>
 </head>
 
 <body>
@@ -39,96 +39,114 @@
         <div class="col-md-2"></div>
         <div class="col-md-4"></div>
         <div class="col-md-3"></div>-->
-        
-      
+
+
 
     <!--<img src="header_1.png" alt="progress - text pre-processing" width="100%">-->
 
     <!--Hintergrund weiß-->
-    
+
     <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
-    
+
     <div class="container-fluid">
         <div class="row">
 
 
-             <!-- links - leer -->           
-             <div class="col-sm-2 col-md-2 col-lg-2" ></div>
+            <!-- links - leer -->
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
 
-             <!-- Mitte - Hauptteil -->           
-             <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8" >
+            <!-- Mitte - Hauptteil -->
+            <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
 
-               
-                    
-                
+
+
+
                 <!--Überschrift-->
-                <h1 >I. Symbolic Pre-Processing</h1>
-                
-                <p>Welcome to world of speech signal generation. In our first step of the journey we are learning more about text pre-processing, exception handling, grapheme-to-phoneme transformation and more. Your previous input will undergo multiple steps and will ultimately  be played back to you through your speakers.</p>
-                
+                <h1>I. Symbolic Pre-Processing</h1>
+
+                <p>Welcome to world of speech signal generation. In our first step of the journey we are learning more
+                    about text pre-processing, exception handling, grapheme-to-phoneme transformation and more. Your
+                    previous input will undergo multiple steps and will ultimately be played back to you through your
+                    speakers.</p>
+
+
                 <!--Karte blau-->
-                <div class="container my-5" >
+                <div class="container my-5">
                     <div class="card " id="card">
                         <div class="card-body" id="card-body">
-                            <p>We transformed your input sentence from English to International Phonetic Alphabet (IPA).</p>
+                            <p>We transformed your input sentence from English to International Phonetic Alphabet (IPA).
+                            </p>
                             <div class="graubox">
-                                <p id="inputSentenceIPA">content</p>
+                                <button type="button" id="inputSentence" class="small btn btn-link"
+                                    data-toggle="popover" data-placement="top" data-trigger="focus"
+                                    title="Translation explanation"
+                                    data-content="Dieser Text wird später durch Bausteine Erklärung ersetzt.">content</button>
+                                <p id="inputSentenceIPA" class="pl-3">content</p>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!--Content unten drunter-->
-                 <!-- interne rows für graphic/text-->
-                 <div class="row">
+                <!-- interne rows für graphic/text-->
+                <div class="row">
                     <div class="col-md-6 col-lg-8 col-xs-6">
                         <div class="my-5">
                             <h1 id="heading">How does this work?</h1>
                             <p>blablabla</p>
                         </div>
                     </div>
-                    <div class="col-md-3 col-lg-2 col-xs-6" >
-                            <img src="\assets\keyboard_graphic.png" id="keyboardpng">
-                            </img>
+                    <div class="col-md-3 col-lg-2 col-xs-6">
+                        <img src="\assets\keyboard_graphic.png" id="keyboardpng">
+                        </img>
                     </div>
-                
-                    
-    
+
+
+
                     <div class="my-5">
                         <h1 id="heading">Do you want to edit your Input?</h1>
-                        <p>Soon you will able to use our phonetics keyboard to to modify, delete, and change your IPA  text. Further you can use special characters to put stress on certain parts of the sentence. Feel free to experiment with the IPA characters to your own liking.</p>
+                        <p>Soon you will able to use our phonetics keyboard to to modify, delete, and change your IPA
+                            text. Further you can use special characters to put stress on certain parts of the sentence.
+                            Feel free to experiment with the IPA characters to your own liking.</p>
                     </div>
-    
+
                     <div class="mt-5 ">
                         <h1 id="heading">"Check yourself"-Corner </h1>
-                            
-                            <div class="row">
-                                <div class="col-md-4 col-lg-4 col-xs-6">
-                                    <img src="\assets\graphic_quiz_laptop.png" id="quizbild" >
-                                    </img>
-                                    </div>
-                                <div class="col-md-8 col-lg-8 col-xs-6">
-                                    <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names? Interested in puzzling together the “Ortographic text ➔ Symbolic description”-flowchart?</p>
-                                    <p>Check out those questions and more in the quiz down below:</p>
-                                </div>
+
+                        <div class="row">
+                            <div class="col-md-4 col-lg-4 col-xs-6">
+                                <img src="\assets\graphic_quiz_laptop.png" id="quizbild">
+                                </img>
+                            </div>
+                            <div class="col-md-8 col-lg-8 col-xs-6">
+                                <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names?
+                                    Interested in puzzling together the “Ortographic text ➔ Symbolic
+                                    description”-flowchart?</p>
+                                <p>Check out those questions and more in the quiz down below:</p>
+                            </div>
                         </div>
                         <!--Quiz einbinden-->
                         <div class="row">
                             <div class="col-md-6 col-lg-8 col-xs-6">
-                            <span class="font-weight-light font-italic align-left"> Start the quiz</span>
+                                <span class="font-weight-light font-italic align-left"> Start the quiz</span>
 
-                            <!-- Quiz Starts Dreieck - Collapsable -->
-                            <button class="btn" type="button" data-toggle="collapse" data-target="#quiz1" aria-expanded="false" aria-controls="collapseQuiz1">
-                                <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
-                                </svg>
-                            </button>
+                                <!-- Quiz Starts Dreieck - Collapsable -->
+                                <button class="btn" type="button" data-toggle="collapse" data-target="#quiz1"
+                                    aria-expanded="false" aria-controls="collapseQuiz1">
+                                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                            fill="#628BC8" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
 
                         <!-- DRAG & DROP Quiz  FUNKTIONIERT HIER AUF DER SEITE NOCH NICHT SO GUT WEIL POSITION FALSCH GELESEN -->
 
-                          <div class="collapse" id="quiz1">
+                        <div class="collapse" id="quiz1">
                             <div id="dragScriptContainer">
                                 <div id="questionDiv">
                                     <p>Orthographic text</p>
@@ -147,9 +165,9 @@
                                     <div class="dragDropSmallBox" id="q7">Step 7</div>
                                     <div class="destinationBox"></div>
                                     <p>Symbolic description</p>
-                                
+
                                 </div>
-                                
+
                                 <div id="answerDiv">
                                     <div class="dragDropSmallBox" id="a1">Text pre-processing</div>
                                     <div class="dragDropSmallBox" id="a2">Exception handling</div>
@@ -162,57 +180,64 @@
                             </div>
                             <div id="dragContent"></div>
                             <input type="button" onclick="dragDropResetForm();return false" value="Reset">
-                          </div>
+                        </div>
 
                     </div>
 
-                    
+
 
                 </div>
-                
+
 
             </div>
 
-            
+
             <!-- rechts -->
-            <div class=" col-sm-1 col-md-2 col-lg-2" > 
-                
-            
+            <div class=" col-sm-1 col-md-2 col-lg-2">
+
+
                 <!-- InfoBox-SVG -->
-                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem"
+                    viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
                     <g filter="url(#filter0_d)">
-                    <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
                     </g>
                     <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
                     <defs>
-                    <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                        <feOffset dy="4" />
-                        <feGaussianBlur stdDeviation="2" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                    </filter>
+                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                            <feOffset dy="4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                        </filter>
                     </defs>
                 </svg>
 
                 <!-- Modal -->
-                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog rounded-lg" role="document">
                         <div class="modal-content rounded-lg">
                             <div class="modal-body">
                                 <h3>How to use?</h3>
                                 <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
-                                <p>You're are now in the step of symbolic pre-processing. Here you can see your pre-processed sentence from before,
-                                 with additional explanation. You can hover over the single words to lern more about the special transformation wich was used
-                                or modify it yourself with the IPA keyboard beneath and see what happens based on your input.<br>
-                                We tried to give as much visualisation as possible. <br>
-                                You’ll also have quiz parts at every section, to test your knowledge. Whether you work in depth or just
-                                play around is up to you!
-                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
-                                    data-dismiss="modal">Close</button>
+                                <p>You're are now in the step of symbolic pre-processing. Here you can see your
+                                    pre-processed sentence from before,
+                                    with additional explanation. You can hover over the single words to lern more about
+                                    the special transformation wich was used
+                                    or modify it yourself with the IPA keyboard beneath and see what happens based on
+                                    your input.<br>
+                                    We tried to give as much visualisation as possible. <br>
+                                    You’ll also have quiz parts at every section, to test your knowledge. Whether you
+                                    work in depth or just
+                                    play around is up to you!
+                                    <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                        data-dismiss="modal">Close</button>
                                 </p>
 
                             </div>
@@ -224,7 +249,7 @@
             </div>
 
         </div>
-   
+
     </div>
 
 
@@ -237,8 +262,11 @@
                     <!--DER back-bUTTON-->
                     <a href="../0Landing\landing.html" class="btn " role="button">
                         <button class="btn">
-                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z" fill="#628BC8"/>
+                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
+                                    fill="#628BC8" />
                             </svg>
                         </button>
                         <!--DER WEITER-text-->
@@ -246,7 +274,7 @@
                     </a>
                 </div>
             </div>
-            
+
             <div class="col-lg-6">
             </div>
 
@@ -257,8 +285,11 @@
                         <span class="font-weight-light ">Next</span>
                         <!-- Das Weiter Dreieck -->
                         <button class="btn">
-                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                    fill="#628BC8" />
                             </svg>
                         </button>
                     </a>
@@ -267,26 +298,26 @@
 
         </div>
     </div>
-     <!-- Footer unten -->
-  <div class="container" >
-    <div class="row">
-       
-      <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
-        <span class="small"><a class="btn" href="">Impressum</a></span>
-      </div>
+    <!-- Footer unten -->
+    <div class="container">
+        <div class="row">
 
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <span class="small"><a class="btn" href="">Data Privacy</a></span>
-      </div>
+            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                <span class="small"><a class="btn" href="">Impressum</a></span>
+            </div>
 
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-        <span class="small"> <a class="btn" href="">Copyright</a></span>
-      </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <span class="small"><a class="btn" href="">Data Privacy</a></span>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <span class="small"> <a class="btn" href="">Copyright</a></span>
+            </div>
+        </div>
+        <br>
     </div>
-    <br>
-  </div>
 
-    
+
 
 </body>
 
@@ -299,320 +330,342 @@
 
 <script>
     var inputSentenceIPA = sessionStorage.getItem("inputSentenceIPA");
+    var inputSentence = sessionStorage.getItem("inputSentence");
     console.log(inputSentenceIPA);
+    document.getElementById('inputSentence').innerHTML = inputSentence;
     document.getElementById('inputSentenceIPA').innerHTML = inputSentenceIPA;
 
+    //Für Popover, das nochmal genauer das zustandekommen der übersetzung erklärt
+    //Berechne String der Teilwörter erklärt
+
+    var erklaerungstext = "Here is how we translated your sentence (showcased by the first 3 words): \n\n "
+
+    var woerter = inputSentence.split(" ", 3);
+    var IPAwoerter = inputSentenceIPA.split(" ", 3);
+    
+    for (let i = 0; i < 3; i++) {
+        erklaerungstext += woerter[i];
+        erklaerungstext += " → ";
+        erklaerungstext += IPAwoerter[i];
+
+
+        
+        erklaerungstext += "\n";
+    }
+    alert(erklaerungstext);
+
+
+    //Überschreibe Content des Popovers mit der Erklärung
+    $('#inputSentence').popover('hide');
+    $('#inputSentence').click(function () {
+        $('#inputSentence').attr('data-content',erklaerungstext);
+    $('#inputSentence').popover('show');
+    });
+   
+
+
+
+
     // JS-CODE FUER DAS DRAG AND DROP QUIZ
-     /************************************************************************************************************
-        (C) www.dhtmlgoodies.com, November 2005
-        
-        This is a script from www.dhtmlgoodies.com. You will find this and a lot of other scripts at our website.	
-        
-        Terms of use:
-        You are free to use this script as long as the copyright message is kept intact. However, you may not
-        redistribute, sell or repost it without our permission.
-        
-        Thank you!
-        
-        www.dhtmlgoodies.com
-        Alf Magne Kalleland
-        
-        ************************************************************************************************************/
-            
-        var shuffleAnswers = true;	/* Shuffle answers ? */
-        var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
-        
-        function quizIsFinished()
-        {
-            // This function is called when everything is solved		
-            alert("You understood the flowchart of symbolic pre-processing! :)");
+    /************************************************************************************************************
+       (C) www.dhtmlgoodies.com, November 2005
+       
+       This is a script from www.dhtmlgoodies.com. You will find this and a lot of other scripts at our website.	
+       
+       Terms of use:
+       You are free to use this script as long as the copyright message is kept intact. However, you may not
+       redistribute, sell or repost it without our permission.
+       
+       Thank you!
+       
+       www.dhtmlgoodies.com
+       Alf Magne Kalleland
+       
+       ************************************************************************************************************/
+
+    var shuffleAnswers = true;	/* Shuffle answers ? */
+    var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
+
+    function quizIsFinished() {
+        // This function is called when everything is solved		
+        alert("You understood the flowchart of symbolic pre-processing! :)");
+    }
+
+
+    /* Don't change anything below here */
+    var dragContentDiv = false;
+    var dragContent = false;
+
+    var dragSource = false;
+    var dragDropTimer = -1;
+    var destinationObjArray = new Array();
+    var destination = false;
+    var dragSourceParent = false;
+    var dragSourceNextSibling = false;
+    var answerDiv;
+    var questionDiv;
+    var sourceObjectArray = new Array();
+    var arrayOfEmptyBoxes = new Array();
+    var arrayOfAnswers = new Array();
+
+    function getTopPos(inputObj) {
+        if (!inputObj || !inputObj.offsetTop) return 0;
+        var returnValue = inputObj.offsetTop;
+        while ((inputObj = inputObj.offsetParent) != null) returnValue += inputObj.offsetTop;
+        return returnValue;
+    }
+
+    function getLeftPos(inputObj) {
+        if (!inputObj || !inputObj.offsetLeft) return 0;
+        var returnValue = inputObj.offsetLeft;
+        while ((inputObj = inputObj.offsetParent) != null) returnValue += inputObj.offsetLeft;
+        return returnValue;
+    }
+
+    function cancelEvent() {
+        return false;
+    }
+
+    function initDragDrop(e) {
+        if (document.all) e = event;
+        if (lockedAfterDrag && this.parentNode.parentNode.id == 'questionDiv') return;
+        dragContentDiv.style.left = e.clientX + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft) + 'px';
+        dragContentDiv.style.top = e.clientY + Math.max(document.documentElement.scrollTop, document.body.scrollTop) + 'px';
+        dragSource = this;
+        dragSourceParent = this.parentNode;
+        dragSourceNextSibling = false;
+        if (this.nextSibling) dragSourceNextSibling = this.nextSibling;
+        if (!dragSourceNextSibling.tagName) dragSourceNextSibling = dragSourceNextSibling.nextSibling;
+
+        dragDropTimer = 0;
+        timeoutBeforeDrag();
+
+        return false;
+    }
+
+    function timeoutBeforeDrag() {
+        if (dragDropTimer >= 0 && dragDropTimer < 10) {
+            dragDropTimer = dragDropTimer + 1;
+            setTimeout('timeoutBeforeDrag()', 10);
+            return;
         }
-        
-        
-        /* Don't change anything below here */
-        var dragContentDiv = false;
-        var dragContent = false;
-        
-        var dragSource = false;
-        var dragDropTimer = -1;
-        var destinationObjArray = new Array();
-        var destination = false;
-        var dragSourceParent = false;
-        var dragSourceNextSibling = false;
-        var answerDiv;
-        var questionDiv;	
-        var sourceObjectArray = new Array();
-        var arrayOfEmptyBoxes = new Array();
-        var arrayOfAnswers = new Array();
-        
-        function getTopPos(inputObj)
-        {		
-          if(!inputObj || !inputObj.offsetTop)return 0;		
-          var returnValue = inputObj.offsetTop;
-          while((inputObj = inputObj.offsetParent) != null)returnValue += inputObj.offsetTop;
-          return returnValue;
+        if (dragDropTimer >= 10) {
+            dragContentDiv.style.display = 'block';
+            dragContentDiv.innerHTML = '';
+            dragContentDiv.appendChild(dragSource);
+
+
         }
-        
-        function getLeftPos(inputObj)
-        {
-          if(!inputObj || !inputObj.offsetLeft)return 0;	
-          var returnValue = inputObj.offsetLeft;
-          while((inputObj = inputObj.offsetParent) != null)returnValue += inputObj.offsetLeft;
-          return returnValue;
+    }
+
+    function dragDropMove(e) {
+        if (dragDropTimer < 10) {
+            return;
         }
-            
-        function cancelEvent()
-        {
-            return false;
-        }
-        
-        function initDragDrop(e)
-        {
-            if(document.all)e = event;
-            if(lockedAfterDrag && this.parentNode.parentNode.id=='questionDiv')return;
-            dragContentDiv.style.left = e.clientX  + Math.max(document.documentElement.scrollLeft,document.body.scrollLeft) + 'px';
-            dragContentDiv.style.top = e.clientY  + Math.max(document.documentElement.scrollTop,document.body.scrollTop) + 'px';
-            dragSource = this;
-            dragSourceParent = this.parentNode;
-            dragSourceNextSibling = false;
-            if(this.nextSibling)dragSourceNextSibling = this.nextSibling;
-            if(!dragSourceNextSibling.tagName)dragSourceNextSibling = dragSourceNextSibling.nextSibling;
-            
-            dragDropTimer=0;
-            timeoutBeforeDrag();
-            
-            return false;
-        }
-        
-        function timeoutBeforeDrag(){
-            if(dragDropTimer>=0 && dragDropTimer<10){
-                dragDropTimer = dragDropTimer +1;
-                setTimeout('timeoutBeforeDrag()',10);
-                return;
-            }
-            if(dragDropTimer>=10){
-                dragContentDiv.style.display='block';
-                dragContentDiv.innerHTML = '';
-                dragContentDiv.appendChild(dragSource);
-            
-                
-            }		
-        }
-        
-        function dragDropMove(e)
-        {
-            if(dragDropTimer<10){
-                return;
-            }
-            
-            if(document.all)e = event;
-            
-            var scrollTop = Math.max(document.documentElement.scrollTop,document.body.scrollTop);
-            var scrollLeft = Math.max(document.documentElement.scrollLeft,document.body.scrollLeft);
-            
-            dragContentDiv.style.left = e.clientX + scrollLeft + 'px';
-            dragContentDiv.style.top = e.clientY + scrollTop + 'px';
-            
-            var dragWidth = dragSource.offsetWidth;
-            var dragHeight = dragSource.offsetHeight;
-            
-    
-            var objFound = false;
-            
-            var mouseX = e.clientX + scrollLeft;
-            var mouseY = e.clientY + scrollTop;
-            
-            destination = false;
-            for(var no=0;no<destinationObjArray.length;no++){
-                var left = destinationObjArray[no]['left'];
-                var top = destinationObjArray[no]['top'];
-                var width = destinationObjArray[no]['width'];
-                var height = destinationObjArray[no]['height'];
-                
-                destinationObjArray[no]['obj'].className = 'destinationBox';
-                var subs = destinationObjArray[no]['obj'].getElementsByTagName('DIV');
-                if(!objFound && subs.length==0){
-                    if(mouseX < (left/1 + width/1) && (mouseX + dragWidth/1) >left && mouseY < (top/1 + height/1) && (mouseY + dragHeight/1) >top){
-                        destinationObjArray[no]['obj'].className='dragContentOver';
-                        destination = destinationObjArray[no]['obj'];					
-                        objFound = true;
-                    }		
-                }	
-            }
-            
-            sourceObjectArray['obj'].className='';
-            
-            if(!objFound){
-                var left = sourceObjectArray['left'];
-                var top = sourceObjectArray['top'];
-                var width = sourceObjectArray['width'];
-                var height = sourceObjectArray['height'];
-                            
-                if(mouseX < (left/1 + width/1) && (mouseX + dragWidth/1) >left && mouseY < (top/1 + height/1) && (mouseY + dragHeight/1) >top){
-                    destination = sourceObjectArray['obj'];
-                    sourceObjectArray['obj'].className='dragContentOver';
+
+        if (document.all) e = event;
+
+        var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+        var scrollLeft = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
+
+        dragContentDiv.style.left = e.clientX + scrollLeft + 'px';
+        dragContentDiv.style.top = e.clientY + scrollTop + 'px';
+
+        var dragWidth = dragSource.offsetWidth;
+        var dragHeight = dragSource.offsetHeight;
+
+
+        var objFound = false;
+
+        var mouseX = e.clientX + scrollLeft;
+        var mouseY = e.clientY + scrollTop;
+
+        destination = false;
+        for (var no = 0; no < destinationObjArray.length; no++) {
+            var left = destinationObjArray[no]['left'];
+            var top = destinationObjArray[no]['top'];
+            var width = destinationObjArray[no]['width'];
+            var height = destinationObjArray[no]['height'];
+
+            destinationObjArray[no]['obj'].className = 'destinationBox';
+            var subs = destinationObjArray[no]['obj'].getElementsByTagName('DIV');
+            if (!objFound && subs.length == 0) {
+                if (mouseX < (left / 1 + width / 1) && (mouseX + dragWidth / 1) > left && mouseY < (top / 1 + height / 1) && (mouseY + dragHeight / 1) > top) {
+                    destinationObjArray[no]['obj'].className = 'dragContentOver';
+                    destination = destinationObjArray[no]['obj'];
+                    objFound = true;
                 }
             }
-            return false;
         }
-        
-        
-        function dragDropEnd()
-        {
-            if(dragDropTimer<10){
-                dragDropTimer = -1;
-                return;
+
+        sourceObjectArray['obj'].className = '';
+
+        if (!objFound) {
+            var left = sourceObjectArray['left'];
+            var top = sourceObjectArray['top'];
+            var width = sourceObjectArray['width'];
+            var height = sourceObjectArray['height'];
+
+            if (mouseX < (left / 1 + width / 1) && (mouseX + dragWidth / 1) > left && mouseY < (top / 1 + height / 1) && (mouseY + dragHeight / 1) > top) {
+                destination = sourceObjectArray['obj'];
+                sourceObjectArray['obj'].className = 'dragContentOver';
             }
-            dragContentDiv.style.display='none';
-            sourceObjectArray['obj'].style.backgroundColor = '#FFF';
-            if(destination){
-                destination.appendChild(dragSource);
-                destination.className='destinationBox';
-                
-                // Check if position is correct, i.e. correct answer to the question
-                
-                if(!destination.id || destination.id!='answerDiv'){
-                    var previousEl = dragSource.parentNode.previousSibling;
-                    if(!previousEl.tagName)previousEl = previousEl.previousSibling;
-                    var numericId = previousEl.id.replace(/[^0-9]/g,'');
-                    var numericIdSource = dragSource.id.replace(/[^0-9]/g,'');
-                    
-                    if(numericId==numericIdSource){
-                        dragSource.className='correctAnswer';
-                        checkAllAnswers();	
-                    }
-                    else
-                        dragSource.className='wrongAnswer';				
-                }
-                
-                if(destination.id && destination.id=='answerDiv'){
-                    dragSource.className='dragDropSmallBox';
-                }
-                
-            }else{
-                if(dragSourceNextSibling)
-                    dragSourceNextSibling.parentNode.insertBefore(dragSource,dragSourceNextSibling);
-                else
-                    dragSourceParent.appendChild(dragSource);
-            }
+        }
+        return false;
+    }
+
+
+    function dragDropEnd() {
+        if (dragDropTimer < 10) {
             dragDropTimer = -1;
-            dragSourceNextSibling = false;
-            dragSourceParent = false;
-            destination = false;
+            return;
         }
-        
-        function checkAllAnswers()
-        {	
-            for(var no=0;no<arrayOfEmptyBoxes.length;no++){
-                var sub = arrayOfEmptyBoxes[no].getElementsByTagName('DIV');
-                if(sub.length==0)return;
-                
-                if(sub[0].className!='correctAnswer'){
-                    return;
-                }	
-                
-            }	
-            
-            quizIsFinished();	
-        }
-        
-    
-        
-        function resetPositions()
-        {
-            if(dragDropTimer>=10)return;
-            
-            for(var no=0;no<destinationObjArray.length;no++){
-                if(destinationObjArray[no]['obj']){
-                    destinationObjArray[no]['left'] = getLeftPos(destinationObjArray[no]['obj'])
-                    destinationObjArray[no]['top'] = getTopPos(destinationObjArray[no]['obj'])	
-                }		
-                
-            }
-            sourceObjectArray['left'] = getLeftPos(answerDiv);
-            sourceObjectArray['top'] = getTopPos(answerDiv);		
-        }
-        
-        
-        function initDragDropScript()
-        {
-            dragContentDiv = document.getElementById('dragContent');
-            
-            answerDiv = document.getElementById('answerDiv');
-            answerDiv.onselectstart = cancelEvent;
-            var divs = answerDiv.getElementsByTagName('DIV');
-            var answers = new Array();
-            
-            for(var no=0;no<divs.length;no++){
-                if(divs[no].className=='dragDropSmallBox'){
-                    divs[no].onmousedown = initDragDrop;
-                    answers[answers.length] = divs[no];
-                    arrayOfAnswers[arrayOfAnswers.length] = divs[no];
+        dragContentDiv.style.display = 'none';
+        sourceObjectArray['obj'].style.backgroundColor = '#FFF';
+        if (destination) {
+            destination.appendChild(dragSource);
+            destination.className = 'destinationBox';
+
+            // Check if position is correct, i.e. correct answer to the question
+
+            if (!destination.id || destination.id != 'answerDiv') {
+                var previousEl = dragSource.parentNode.previousSibling;
+                if (!previousEl.tagName) previousEl = previousEl.previousSibling;
+                var numericId = previousEl.id.replace(/[^0-9]/g, '');
+                var numericIdSource = dragSource.id.replace(/[^0-9]/g, '');
+
+                if (numericId == numericIdSource) {
+                    dragSource.className = 'correctAnswer';
+                    checkAllAnswers();
                 }
-                
-            }	
-            
-            if(shuffleAnswers){
-                for(var no=0;no<(answers.length*10);no++){
-                    var randomIndex = Math.floor(Math.random() * answers.length);
-                    answerDiv.appendChild(answers[randomIndex]);
-                }		
+                else
+                    dragSource.className = 'wrongAnswer';
             }
-            
-            sourceObjectArray['obj'] = answerDiv;
-            sourceObjectArray['left'] = getLeftPos(answerDiv);
-            sourceObjectArray['top'] = getTopPos(answerDiv);
-            sourceObjectArray['width'] = answerDiv.offsetWidth;
-            sourceObjectArray['height'] = answerDiv.offsetHeight;
-            
-            
-            questionDiv = document.getElementById('questionDiv');
-            
-            questionDiv.onselectstart = cancelEvent;
-            var divs = questionDiv.getElementsByTagName('DIV');
-            
-            var questions = new Array();
-            var questionsOpenBoxes = new Array();
-            
-    
-            for(var no=0;no<divs.length;no++){
-                if(divs[no].className=='destinationBox'){
-                    var index = destinationObjArray.length;
-                    destinationObjArray[index] = new Array();
-                    destinationObjArray[index]['obj'] = divs[no];
-                    destinationObjArray[index]['left'] = getLeftPos(divs[no])
-                    destinationObjArray[index]['top'] = getTopPos(divs[no])
-                    destinationObjArray[index]['width'] = divs[no].offsetWidth;
-                    destinationObjArray[index]['height'] = divs[no].offsetHeight;
-                    questionsOpenBoxes[questionsOpenBoxes.length] = divs[no];
-                    arrayOfEmptyBoxes[arrayOfEmptyBoxes.length] = divs[no];
-                }
-                if(divs[no].className=='dragDropSmallBox'){
-                    questions[questions.length] = divs[no];
-                }
-                    
+
+            if (destination.id && destination.id == 'answerDiv') {
+                dragSource.className = 'dragDropSmallBox';
             }
-            
-            
-            questionDiv.style.visibility = 'visible';
-            answerDiv.style.visibility = 'visible';
-            
-            document.documentElement.onmouseup = dragDropEnd;	
-            document.documentElement.onmousemove = dragDropMove;	
-            setTimeout('resetPositions()',150);
-            window.onresize = resetPositions;
+
+        } else {
+            if (dragSourceNextSibling)
+                dragSourceNextSibling.parentNode.insertBefore(dragSource, dragSourceNextSibling);
+            else
+                dragSourceParent.appendChild(dragSource);
         }
-    
-        /* Reset the form */
-        function dragDropResetForm()
-        {
-            for(var no=0;no<arrayOfAnswers.length;no++){
-                arrayOfAnswers[no].className='dragDropSmallBox'
-                answerDiv.appendChild(arrayOfAnswers[no]);			
-            }	
+        dragDropTimer = -1;
+        dragSourceNextSibling = false;
+        dragSourceParent = false;
+        destination = false;
+    }
+
+    function checkAllAnswers() {
+        for (var no = 0; no < arrayOfEmptyBoxes.length; no++) {
+            var sub = arrayOfEmptyBoxes[no].getElementsByTagName('DIV');
+            if (sub.length == 0) return;
+
+            if (sub[0].className != 'correctAnswer') {
+                return;
+            }
+
         }
-        
-        window.onload = initDragDropScript;
+
+        quizIsFinished();
+    }
+
+
+
+    function resetPositions() {
+        if (dragDropTimer >= 10) return;
+
+        for (var no = 0; no < destinationObjArray.length; no++) {
+            if (destinationObjArray[no]['obj']) {
+                destinationObjArray[no]['left'] = getLeftPos(destinationObjArray[no]['obj'])
+                destinationObjArray[no]['top'] = getTopPos(destinationObjArray[no]['obj'])
+            }
+
+        }
+        sourceObjectArray['left'] = getLeftPos(answerDiv);
+        sourceObjectArray['top'] = getTopPos(answerDiv);
+    }
+
+
+    function initDragDropScript() {
+        dragContentDiv = document.getElementById('dragContent');
+
+        answerDiv = document.getElementById('answerDiv');
+        answerDiv.onselectstart = cancelEvent;
+        var divs = answerDiv.getElementsByTagName('DIV');
+        var answers = new Array();
+
+        for (var no = 0; no < divs.length; no++) {
+            if (divs[no].className == 'dragDropSmallBox') {
+                divs[no].onmousedown = initDragDrop;
+                answers[answers.length] = divs[no];
+                arrayOfAnswers[arrayOfAnswers.length] = divs[no];
+            }
+
+        }
+
+        if (shuffleAnswers) {
+            for (var no = 0; no < (answers.length * 10); no++) {
+                var randomIndex = Math.floor(Math.random() * answers.length);
+                answerDiv.appendChild(answers[randomIndex]);
+            }
+        }
+
+        sourceObjectArray['obj'] = answerDiv;
+        sourceObjectArray['left'] = getLeftPos(answerDiv);
+        sourceObjectArray['top'] = getTopPos(answerDiv);
+        sourceObjectArray['width'] = answerDiv.offsetWidth;
+        sourceObjectArray['height'] = answerDiv.offsetHeight;
+
+
+        questionDiv = document.getElementById('questionDiv');
+
+        questionDiv.onselectstart = cancelEvent;
+        var divs = questionDiv.getElementsByTagName('DIV');
+
+        var questions = new Array();
+        var questionsOpenBoxes = new Array();
+
+
+        for (var no = 0; no < divs.length; no++) {
+            if (divs[no].className == 'destinationBox') {
+                var index = destinationObjArray.length;
+                destinationObjArray[index] = new Array();
+                destinationObjArray[index]['obj'] = divs[no];
+                destinationObjArray[index]['left'] = getLeftPos(divs[no])
+                destinationObjArray[index]['top'] = getTopPos(divs[no])
+                destinationObjArray[index]['width'] = divs[no].offsetWidth;
+                destinationObjArray[index]['height'] = divs[no].offsetHeight;
+                questionsOpenBoxes[questionsOpenBoxes.length] = divs[no];
+                arrayOfEmptyBoxes[arrayOfEmptyBoxes.length] = divs[no];
+            }
+            if (divs[no].className == 'dragDropSmallBox') {
+                questions[questions.length] = divs[no];
+            }
+
+        }
+
+
+        questionDiv.style.visibility = 'visible';
+        answerDiv.style.visibility = 'visible';
+
+        document.documentElement.onmouseup = dragDropEnd;
+        document.documentElement.onmousemove = dragDropMove;
+        setTimeout('resetPositions()', 150);
+        window.onresize = resetPositions;
+    }
+
+    /* Reset the form */
+    function dragDropResetForm() {
+        for (var no = 0; no < arrayOfAnswers.length; no++) {
+            arrayOfAnswers[no].className = 'dragDropSmallBox'
+            answerDiv.appendChild(arrayOfAnswers[no]);
+        }
+    }
+
+    window.onload = initDragDropScript;
 
 </script>
 

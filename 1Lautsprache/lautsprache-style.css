@@ -18,6 +18,11 @@ body {
     font-weight: 400;
   }
   
+  #inputSentence{
+    color: #484848;
+
+  }
+
   .card-title {
     font-size: 48;
     text-align: center;
@@ -95,6 +100,10 @@ body {
   padding-left: 2rem;
   padding-top: 0.4rem;
   padding-bottom: 0.1rem;
+}
+
+.popover {
+  white-space: pre-wrap;    
 }
 
 
