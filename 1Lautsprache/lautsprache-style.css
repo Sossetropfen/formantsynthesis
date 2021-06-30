@@ -40,10 +40,9 @@ body {
     margin-bottom: 5%;
   }  
   #keyboardpng{
-    max-width: 220%;
+     max-width: 200%;
     height: auto;
-    margin-top: 60%;
-  }
+  } 
 
 
   .card {
