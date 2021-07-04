@@ -1,13 +1,11 @@
-
-
-<!-- SPAETER WIEDER GANZE SEITE LOESCHEN. NUR FUER PROBE --> 
+<!-- SPAETER WIEDER GANZE SEITE LOESCHEN. NUR FUER PROBE -->
 
 <!doctype html>
 <html>
 
 <head>
     <title>Speech Synthesis - A learning experience!</title>
- 
+
 
     <!-- Bootstrap einbinden -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -19,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-        <script type="text/javascript">
-    
+    <script type="text/javascript">
+
         /*
         (C) www.dhtmlgoodies.com, November 2005
         
@@ -35,21 +33,20 @@
         www.dhtmlgoodies.com
         Alf Magne Kalleland
         */
-            
+
         var shuffleAnswers = true;	/* Shuffle answers ? */
         var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
-        
-        function quizIsFinished()
-        {
+
+        function quizIsFinished() {
             // This function is called when everything is solved		
             alert("You understood the flowchart of symbolic pre-processing! :)");
         }
-        
-        
+
+
         /* Don't change anything below here */
         var dragContentDiv = false;
         var dragContent = false;
-        
+
         var dragSource = false;
         var dragDropTimer = -1;
         var destinationObjArray = new Array();
@@ -57,159 +54,153 @@
         var dragSourceParent = false;
         var dragSourceNextSibling = false;
         var answerDiv;
-        var questionDiv;	
+        var questionDiv;
         var sourceObjectArray = new Array();
         var arrayOfEmptyBoxes = new Array();
         var arrayOfAnswers = new Array();
-        
-        function getTopPos(inputObj)
-        {		
-          if(!inputObj || !inputObj.offsetTop)return 0;		
-          var returnValue = inputObj.offsetTop;
-          while((inputObj = inputObj.offsetParent) != null)returnValue += inputObj.offsetTop;
-          return returnValue;
+
+        function getTopPos(inputObj) {
+            if (!inputObj || !inputObj.offsetTop) return 0;
+            var returnValue = inputObj.offsetTop;
+            while ((inputObj = inputObj.offsetParent) != null) returnValue += inputObj.offsetTop;
+            return returnValue;
         }
-        
-        function getLeftPos(inputObj)
-        {
-          if(!inputObj || !inputObj.offsetLeft)return 0;	
-          var returnValue = inputObj.offsetLeft;
-          while((inputObj = inputObj.offsetParent) != null)returnValue += inputObj.offsetLeft;
-          return returnValue;
+
+        function getLeftPos(inputObj) {
+            if (!inputObj || !inputObj.offsetLeft) return 0;
+            var returnValue = inputObj.offsetLeft;
+            while ((inputObj = inputObj.offsetParent) != null) returnValue += inputObj.offsetLeft;
+            return returnValue;
         }
-            
-        function cancelEvent()
-        {
+
+        function cancelEvent() {
             return false;
         }
-        
-        function initDragDrop(e)
-        {
-            if(document.all)e = event;
-            if(lockedAfterDrag && this.parentNode.parentNode.id=='questionDiv')return;
-            dragContentDiv.style.left = e.clientX  + Math.max(document.documentElement.scrollLeft,document.body.scrollLeft) + 'px';
-            dragContentDiv.style.top = e.clientY  + Math.max(document.documentElement.scrollTop,document.body.scrollTop) + 'px';
+
+        function initDragDrop(e) {
+            if (document.all) e = event;
+            if (lockedAfterDrag && this.parentNode.parentNode.id == 'questionDiv') return;
+            dragContentDiv.style.left = e.clientX + Math.max(document.documentElement.scrollLeft, document.body.scrollLeft) + 'px';
+            dragContentDiv.style.top = e.clientY + Math.max(document.documentElement.scrollTop, document.body.scrollTop) + 'px';
             dragSource = this;
             dragSourceParent = this.parentNode;
             dragSourceNextSibling = false;
-            if(this.nextSibling)dragSourceNextSibling = this.nextSibling;
-            if(!dragSourceNextSibling.tagName)dragSourceNextSibling = dragSourceNextSibling.nextSibling;
-            
-            dragDropTimer=0;
+            if (this.nextSibling) dragSourceNextSibling = this.nextSibling;
+            if (!dragSourceNextSibling.tagName) dragSourceNextSibling = dragSourceNextSibling.nextSibling;
+
+            dragDropTimer = 0;
             timeoutBeforeDrag();
-            
+
             return false;
         }
-        
-        function timeoutBeforeDrag(){
-            if(dragDropTimer>=0 && dragDropTimer<10){
-                dragDropTimer = dragDropTimer +1;
-                setTimeout('timeoutBeforeDrag()',10);
+
+        function timeoutBeforeDrag() {
+            if (dragDropTimer >= 0 && dragDropTimer < 10) {
+                dragDropTimer = dragDropTimer + 1;
+                setTimeout('timeoutBeforeDrag()', 10);
                 return;
             }
-            if(dragDropTimer>=10){
-                dragContentDiv.style.display='block';
+            if (dragDropTimer >= 10) {
+                dragContentDiv.style.display = 'block';
                 dragContentDiv.innerHTML = '';
                 dragContentDiv.appendChild(dragSource);
-            
-                
-            }		
+
+
+            }
         }
-        
-        function dragDropMove(e)
-        {
-            if(dragDropTimer<10){
+
+        function dragDropMove(e) {
+            if (dragDropTimer < 10) {
                 return;
             }
-            
-            if(document.all)e = event;
-            
-            var scrollTop = Math.max(document.documentElement.scrollTop,document.body.scrollTop);
-            var scrollLeft = Math.max(document.documentElement.scrollLeft,document.body.scrollLeft);
-            
+
+            if (document.all) e = event;
+
+            var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+            var scrollLeft = Math.max(document.documentElement.scrollLeft, document.body.scrollLeft);
+
             dragContentDiv.style.left = e.clientX + scrollLeft + 'px';
             dragContentDiv.style.top = e.clientY + scrollTop + 'px';
-            
+
             var dragWidth = dragSource.offsetWidth;
             var dragHeight = dragSource.offsetHeight;
-            
-    
+
+
             var objFound = false;
-            
+
             var mouseX = e.clientX + scrollLeft;
             var mouseY = e.clientY + scrollTop;
-            
+
             destination = false;
-            for(var no=0;no<destinationObjArray.length;no++){
+            for (var no = 0; no < destinationObjArray.length; no++) {
                 var left = destinationObjArray[no]['left'];
                 var top = destinationObjArray[no]['top'];
                 var width = destinationObjArray[no]['width'];
                 var height = destinationObjArray[no]['height'];
-                
+
                 destinationObjArray[no]['obj'].className = 'destinationBox';
                 var subs = destinationObjArray[no]['obj'].getElementsByTagName('DIV');
-                if(!objFound && subs.length==0){
-                    if(mouseX < (left/1 + width/1) && (mouseX + dragWidth/1) >left && mouseY < (top/1 + height/1) && (mouseY + dragHeight/1) >top){
-                        destinationObjArray[no]['obj'].className='dragContentOver';
-                        destination = destinationObjArray[no]['obj'];					
+                if (!objFound && subs.length == 0) {
+                    if (mouseX < (left / 1 + width / 1) && (mouseX + dragWidth / 1) > left && mouseY < (top / 1 + height / 1) && (mouseY + dragHeight / 1) > top) {
+                        destinationObjArray[no]['obj'].className = 'dragContentOver';
+                        destination = destinationObjArray[no]['obj'];
                         objFound = true;
-                    }		
-                }	
+                    }
+                }
             }
-            
-            sourceObjectArray['obj'].className='';
-            
-            if(!objFound){
+
+            sourceObjectArray['obj'].className = '';
+
+            if (!objFound) {
                 var left = sourceObjectArray['left'];
                 var top = sourceObjectArray['top'];
                 var width = sourceObjectArray['width'];
                 var height = sourceObjectArray['height'];
-                            
-                if(mouseX < (left/1 + width/1) && (mouseX + dragWidth/1) >left && mouseY < (top/1 + height/1) && (mouseY + dragHeight/1) >top){
+
+                if (mouseX < (left / 1 + width / 1) && (mouseX + dragWidth / 1) > left && mouseY < (top / 1 + height / 1) && (mouseY + dragHeight / 1) > top) {
                     destination = sourceObjectArray['obj'];
-                    sourceObjectArray['obj'].className='dragContentOver';
+                    sourceObjectArray['obj'].className = 'dragContentOver';
                 }
             }
             return false;
         }
-        
-        
-        function dragDropEnd()
-        {
-            if(dragDropTimer<10){
+
+
+        function dragDropEnd() {
+            if (dragDropTimer < 10) {
                 dragDropTimer = -1;
                 return;
             }
-            dragContentDiv.style.display='none';
-            if(destination){
+            dragContentDiv.style.display = 'none';
+            if (destination) {
                 destination.appendChild(dragSource);
-                destination.className='destinationBox';
-                
+                destination.className = 'destinationBox';
+
                 // Check if position is correct, i.e. correct answer to the question
-                
-                if(!destination.id || destination.id!='answerDiv'){
+
+                if (!destination.id || destination.id != 'answerDiv') {
                     var previousEl = dragSource.parentNode.previousSibling;
-                    if(!previousEl.tagName)previousEl = previousEl.previousSibling;
-                    var numericId = previousEl.id.replace(/[^0-9]/g,'');
-                    var numericIdSource = dragSource.id.replace(/[^0-9]/g,'');
-                    
-                    if(numericId==numericIdSource){
-                        dragSource.className='correctAnswer';
-                        
-                        checkAllAnswers();	
+                    if (!previousEl.tagName) previousEl = previousEl.previousSibling;
+                    var numericId = previousEl.id.replace(/[^0-9]/g, '');
+                    var numericIdSource = dragSource.id.replace(/[^0-9]/g, '');
+
+                    if (numericId == numericIdSource) {
+                        dragSource.className = 'correctAnswer';
+
+                        checkAllAnswers();
                         zeigeInhalt(numericId);
                     }
                     else
-                        dragSource.className='wrongAnswer';				
+                        dragSource.className = 'wrongAnswer';
                 }
-                
-                if(destination.id && destination.id=='answerDiv'){
-                    dragSource.className='dragDropSmallBox';
+
+                if (destination.id && destination.id == 'answerDiv') {
+                    dragSource.className = 'dragDropSmallBox';
                 }
-                
-            }else{
-                if(dragSourceNextSibling)
-                    dragSourceNextSibling.parentNode.insertBefore(dragSource,dragSourceNextSibling);
+
+            } else {
+                if (dragSourceNextSibling)
+                    dragSourceNextSibling.parentNode.insertBefore(dragSource, dragSourceNextSibling);
                 else
                     dragSourceParent.appendChild(dragSource);
             }
@@ -218,83 +209,80 @@
             dragSourceParent = false;
             destination = false;
         }
-        
-        function checkAllAnswers()
-        {	
-            for(var no=0;no<arrayOfEmptyBoxes.length;no++){
+
+        function checkAllAnswers() {
+            for (var no = 0; no < arrayOfEmptyBoxes.length; no++) {
                 var sub = arrayOfEmptyBoxes[no].getElementsByTagName('DIV');
-                if(sub.length==0)return;
-                
-                if(sub[0].className!='correctAnswer'){
+                if (sub.length == 0) return;
+
+                if (sub[0].className != 'correctAnswer') {
                     return;
-                }	
-                
-            }	
-            
-            quizIsFinished();	
+                }
+
+            }
+
+            quizIsFinished();
         }
-        
-    
-        
-        function resetPositions()
-        {
-            if(dragDropTimer>=10)return;
-            
-            for(var no=0;no<destinationObjArray.length;no++){
-                if(destinationObjArray[no]['obj']){
+
+
+
+        function resetPositions() {
+            if (dragDropTimer >= 10) return;
+
+            for (var no = 0; no < destinationObjArray.length; no++) {
+                if (destinationObjArray[no]['obj']) {
                     destinationObjArray[no]['left'] = getLeftPos(destinationObjArray[no]['obj'])
-                    destinationObjArray[no]['top'] = getTopPos(destinationObjArray[no]['obj'])	
-                }		
-                
+                    destinationObjArray[no]['top'] = getTopPos(destinationObjArray[no]['obj'])
+                }
+
             }
             sourceObjectArray['left'] = getLeftPos(answerDiv);
-            sourceObjectArray['top'] = getTopPos(answerDiv);		
+            sourceObjectArray['top'] = getTopPos(answerDiv);
         }
-        
-        
-        function initDragDropScript()
-        {
+
+
+        function initDragDropScript() {
             dragContentDiv = document.getElementById('dragContent');
-            
+
             answerDiv = document.getElementById('answerDiv');
             answerDiv.onselectstart = cancelEvent;
             var divs = answerDiv.getElementsByTagName('DIV');
             var answers = new Array();
-            
-            for(var no=0;no<divs.length;no++){
-                if(divs[no].className=='dragDropSmallBox'){
+
+            for (var no = 0; no < divs.length; no++) {
+                if (divs[no].className == 'dragDropSmallBox') {
                     divs[no].onmousedown = initDragDrop;
                     answers[answers.length] = divs[no];
                     arrayOfAnswers[arrayOfAnswers.length] = divs[no];
                 }
-                
-            }	
-            
-            if(shuffleAnswers){
-                for(var no=0;no<(answers.length*10);no++){
+
+            }
+
+            if (shuffleAnswers) {
+                for (var no = 0; no < (answers.length * 10); no++) {
                     var randomIndex = Math.floor(Math.random() * answers.length);
                     answerDiv.appendChild(answers[randomIndex]);
-                }		
+                }
             }
-            
+
             sourceObjectArray['obj'] = answerDiv;
             sourceObjectArray['left'] = getLeftPos(answerDiv);
             sourceObjectArray['top'] = getTopPos(answerDiv);
             sourceObjectArray['width'] = answerDiv.offsetWidth;
             sourceObjectArray['height'] = answerDiv.offsetHeight;
-            
-            
+
+
             questionDiv = document.getElementById('questionDiv');
-            
+
             questionDiv.onselectstart = cancelEvent;
             var divs = questionDiv.getElementsByTagName('DIV');
-            
+
             var questions = new Array();
             var questionsOpenBoxes = new Array();
-            
-    
-            for(var no=0;no<divs.length;no++){
-                if(divs[no].className=='destinationBox'){
+
+
+            for (var no = 0; no < divs.length; no++) {
+                if (divs[no].className == 'destinationBox') {
                     var index = destinationObjArray.length;
                     destinationObjArray[index] = new Array();
                     destinationObjArray[index]['obj'] = divs[no];
@@ -305,34 +293,38 @@
                     questionsOpenBoxes[questionsOpenBoxes.length] = divs[no];
                     arrayOfEmptyBoxes[arrayOfEmptyBoxes.length] = divs[no];
                 }
-                if(divs[no].className=='dragDropSmallBox'){
+                if (divs[no].className == 'dragDropSmallBox') {
                     questions[questions.length] = divs[no];
                 }
-                    
+
             }
-            
-            
+
+
             questionDiv.style.visibility = 'visible';
             answerDiv.style.visibility = 'visible';
-            
-            document.documentElement.onmouseup = dragDropEnd;	
-            document.documentElement.onmousemove = dragDropMove;	
-            setTimeout('resetPositions()',150);
+
+            document.documentElement.onmouseup = dragDropEnd;
+            document.documentElement.onmousemove = dragDropMove;
+            setTimeout('resetPositions()', 150);
             window.onresize = resetPositions;
         }
-    
+
         /* Reset the form */
-        function dragDropResetForm()
-        {
-            for(var no=0;no<arrayOfAnswers.length;no++){
-                arrayOfAnswers[no].className='dragDropSmallBox'
-                answerDiv.appendChild(arrayOfAnswers[no]);			
-            }	
+        function dragDropResetForm() {
+            for (var no = 0; no < arrayOfAnswers.length; no++) {
+                arrayOfAnswers[no].className = 'dragDropSmallBox'
+                answerDiv.appendChild(arrayOfAnswers[no]);
+            }
         }
-        
-        function zeigeInhalt(id){
-            var infoText = document.getElementById(id);
-            infoText.style.visibility = "visible";
+
+        function zeigeInhalt(id) {
+            for (let i = 1; i < 8; i++) {                       //Erstmal alle wieder verstecken
+                var infoText1 = document.getElementById(i);
+                infoText1.style.display = "none";
+            }
+
+            var infoText = document.getElementById(id);         //dann das aktuelle anzeigen
+            infoText.style.display = "";
             //alert(id);
         }
 
@@ -340,10 +332,10 @@
 
 
         window.onload = initDragDropScript;
-        
-        </script>
-        
-    
+
+    </script>
+
+
 </head>
 
 <body class="bg-transparent">
@@ -352,7 +344,7 @@
         <h1>Quiz</h1>
         <h4>Symbolic Pre-Processing Flowchart</h4>
     </div>
-    
+
     <hr>
 
     <div class="dragScriptContainer">
@@ -368,12 +360,13 @@
             <div class="dragDropSmallBox" id="a6">Word categories</div>
             <div class="dragDropSmallBox" id="a7">Syntactic-prosodic analysis</div>
 
-            <input style="vertical-align: bottom" type="button" class="btn btn-light resetknopf" onclick="dragDropResetForm();return false" value="Reset">
+            <input style="vertical-align: bottom" type="button" class="btn btn-light resetknopf"
+                onclick="dragDropResetForm();return false" value="Reset">
             <p></p>
 
-            
-         
-           
+
+
+
 
         </div>
 
@@ -395,27 +388,58 @@
             <div class="dragDropSmallBox" id="q7">Step 7</div>
             <div class="destinationBox"></div>
             <p class="text-center font-weight-bold">↓<br>Symbolic description</p>
-            
+
         </div>
-        
+
     </div>
     <div id="dragContent"></div>
 
 
-    <div class="extraInfo" id="1" style="visibility: hidden;">
+<!--Hier kommen die extra infos jeweils für die Steps 1 bis 7. Angesteuert werden sie über die id. die id korreliert zur position in der reihenfolge (also textpreprocessing = 1, exceptionhandling = 2, etc)-->
+    <div class="extraInfo" id="1" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>Text pre-processing features steps such transforming non-orthographic text like numbers (e.g. 10:00) into orthographic text. In that way the the speech synthesizer can pronounce a sentence that is coherent for the user (e.g. “ten o'clock”). Further abbreviations and symbols are translated in to an pronouncable form.</p>
+        <p>Text pre-processing features steps such transforming non-orthographic text like numbers (e.g. 10:00) into
+            orthographic text. In that way the the speech synthesizer can pronounce a sentence that is coherent for the
+            user (e.g. “ten o'clock”). Further abbreviations and symbols are translated in to an pronouncable form.</p>
     </div>
+
+    <div class="extraInfo" id="2" style="display: none;">
+        <h5>Did you know?:</h5>
+        <p>exception handling blablaalbla extra mextra </p>
     </div>
-  
-    
+
+    <div class="extraInfo" id="3" style="display: none;">
+        <h5>Did you know?:</h5>
+        <p>morphological analysis blablaalbla extra mextra</p>
+    </div>
+
+    <div class="extraInfo" id="4" style="display: none;">
+        <h5>Did you know?:</h5>
+        <p>word intonation blablaalbla extra mextra</p>
+    </div>
+
+    <div class="extraInfo" id="5" style="display: none;">
+        <h5>Did you know?:</h5>
+        <p>grapheme to phoneme blablaalbla extra mextra</p>
+    </div>
+
+    <div class="extraInfo" id="6" style="display: none;">
+        <h5>Did you know?:</h5>
+        <p>word categories blablaalbla extra mextra</p>
+    </div>
+
+    <div class="extraInfo" id="7" style="display: none;">
+        <h5>Did you know?:</h5>
+        <p> syjtactic prosodic analysis blablaalbla extra mextra</p>
+    </div>
+
+
     <div class="col-lg-12 col-md-10 col-sm-10 ">
         <div class="float-left">
             <!--DER back-bUTTON-->
             <a href="../1Lautsprache/Lautsprache.html" class="btn " role="button">
                 <button class="btn">
-                    <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg width="48" height="54" viewBox="0 0 48 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
                             fill="#628BC8" />
@@ -425,15 +449,14 @@
                 <span class="font-weight-light">Back</span>
             </a>
         </div>
-    
+
         <div class="float-right">
             <a href="../2Fujisaki\fujisaki.html" class="btn" role="button">
                 <!--DER WEITER-text-->
                 <span class="font-weight-light ">Next</span>
                 <!-- Das Weiter Dreieck -->
                 <button class="btn">
-                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
                             fill="#628BC8" />
@@ -441,7 +464,7 @@
                 </button>
             </a>
         </div>
-    </div>    
+    </div>
 </body>
 
 </html>
