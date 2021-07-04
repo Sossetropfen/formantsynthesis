@@ -6,121 +6,22 @@
 <html>
 
 <head>
-    <title>Our Funky HTML Page</title>
-    <meta name="description" content="Our first page">
-    <meta name="keywords" content="html tutorial template">
+    <title>Speech Synthesis - A learning experience!</title>
+ 
 
+    <!-- Bootstrap einbinden -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <style type="text/css">
+    <link rel="stylesheet" href="quiz-style.css" />
 
-        #dragScriptContainer{	/* BIG DIV containing HTML needed for the entire script */
-            width:50em;
-            margin:0 auto;
-            border:1px solid #000;
-            height:400px;
-            margin-top:20px;
-            padding:3px;
-            -moz-user-select:no;
-        }
-        
-        #questionDiv{	/* Big div for all the questions */
-            float:right;
-            height:100%;
-            width:15rem;
-            border:1px solid #000;
-            padding:2px;
-        }
-        #answerDiv{	/* Big div for all the answers */
-            float:left;
-            height:100%;
-            width:15rem;
-            border:1px solid #000;
-            padding:2px;	
-        }
-        
-        #answerDiv div,#dragContent div{	/* General rules for small divs - i.e. specific questions and answers */
-            width:15rem;
-            height:20px;
-            line-height:20px;		
-            float:left;
-            margin-right:2px;
-            margin-bottom:2px;
-            text-align:center;
-        }
-        
-        #questionDiv div{
-            width:15rem;
-            height:20px;
-            line-height:20px;		
-            float:left;
-            margin-right:2px;
-            margin-bottom:2px;
-            text-align:center;
-        }
+    <!-- GoogleFont einbinden -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-        #dragContent div{	/* Drag content div - i.e. specific answers when they are beeing dragged */
-            border:1px solid #000;
-        }
-        
-        #answerDiv .dragDropSmallBox{	/* Small answer divs */
-            border:1px solid #000;
-            cursor:pointer;
-        }
-        
-        #questionDiv .dragDropSmallBox{	/* Small answer divs */
-            border:1px solid #000;
-            cursor:pointer;
-            background-color:#E2EBED; /* Light blue background color */
-        }
-        
-        #questionDiv div div{	/* DIV after it has been dragged from right to left box */
-            margin:0px;
-            border:0px;
-            padding:0px;
-            background-color:#FFF;
-        }
-        #questionDiv .destinationBox{	/* Small empty boxes for the questions - i.e. where answers could be dragged */
-            border:0px;
-            background-color:#DDD;
-            width:15rem;
-            height:22px;
-            
-        
-            
-        }
-        #questionDiv .correctAnswer{	/* CSS indicating correct answer */
-            background-color:green;
-            color:#fff;
-            border:1px solid #000;
-        }
-        #questionDiv .wrongAnswer{	/* CSS indicating wrong answer */
-            background-color:red;
-            color:#fff;
-            border:1px solid #000;
-        }
-    
-        #dragContent div{
-            background-color:#FFF;
-        }
-    
-        #questionDiv .dragContentOver{	/* Mouse over question boxes - i.e. indicating where dragged element will be appended if mouse button is relased */
-            border:1px solid #F00;
-        }
-        
-        #answerDiv.dragContentOver{	/* Mouse over answer box - i.e. indicating where dragged element will be appended if mouse button is relased */
-            border:1px solid #F00;
-        }
-        
-        /* NEVER CHANGE THIS */
-        #dragContent{
-            position:absolute;
-            display:none;
-        }	
-        
-        </style>
         <script type="text/javascript">
     
-        /************************************************************************************************************
+        /*
         (C) www.dhtmlgoodies.com, November 2005
         
         This is a script from www.dhtmlgoodies.com. You will find this and a lot of other scripts at our website.	
@@ -133,8 +34,7 @@
         
         www.dhtmlgoodies.com
         Alf Magne Kalleland
-        
-        ************************************************************************************************************/
+        */
             
         var shuffleAnswers = true;	/* Shuffle answers ? */
         var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
@@ -281,7 +181,6 @@
                 return;
             }
             dragContentDiv.style.display='none';
-            sourceObjectArray['obj'].style.backgroundColor = '#FFF';
             if(destination){
                 destination.appendChild(dragSource);
                 destination.className='destinationBox';
@@ -296,7 +195,9 @@
                     
                     if(numericId==numericIdSource){
                         dragSource.className='correctAnswer';
+                        
                         checkAllAnswers();	
+                        zeigeInhalt(numericId);
                     }
                     else
                         dragSource.className='wrongAnswer';				
@@ -429,6 +330,15 @@
             }	
         }
         
+        function zeigeInhalt(id){
+            var infoText = document.getElementById(id);
+            infoText.style.visibility = "visible";
+            //alert(id);
+        }
+
+
+
+
         window.onload = initDragDropScript;
         
         </script>
@@ -436,10 +346,40 @@
     
 </head>
 
-<body>
-    <div id="dragScriptContainer">
+<body class="bg-transparent">
+
+    <div class="ml-5 mt-3 quiztitel text-center">
+        <h1>Quiz</h1>
+        <h4>Symbolic Pre-Processing Flowchart</h4>
+    </div>
+    
+    <hr>
+
+    <div class="dragScriptContainer">
+
+        <div id="answerDiv">
+            <p></p>
+            <p><br></p>
+            <div class="dragDropSmallBox" id="a1">Text pre-processing</div>
+            <div class="dragDropSmallBox" id="a2">Exception handling</div>
+            <div class="dragDropSmallBox" id="a3">Morphological analysis</div>
+            <div class="dragDropSmallBox" id="a4">Word intonation</div>
+            <div class="dragDropSmallBox" id="a5">Grapheme-to-phoneme</div>
+            <div class="dragDropSmallBox" id="a6">Word categories</div>
+            <div class="dragDropSmallBox" id="a7">Syntactic-prosodic analysis</div>
+
+            <input style="vertical-align: bottom" type="button" class="btn btn-light resetknopf" onclick="dragDropResetForm();return false" value="Reset">
+            <p></p>
+
+            
+         
+           
+
+        </div>
+
+
         <div id="questionDiv">
-            <p>Orthographic text</p>
+            <p class="text-center font-weight-bold">Orthographic text<br>↓</p>
             <div class="dragDropSmallBox" id="q1">Step 1</div>
             <div class="destinationBox"></div>
             <div class="dragDropSmallBox" id="q2">Step 2</div>
@@ -454,22 +394,54 @@
             <div class="destinationBox"></div>
             <div class="dragDropSmallBox" id="q7">Step 7</div>
             <div class="destinationBox"></div>
-            <p>Symbolic description</p>
-        
+            <p class="text-center font-weight-bold">↓<br>Symbolic description</p>
+            
         </div>
         
-        <div id="answerDiv">
-            <div class="dragDropSmallBox" id="a1">Text pre-processing</div>
-            <div class="dragDropSmallBox" id="a2">Exception handling</div>
-            <div class="dragDropSmallBox" id="a3">Morphological analysis</div>
-            <div class="dragDropSmallBox" id="a4">Word intonation</div>
-            <div class="dragDropSmallBox" id="a5">Grapheme-to-phoneme</div>
-            <div class="dragDropSmallBox" id="a6">Word categories</div>
-            <div class="dragDropSmallBox" id="a7">Syntactic-prosodic analysis</div>
-        </div>
     </div>
     <div id="dragContent"></div>
-    <input type="button" onclick="dragDropResetForm();return false" value="Reset">
+
+
+    <div class="extraInfo" id="1" style="visibility: hidden;">
+        <h5>Did you know?:</h5>
+        <p>Text pre-processing features steps such transforming non-orthographic text like numbers (e.g. 10:00) into orthographic text. In that way the the speech synthesizer can pronounce a sentence that is coherent for the user (e.g. “ten o'clock”). Further abbreviations and symbols are translated in to an pronouncable form.</p>
+    </div>
+    </div>
+  
+    
+    <div class="col-lg-12 col-md-10 col-sm-10 ">
+        <div class="float-left">
+            <!--DER back-bUTTON-->
+            <a href="../1Lautsprache/Lautsprache.html" class="btn " role="button">
+                <button class="btn">
+                    <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
+                            fill="#628BC8" />
+                    </svg>
+                </button>
+                <!--DER WEITER-text-->
+                <span class="font-weight-light">Back</span>
+            </a>
+        </div>
+    
+        <div class="float-right">
+            <a href="../2Fujisaki\fujisaki.html" class="btn" role="button">
+                <!--DER WEITER-text-->
+                <span class="font-weight-light ">Next</span>
+                <!-- Das Weiter Dreieck -->
+                <button class="btn">
+                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                            fill="#628BC8" />
+                    </svg>
+                </button>
+            </a>
+        </div>
+    </div>    
 </body>
 
 </html>
