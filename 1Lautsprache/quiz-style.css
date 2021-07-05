@@ -33,7 +33,9 @@ body {
 }
 
 hr{
-  height:2px;border-width:0;color:#628BC8;background-color:gray
+  height:4px;
+  border-width:0;
+  background-color:rgb(98, 139, 200, 0.7);
 }
 
 .resetknopf{

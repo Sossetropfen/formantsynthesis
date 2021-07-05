@@ -55,7 +55,7 @@
     
      <h1>I. Symbolic Pre-Processing</h1>
 
-     <p>Welcome to world of speech signal generation. In our first step of the journey we are learning more
+     <p>Welcome to the world of speech signal generation. In our first step of the journey we are learning more
          about text pre-processing, exception handling, grapheme-to-phoneme transformation and more. Your
          previous input will undergo multiple steps and will ultimately be played back to you through your
          speakers.</p>
@@ -123,20 +123,23 @@
                     <div class="col-md-6 col-lg-8 col-xs-7">
                         <div class="my-5">
                             <h1 id="heading">How does this work?</h1>
-                            <p>Our IPA-Converter works as follows: <br>First you split the input string wherever spaces (" ") are, leaving you with an array of all the elements that are seperated by a space.
-                                Next the converter looks through every element in this array, replaces common signs with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br>
-                                &#8226; Date: The input element can be split by "." and result in three elements in the form of day.month.year with day being a number between 1 and 31, month being a number between 1 and 12 or the name of the month or its abbreviation (e.g. "january" <-> "jan"), and year being a number with max. 4 elements
-                                If its a date the day has to be converted into an ordinal number, the month, if given as number or abbreviation has to be converted to the name of the month and the year has to be converted to a number but if the number is lower than 2000 the number has to be spoken in two parts: 1984 <-> nineteen hundred eighty four
-                                <br>&#8226; Time: The input elements can be split by ":" and result in two elements with the first being a number between 0 and 24 and the second being a number between 0 and 60 with two elements
-                                The first element is just a regular number converted into a string, if the second number is equal to zero an o'clock is added, if it is between 1 and 9 a o is added (6:04 &#8658; six o four)
-                                <br>&#8226; Ordinal Number: The element can be split by "." and result in two elements with the first being a number and the second being empty. Then the number is being converted into a string
-                                <br>&#8226; Decimal Number: The element can be split by "." and result in two elements with the first being either a number or just empty and the second one being a number
-                                The numbers are being converted to a string, inbetween both a "point" is added to signal the decimal number
-                                <br>&#8226; Regular Number: Regular numbers are just converted to string and passed to the next step
-                                <br>&#8226; If we find multiple words or numbers split by different symbols like . , ; : etc. we transform number(s) (if any) to words and pass on the words that we get from splitting by the symbols
-                                <br>&#8226; If neither of the cases applies we just assume a regular word and pass it on
-                                For all the resulting strings after the cases, we load a english to ipa dictionairy (https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt) and use a lookup function to see if the word is in the dictionairy.
-                                If it is, then the ipa conversion is being returned. If the word is not in the dictionairy we look through the characters of the input string and return the IPA conversion for each character.</p>
+                            <p>Let us quickly teach you how an IPA converter works. In this case, we will explain the converter that we implemented: <br>Firstly, the algorithm splits the input string wherever spaces (" ") are, leaving you with an array of all the elements that are seperated by a space.
+                                Next, the converter looks through every element in this array, replaces common signs with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br><br>
+                                &#8226; <b>Date:</b> The input element can be split by "." and results in three elements in the form of day.month.year with day being a number between 1 and 31, month being a number between 1 and 12 or the name of the month or its abbreviation (e.g. "january" <-> "jan"), and year being a number with max. 4 elements.
+                                If it´s a date the day has to be converted into an ordinal number, the month, if given as number or abbreviation has to be converted to the name of the month and the year has to be converted into a spoken number. However, if the number is lower than 2000, the number has to be spoken in two parts: 1984 <-> nineteen hundred eighty four
+                                <br>&#8226; <b>Time:</b> The input elements can be split by ":" and results in two elements with the first one being a number between 0 and 24 and the second one being a two-character number between 00 and 60.
+                                The first element is just a regular number converted into a string . If the second number is equal to zero an o'clock is added, if it is between 1 and 9 an ' o ' is added (6:04 &#8658; six o four).
+                                <br>&#8226; <b>Regular Number:</b> Regular numbers are just converted to string and passed to the next step.
+                                <br>&#8226; <b>Ordinal Number:</b> The element can be split by "." and results in two elements with the first one being a number and the second one being empty. Then the number is being converted into a string. (EXAMPLE)
+                                <br>&#8226; <b>Decimal Number:</b> The element can be split by "." and results in two elements with the first one being either a number or just empty and the second one being a number.
+                                The numbers are converted to a string. In between the converted numbers a "point" is added to signal the decimal nature of the original input. (EXAMPLE) 
+                                <br>
+                                <br>&#8226; If we find multiple words or numbers split by different symbols like " . , ; : " etc. we transform number(s) (if any) to words and pass on the words that we get from splitting by the symbols
+                                <br>&#8226; If none of the cases applies, the algorithm just assumes that the input is a regular word and passes it on.
+                                <br>
+                                <br>
+                                After checking for all the cases and recieving resulting strings , we load an  <a style="color:#484848;" href="https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt">"English to IPA" dictionary</a>  and use a lookup function to see if the word is in the dictionairy.
+                                Upon being found, an IPA conversion is returned. If the word is not in the dictionary, we look through the characters of the input string and return the IPA conversion for each character.</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xs-1 col-sm-3 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
@@ -208,22 +211,20 @@
                             <div class="modal-body">
                                 <h3>How to use?</h3>
                                 <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
-                                <p>You're are now in the step of symbolic pre-processing. Here you can see your
-                                    pre-processed sentence from before,
-                                    with additional explanation. You can hover over the single words to lern more about
-                                    the special transformation wich was used
-                                    or modify it yourself with the IPA keyboard beneath and see what happens based on
+                                <p>You are are now in the step of symbolic pre-processing. Here you can see your
+                                    pre-processed sentence from before, with additional explanation. You can hover over your prior input sentence to learn more about
+                                    the special transformation that was used.
+                                    Moreover, you can modify your sentence yourself with the IPA keyboard below and see what happens based on
                                     your input.<br>
-                                    We tried to give as much visualisation as possible. <br>
+                                    In order to grasp every concept and idea, we tried to give you as much visualisation in your journey through the speech generation process as possible. <br>
                                     You’ll also have quiz parts at every section, to test your knowledge. Whether you
-                                    work in depth or just
-                                    play around is up to you!<br>
+                                    work in depth or just play around is up to you!<br>
                                     <h3>What is the IPA?</h3> 
                                     One of the steps of pre-processing includes the translation of the text to phonetics. 
                                     Phonetic transcription describes the representation of vocal sound as visual symbols or machine-readable code. 
-                                    While some languages languages have a strong relationship between orthography (the written word) an the pronounciation, 
-                                    others like english, for example, don't. The IPA (International Phonetic Alphabet) displays this standardized representation 
-                                    of speech sounds, so one can describe the pronouncitation of a word, even in different variations such as accents or dialects.<br>  
+                                    While some languages have a strong relationship between orthography (the written word) and the pronounciation, 
+                                    others, like english for example, do not. The IPA (International Phonetic Alphabet) displays this standardized representation 
+                                    of speech sounds, so one can describe the pronounciation of a word, even in different variations such as accents or dialects.<br>  
                                     <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
                                         data-dismiss="modal">Close</button>
                                 </p>
