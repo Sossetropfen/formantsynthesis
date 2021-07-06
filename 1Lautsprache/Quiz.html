@@ -311,10 +311,25 @@
 
         /* Reset the form */
         function dragDropResetForm() {
-            for (var no = 0; no < arrayOfAnswers.length; no++) {
-                arrayOfAnswers[no].className = 'dragDropSmallBox'
-                answerDiv.appendChild(arrayOfAnswers[no]);
+
+            let arrayNos = [];
+            for (var i = 0; i < arrayOfAnswers.length; i++) {
+                arrayNos.push(i);
             }
+
+            arrayNos.sort(() => .5 - Math.random());    //für zufällige reihenfolge nach reset
+            //alert(arrayNos);
+
+            for (var no = 0; no < arrayOfAnswers.length; no++) {
+                arrayOfAnswers[arrayNos[no]].className = 'dragDropSmallBox'
+                answerDiv.appendChild(arrayOfAnswers[arrayNos[no]]);
+            }
+
+            for (let i = 1; i < 8; i++) {                       //Nach reset alle infoboxes wieder verstecken
+                var infoText1 = document.getElementById(i);
+                infoText1.style.display = "none";
+            }
+
         }
 
         function zeigeInhalt(id) {
@@ -395,7 +410,7 @@
     <div id="dragContent"></div>
 
 
-<!--Hier kommen die extra infos jeweils für die Steps 1 bis 7. Angesteuert werden sie über die id. die id korreliert zur position in der reihenfolge (also textpreprocessing = 1, exceptionhandling = 2, etc)-->
+    <!--Hier kommen die extra infos jeweils für die Steps 1 bis 7. Angesteuert werden sie über die id. die id korreliert zur position in der reihenfolge (also textpreprocessing = 1, exceptionhandling = 2, etc)-->
     <div class="extraInfo" id="1" style="display: none;">
         <h5>Did you know?:</h5>
         <p>Text pre-processing features steps such transforming non-orthographic text like numbers (e.g. 10:00) into
