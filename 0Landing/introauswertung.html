@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Speech Synthesis - A learning experience!</title>
+
+  <!-- Bootstrap einbinden -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="introauswertung-style.css" />
+
+  <!-- GoogleFont einbinden -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+
+  <script src="../IPAtransformJS/converter-form2.js"></script>
+  <script>
+    window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+  </script>
+
+</head>
+
+<body onload="inputName()">
+
+
+  <div class="container" style="min-height:95vh">
+    <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
+
+    <div class="row">
+      <!-- Weisse Box mit Name aus Landing-Input -->
+      <div class="card d-flex p-2" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Hello, my name is</h5>
+          <div class="col-12">
+            <p id="outputName" class="graubox">There was an error.</p>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- InfoBox-SVG -->
+      <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89"
+        fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+        <g filter="url(#filter0_d)">
+          <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+        </g>
+        <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+        <defs>
+          <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- Modal -->
+      <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog rounded-lg" role="document">
+          <div class="modal-content rounded-lg">
+            <div class="modal-body">
+              <h3>How to use?</h3>
+              <p>On this page you’ll be able to learn about Pre-Processing, Prosody Generation and Speech Signal
+                Generation. All shown step by step with your chosen example. This learning tool is developed by students
+                of the Technische Universität Berlin, to help others getting fit for exams or just to go in depth with
+                this topic.<br>
+                We tried to give as much visualisation as possible. <br>
+                You’ll also have quiz parts at every section, to test your knowledge. Whether you work in depth or just
+                play around is up to you!
+                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                  data-dismiss="modal">Close</button>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- obere row Ende -->
+
+    <div class="row">
+      <!-- Weisse Box mit IPA Transformation -->
+      <div class="card d-flex p-2" style="width: 20rem;">
+        <div class="card-body px-4">
+          <h6 class="card-title text-left px-4">Hello, my name is</h6>
+          <div class="col-12">
+            <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
+          </div>
+          <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
+        </div>
+      </div>
+
+      <!-- Weisse Box mit Spektogramm -->
+      <div class="card d-flex p-2" style="width: 20rem;">
+        <div class="card-body px-4">
+          <div class="col-12">
+            <img src="/assets/fakeSpektogram.png" class="img-fluid rounded-lg mt-2 " alt="Image of a spectogram ">
+            <img src="/assets/fakewaveform.png" class="img-fluid rounded-lg mt-2 " alt="Image of a waveform ">
+          </div>
+        </div>
+      </div>
+    </div> <!-- mittlere row Ende -->
+
+    <div class="row">
+      <div class="mx-auto">
+        <p class="d-inline-flex text-light font-weight-light font-italic">How did all of this work? <br> Let´s take a
+          closer look!</p>
+        <!-- Das Weiter Dreieck -->
+        <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="#628BC8"
+          class="bi bi-caret-right-fill pt-3" viewBox="0 0 16 16" onclick="nextpage();">
+          <path
+            d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- Sandbox IPA-Transformer --- Später wieder löschen 
+    <div id="js-text-to-ipa-form">
+      ​
+      <ul style="list-style-type: none;">
+        <li><textarea id="ipa-in" placeholder="Write text here" rows="4" cols="50"></textarea></li>
+        <li class="button"><button type="button" id="js-ipa-submit"
+            onClick="ConverterForm.convert('ipa-in', 'ipa-out', 'ipa-err')">Convert!</button></li>
+        <li><textarea readonly id="ipa-out" placeholder="aʊtpʊt gəʊz hɪə" rows="4" cols="50"></textarea></li>
+        ​
+      </ul>
+      ​
+      <ul style="list-style-type: none;">
+        <li><noscript>
+            <p>This converter will not work unless Javascript is enabled.</p>
+          </noscript></li>
+        <li>
+          <div id="ipa-err">
+            <p>Errors will go here if you make any. (This will be overwritten)</p>
+          </div>
+        </li>
+      </ul>
+      ​
+    </div> 
+    -->
+
+  </div> <!-- Alles beinhaltender Container - Ende -->
+
+
+  <!-- Footer unten -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+        <span class="small"><a href="">Impressum</a></span>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <span class="small"><a href="">Data Privacy</a></span>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <span class="small"> <a href="">Copyright</a></span>
+      </div>
+    </div>
+    <br>
+  </div>
+
+</body>
+<!-- von Bootstrap benötigtes JS: jQuery library, Popper JS, Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<script>
+  //Holt sich Variable aus Input von Landing-Page und überschreibt entsprechende Textfelder hier auf der Seite
+  function inputName() {
+    var inputName = sessionStorage.getItem("inputName");
+    document.getElementById('outputName').innerHTML = inputName;
+
+
+    //Führe IPA Transformation auf Text in inputName aus 
+    var inputNameIPA = sessionStorage.getItem("inputNameIPA");
+      console.log(inputNameIPA);
+    document.getElementById('outputIPA').innerHTML = inputNameIPA;
+
+    //Ansatz echt:
+    // var outputIPAname = ConverterForm.convert(inputName);
+    // document.getElementById('outputIPA').innerHTML = outputIPAname;
+
+
+    // BAUSTEINE-ABFANGER - Analysiere IPA Text auf Bestandteile und gebe extra Infos darunter aus 
+    let outputIPAname = inputNameIPA 
+    var elementsString = "";
+    //let zaehler = 0;
+      
+   /*   
+    function selectRandomFromIPA(){
+		var IPAString = inputNameIPA.replaceAll("ˈ","").replaceAll("ˈ","").replaceAll("/","").replaceAll("ˌ","");
+		IPAString = IPAString.replaceAll(" ","");
+        console.log(IPAString)
+        var rand;
+        var buchst;
+        for(var z = 0; z < 2; z++){
+            rand = Math.floor(Math.random() * IPAString.length);
+            if (!(IPAString[rand]==buchst)){
+                //console.log(IPAString.length, rand);
+                addToElementsString(IPAString[rand]);
+			        	console.log(IPAString[rand]);
+				//console.log(IPAString[rand]);
+                buchst = IPAString[rand];
+                IPAString = IPAString.slice(0, rand) + IPAString.slice(rand+1);
+            }
+        }        
+    
+    }
+      
+    function addToElementsString(b){
+        //console.log("dior");
+        //cases für alle buchstaben
+        console.log(b);
+        if (b == "ɪɹ") {
+          elementsString += "ɪɹ ➔ ear / ɪˈɹ/, years / jɪˈɹz/<br>";
+        }
+        else if (b == "ɛɹ") {
+          elementsString += "ɛɹ ➔ air / ɛˈɹ/, where / wɛˈɹ/<br>";
+        }
+
+        if (b == "ɔɹ") {
+          elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/, morning / mɔˈɹnɪŋ/<br>";
+        }
+
+        if (b == "ɑɹ") {
+          elementsString += "ɑɹ ➔ art / ɑˈɹt/, large / lɑˈɹdʒ/<br>";
+        }
+
+        if (b == "ɔj") {
+          elementsString += "ɔj ➔ oil / ɔjˈl/, point / pɔjˈnt/<br>";
+        }
+
+        if (b == "tʃ") {
+          elementsString += "tʃ ➔ child / tʃajˈld/, teacher / tiˈtʃɚ/<br>";
+        }
+
+        if (b == "dʒ") {
+          elementsString += "dʒ ➔ just / dʒʌˈst/, age / ejˈdʒ/<br>";
+        }
+
+        if (b == "i") {
+          elementsString += "i ➔ even / iˈvɪn/, these / ðiˈz/<br>";
+        }
+
+        if (b == "ɪ") {
+          elementsString += "ɪ ➔ if / ɪf/, which / wɪˈtʃ/<br>";
+        }
+
+        if (b == "u") {
+          elementsString += "u ➔ school / skuˈl/, who / huˈ/<br>";
+        }
+
+        if (b == "æ") {
+          elementsString += "æ ➔ ask / æˈsk/, back / bæˈk/<br>";
+        }
+
+        if (b == "ɑ") {
+          elementsString += "ɑ ➔ father / fɑˈðɚ/, not / nɑˈt/<br>";
+        }
+
+        if (b == "ɛ") {
+          elementsString += "ɛ ➔ said / sɛˈd/, bed / bɛˈd/<br>";
+        }
+
+        if (b == "ʊ") {
+          elementsString += "ʊ ➔ good / ɡʊˈd/, book / bʊˈk/<br>";
+        }
+
+        if (b == "ɔ") {
+          elementsString += "ɔ ➔ all / ɔˈl/, want / wɔˈnt/<br>";
+        }
+
+        if (b == "ʌ") {
+          elementsString += "ʌ ➔ other /ʌˈðɚ/, one / wʌˈn/<br>";
+        }
+
+        if (b == "ɚ") {
+          elementsString += "ɚ ➔ percent / pɚsɛˈnt/, never / nɛˈvɚ/<br>";
+        }
+
+        if (b == "ŋ") {
+          elementsString += "ŋ ➔ thing / θɪˈŋ/, going / ɡowˈɪŋ/<br>";
+        }
+
+        if (b == "θ") {
+          elementsString += "θ ➔ three / θɹiˈ/, nothing / nʌˈθɪŋ/<br>";
+        }
+
+        if (b == "ð") {
+          elementsString += "ð ➔ there / ðɛˈɹ/, mother / mʌˈðɚ/<br>";
+        }
+
+        if (b == "ʃ") {
+          elementsString += "ʃ ➔ she / ʃiˈ/, social / sowˈʃʌl/<br>";
+        }
+
+        if (b == "ʒ") {
+          elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/, measure / mɛˈʒɚ/<br>";
+        }
+
+        if (b == "j") {
+          elementsString += "j ➔ yet / jɛˈt/, yesterday / jɛˈstɚdej/<br>";
+        }
+
+        if (b == "ɹ") {
+          elementsString += "ɹ ➔ right / ɹajˈt/, through / θɹuˈ/<br>";
+        }
+
+        if (b == "ej") {
+          elementsString += "ej ➔ able / ejˈbʌl/, make / mejˈk/<br>";
+        }
+
+        if (b == "ow") {
+          elementsString += "ow ➔ over / owˈvɚ/, both / bowˈθ/<br>";
+        }
+
+        if (b == "aj") {
+          elementsString += "aj ➔ eyes / ajˈz/, time / tajˈm/<br>";
+        }
+
+        if (b == "aw") {
+          elementsString += "aw ➔ out / awˈt/, down / dawˈn/<br>";
+        }
+    }
+      
+    //selectRandomFromIPA("zɪwɪˈki hʌlowˈ");
+      selectRandomFromIPA(inputNameIPA);
+  */      
+
+  var elementsString = "";
+    let zaehler = 0;
+
+    //cases für alle buchstaben
+    if (outputIPAname.includes("ɪɹ") && zaehler < 2) {
+      elementsString += "ɪɹ ➔ ear / ɪˈɹ/, years / jɪˈɹz/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɛɹ") && zaehler < 2) {
+      elementsString += "ɛɹ ➔ air / ɛˈɹ/, where / wɛˈɹ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔɹ") && zaehler < 2) {
+      elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/, morning / mɔˈɹnɪŋ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɑɹ") && zaehler < 2) {
+      elementsString += "ɑɹ ➔ art / ɑˈɹt/, large / lɑˈɹdʒ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔj") && zaehler < 2) {
+      elementsString += "ɔj ➔ oil / ɔjˈl/, point / pɔjˈnt/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("tʃ") && zaehler < 2) {
+      elementsString += "tʃ ➔ child / tʃajˈld/, teacher / tiˈtʃɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("dʒ") && zaehler < 2) {
+      elementsString += "dʒ ➔ just / dʒʌˈst/, age / ejˈdʒ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("i") && zaehler < 2) {
+      elementsString += "i ➔ even / iˈvɪn/, these / ðiˈz/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɪ") && zaehler < 2) {
+      elementsString += "ɪ ➔ if / ɪf/, which / wɪˈtʃ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("u") && zaehler < 2) {
+      elementsString += "u ➔ school / skuˈl/, who / huˈ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("æ") && zaehler < 2) {
+      elementsString += "æ ➔ ask / æˈsk/, back / bæˈk/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɑ") && zaehler < 2) {
+      elementsString += "ɑ ➔ father / fɑˈðɚ/, not / nɑˈt/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɛ") && zaehler < 2) {
+      elementsString += "ɛ ➔ said / sɛˈd/, bed / bɛˈd/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʊ") && zaehler < 2) {
+      elementsString += "ʊ ➔ good / ɡʊˈd/, book / bʊˈk/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɔ") && zaehler < 2) {
+      elementsString += "ɔ ➔ all / ɔˈl/, want / wɔˈnt/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʌ") && zaehler < 2) {
+      elementsString += "ʌ ➔ other /ʌˈðɚ/, one / wʌˈn/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɚ") && zaehler < 2) {
+      elementsString += "ɚ ➔ percent / pɚsɛˈnt/, never / nɛˈvɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ŋ") && zaehler < 2) {
+      elementsString += "ŋ ➔ thing / θɪˈŋ/, going / ɡowˈɪŋ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("θ") && zaehler < 2) {
+      elementsString += "θ ➔ three / θɹiˈ/, nothing / nʌˈθɪŋ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ð") && zaehler < 2) {
+      elementsString += "ð ➔ there / ðɛˈɹ/, mother / mʌˈðɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʃ") && zaehler < 2) {
+      elementsString += "ʃ ➔ she / ʃiˈ/, social / sowˈʃʌl/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ʒ") && zaehler < 2) {
+      elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/, measure / mɛˈʒɚ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("j") && zaehler < 2) {
+      elementsString += "j ➔ yet / jɛˈt/, yesterday / jɛˈstɚdej/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ɹ") && zaehler < 2) {
+      elementsString += "ɹ ➔ right / ɹajˈt/, through / θɹuˈ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ej") && zaehler < 2) {
+      elementsString += "ej ➔ able / ejˈbʌl/, make / mejˈk/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("ow") && zaehler < 2) {
+      elementsString += "ow ➔ over / owˈvɚ/, both / bowˈθ/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("aj") && zaehler < 2) {
+      elementsString += "aj ➔ eyes / ajˈz/, time / tajˈm/<br>";
+      zaehler++;
+    }
+
+    if (outputIPAname.includes("aw") && zaehler < 2) {
+      elementsString += "aw ➔ out / awˈt/, down / dawˈn/<br>";
+      zaehler++;
+    }
+
+
+
+    //ueberschreibe html element um erklaerung anzuzeigen
+    document.getElementById('IPAelements').innerHTML = elementsString;
+
+
+    //Erstelle Spektogramm von Ausgabe als jpg NOCH FAKE
+
+    //Erstelle Waveform von Ausgabe als jpg NOCH FAKE
+
+
+
+  }
+
+  function nextpage() {
+    window.location.replace('eingabe.html')
+  }
+
+
+
+</script>
+
+
+</html>

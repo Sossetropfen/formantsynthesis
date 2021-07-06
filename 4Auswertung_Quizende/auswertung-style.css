@@ -1,0 +1,67 @@
+*{
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+}
+
+body {
+  background: #f3f3f3;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #484848;
+  }
+
+  #heading{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+  
+  .card-title {
+    font-size: 48;
+    text-align: center;
+  }
+  
+  .card {
+    background-color: #81B3FF;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 116px;
+    padding: 25px 35px 40px 35px;
+  }
+
+  .card-body {
+    border-radius: 98px;
+  }
+  
+  .form-control {
+    background: rgba(196, 196, 196, 0.5);
+    mix-blend-mode: multiply;
+    border-radius: 40px;
+    text-align: center;
+  }
+  
+  .form-control:focus {
+    background: rgba(196, 196, 196, 0.33);
+    mix-blend-mode: multiply;
+  }
+  
+  #dreieck {
+    position: fixed;
+    top: 45%;
+    left: 65%;
+      /* PROBLEM: Muss auf andere Art positioniert werden, da es sich sonst in die Box verschiebt */
+  
+  }
+  
+  #dreieck:hover {
+    fill: #456fad;
+  }
+  
+  a {
+    color: whitesmoke;
+    font-style: italic;
+  }
+  
+  #info{
+    margin: 2rem;
+    float: left;
+}

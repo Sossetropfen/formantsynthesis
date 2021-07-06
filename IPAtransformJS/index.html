@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+
+  <title>Text to IPA Generator</title>
+
+</head>
+
+<body>
+  <script src="text-to-ipa.js"></script>
+  <script src="converter-form.js"></script>
+  <script>
+    window.onload = TextToIPA.loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+  </script>
+
+  <p>Use the following text areas to convert english to it's IPA equivalent.</p>
+  <p>This is NOT case sensitive and punctuation is ignored.</p>
+  <br />
+  <p>Note: If you are using chrome and this is being ran locally, the dictionary will not load due to the way Chrome handles XHTTP Requests. It does handle them normally on proper websites. Check out a live example <a href="http://surrsur.us/projects/ipa/english-to-ipa.html">here</a></p>
+  <br />
+  
+  <div id="js-text-to-ipa-form">
+
+    <ul style="list-style-type: none;">
+      <li><textarea id="ipa-in" placeholder="Write text here" rows="4" cols="50"></textarea></li>
+      <li class="button"><button type="button" id="js-ipa-submit" onClick="ConverterForm.convert('ipa-in', 'ipa-out', 'ipa-err')">Convert!</button></li>
+      <li><textarea readonly id="ipa-out" placeholder="aʊtpʊt gəʊz hɪə" rows="4" cols="50"></textarea></li>
+
+    </ul>
+
+    <ul style="list-style-type: none;">
+      <li><noscript><p>This converter will not work unless Javascript is enabled.</p></noscript></li>
+      <li>
+        <div id="ipa-err">
+          <p>Errors will go here if you make any. (This will be overwritten)</p>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+    <script>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Speech Synthesis - A learning experience!</title>
+
+  <!-- Bootstrap einbinden -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="eingabe-style.css" />
+
+  <!-- GoogleFont einbinden -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+  <script src="../IPAtransformJS/converter-form2.js"></script>
+  <script>
+    window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
+  </script>
+
+  <div class="container" style="min-height:95vh">
+    <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
+
+    <div class="row">
+      <!-- Weisse Box mit IPA Transformation -->
+      <div class="card d-flex p-2" style="width: 30rem;">
+        <div class="card-body px-4">
+          <h6 class="card-title text-left px-4 mt-2 pb-2 "><b>Try typing in a sentence in the input field below..</b>
+          </h6>
+          <div class="form-group">
+            <div class="col-12">
+              <textarea autocomplete='off' type="text" class="form-control" maxlength='100'
+                id="inputSentence"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="mx-auto">
+              <a href="../1Lautsprache\Lautsprache.html" class="btn " role="button">
+                <span class="d-inline-flex  font-weight-light font-italic align-middle"> Looks good!</span>
+                <!-- Das Weiter Dreieck -->
+                <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="2.5rem" height="2.5rem" fill="#628BC8"
+                  class="bi bi-caret-right-fill" viewBox="0 0 16 16" onclick="satzwahl();">
+                  <path
+                    d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+      <!-- InfoBox-SVG -->
+      <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89"
+        fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+        <g filter="url(#filter0_d)">
+          <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+        </g>
+        <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+        <defs>
+          <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+            <feOffset dy="4" />
+            <feGaussianBlur stdDeviation="2" />
+            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+          </filter>
+        </defs>
+      </svg>
+
+      <!-- Modal -->
+      <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog rounded-lg" role="document">
+          <div class="modal-content rounded-lg">
+            <div class="modal-body">
+              <h3>What to do?</h3>
+              <p>You can choose a sentence - or just a word if you prefer. Simply type it into the grey box and hit the
+                “looks good” button to start the next steps. <br>
+                Our site will lead you through everything in detail.
+
+                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                  data-dismiss="modal">Close</button>
+              </p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- obere row Ende -->
+
+    <!-- Grafik in naechste Row. Problem: Dann echt unter der weissen box und nicht versetzt leicht darunter. Noch lösen. -->
+    <div class="row">
+      <div class="col-6"></div>
+      <img class="monitor_asset" src="\assets\monitorgirl.svg" width="45%" viewBox="0 0 459 489"></img>
+      <!-- Bilder ohne 64 einbinden bitte! crashed sonst unser projekt-->
+    </div>
+
+  </div> <!-- Alles beinhaltender Container - Ende -->
+
+
+  <!-- Footer unten -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+        <span class="small"><a href="">Impressum</a></span>
+      </div>
+
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <span class="small"><a href="">Data Privacy</a></span>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+        <span class="small"> <a href="">Copyright</a></span>
+      </div>
+    </div>
+    <br>
+  </div>
+
+</body>
+<!-- von Bootstrap benötigtes JS: jQuery library, Popper JS, Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+
+<script>
+
+  // Abfangen, ob String leer ist funktionen
+  function isBlank(str) {
+    return (!str || /^\s*$/.test(str));
+  }
+
+  function isEmpty(str) {
+    return (!str || str.length === 0);
+  }
+
+
+  // Fetche Satz aus Input
+  function satzwahl() {
+    var inputSentence = document.getElementById("inputSentence").value;
+
+    if (isEmpty(inputSentence) || isBlank(inputSentence)) {
+      inputSentence = "You did not enter anything.";
+    }
+
+    console.log(inputSentence);
+
+    var inputTextIPA = convertText(inputSentence);
+    //alert(inputSentence);
+
+    inputTextIPA = inputTextIPA.join(' ').replaceAll("/", "").replaceAll(",", "");
+    //console.log(inputTextIPA);
+    //alert(inputTextIPA);
+    sessionStorage.setItem("inputSentenceIPA", inputTextIPA);
+    sessionStorage.setItem("inputSentence", inputSentence);
+    window.location.replace('eingabe.html')
+  }
+</script>
+
+</html>
