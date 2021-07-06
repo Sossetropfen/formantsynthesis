@@ -24,9 +24,6 @@ body {
   }
   
 
-
-
-
 .footer{
   color: #484848;
 }
@@ -72,30 +69,44 @@ html {
   background-size: cover;
 }
 
-.dragScriptContainer{	/* BIG DIV containing HTML needed for the entire script */
-    width:50em;
+#dragScriptContainer{	/* BIG DIV containing HTML needed for the entire script */
+    width:45em;
     margin:0 auto;
     border:0px solid #000; /*Um zu sehen mache border auf 1px*/
     height: 35em;
     margin-top:20px;
     padding:3px;
-   
+    
+
 }
 
-#questionDiv{	/* Big div for all the questions */
+
+#questionDiv {
     float:right;
-    height:100%;
+    max-height:100%;
     width:15em;
-    border:0px solid rgb(0, 0, 0);      /*Um zu sehen mache border auf 1px*/
-    padding:2px;
-}
+    padding:10px;
+    margin-left: 20%;
 
-#answerDiv{	/* Big div for all the answers */
+  }
+
+#answerDiv{	
     float:left;
     height:100%;
     width:15em;
-    border:0px solid #000;
-    padding:2px;
+    padding:10px;
+    margin-left: 20%;
+}
+
+
+@media only screen and (max-width: 600px) {
+  #answerDiv {
+    max-width: 40%;
+    
+  }
+  #questionDiv {
+    max-block-size: 30%;
+  }
 }
 
 #answerDiv div,#dragContent div{	/* General rules for small divs - i.e. specific questions and answers */
