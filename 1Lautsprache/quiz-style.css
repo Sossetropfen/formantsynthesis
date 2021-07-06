@@ -1,3 +1,7 @@
+*{
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+}
 
 body {
     height: 100%;
@@ -51,6 +55,12 @@ hr{
   background:rgb(248, 245, 239, 0.9);
   border-radius: 1em;
  
+}
+
+.weiss{
+  background-color: #fff;
+  background-color: rgb(255, 255, 255);
+  border-radius: 1em;
 }
 
 /* -------------------- AB HIER FÜR QUIZ ---------------------------------------------------*/

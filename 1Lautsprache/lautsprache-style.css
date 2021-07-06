@@ -5,6 +5,11 @@
     padding-bottom:20px;
   }
 
+  *{
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
+  }
+  
 body {
   background: #f3f3f3;
     height: 100%;

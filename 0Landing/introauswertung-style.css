@@ -8,6 +8,8 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 48;
     text-align: center;
+    color: #484848;
+
   }
   
   .card {
@@ -17,6 +19,8 @@ body {
     background: #FFFFFF;
     box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
     border-radius: 102px;
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
   }
   
   .graubox {
@@ -32,11 +36,22 @@ body {
   #dreieck:hover {
     fill: #456fad;
   }
+
+  *{
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
+  }
   
-  a {
+  p{
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
+  }
+
+  span a {
     color: whitesmoke;
     font-style: italic;
-  }
+    font-family: 'Roboto', sans-serif;
+     }
 
   #info{
       margin: 2rem;
