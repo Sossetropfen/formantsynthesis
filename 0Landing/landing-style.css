@@ -41,7 +41,7 @@ body {
   mix-blend-mode: multiply;
 }
 
-@media screen and (min-width:1000px) {
+@media screen and (min-width:1200px) {
 
   #dreieck {
     position: fixed;
@@ -49,7 +49,7 @@ body {
     left: 65%;
   }
 }
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 1199px) {
 
   #dreieck {
     position: fixed;
