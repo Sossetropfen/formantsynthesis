@@ -2,7 +2,13 @@
   font-family: 'Roboto', sans-serif;
   color: #484848;
 }
-
+.headerbild {
+  width: 100%;
+  max-width: 4000px;
+  height: auto;
+  padding-top:20px;
+  padding-bottom:20px;
+}
 body {
   background: #f3f3f3;
     height: 100%;

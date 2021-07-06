@@ -1,9 +1,10 @@
 .headerbild {
-    max-width: 100%;
-    height: auto;
-    padding-top:20px;
-    padding-bottom:20px;
-  }
+  width: 100%;
+  max-width: 4000px;
+  height: auto;
+  padding-top:20px;
+  padding-bottom:20px;
+}
 
   *{
     font-family: 'Roboto', sans-serif;
