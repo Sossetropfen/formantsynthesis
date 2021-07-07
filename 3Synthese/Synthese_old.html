@@ -2,25 +2,25 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Speech Synthesis - A learning experience!</title>
+  <meta charset="utf-8">
+  <title>Speech Synthesis - A learning experience!</title>
 
-    <!-- Bootstrap einbinden -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lautsprache-style.css" />
+  <!-- Bootstrap einbinden -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="synthese-style.css" /> <!--das ist einfach das CSS aus Landing-->
 
-    <!-- GoogleFont einbinden -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <!-- GoogleFont einbinden -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
 
-    <!-- header -->
-    <div class="headerbalken">
-        <img src="\assets/headerl_3.svg" class="headerbild">
-        </img>
-    </div>
+  <!-- header -->
+  <div class="headerbalken">
+    <img src="\assets/headerl_3.svg" class="headerbild">
+    </img>
+  </div>
 
-    <!-- meSpeak einbinden -->
+  <!-- meSpeak einbinden -->
   <script type="text/javascript" src="meSpeak/mespeak.js"></script>
   <script type="text/javascript">
     meSpeak.loadVoice("voices/en/en.json");
@@ -165,75 +165,29 @@
     */
 
   </script>
-
+  
 </head>
 
 <body>
 
-
-    
-
-    <!--<img src="header_1.png" alt="progress - text pre-processing" width="100%">-->
-
-    <!--Hintergrund weiß-->
-
-    <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
-        <!-- container nach überschrift und i anfangen um verschiebung zu vermeiden-->
-        <div class="container-fluid">
-            <div class="row">
-
-                <!-- links - leer -->
-            <div class="col-sm-2 col-md-2 col-lg-2"></div>
-
-        <!--Überschrift-->
-        <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ml-xs-2 pt-2">
-            
-            <h1>III. Speech Signal Generation</h1>
-
-            <p>In our third step your initial IPA input will be processed and output through a speech synthesis algorithm. Down below you will find multiple synthesis that differ in them being parametric (or not) and further their rule-based or data-based approach.
-                Check out and compare the different models if you feel like it!</p>
-                
-            </div>
-                <div class=" col-sm-1 col-md-1 col-lg-1">
-                <!-- InfoBox-SVG -->
-                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem"
-                    viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
-                    <g filter="url(#filter0_d)">
-                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
-                    </g>
-                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
-                    <defs>
-                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
-                            color-interpolation-filters="sRGB">
-                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                            <feColorMatrix in="SourceAlpha" type="matrix"
-                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                            <feOffset dy="4" />
-                            <feGaussianBlur stdDeviation="2" />
-                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                        </filter>
-                    </defs>
-                </svg>
-                </div>
-            </div>
-        </div>   
-   
-        <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
 
-
-            <!-- links - leer -->
-            <div class="col-sm-2 col-md-2 col-lg-2"></div>
-
-            <!-- Mitte - Hauptteil -->
-            <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
+            <!-- links - leer -->           
+            <div class="col-lg-3" ></div>
 
 
+            <!-- Mitte - Hauptteil -->           
+            <div class="col-lg-6" >
+                
+                <!--Überschrift-->
+                <h1>III. Speech Signal Generation</h1>
+                
+                <p>In our third step your initial IPA input will be processed and output through a speech synthesis algorithm. Down below you will find multiple synthesis that differ in them being parametric (or not) and further their rule-based or data-based approach.
+                    Check out and compare the different models if you feel like it!</p>
+                
                 <!--Karte blau-->
-                <div class="container my-5">
+                <div class="container my-5" >
                     <div class="card " id="card">
                         <div class="card-body" id="card-body">
                             <p>
@@ -310,25 +264,9 @@
                         </div>
                     </div>
                 </div>
-
+                
                 <!--Content unten drunter-->
-                <!-- interne rows für graphic/text-->
-                <div class="row">
-
-                    <!--
-                    <div class="col-md-6 col-lg-8 col-xs-7">
-                        <div class="my-5">
-                            <h1 id="heading">What happened here?</h1>
-                            <p>The formant synthesis is based on the source-filter-model of speech generation. Here, voiced and unvoiced source signals are modified through so-called formants. This approach aims to duplicate all of the parameters, 
-                                that are used in human speech production, through using formant filters. The value of each individual formant filter changes in correlation to the different phonemes and sounds.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xs-1 col-sm-3 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
-                        <img src="\assets\keyboard_graphic.png" id="keyboardpng">
-                        </img>
-                    </div>
-                    -->
-
+                <div class="container">
                     <div class="my-5">
                         <h1 id="heading">What happened here?</h1>
                         <p>The formant synthesis is based on the source-filter-model of speech generation. Here, voiced and unvoiced source signals are modified through so-called formants. This approach aims to duplicate all of the parameters, that are used in human speech production, through using formant filters. The value of each individual formant filter changes in correlation to the different phonemes and sounds.</p>
@@ -432,9 +370,9 @@
                              title="Titel"
                              data-content="Kurzer Erklärtext zu diesem Teil der Formantsynthese"/>
                             </g>
-                        </svg>
+                           </svg>
                            
-                        <p class="small font-italic">(cf. O‘Shaughnessy, 2000)</p>  
+                           <p class="small font-italic">(cf. O‘Shaughnessy, 2000)</p>  
                     </div>
 
 
@@ -442,55 +380,61 @@
                         <h1 id="heading">Types of speech synthesis</h1>
                         <p>There are other variants of speech signal generators that each come with their own benefits and disadvantages. The <b>unit-selection synthesis</b> and the <b>PSOLA synthesis</b> represent concatenive synthesis’, while the <b>“Hidden Markov Model”-based synthesis</b> depicts even another approach to generate speech signals.</p>
                     </div>
-
-                    <div class="mt-5 ">
+    
+                    <div class="mt-5"> 
                         <h1 id="heading">"Check yourself"-Corner </h1>
+                        <p>Do you want to learn more about the advantages of each speech synthesis? Do you think you are able to identify, which speech synthesis was used, just by listening to an audio example?
+                        <br> Find out in the quiz section.</p>
 
-                        <div class="row">
-                            <div class="col-md-4 col-lg-4 col-xs-6">
-                                <img src="\assets\graphic_quiz_laptop.png" id="quizbild">
-                                </img>
-                            </div>
-                            <div class="col-md-8 col-lg-8 col-xs-6">
-                                <p>Do you want to learn more about the advantages of each speech synthesis? Do you think you are able to identify, which speech synthesis was used, just by listening to an audio example?</p>
-                                <p>Check out those questions and more in the quiz down below:</p>
-                            </div>
-                        </div>
                         <!--Quiz einbinden-->
                         <div class="row">
-                            <div class="col-md-6 col-lg-8 col-xs-6">
-                                <span class="font-weight-light font-italic align-left"> Start the quiz</span>
-
-                                <!-- Quiz Starts Dreieck - Collapsable -->
-                                <button class="btn" type="button" onclick="window.location.href='../1Lautsprache/Quiz.html'"
-                                    aria-expanded="false" aria-controls="collapseQuiz1">
-                                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
-                                            fill="#628BC8" />
-                                    </svg>
-                                </button>
+                            <div class="container">
+                            <span class="font-weight-light font-italic align-left"> Start the quiz</span>
+                            <!-- Das Weiter Dreieck -->
+                            <button class="btn">
+                                <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                                </svg>
+                            </button>
                             </div>
                         </div>
-
 
                     </div>
 
-
+                    
 
                 </div>
 
 
             </div>
 
-
-            <!-- rechts -->
-            <div class=" col-sm-1 col-md-2 col-lg-2">
+            
+            <!-- rechts - Info-btn -->
+            <div class="col-lg-3" > 
+                
+            
+                <!-- InfoBox-SVG -->
+                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                    <g filter="url(#filter0_d)">
+                    <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                    </g>
+                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                    </filter>
+                    </defs>
+                </svg>
 
                 <!-- Modal -->
-                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog rounded-lg" role="document">
                         <div class="modal-content rounded-lg">
                             <div class="modal-body">
@@ -500,9 +444,9 @@
                                 filters as an input. If you want to know what th single components exactly mean and what the model does for the genration of synthetic speech,
                                 check out the explanation of the fujisaki model beneath the interactive box. But first of all:<br>
                                 <h3>What exactly is prosody? </h3> 
-                                Here comes an understandable explanation of prosody that every student can understand!<br>  
-                                    <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
-                                        data-dismiss="modal">Close</button>
+                                Here comes an understandable explanation of prosody that every student can understand!
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
                                 </p>
 
                             </div>
@@ -514,72 +458,69 @@
             </div>
 
         </div>
-
+   
     </div>
-
 
     <!------------------------------Der footer-------------------------->
     <div class="container-fluid my-5">
-         <div class="row">
-            <!--alles in eins statt 3 colums-->
-
-
-            <div class="col-lg-12 col-md-10 col-sm-10 ">
-                <div class="float-left">
-                    <!--DER back-bUTTON-->
-                    <a href="../2Fujisaki\Fujisaki.html" class="btn " role="button">
-                        <button class="btn">
-                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
-                                    fill="#628BC8" />
-                            </svg>
-                        </button>
-                        <!--DER WEITER-text-->
-                        <span class="font-weight-light">Back</span>
-                    </a>
-                </div>
-            
-                <div class="float-right">
-                    <a href="../4Auswertung_Quizende\auswertung.html" class="btn" role="button">
-                        <!--DER WEITER-text-->
-                        <span class="font-weight-light ">Next</span>
-                        <!-- Das Weiter Dreieck -->
-                        <button class="btn">
-                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
-                                    fill="#628BC8" />
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- Footer unten -->
-    <div class="container">
         <div class="row">
-
-            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
-                <span class="small"><a class="btn" href="">Impressum</a></span>
-            </div>
-
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <span class="small"><a class="btn" href="">Data Privacy</a></span>
-            </div>
-
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                <span class="small"> <a class="btn" href="">Copyright</a></span>
-            </div>
-        </div>
-        <br>
-    </div>
+           <!--alles in eins statt 3 colums-->
 
 
+           <div class="col-lg-12 col-md-10 col-sm-10 ">
+               <div class="float-left">
+                   <!--DER back-bUTTON-->
+                   <a href="../2Fujisaki\Fujisaki.html" class="btn " role="button">
+                       <button class="btn">
+                           <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
+                               <path
+                                   d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
+                                   fill="#628BC8" />
+                           </svg>
+                       </button>
+                       <!--DER WEITER-text-->
+                       <span class="font-weight-light">Back</span>
+                   </a>
+               </div>
+           
+               <div class="float-right">
+                   <a href="../4Auswertung_Quizende\auswertung.html" class="btn" role="button">
+                       <!--DER WEITER-text-->
+                       <span class="font-weight-light ">Next</span>
+                       <!-- Das Weiter Dreieck -->
+                       <button class="btn">
+                           <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
+                               <path
+                                   d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                   fill="#628BC8" />
+                           </svg>
+                       </button>
+                   </a>
+               </div>
+           </div>
+
+       </div>
+   </div>
+   <!-- Footer unten -->
+   <div class="container">
+       <div class="row">
+
+           <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+               <span class="small"><a class="btn" href="">Impressum</a></span>
+           </div>
+
+           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               <span class="small"><a class="btn" href="">Data Privacy</a></span>
+           </div>
+
+           <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+               <span class="small"> <a class="btn" href="">Copyright</a></span>
+           </div>
+       </div>
+       <br>
+   </div>
 
 </body>
 

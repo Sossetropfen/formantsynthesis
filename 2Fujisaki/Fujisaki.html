@@ -87,11 +87,10 @@
                 <!--Karte blau-->
                 <div class="container my-5">
                     <div class="card " id="card">
-                        <div class="card-body" id="card-body">
-                            
+                        <div class="card-body" id="card-body">                            
 
                             <!--Beginn der Eingabeformulare-->
-                            <div class="row">
+                            <div class="row p-3 pl-lg-5">
 
                                 <!--Bias-Eingabe-->
                                 <div class="col-lg-4" >
@@ -157,8 +156,21 @@
                                     <div id="button">
                                         <button class="btn btn-info" id="btn_accent">submit accent command</button>
                                     </div>
+                                    
                                 </div>
                                 
+                                <div class="my-2">
+                                    <img src="../assets\fujisaki-formel.png" alt="formel">
+                                </div>
+
+                                <div class="my-2">
+                                    <img src="../assets\fujisaki-g_pi.png" alt="formel">
+                                </div>
+
+                                <div class="my-2">
+                                    <img src="../assets\fujisaki-g_ai.png" alt="formel">
+                                </div>
+
                             </div>
 
                         </div>
@@ -167,26 +179,33 @@
 
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
+
                 <div class="row">
-                    <div class="col-md-6 col-lg-8 col-xs-7">
-                        <div class="my-5">
-                            <h1 id="heading">How does the Fujisaki Model work?</h1>
-                            <p>The Fujisaki-model is one method to generate the F<sub>0</sub> contour of speech signals.
-                            This contour contributes important non-linguistic information used for prosody generation. 
-                            Such information can be the emotion and naturalness of the speaker. The model represents these informations as a superposition of a base frequency and 
-                            two second-order, linear filters. 
-                            <br><br>
-                            Phrase and accent commands: On one side, the Phrase commands describe starting points as Diraq-impulses. On the other side, accent control 
-                            describes rectangular functions and is always positive. Both filters have control mechanisms, which are displayed in the formular below. The outputs of those control mechanisms are joined
-                            with the base frequency F<sub>b</sub> to form the F<sub>0</sub> contour whilst reducing the complexity to a set of of three parameters.</p>
-                        </div>
+                    <div class="my-5">
+                        <h1 id="heading">How does the Fujisaki Model work?</h1>
+                        <p>The Fujisaki-model is one method to generate the F<sub>0</sub> contour of speech signals.
+                        This contour contributes important non-linguistic information used for prosody generation. 
+                        Such information can be the emotion and naturalness of the speaker. The model represents these informations as a superposition of a base frequency and 
+                        two second-order, linear filters. 
+                        <br><br>
+                        Phrase and accent commands: On one side, the Phrase commands describe starting points as Diraq-impulses. On the other side, accent control 
+                        describes rectangular functions and is always positive. Both filters have control mechanisms, which are displayed in the formular below. The outputs of those control mechanisms are joined
+                        with the base frequency F<sub>b</sub> to form the F<sub>0</sub> contour whilst reducing the complexity to a set of of three parameters.</p>
                     </div>
-                    <div class="col-md-3 col-lg-2 col-xs-1 col-sm-3 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
-                        <img src="\assets\keyboard_graphic.png" id="keyboardpng">
+                        
+                    
+
+                    <!--fette graphic in der Mitte-->
+                    <div class="col-lg-2 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
+                    </div>
+                    <div class="col-md-10 col-lg-6 col-xs-10">
+                        <img src="../assets\model_scheme_hinterleitner.png" id="keyboardpng">
                         </img>
+                        <p>Fujisaki model for the generation of F<sub>0</sub> contours.<br> 
+                        (Hinterleitner, 2012, S.3)</p>
                     </div>
-
-
+                    <div class="col-lg-2 col-xs-1ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
+                    </div>
 
                     <div class="my-5">
                         <h1 id="heading">How does speech synthesis use prosody generation?</h1>
@@ -347,186 +366,7 @@
 
 
 <script>
-    var inputSentenceIPA = sessionStorage.getItem("inputSentenceIPA");
-    var inputSentence = sessionStorage.getItem("inputSentence");
-    console.log(inputSentenceIPA);
-    document.getElementById('inputSentence').innerHTML = inputSentence;
-    document.getElementById('inputSentenceIPA').innerHTML = "→ " + inputSentenceIPA;
-
-    //Für Popover, das nochmal genauer das zustandekommen der übersetzung erklärt
-    //Berechne String der Teilwörter erklärt
-
-    var erklaerungstext = "Here is how we translated your sentence (showcased by the first 3 words):\n\n"
-
-    var woerter = inputSentence.split(" ", 3);
-    var IPAwoerter = inputSentenceIPA.split(" ", 3);
     
-    for (let i = 0; i < 3; i++) {
-        erklaerungstext += "<b>" + woerter[i] + "</b>";
-        erklaerungstext += " → ";
-        erklaerungstext += IPAwoerter[i];
-        erklaerungstext += " | |  ";
-        erklaerungstext += ipaElementsExplainer(IPAwoerter[i]);         // Added ein Baustein-Erklärung (Code ist ganz unten weil lang)
-
-        erklaerungstext += "\n";
-    }
-    erklaerungstext += "\n";
-
-    //Überschreibe Content des Popovers mit der Erklärung
-    $('#inputSentence').popover('hide');
-    $('#inputSentence').click(function () {
-        $('#inputSentence').attr('data-content',erklaerungstext);
-    $('#inputSentence').popover('show');
-    });
-   
-function ipaElementsExplainer(outputIPAname){
-        var elementsString = "";
-        let zaehler = 0;
-        let n = 1; //Anzahl an auszugebenden elements
-
-        //cases für alle buchstaben
-    if (outputIPAname.includes("ɪɹ") && zaehler < n) {
-      elementsString += "ɪɹ ➔ ear / ɪˈɹ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɛɹ") && zaehler < n) {
-      elementsString += "ɛɹ ➔ air / ɛˈɹ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɔɹ") && zaehler < n) {
-      elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɑɹ") && zaehler < n) {
-      elementsString += "ɑɹ ➔ art / ɑˈɹt/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɔj") && zaehler < n) {
-      elementsString += "ɔj ➔ oil / ɔjˈl/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("tʃ") && zaehler < n) {
-      elementsString += "tʃ ➔ child / tʃajˈld/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("dʒ") && zaehler < n) {
-      elementsString += "dʒ ➔ just / dʒʌˈst/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("i") && zaehler < n) {
-      elementsString += "i ➔ even / iˈvɪn/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɪ") && zaehler < n) {
-      elementsString += "ɪ ➔ if / ɪf/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("u") && zaehler < n) {
-      elementsString += "u ➔ school / skuˈl//";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("æ") && zaehler < n) {
-      elementsString += "æ ➔ ask / æˈsk/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɑ") && zaehler < n) {
-      elementsString += "ɑ ➔ father / fɑˈðɚ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɛ") && zaehler < n) {
-      elementsString += "ɛ ➔ said / sɛˈd/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ʊ") && zaehler < n) {
-      elementsString += "ʊ ➔ good / ɡʊˈd/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɔ") && zaehler < n) {
-      elementsString += "ɔ ➔ all / ɔˈl/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ʌ") && zaehler < n) {
-      elementsString += "ʌ ➔ other /ʌˈðɚ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɚ") && zaehler < n) {
-      elementsString += "ɚ ➔ percent / pɚsɛˈnt/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ŋ") && zaehler < n) {
-      elementsString += "ŋ ➔ thing / θɪˈŋ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("θ") && zaehler < n) {
-      elementsString += "θ ➔ three / θɹiˈ//";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ð") && zaehler < n) {
-      elementsString += "ð ➔ there / ðɛˈɹ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ʃ") && zaehler < n) {
-      elementsString += "ʃ ➔ she / ʃiˈ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ʒ") && zaehler < n) {
-      elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("j") && zaehler <n) {
-      elementsString += "j ➔ yet / jɛˈt/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ɹ") && zaehler < n) {
-      elementsString += "ɹ ➔ right / ɹajˈt/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ej") && zaehler < n) {
-      elementsString += "ej ➔ able / ejˈbʌl/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("ow") && zaehler < n) {
-      elementsString += "ow ➔ over / owˈvɚ/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("aj") && zaehler < n) {
-      elementsString += "aj ➔ eyes / ajˈz/";
-      zaehler++;
-    }
-
-    if (outputIPAname.includes("aw") && zaehler < n) {
-      elementsString += "aw ➔ out / awˈt/";
-      zaehler++;
-    }
-
-    return elementsString;
-    }
 </script>
 
 
