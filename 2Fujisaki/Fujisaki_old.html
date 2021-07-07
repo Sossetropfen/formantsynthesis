@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Speech Synthesis - A learning experience!</title>
+
+  <!-- Bootstrap einbinden -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="fujisaki-style.css" />
+
+  <!-- GoogleFont einbinden -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
+  <!-- header -->
+  <div class="headerbalken">
+    <img src="\assets/headerl_2.svg" class="headerbild">
+    </img>
+</div>
+</head>
+
+<body>
+
+    
+
+    <!--Hintergrund weiß-->
+    
+    <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
+    <!--die Farben und styles sind allesamt nur zur erkennung der Spalten und Verständniss, können entfernt werden-->
+    <!--überhaupt uss ide CSS noch angepasst werden. Ein paar Dinge welche das Layout gesört haben habe ich rausgelöscht (Eigentlich alles was irgendwas mit der position zu tun hatte, Ist aber noch in allen anderen .css enthalten)-->
+    <div class="container-fluid">
+        <div class="row">
+
+            <!-- links - leer -->           
+            <div class="col-lg-3" ></div>
+
+
+            <!-- Mitte - Hauptteil -->           
+            <div class="col-lg-6" >
+                
+                <!--Überschrift-->
+                <h1>II. Fujisaki Model & Prosody</h1>
+                
+                <p>Before the pre-processed phonetic components can be synthesized to an audio signal, the format synthesis will generate a prosody for the voice we are about to hear. Out of multiple models existing we are going to show you the Fujisaki-Model for prosody-generation.</p>
+                
+                <!--Karte blau-->
+                <div class="container  my-5" >
+                    <div class="card " >
+                        <div class="card-body ">
+                            
+                            <!--Beginn der Eingabeformulare-->
+                            <div class="row">
+
+                                <!--Bias-Eingabe-->
+                                <div class="col-lg-4" >
+                                    <div id="bias">
+                                        <form id="form_bias">
+                                            <label for="bias_input">Enter the bias level F_b:</label>
+                                            <br>
+                                            <input id="bias_input" value="0"></input>
+                                        </form> 
+                                    </div>
+                                    <div id="button">
+                                        <button class="btn btn-info" id="btn_bias">enter bias level</button>
+                                    </div>
+                                </div>
+
+                                <!--Phrase command Eingabe-->
+                                <div class="col-lg-4" >
+                                    <div id="phrase">
+                                        <form id="form_phrase">
+                                            <label for="A_pi_input">Enter A_pi:</label>
+                                            <br>
+                                            <input id="A_pi_input" value="0"></input>
+                                            <br>
+                                            <label for="T_0i_input">Enter T_0i:</label>
+                                            <br>
+                                            <input id="T_0i_input" value="0"></input>
+                                            <br>
+                                            <label for="a_i_input">Enter a_i:</label>
+                                            <br>
+                                            <input id="a_i_input" value="0"></input>
+                                        </form> 
+                                    </div>
+                                    <div id="button">
+                                        <button class="btn btn-info" id="btn_phrase">submit phrase command</button>
+                                    </div>
+                                </div>
+
+                                <!--Accent command Eingabe-->
+                                <div class="col-lg-4" >
+                                    <div id="accent">
+                                        <form id="form_accent">
+                                            <label for="A_aj_input">Enter A_aj:</label>
+                                            <br>
+                                            <input id="A_aj_input" value="0"></input>
+                                            <br>
+                                            <label for="T_1j_input">Enter T_1j:</label>
+                                            <br>
+                                            <input id="T_1j_input" value="0"></input>
+                                            <br>
+                                            <label for="T_2j_input">Enter T_2j:</label>
+                                            <br>
+                                            <input id="T_2j_input" value="0"></input>
+                                            <br>
+                                            <label for="b_j_input">Enter b_j:</label>
+                                            <br>
+                                            <input id="b_j_input" value="0"></input>
+                                            <br>
+                                            <label for="v_j_input">Enter v_j:</label>
+                                            <br>
+                                            <input id="v_j_input" value="0"></input>
+                                        </form> 
+                                    </div>
+                                    <div id="button">
+                                        <button class="btn btn-info" id="btn_accent">submit accent command</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <!--Content unten drunter-->
+                <div class="container">
+                    <div class="my-5">
+                        <h1 id="heading">How does the Fujisaki Model work?</h1>
+                        <p>The Fujisaki-model is one method to generate the F<sub>0</sub> contour of speech signals.
+                         This contour contributes important non-linguistic information used for prosody generation. 
+                         Such information can be the emotion and naturalness of the speaker. The model represents these informations as a superposition of a base frequency and 
+                        two second-order, linear filters. 
+                        <br><br>
+                        Phrase and accent commands: On one side, the Phrase commands describe starting points as Diraq-impulses. On the other side, accent control 
+                        describes rectangular functions and is always positive. Both filters have control mechanisms, which are displayed in the formular below. The outputs of those control mechanisms are joined
+                        with the base frequency F<sub>b</sub> to form the F<sub>0</sub> contour whilst reducing the complexity to a set of of three parameters.</p>
+                    </div>
+    
+                    <div class="my-5">
+                        <h1 id="heading">How does speech synthesis use prosody generation?</h1>
+                        <p>The biggest challenge for the synthesis of speech is probably the creation of a natural sounding voice. 
+                        The plain synthesized speech could easily result in the commonly known robotic voice still heard from older TTS-Systems. 
+                        The fundamental frequency, called F<sub>0</sub>, can be generated, f.e., with the use of the Fujisaki-model, as described above.
+                        The model allows us to represent all possible F<sub>0</sub>-contours used by our system with only three physically and physiolgically parameters wich can be mathmatically described.
+                        These contours would allow the synthesis to stimulate "the vocal fold oscilation with slowly variyng frequencies, whose dynamics are governed by a combination of different factors"
+                        of the vocal track. The fundamental frequency would add prosodic features to the else "emotionless" synthetic voice.</p>
+                    </div>
+    
+                    <div class="mt-5">
+                        <h1 id="heading">"Check yourself"-Corner </h1>
+                        <p>Ever wondered how a TTS-system handles exceptions like foreign words or proper names? Interested in puzzling together the “Ortographic text ➔ Symbolic description”-flowchart?</p>
+                        <p>Check out those questions and more in the quiz down below:</p>
+
+                        <!--Quiz einbinden-->
+                        <div class="row">
+                            <div class="container">
+                            <span class="font-weight-light font-italic align-left"> Start the quiz</span>
+                            <!-- Das Weiter Dreieck -->
+                            <button class="btn">
+                                <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
+                                </svg>
+                            </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+
+                </div>
+
+
+            </div>
+
+
+            <!-- rechts - Info-btn -->
+            <div class="col-md-2 col-lg-3" > 
+                
+            
+                <!-- InfoBox-SVG -->
+                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                    <g filter="url(#filter0_d)">
+                    <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                    </g>
+                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                    <defs>
+                    <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                        color-interpolation-filters="sRGB">
+                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                        <feOffset dy="4" />
+                        <feGaussianBlur stdDeviation="2" />
+                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                    </filter>
+                    </defs>
+                </svg>
+
+                <!-- Modal -->
+                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog rounded-lg" role="document">
+                        <div class="modal-content rounded-lg">
+                            <div class="modal-body">
+                                <h3>How to use?</h3>
+                                <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
+                                <p>In this step you're about to learn how the fujisaki model for prosody generation works. Based on a given formular you have to set to linear 
+                                filters as an input. If you want to the exact meaning of a given single component and if you want to further understand what the model does for the genration of synthetic speech,
+                                check out the explanation of the fujisaki model beneath the interactive box. But first of all:<br>
+                                <h3>What exactly is prosody? </h3> 
+                                Unlike the phonemes, prosody describes not one single segment but greater elements of speech. Under the term of prosody we can differentiate between such features 
+                                as stress, intonation, tempo, pausing and rythm. Generally speaking, one could describe prosody as the melody of speech. <br>
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+   
+    </div>
+
+
+    <!------------------------------Der footer-------------------------->
+    <div class="container-fluid my-5">
+        <div class="row">
+           <!--alles in eins statt 3 colums-->
+
+
+           <div class="col-lg-12 col-md-10 col-sm-10 ">
+               <div class="float-left">
+                   <!--DER back-bUTTON-->
+                   <a href="../0Landing\landing.html" class="btn " role="button">
+                       <button class="btn">
+                           <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
+                               <path
+                                   d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
+                                   fill="#628BC8" />
+                           </svg>
+                       </button>
+                       <!--DER WEITER-text-->
+                       <span class="font-weight-light">Back</span>
+                   </a>
+               </div>
+           
+               <div class="float-right">
+                   <a href="../2Fujisaki\fujisaki.html" class="btn" role="button">
+                       <!--DER WEITER-text-->
+                       <span class="font-weight-light ">Next</span>
+                       <!-- Das Weiter Dreieck -->
+                       <button class="btn">
+                           <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                               xmlns="http://www.w3.org/2000/svg">
+                               <path
+                                   d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                   fill="#628BC8" />
+                           </svg>
+                       </button>
+                   </a>
+               </div>
+           </div>
+
+       </div>
+   </div>
+   <!-- Footer unten -->
+   <div class="container">
+       <div class="row">
+
+           <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+               <span class="small"><a class="btn" href="">Impressum</a></span>
+           </div>
+
+           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+               <span class="small"><a class="btn" href="">Data Privacy</a></span>
+           </div>
+
+           <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+               <span class="small"> <a class="btn" href="">Copyright</a></span>
+           </div>
+       </div>
+       <br>
+   </div>
+
+    
+
+</body>
+
+
+<!-- von Bootstrap benötigtes JS: jQuery library, Popper JS, Latest compiled JavaScript -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!--die Fujiaki.js-Einbindung-->
+<script src="fujisaki.js"></script> 
+
+<!----
+<script>
+  
+  /* -------------------------Variables and arrays-------------------------*/
+    var bias = 0;  // bias level of instance - Fb
+    var phr_cnt = 0; // Number of phrase-controls - I
+    var acc_cnt = 0; // Number of accent-controls - J
+    const A_pi = []; // magnitude levels of phrase commands - A_pi
+    const A_aj = []; // amplitude levels of accent commands 
+    const T_0i = []; // Instants of prhase commands
+    const T_1j = []; // onsets of accent commands
+    const T_2j = []; // ends of accent commands
+    const a_i = []; // nat. angular freq. of phrase-control to phrase commands
+    const b_j = []; // nat. angular freq. of accent-control to accent commands
+    const v_j = []; // ceilling level of accent component in accent commands
+  /*-------------------------Variables end----------------------------------*/
+
+  
+  /*-------------------------Event Listeners--------------------------------*/
+  document.getElementById("btn_bias").addEventListener("click", BiasInput);
+  document.getElementById("btn_phrase").addEventListener("click", PhraseInput);
+  document.getElementById("btn_accent").addEventListener("click", AccentInput);
+  document.getElementById("btn_plot").addEventListener("click", PlotOutput);
+
+  /*-------------------------Event Listeners end----------------------------*/
+
+
+  /*-------------------------Functions--------------------------------------*/
+  function BiasInput(){
+        bias = document.getElementById("bias_input").value;
+        document.getElementById("btn_bias").innerText = "change bias level";
+        //alert(bias);
+  };
+
+  function PhraseInput(){
+        phr_cnt++;
+        A_pi.push(document.getElementById("A_pi_input").value);
+        T_0i.push(document.getElementById("T_0i_input").value);
+        a_i.push(document.getElementById("a_i_input").value);
+        document.getElementById("btn_phrase").innerText = "add phrase command";
+        //alert(phr_cnt);
+        //alert(A_pi);
+        //alert(T_0i);
+        //alert(a_i);
+  };
+
+  function AccentInput(){
+        acc_cnt++;
+        A_aj.push(document.getElementById("A_aj_input").value);
+        T_1j.push(document.getElementById("T_1j_input").value);
+        T_2j.push(document.getElementById("T_2j_input").value);
+        b_j.push(document.getElementById("b_j_input").value);
+        v_j.push(document.getElementById("v_j_input").value);
+        document.getElementById("btn_accent").innerText = "add accent command";
+        //alert(acc_cnt);
+        //alert(A_ai);
+        //alert(T_1j);
+        //alert(T_2j);
+        //alert(b_j);
+        //alert(v_j);
+  };
+
+  function PlotOutput(){
+
+        //here's some stuff to do!!!!!!!!!!!!!!!!!!!!!!
+
+  };
+  /*-------------------------Functions end----------------------------------*/
+
+</script>
+-->
+    
+
+</html>
