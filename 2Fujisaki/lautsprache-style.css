@@ -67,9 +67,6 @@ body {
  
   .form-control {
     background: rgba(196, 196, 196, 0.5);
-    mix-blend-mode: multiply;
-    border-radius: 40px;
-    text-align: center;
   }
 
   

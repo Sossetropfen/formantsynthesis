@@ -90,15 +90,16 @@
                         <div class="card-body" id="card-body">                            
 
                             <!--Beginn der Eingabeformulare-->
-                            <div class="row p-3 pl-lg-5">
+                            <div class="row p-5">
 
                                 <!--Bias-Eingabe-->
-                                <div class="col-lg-4" >
+                                <div class="col-lg-4 col-md-12" >
                                     <div id="bias">
+                                        <h3>Bias Level</h3>
                                         <form id="form_bias">
-                                            <label for="bias_input">Enter the bias level F_b:</label>
+                                            <label for="bias_input">Enter the bias level, F<sub>b</sub>:</label>
                                             <br>
-                                            <input id="bias_input" value="0"></input>
+                                            <input id="bias_input" class="form-control" value="0"></input>
                                         </form> 
                                     </div>
                                     <div class="my-3" id="button">
@@ -107,20 +108,21 @@
                                 </div>
 
                                 <!--Phrase command Eingabe-->
-                                <div class="col-lg-4" >
+                                <div class="col-lg-4 col-md-12 my-lg-0 my-md-2 my-sm-2" >
                                     <div id="phrase">
+                                        <h3>Phrase Commands</h3>
                                         <form id="form_phrase">
-                                            <label for="A_pi_input">Enter A_pi:</label>
+                                            <label for="A_pi_input">magnitude of ith command, A<sub>pi</sub>:</label>
                                             <br>
-                                            <input id="A_pi_input" value="0"></input>
+                                            <input id="A_pi_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="T_0i_input">Enter T_0i:</label>
+                                            <label class="mt-2" for="T_0i_input">instant of occurrence of ith command, T<sub>0i</sub>:</label>
                                             <br>
-                                            <input id="T_0i_input" value="0"></input>
+                                            <input id="T_0i_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="a_i_input">Enter a_i:</label>
+                                            <label class="mt-2" for="a_i_input">angular frequency of control mechanism to ith command, &alpha;<sub>i</sub>:</label>
                                             <br>
-                                            <input id="a_i_input" value="0"></input>
+                                            <input id="a_i_input" class="form-control" value="0"></input>
                                         </form> 
                                     </div>
                                     <div class="my-3" id="button">
@@ -129,28 +131,29 @@
                                 </div>
 
                                 <!--Accent command Eingabe-->
-                                <div class="col-lg-4" >
+                                <div class="col-lg-4 col-md-12 my-lg-0 my-md-2 my-sm-2" >
                                     <div id="accent">
+                                        <h3>Accent Commands</h3>
                                         <form id="form_accent">
-                                            <label for="A_aj_input">Enter A_aj:</label>
+                                            <label for="A_aj_input"> amplitude of jth command, A<sub>aj</sub>:</label>
                                             <br>
-                                            <input id="A_aj_input" value="0"></input>
+                                            <input id="A_aj_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="T_1j_input">Enter T_1j:</label>
+                                            <label class="mt-2" for="T_1j_input">onset of jth command, T<sub>1j</sub>:</label>
                                             <br>
-                                            <input id="T_1j_input" value="0"></input>
+                                            <input id="T_1j_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="T_2j_input">Enter T_2j:</label>
+                                            <label class="mt-2" for="T_2j_input">end of jth command, T<sub>2j</sub>:</label>
                                             <br>
-                                            <input id="T_2j_input" value="0"></input>
+                                            <input id="T_2j_input" class="form-control" value="0"></input>
                                             <br>
                                             <label class="mt-2" for="b_j_input">Enter b_j:</label>
                                             <br>
-                                            <input id="b_j_input" value="0"></input>
+                                            <input id="b_j_input" class="form-control" value="0"></input>
                                             <br>
                                             <label class="mt-2" for="v_j_input">Enter v_j:</label>
                                             <br>
-                                            <input id="v_j_input" value="0"></input>
+                                            <input id="v_j_input" class="form-control" value="0"></input>
                                         </form> 
                                     </div>
                                     <div class="my-3" id="button">
@@ -159,20 +162,20 @@
                                     
                                 </div>
 
-                                <div class="my-2 col-10 ">
+                                <div class="my-2 col-lg-12 ">
                                     <button class="btn btn-info" id="btn_plot">show the F<sub>0</sub> contour</button>
                                 </div>
                                 
-                                <div class="my-2">
-                                    <img src="../assets\fujisaki-formel.png" alt="formel">
+                                <div class="pl-3 my-2">
+                                    <img class="img-fluid" src="../assets\fujisaki-formel.png" alt="formel">
                                 </div>
 
-                                <div class="my-2">
-                                    <img src="../assets\fujisaki-g_pi.png" alt="formel">
+                                <div class="pl-3 my-2">
+                                    <img class="img-fluid" src="../assets\fujisaki-g_pi.png" alt="formel">
                                 </div>
 
-                                <div class="my-2">
-                                    <img src="../assets\fujisaki-g_ai.png" alt="formel">
+                                <div class="pl-3 my-2">
+                                    <img class="img-fluid" src="../assets\fujisaki-g_ai.png" alt="formel">
                                 </div>
 
                             </div>
