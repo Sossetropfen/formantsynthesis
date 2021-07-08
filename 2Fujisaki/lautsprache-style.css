@@ -29,6 +29,10 @@ body {
 
   }
 
+  .btn-info{
+    background-color: #81B3FF !important;
+  }
+
 
   .card-title {
     font-size: 48;
