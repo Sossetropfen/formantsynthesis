@@ -93,7 +93,7 @@ function convertText(str){
 		var currentEl = replaceSigns(englishTextArray[i]);
 		if (currentEl == ''){ //if the input is split by " " sometimes there is leftover elements which would be converted to zero, which we dont want
 			console.log("upsi");  
-		} else if (currentEl.split(".").length == 3 && !isNaN(currentEl.split(".")[0]) && currentEl.split(".")[0] > 0 && currentEl.split(".")[0] < 32 && ((!isNaN(currentEl.split(".")[1]) && currentEl.split(".")[1] < 13 && currentEl.split(".")[1] > 0 && currentEl.split(".")[1].length < 3) || ['january','jan','february','feb','march','mar','april','apr','may','june','jun','july','jul','august','aug','september','sep','october','oct','november','nov','december','dec'].includes(currentEl.split(".")[1].toLowerCase())) && currentEl.split(".")[2].length < 5){
+		} else if (isDate(currentEl)){
 			// Date if exactly 3 elements when split by ".": first a number between 1 and 31, then either a number with either 1 or 2 digits or a word with max 9 characters (september is the longest month with 9 characters), and then a number with < 4 digits 
 			console.log("date");
 			var date = currentEl.split("."); //ordinal number, string (string abreviation) or number -> string, number
@@ -102,6 +102,7 @@ function convertText(str){
 			//month
 			date[1] = convertMonth(date[1]);
 			//year
+            date[2] = date[2].split(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g).filter(x => x !== "")[0];
 			if (Math.abs(date[2]) < 2000){ // if < 2000 year abcd pronounced as: ab hundred cd
 				if (date[2].length == 4){
 					var h = date[2].substr(0,2); 
@@ -189,7 +190,8 @@ function textToIpa(str, IPAText) {
 	for (var i in str){
 		var c = str[i].split(" ");
 		for (var h in c){
-			var IPAWord = dictLookup(c[h].toLowerCase().replace(/[^\w\s]|_/g, '').replace(/\s+/g, ' '));
+			var IPAWord = dictLookup(c[h].toLowerCase());
+			//var IPAWord = dictLookup(c[h].toLowerCase().replace(/[^\w\s]|_/g, '').replace(/\s+/g, ' '));
             if (IPAWord == 'undefined'){
 				var b = "";
 				for (var j = 0; j < c[h].length; j++){
@@ -241,34 +243,46 @@ function intToWords(rawValue){
 	}
 }
 
+function isDate(input){
+    if (input.split(".").length == 3 || (input.split(".").length == 4 && input.split(".")[3] == "")){
+        var posDate = input.split(".");
+        if(!isNaN(posDate[0]) && posDate[0] > 0 && posDate[0] < 32
+           && ((!isNaN(posDate[1]) && posDate[1] < 13 && posDate[1] > 0 && posDate[1].length < 3) || (['january','jan','february','feb','march','mar','april','apr','may','june','jun','july','jul','august','aug','september','sep','october','oct','november','nov','december','dec'].includes(posDate[1].toLowerCase())))
+           && !isNaN(posDate[2].split(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g).filter(x => x !== "")[0]) && posDate[2].split(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g).filter(x => x !== "")[0].length < 5){
+                return true;   
+            }
+        return false;
+    }
+}
+
 function convertMonth(month){
 	var ret;
 	if (month == '1' || month == '01' || month == 'jan'){
-		ret = 'january';
+		return 'january';
 	} else if (month == '2' || month == '02' || month == 'feb'){
-		ret = 'february';
+		return 'february';
 	} else if (month == '3' || month == '03' || month == 'mar'){
-		ret = 'march';
+		return 'march';
 	} else if (month == '4' || month == '04' || month == 'apr'){
-		ret = 'april';
+		return 'april';
 	} else if (month == '5' || month == '05' || month == 'may'){
-		ret = 'may';
+		return 'may';
 	} else if (month == '6' || month == '06' || month == 'jun'){
-		ret = 'june';
+		return 'june';
 	} else if (month == '7' || month == '07' || month == 'jul'){
-		ret = 'july';
+		return 'july';
 	} else if (month == '8' || month == '08' || month == 'aug'){
-		ret = 'august';
+		return 'august';
 	} else if (month == '9' || month == '09' || month == 'sep'){
-		ret = 'september';
+		return 'september';
 	} else if (month == '10' || month == '10' || month == 'oct'){
-		ret = 'october';
+		return 'october';
 	} else if (month == '11' || month == '11' || month == 'nov'){
-		ret = 'november';
+		return 'november';
 	} else if (month == '12' || month == '12' || month == 'dec'){
-		ret = 'december';
+		return 'december';
 	}
-	return ret;
+	return month;
 }
 
 function ordinalInWord(cardinal) {
