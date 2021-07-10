@@ -24,12 +24,12 @@
 <body onload="inputName()">
 
 
-  <div class="container" style="min-height:95vh">
+  <div class="container " style="min-height:95vh">
     <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
 
-    <div class="row">
+    <div class="row mx-auto align-items-center justify-content-center"  style="min-height:30vh">
       <!-- Weisse Box mit Name aus Landing-Input -->
-      <div class="card d-flex p-2" style="width: 20rem;">
+      <div class="card d-flex" style="width: 20rem;">
         <div class="card-body">
           <h5 class="card-title">Hello, my name is</h5>
           <div class="col-12">
@@ -37,6 +37,17 @@
           </div>
         </div>
       </div>
+      <!-- Weisse Box mit IPA Transformation -->
+      <div class="card d-flex" style="width: 20rem;">
+        <div class="card-body px-4">
+          <h6 class="card-title text-left px-4">Hello, my name is</h6>
+          <div class="col-12">
+            <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
+          </div>
+          <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
+        </div>
+      </div>
+    </div> <!-- obere row Ende -->
 
 
 
@@ -85,19 +96,8 @@
         </div>
       </div>
 
-    </div> <!-- obere row Ende -->
 
-    <div class="row">
-      <!-- Weisse Box mit IPA Transformation -->
-      <div class="card d-flex p-2" style="width: 20rem;">
-        <div class="card-body px-4">
-          <h6 class="card-title text-left px-4">Hello, my name is</h6>
-          <div class="col-12">
-            <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
-          </div>
-          <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
-        </div>
-      </div>
+    <div class="row mx-auto align-items-center justify-content-center" style="min-height:30vh">
 
       <!-- Weisse Box mit Spektogramm -->
       <div class="card d-flex p-2" style="width: 20rem;">
@@ -108,9 +108,13 @@
           </div>
         </div>
       </div>
+
+      <img class=" headphonegirl_asset mr-5 " src="/assets/headphonegirl_asset.png" width="200em" viewBox="0 0 459 489"></img>
+
+
     </div> <!-- mittlere row Ende -->
 
-    <div class="row">
+    <div class="row mx-auto align-items-center">
       <div class="mx-auto">
         <p class="d-inline-flex text-light font-weight-light font-italic">How did all of this work? <br> Let´s take a
           closer look!</p>
