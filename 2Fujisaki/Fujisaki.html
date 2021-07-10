@@ -19,6 +19,11 @@
         <img src="\assets/headerl_2.svg" class="headerbild">
         </img>
     </div>
+    <!-- JS Libraries for Plotting -->
+    <script src="https://unpkg.com/mathjs@9.4.2/lib/browser/math.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+    <!--die Fujiaki.js-Einbindung <script src="fujisaki.js"></script> -->
+    <script src="fujisaki.js"></script>
 </head>
 
 <body>
@@ -103,7 +108,7 @@
                                         </form> 
                                     </div>
                                     <div class="my-3" id="button">
-                                        <button class="btn btn-info" id="btn_bias">enter bias level</button>
+                                        <button class="btn btn-info" id="btn_bias" onclick="BiasInput()">enter bias level</button>
                                     </div>
                                 </div>
 
@@ -126,7 +131,7 @@
                                         </form> 
                                     </div>
                                     <div class="my-3" id="button">
-                                        <button class="btn btn-info" id="btn_phrase">submit phrase command</button>
+                                        <button class="btn btn-info" id="btn_phrase" onclick="PhraseInput()">submit phrase command</button>
                                     </div>
                                 </div>
 
@@ -157,13 +162,13 @@
                                         </form> 
                                     </div>
                                     <div class="my-3" id="button">
-                                        <button class="btn btn-info" id="btn_accent">submit accent command</button>
+                                        <button class="btn btn-info" id="btn_accent" onclick="AccentInput()">submit accent command</button>
                                     </div>
                                     
                                 </div>
 
                                 <div class="my-2 col-lg-12 ">
-                                    <button class="btn btn-info" id="btn_plot">show the F<sub>0</sub> contour</button>
+                                    <button class="btn btn-info" id="btn_plot" onclick="plotAndUnhide()">show the F<sub>0</sub> contour</button>
                                 </div>
                                 
                                 <div class="pl-3 my-2">
@@ -183,6 +188,18 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Div für die Plots, gerne schöner machen oder so, K -->
+                <!-- <div id="divForPlots" style="display: none"><p>Plots</p><br> -->
+                <div id="divForPlots"><p>Plots</p><br>
+                    <p>Total F<sub>0</sub> contour</p>
+                    <div id="plotTotal"></div>
+                    <p>Accent Commands</p>
+                    <div id="plotAccents"></div>
+                    <p>Phrase Commands</p>
+                    <div id="plotPhrases"></div>
+                </div>
+
 
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
@@ -371,9 +388,47 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script>
+    
+function draw(mode, divName) {
+    try {
 
-<!--die Fujiaki.js-Einbindung-->
-<script src="fujisaki.js"></script> 
+      const xValues = math.range(0, 6, 0.0001).toArray();
+	  var yValues = [];
+	  for (var i = 0; i < xValues.length-1; i++){
+		if(mode == "accent"){
+			yValues.push(accentCmdsDraw(xValues[i]));
+		} else if (mode == "phrase"){
+			yValues.push(phraseCmdsDraw(xValues[i]));
+		} else if (mode == "total"){
+			yValues.push(fct(xValues[i]));
+		}        
+	  }
 
+      // render the plot using plotly
+      const trace1 = {
+        x: xValues,
+        y: yValues,
+        type: 'scatter'
+      }
+      const data = [trace1]
+      Plotly.newPlot(divName, data)
+    }
+    catch (err) {
+      console.error(err)
+    }
+}
+
+function plotAndUnhide(){
+    //Zeigt div wo plots drin sind onclick von btn_plot
+    /*var x = document.getElementById("divForPlots");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    }*/
+    draw("total", 'plotTotal');
+    draw("phrase", 'plotPhrases');
+    draw("accent", 'plotAccents');
+}
+</script>
 
 </html>
