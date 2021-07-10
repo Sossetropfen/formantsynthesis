@@ -10,19 +10,13 @@ body {
     color: #484848;
   }
 
-  
-  #dreieck {
-    position: fixed;
-    top: 45%;
-    left: 65%;
-      /* PROBLEM: Muss auf andere Art positioniert werden, da es sich sonst in die Box verschiebt */
-  
-  }
-  
-  #dreieck:hover {
-    fill: #456fad;
-  }
-  
+  span a {
+    color: whitesmoke;
+    font-style: italic;
+    font-family: 'Roboto', sans-serif;
+     }
+
+
 
 .footer{
   color: #484848;
@@ -58,6 +52,11 @@ hr{
   background-color: #fff;
   background-color: rgb(255, 255, 255);
   border-radius: 1em;
+}
+
+#keinrandrechts{  
+  margin-right: 0;    /* Hatte davor seite zu breit gemacht so dass nach links und rechts gescrollt werden konnte */
+  margin-bottom: 2em; /* damit abstand unten zur extra info box */
 }
 
 /* -------------------- AB HIER FÜR QUIZ ---------------------------------------------------*/
