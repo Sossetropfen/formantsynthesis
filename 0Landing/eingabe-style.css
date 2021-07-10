@@ -23,6 +23,7 @@ body {
     box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
     border-radius: 102px;
     font-family: 'Roboto', sans-serif;
+    height: 50%;
   }
 
   span{
@@ -59,6 +60,10 @@ body {
       position: fixed;
       top: 0%;
       right: 0%;
+  }
+
+  .monitor_asset{
+    z-index: -1;
   }
 
  
