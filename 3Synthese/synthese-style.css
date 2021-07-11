@@ -73,3 +73,9 @@ body {
     margin: 2rem;
     float: left;
 }
+
+#generation{
+ width:70%; 
+ border: 1px solid red;
+ border-radius: 40px;
+}

@@ -19,35 +19,42 @@
         <img src="\assets/headerl_2.svg" class="headerbild">
         </img>
     </div>
+    <!-- JS Libraries for Plotting -->
+    <script src="https://unpkg.com/mathjs@9.4.2/lib/browser/math.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+    <!--die Fujiaki.js-Einbindung <script src="fujisaki.js"></script> -->
+    <script src="fujisaki.js"></script>
 </head>
 
 <body>
 
 
-    
+
 
     <!--<img src="header_1.png" alt="progress - text pre-processing" width="100%">-->
 
     <!--Hintergrund weiß-->
 
     <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
-        <!-- container nach überschrift und i anfangen um verschiebung zu vermeiden-->
-        <div class="container-fluid">
-            <div class="row">
+    <!-- container nach überschrift und i anfangen um verschiebung zu vermeiden-->
+    <div class="container-fluid">
+        <div class="row">
 
-                <!-- links - leer -->
+            <!-- links - leer -->
             <div class="col-sm-2 col-md-2 col-lg-2"></div>
 
-        <!--Überschrift-->
-        <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
+            <!--Überschrift-->
+            <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ml-xs-2 pt-2">
-            
-            <h1>II. Fujisaki Model & Prosody</h1>
 
-            <p>Before the pre-processed phonetic components can be synthesized to an audio signal, the format synthesis will generate a prosody for the voice we are about to hear. Out of multiple models existing we are going to show you the Fujisaki-Model for prosody-generation.</p>
-                
+                <h1>II. Fujisaki Model & Prosody</h1>
+
+                <p>Before the pre-processed phonetic components can be synthesized to an audio signal, the format
+                    synthesis will generate a prosody for the voice we are about to hear. Out of multiple models
+                    existing we are going to show you the Fujisaki-Model for prosody-generation.</p>
+
             </div>
-                <div class=" col-sm-1 col-md-1 col-lg-1">
+            <div class=" col-sm-1 col-md-1 col-lg-1">
                 <!-- InfoBox-SVG -->
                 <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem"
                     viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
@@ -69,11 +76,11 @@
                         </filter>
                     </defs>
                 </svg>
-                </div>
             </div>
-        </div>   
-   
-        <div class="container-fluid">
+        </div>
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
 
 
@@ -87,28 +94,29 @@
                 <!--Karte blau-->
                 <div class="container my-5">
                     <div class="card " id="card">
-                        <div class="card-body" id="card-body">                            
+                        <div class="card-body" id="card-body">
 
                             <!--Beginn der Eingabeformulare-->
                             <div class="row p-5">
 
                                 <!--Bias-Eingabe-->
-                                <div class="col-lg-4 col-md-12" >
+                                <div class="col-lg-4 col-md-12">
                                     <div id="bias">
                                         <h3>Bias Level</h3>
                                         <form id="form_bias">
                                             <label for="bias_input">Enter the bias level, F<sub>b</sub>:</label>
                                             <br>
                                             <input id="bias_input" class="form-control" value="0"></input>
-                                        </form> 
+                                        </form>
                                     </div>
                                     <div class="my-3" id="button">
-                                        <button class="btn btn-info" id="btn_bias">enter bias level</button>
+                                        <button class="btn btn-info" id="btn_bias" onclick="BiasInput()">enter bias
+                                            level</button>
                                     </div>
                                 </div>
 
                                 <!--Phrase command Eingabe-->
-                                <div class="col-lg-4 col-md-12 my-lg-0 my-md-2 my-sm-2" >
+                                <div class="col-lg-4 col-md-12 my-lg-0 my-md-2 my-sm-2">
                                     <div id="phrase">
                                         <h3>Phrase Commands</h3>
                                         <form id="form_phrase">
@@ -116,22 +124,25 @@
                                             <br>
                                             <input id="A_pi_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="T_0i_input">instant of occurrence of ith command, T<sub>0i</sub>:</label>
+                                            <label class="mt-2" for="T_0i_input">instant of occurrence of ith command,
+                                                T<sub>0i</sub>:</label>
                                             <br>
                                             <input id="T_0i_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="a_i_input">angular frequency of control mechanism to ith command, &alpha;<sub>i</sub>:</label>
+                                            <label class="mt-2" for="a_i_input">angular frequency of control mechanism
+                                                to ith command, &alpha;<sub>i</sub>:</label>
                                             <br>
                                             <input id="a_i_input" class="form-control" value="0"></input>
-                                        </form> 
+                                        </form>
                                     </div>
                                     <div class="my-3" id="button">
-                                        <button class="btn btn-info" id="btn_phrase">submit phrase command</button>
+                                        <button class="btn btn-info" id="btn_phrase" onclick="PhraseInput()">submit
+                                            phrase command</button>
                                     </div>
                                 </div>
 
                                 <!--Accent command Eingabe-->
-                                <div class="col-lg-4 col-md-12 my-lg-0 my-md-2 my-sm-2" >
+                                <div class="col-lg-4 col-md-12 my-lg-0 my-md-2 my-sm-2">
                                     <div id="accent">
                                         <h3>Accent Commands</h3>
                                         <form id="form_accent">
@@ -139,11 +150,13 @@
                                             <br>
                                             <input id="A_aj_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="T_1j_input">onset of jth command, T<sub>1j</sub>:</label>
+                                            <label class="mt-2" for="T_1j_input">onset of jth command,
+                                                T<sub>1j</sub>:</label>
                                             <br>
                                             <input id="T_1j_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="T_2j_input">end of jth command, T<sub>2j</sub>:</label>
+                                            <label class="mt-2" for="T_2j_input">end of jth command,
+                                                T<sub>2j</sub>:</label>
                                             <br>
                                             <input id="T_2j_input" class="form-control" value="0"></input>
                                             <br>
@@ -154,18 +167,20 @@
                                             <label class="mt-2" for="v_j_input">Enter v_j:</label>
                                             <br>
                                             <input id="v_j_input" class="form-control" value="0"></input>
-                                        </form> 
+                                        </form>
                                     </div>
                                     <div class="my-3" id="button">
-                                        <button class="btn btn-info" id="btn_accent">submit accent command</button>
+                                        <button class="btn btn-info" id="btn_accent" onclick="AccentInput()">submit
+                                            accent command</button>
                                     </div>
-                                    
+
                                 </div>
 
                                 <div class="my-2 col-lg-12 ">
-                                    <button class="btn btn-info" id="btn_plot">show the F<sub>0</sub> contour</button>
+                                    <button class="btn btn-info" id="btn_plot" onclick="plotAndUnhide()">show the
+                                        F<sub style="color: whitesmoke">0</sub> contour</button>
                                 </div>
-                                
+
                                 <div class="pl-3 my-2">
                                     <img class="img-fluid" src="../assets\fujisaki-formel.png" alt="formel">
                                 </div>
@@ -184,44 +199,73 @@
                     </div>
                 </div>
 
+                <!-- Div für die Plots, gerne schöner machen oder so, K -->
+                <!-- <div id="divForPlots" style="display: none"><p>Plots</p><br> -->
+                <div id="divForPlots" style="display: none;">
+                    <h3>Plots</h3>
+                    <h5>Total F<sub>0</sub> contour</h5>
+                    <div id="plotTotal"></div>
+                    <br>
+                    <h5>Accent Commands<h5>
+                    <div id="plotAccents"></div>
+                    <br>
+                    <h5>Phrase Commands</h5>
+                    <div id="plotPhrases"></div>
+                </div>
+
+
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
 
                 <div class="row">
                     <div class="my-5">
-                        <h1 id="heading">How does the Fujisaki Model work?</h1>
-                        <p>The Fujisaki-model is one method to generate the F<sub>0</sub> contour of speech signals.
-                        This contour contributes important non-linguistic information used for prosody generation. 
-                        Such information can be the emotion and naturalness of the speaker. The model represents these informations as a superposition of a base frequency and 
-                        two second-order, linear filters. 
-                        <br><br>
-                        Phrase and accent commands: On one side, the Phrase commands describe starting points as Diraq-impulses. On the other side, accent control 
-                        describes rectangular functions and is always positive. Both filters have control mechanisms, which are displayed in the formular below. The outputs of those control mechanisms are joined
-                        with the base frequency F<sub>b</sub> to form the F<sub>0</sub> contour whilst reducing the complexity to a set of of three parameters.</p>
-                    </div>
                         
-                    
+                        <h1 id="heading">How does the Fujisaki Model work?</h1>
+                        <img class="img-responsive float-right mt-0" style="width: 11em;"
+                        src="/assets/fujisaki_asset.png"></img>   
+                        <p>The Fujisaki-model is one method to generate the F<sub>0</sub> contour of speech signals.
+                            This contour contributes important non-linguistic information used for prosody generation.
+                            Such information can be the emotion and naturalness of the speaker. The model represents
+                            these informations as a superposition of a base frequency and
+                            two second-order, linear filters.
+                            <br><br>
+                            Phrase and accent commands: On one side, the Phrase commands describe starting points as
+                            Diraq-impulses. On the other side, accent control
+                            describes rectangular functions and is always positive. Both filters have control
+                            mechanisms, which are displayed in the formular below. The outputs of those control
+                            mechanisms are joined
+                            with the base frequency F<sub>b</sub> to form the F<sub>0</sub> contour whilst reducing the
+                            complexity to a set of of three parameters.
+                        </p>
+                    </div>
+
+
 
                     <!--fette graphic in der Mitte-->
-                    <div class="col-lg-2 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
-                    </div>
-                    <div class="col-md-10 col-lg-6 col-xs-10">
-                        <img src="../assets\model_scheme_hinterleitner.png" id="keyboardpng">
+                    
+                    <div class="col-md-10 col-lg-10 col-xs-10 mx-auto">
+                        <img class="img-fluid" style="border-radius: 40px;"  src="../assets\model_scheme_hinterleitner.png">
                         </img>
-                        <p>Fujisaki model for the generation of F<sub>0</sub> contours.<br> 
-                        (Hinterleitner, 2012, S.3)</p>
+                        <p class="small font-italic ml-4 mt-1">Fujisaki model for the generation of F<sub>0</sub> contours.<br>
+                            (Hinterleitner, 2012, S.3)</p>
                     </div>
                     <div class="col-lg-2 col-xs-1ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
                     </div>
 
                     <div class="my-5">
                         <h1 id="heading">How does speech synthesis use prosody generation?</h1>
-                        <p>The biggest challenge for the synthesis of speech is probably the creation of a natural sounding voice. 
-                        The plain synthesized speech could easily result in the commonly known robotic voice still heard from older TTS-Systems. 
-                        The fundamental frequency, called F<sub>0</sub>, can be generated, f.e., with the use of the Fujisaki-model, as described above.
-                        The model allows us to represent all possible F<sub>0</sub>-contours used by our system with only three physically and physiolgically parameters wich can be mathmatically described.
-                        These contours would allow the synthesis to stimulate "the vocal fold oscilation with slowly variyng frequencies, whose dynamics are governed by a combination of different factors"
-                        of the vocal track. The fundamental frequency would add prosodic features to the else "emotionless" synthetic voice.</p>
+                        <p>The biggest challenge for the synthesis of speech is probably the creation of a natural
+                            sounding voice.
+                            The plain synthesized speech could easily result in the commonly known robotic voice still
+                            heard from older TTS-Systems.
+                            The fundamental frequency, called F<sub>0</sub>, can be generated, f.e., with the use of the
+                            Fujisaki-model, as described above.
+                            The model allows us to represent all possible F<sub>0</sub>-contours used by our system with
+                            only three physically and physiolgically parameters wich can be mathmatically described.
+                            These contours would allow the synthesis to stimulate "the vocal fold oscilation with slowly
+                            variyng frequencies, whose dynamics are governed by a combination of different factors"
+                            of the vocal track. The fundamental frequency would add prosodic features to the else
+                            "emotionless" synthetic voice.</p>
                     </div>
 
                     <div class="mt-5 ">
@@ -229,11 +273,12 @@
 
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-xs-6">
-                                <img src="\assets\graphic_quiz_laptop.png" id="quizbild">
+                                <img class="mt-1" src="\assets\graphic_quiz_laptop.png" id="quizbild">
                                 </img>
                             </div>
                             <div class="col-md-8 col-lg-8 col-xs-6">
-                                <p>Want to check your new knowledge about the generation of prosody in speech synthesis?</p>
+                                <p>Want to check your new knowledge about the generation of prosody in speech synthesis?
+                                </p>
                                 <p>Check out those questions and more in the quiz down below:</p>
                             </div>
                         </div>
@@ -243,8 +288,7 @@
                                 <span class="font-weight-light font-italic align-left"> Start the quiz</span>
 
                                 <!-- Quiz Starts Dreieck - Collapsable -->
-                                <button class="btn" type="button" onclick="window.location.href='../1Lautsprache/Quiz.html'"
-                                    aria-expanded="false" aria-controls="collapseQuiz1">
+                                <button class="btn" type="button" data-toggle="collapse" data-target="#collapseQuiz2" aria-expanded="false" aria-controls="collapseQuiz2">
                                     <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -254,6 +298,14 @@
                                 </button>
                             </div>
                         </div>
+
+                        <div class="collapse mt-3" id="collapseQuiz2">
+                            <div class="card card-body">
+                            Multiple Choice quiz hier rein.
+
+                              Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                            </div>
+                          </div>
 
 
                     </div>
@@ -277,14 +329,20 @@
                             <div class="modal-body">
                                 <h3>How to use?</h3>
                                 <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
-                                <p>In this step you're about to learn how the fujisaki model for prosody generation works. Based on a given formular you have to set to linear 
-                                filters as an input. If you want to the exact meaning of a given single component and if you want to further understand what the model does for the genration of synthetic speech,
-                                check out the explanation of the fujisaki model beneath the interactive box. But first of all:<br>
-                                <h3>What exactly is prosody? </h3> 
-                                Unlike the phonemes, prosody describes not one single segment but greater elements of speech. Under the term of prosody we can differentiate between such features 
-                                as stress, intonation, tempo, pausing and rythm. Generally speaking, one could describe prosody as the melody of speech. <br>  
-                                    <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
-                                        data-dismiss="modal">Close</button>
+                                <p>In this step you're about to learn how the fujisaki model for prosody generation
+                                    works. Based on a given formular you have to set to linear
+                                    filters as an input. If you want to the exact meaning of a given single component
+                                    and if you want to further understand what the model does for the genration of
+                                    synthetic speech,
+                                    check out the explanation of the fujisaki model beneath the interactive box. But
+                                    first of all:<br>
+                                <h3>What exactly is prosody? </h3>
+                                Unlike the phonemes, prosody describes not one single segment but greater elements of
+                                speech. Under the term of prosody we can differentiate between such features
+                                as stress, intonation, tempo, pausing and rythm. Generally speaking, one could describe
+                                prosody as the melody of speech. <br>
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
                                 </p>
 
                             </div>
@@ -302,7 +360,7 @@
 
     <!------------------------------Der footer-------------------------->
     <div class="container-fluid my-5">
-         <div class="row">
+        <div class="row">
             <!--alles in eins statt 3 colums-->
 
 
@@ -322,7 +380,7 @@
                         <span class="font-weight-light">Back</span>
                     </a>
                 </div>
-            
+
                 <div class="float-right">
                     <a href="../3Synthese\Synthese.html" class="btn" role="button">
                         <!--DER WEITER-text-->
@@ -371,9 +429,51 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+<script>
 
-<!--die Fujiaki.js-Einbindung-->
-<script src="fujisaki.js"></script> 
+    function draw(mode, divName) {
+        try {
 
+            const xValues = math.range(0, 6, 0.0001).toArray();
+            var yValues = [];
+            for (var i = 0; i < xValues.length - 1; i++) {
+                if (mode == "accent") {
+                    yValues.push(accentCmdsDraw(xValues[i]));
+                } else if (mode == "phrase") {
+                    yValues.push(phraseCmdsDraw(xValues[i]));
+                } else if (mode == "total") {
+                    yValues.push(fct(xValues[i]));
+                }
+            }
+
+            // render the plot using plotly
+            const trace1 = {
+                x: xValues,
+                y: yValues,
+                type: 'scatter'
+            }
+            const data = [trace1]
+            Plotly.newPlot(divName, data)
+        }
+        catch (err) {
+            console.error(err)
+        }
+    }
+
+    function plotAndUnhide() {
+        //Zeigt div wo plots drin sind onclick von btn_plot
+        /*var x = document.getElementById("divForPlots");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        }*/
+        draw("total", 'plotTotal');
+        draw("phrase", 'plotPhrases');
+        draw("accent", 'plotAccents');
+
+        var plotsDiv = document.getElementById("divForPlots");
+        plotsDiv.style.display = "";
+            
+    }
+</script>
 
 </html>

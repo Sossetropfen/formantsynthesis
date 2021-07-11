@@ -53,10 +53,12 @@ body {
 
   #dreieck {
     position: fixed;
-    top: 67%;
+    top: 77%;
     left: 47%;
   }
 }
+
+
 
 
 #dreieck:hover {
@@ -68,3 +70,9 @@ a {
   font-style: italic;
   font-family: 'Roboto', sans-serif;
 }
+
+#laptop{
+  width: 17em;
+
+}
+
