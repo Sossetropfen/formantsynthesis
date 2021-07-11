@@ -8,7 +8,7 @@
   <script>
     // This demo is licensed under the GNU GPL.
   </script>
-  <script type="text/javascript" src="mespeak.js"></script>
+  <script type="text/javascript" src="meSpeak/mespeak.js"></script>
   <script type="text/javascript">
     meSpeak.loadVoice("voices/en/en.json");
   
@@ -216,7 +216,7 @@
       /* hier wurde die src geändert, um meSpeak vernünftig einzubinden. Aktuell scheint aber noch was anderes nicht zu funktionieren
       *  da der Plot zwar startet, aber nichts anzeigt und nicht stoppt
       */
-      script.src = 'mespeak.js';
+      script.src = 'meSpeak/mespeak.js';
       script.onload = function() {
         if (typeof meSpeak !== 'undefined' && meSpeak.canPlay()) meSpeak.loadVoice('en/en-rp');
         document.getElementById('startButton').disabled = false;
