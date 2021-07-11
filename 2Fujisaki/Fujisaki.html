@@ -178,7 +178,7 @@
 
                                 <div class="my-2 col-lg-12 ">
                                     <button class="btn btn-info" id="btn_plot" onclick="plotAndUnhide()">show the
-                                        F<sub>0</sub> contour</button>
+                                        F<sub style="color: whitesmoke">0</sub> contour</button>
                                 </div>
 
                                 <div class="pl-3 my-2">
@@ -201,13 +201,15 @@
 
                 <!-- Div für die Plots, gerne schöner machen oder so, K -->
                 <!-- <div id="divForPlots" style="display: none"><p>Plots</p><br> -->
-                <div id="divForPlots">
-                    <p>Plots</p><br>
-                    <p>Total F<sub>0</sub> contour</p>
+                <div id="divForPlots" style="display: none;">
+                    <h3>Plots</h3>
+                    <h5>Total F<sub>0</sub> contour</h5>
                     <div id="plotTotal"></div>
-                    <p>Accent Commands</p>
+                    <br>
+                    <h5>Accent Commands<h5>
                     <div id="plotAccents"></div>
-                    <p>Phrase Commands</p>
+                    <br>
+                    <h5>Phrase Commands</h5>
                     <div id="plotPhrases"></div>
                 </div>
 
@@ -467,6 +469,10 @@
         draw("total", 'plotTotal');
         draw("phrase", 'plotPhrases');
         draw("accent", 'plotAccents');
+
+        var plotsDiv = document.getElementById("divForPlots");
+        plotsDiv.style.display = "";
+            
     }
 </script>
 
