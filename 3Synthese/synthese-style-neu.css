@@ -18,7 +18,14 @@ body {
     font-weight: 400;
     color: #484848;
   }
-
+  .headphone{
+    max-width: 200%;
+    max-height: auto;
+    margin-left: 23%;
+    margin-top: 5%;
+    z-index:1;
+  
+  }  
   #heading{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;

@@ -52,6 +52,13 @@ body {
     mix-blend-mode: multiply;
   }
   
+  #quizbild{
+    max-width: 90%;
+    max-height: auto;
+    margin-top:10%;
+    margin-right: 5%;
+    margin-bottom: 5%;
+  }
   #dreieck {
     position: fixed;
     top: 45%;

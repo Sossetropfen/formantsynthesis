@@ -90,7 +90,6 @@
                     </defs>
                 </svg>
             </div>
-
         </div>
     </div>
 
@@ -128,8 +127,9 @@
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
                 <div class="row">
-                    <div class="">
-                        <div class="my-5 span12">
+                            <div class="col-md-6 col-lg-8 col-xs-7">
+                                <div class="my-5">
+        
                             
                             <h1 id="heading">How does this work?</h1>
                             <p>Let us quickly teach you how an IPA converter works. In this case, we will explain the
@@ -137,10 +137,18 @@
                                 wherever spaces (" ") are, leaving you with an array of all the elements that are
                                 seperated by a space. 
                                 
-                                <img class="img-responsive float-right" style="width: 20em;"
+                               <!--  <img class="img-responsive float-right" style="width: 20em;"
                                 src="\assets\keyboard_graphic.png" id="keyboardpng">
                                 </img>
-                                
+                                --> </p>
+                                </div>
+                                </div>
+                                <div class="col-md-4 col-lg-3 col-xs-2 col-sm-12 ml-sm-1 mt-lg-4 mt-md-5">
+                                    <img src="\assets\keyboard_graphic.png" id="keyboardpng">
+                                    </img>
+            
+                                </div>
+                                <div class="col-md-10 col-lg-12 col-xs-8">
                                 Next, the converter looks through every element in this array, replaces common signs
                                 with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br><br>
                                 &#8226; <b>Date:</b> The input element can be split by "." and results in three elements
@@ -157,7 +165,7 @@
                                         one being a two-character number between 00 and 60.
                                         The first element is just a regular number converted into a string . If the
                                         second number is equal to zero an o'clock is added, if it is between 1 and 9 an
-                                        ' o ' is added (6:04 &#8658; six o four).
+                                        ' o ' is added (6:04 &#8658; six o four). <p></p></p>
                                         <br>&#8226; <b>Regular Number:</b> Regular numbers are just converted to string
                                         and passed to the next step.
                                         <br>&#8226; <b>Ordinal Number:</b> The element can be split by "." and results
@@ -184,15 +192,12 @@
                                         Upon being found, an IPA conversion is returned. If the word is not in the
                                         dictionary, we look through the characters of the input string and return the
                                         IPA conversion for each character.</p>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-lg-2 col-xs-1 col-sm-3 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
 
-                    </div>
-
-
-
-                    <div class="my-5">
+                                    </div> 
+                        
+                    
+                   
+                    <div class="col-md-10 col-lg-12 col-xs-8">
                         <h1 id="heading">Do you want to edit your Input?</h1>
                         <p>Soon you will able to use our phonetics keyboard to to modify, delete, and change your IPA
                             text. Further you can use special characters to put stress on certain parts of the sentence.
@@ -204,7 +209,7 @@
 
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-xs-6">
-                                <img class="mt-1" src="\assets\graphic_quiz_laptop.png" id="quizbild">
+                                <img  src="\assets\graphic_quiz_laptop.png" id="quizbild">
                                 </img>
                             </div>
                             <div class="col-md-8 col-lg-8 col-xs-6">
