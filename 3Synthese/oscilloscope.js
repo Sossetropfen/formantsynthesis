@@ -11,9 +11,10 @@ var oscilloscope = (function() {
         var canvas = document.getElementById('oscilloscope');
         var ctx = canvas.getContext('2d');
 
-
+        //Farben für die Plotscheibe
         ctx.fillStyle = '#00c3cc';
         ctx.strokeStyle = 'white';
+        
         ctx.lineWidth = 1.5;
         drawing = true;
         
