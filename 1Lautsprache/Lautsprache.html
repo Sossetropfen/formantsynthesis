@@ -47,53 +47,54 @@
     <!--Hintergrund weiß-->
 
     <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
-        <!-- container nach überschrift und i anfangen um verschiebung zu vermeiden-->
-        <div class="container-fluid">
-            <div class="row">
+    <!-- container nach überschrift und i anfangen um verschiebung zu vermeiden-->
+    <div class="container-fluid">
+        <div class="row">
 
-                <!-- links - leer -->
+            <!-- links - leer -->
             <div class="col-sm-2 col-md-2 col-lg-2"></div>
 
-        <!--Überschrift-->
-        <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
+            <!--Überschrift-->
+            <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ml-xs-2 pt-2">
-            
-            <h1>I. Symbolic Pre-Processing</h1>
 
-            <p>Welcome to the world of speech signal generation. In our first step of the journey we are learning more
-                about text pre-processing, exception handling, grapheme-to-phoneme transformation and more. Your
-                previous input will undergo multiple steps and will ultimately be played back to you through your
-                speakers.</p>
-                
+                <h1>I. Symbolic Pre-Processing</h1>
+
+                <p>Welcome to the world of speech signal generation. In our first step of the journey we are learning
+                    more
+                    about text pre-processing, exception handling, grapheme-to-phoneme transformation and more. Your
+                    previous input will undergo multiple steps and will ultimately be played back to you through your
+                    speakers.</p>
+
             </div>
-                <div class=" col-sm-1 col-md-1 col-lg-1">
+            <div class=" col-sm-1 col-md-1 col-lg-1">
                 <!-- InfoBox-SVG -->
                 <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem"
-                viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
-                <g filter="url(#filter0_d)">
-                    <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
-                </g>
-                <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
-                <defs>
-                    <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
-                        color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix" />
-                        <feColorMatrix in="SourceAlpha" type="matrix"
-                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
-                        <feOffset dy="4" />
-                        <feGaussianBlur stdDeviation="2" />
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
-                    </filter>
-                </defs>
-            </svg>
-     </div>
+                    viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                    <g filter="url(#filter0_d)">
+                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                    </g>
+                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                    <defs>
+                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                            <feOffset dy="4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+            </div>
 
         </div>
-        </div>   
-   
-        <div class="container-fluid">
+    </div>
+
+    <div class="container-fluid">
         <div class="row">
 
 
@@ -108,7 +109,8 @@
                 <div class="container my-5">
                     <div class="card " id="card">
                         <div class="card-body" id="card-body">
-                            <p class="pl-5 pr-5">We transformed your input sentence from English to International Phonetic Alphabet (IPA).
+                            <p class="pl-5 pr-5">We transformed your input sentence from English to International
+                                Phonetic Alphabet (IPA).
                             </p>
                             <div class="graubox ml-4 mr-4">
                                 <button type="button" id="inputSentence" class="btn btn-link btn-sm ml-2"
@@ -117,7 +119,8 @@
                                     data-content="Dieser Text wird später durch Bausteine Erklärung ersetzt.">content</button>
                                 <p id="inputSentenceIPA" class="pl-3">content</p>
                             </div>
-                            <p class="pl-5 pr-5 small"><br>Hint: If you want to learn more you can click on the sentence of your input or check out the info box in the upper right corner.</p>
+                            <p class="pl-5 pr-5 small"><br>Hint: If you want to learn more you can click on the sentence
+                                of your input or check out the info box in the upper right corner.</p>
                         </div>
                     </div>
                 </div>
@@ -125,31 +128,66 @@
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
                 <div class="row">
-                    <div class="col-md-6 col-lg-8 col-xs-7">
-                        <div class="my-5">
+                    <div class="">
+                        <div class="my-5 span12">
+                            
                             <h1 id="heading">How does this work?</h1>
-                            <p>Let us quickly teach you how an IPA converter works. In this case, we will explain the converter that we implemented: <br>Firstly, the algorithm splits the input string wherever spaces (" ") are, leaving you with an array of all the elements that are seperated by a space.
-                                Next, the converter looks through every element in this array, replaces common signs with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br><br>
-                                &#8226; <b>Date:</b> The input element can be split by "." and results in three elements in the form of day.month.year with day being a number between 1 and 31, month being a number between 1 and 12 or the name of the month or its abbreviation (e.g. "january" <-> "jan"), and year being a number with max. 4 elements.
-                                If it´s a date the day has to be converted into an ordinal number, the month, if given as number or abbreviation has to be converted to the name of the month and the year has to be converted into a spoken number. However, if the number is lower than 2000, the number has to be spoken in two parts: 1984 <-> nineteen hundred eighty four
-                                <br>&#8226; <b>Time:</b> The input elements can be split by ":" and results in two elements with the first one being a number between 0 and 24 and the second one being a two-character number between 00 and 60.
-                                The first element is just a regular number converted into a string . If the second number is equal to zero an o'clock is added, if it is between 1 and 9 an ' o ' is added (6:04 &#8658; six o four).
-                                <br>&#8226; <b>Regular Number:</b> Regular numbers are just converted to string and passed to the next step.
-                                <br>&#8226; <b>Ordinal Number:</b> The element can be split by "." and results in two elements with the first one being a number and the second one being empty. Then the number is being converted into a string. (EXAMPLE)
-                                <br>&#8226; <b>Decimal Number:</b> The element can be split by "." and results in two elements with the first one being either a number or just empty and the second one being a number.
-                                The numbers are converted to a string. In between the converted numbers a "point" is added to signal the decimal nature of the original input. (EXAMPLE) 
-                                <br>
-                                <br>&#8226; If we find multiple words or numbers split by different symbols like " . , ; : " etc. we transform number(s) (if any) to words and pass on the words that we get from splitting by the symbols
-                                <br>&#8226; If none of the cases applies, the algorithm just assumes that the input is a regular word and passes it on.
-                                <br>
-                                <br>
-                                After checking for all the cases and recieving resulting strings , we load an  <a style="color:#484848;" href="https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt">"English to IPA" dictionary</a>  and use a lookup function to see if the word is in the dictionairy.
-                                Upon being found, an IPA conversion is returned. If the word is not in the dictionary, we look through the characters of the input string and return the IPA conversion for each character.</p>
+                            <p>Let us quickly teach you how an IPA converter works. In this case, we will explain the
+                                converter that we implemented: <br>Firstly, the algorithm splits the input string
+                                wherever spaces (" ") are, leaving you with an array of all the elements that are
+                                seperated by a space. 
+                                
+                                <img class="img-responsive float-right" style="width: 20em;"
+                                src="\assets\keyboard_graphic.png" id="keyboardpng">
+                                </img>
+                                
+                                Next, the converter looks through every element in this array, replaces common signs
+                                with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br><br>
+                                &#8226; <b>Date:</b> The input element can be split by "." and results in three elements
+                                in the form of day.month.year with day being a number between 1 and 31, month being a
+                                number between 1 and 12 or the name of the month or its abbreviation (e.g. "january" <->
+                                    "jan"), and year being a number with max. 4 elements.
+                                    If it´s a date the day has to be converted into an ordinal number, the month, if
+                                    given as number or abbreviation has to be converted to the name of the month and the
+                                    year has to be converted into a spoken number. However, if the number is lower than
+                                    2000, the number has to be spoken in two parts: 1984 <-> nineteen hundred eighty
+                                        four
+                                        <br>&#8226; <b>Time:</b> The input elements can be split by ":" and results in
+                                        two elements with the first one being a number between 0 and 24 and the second
+                                        one being a two-character number between 00 and 60.
+                                        The first element is just a regular number converted into a string . If the
+                                        second number is equal to zero an o'clock is added, if it is between 1 and 9 an
+                                        ' o ' is added (6:04 &#8658; six o four).
+                                        <br>&#8226; <b>Regular Number:</b> Regular numbers are just converted to string
+                                        and passed to the next step.
+                                        <br>&#8226; <b>Ordinal Number:</b> The element can be split by "." and results
+                                        in two elements with the first one being a number and the second one being
+                                        empty. Then the number is being converted into a string. (EXAMPLE)
+                                        <br>&#8226; <b>Decimal Number:</b> The element can be split by "." and results
+                                        in two elements with the first one being either a number or just empty and the
+                                        second one being a number.
+                                        The numbers are converted to a string. In between the converted numbers a
+                                        "point" is added to signal the decimal nature of the original input. (EXAMPLE)
+                                        <br>
+                                        <br>&#8226; If we find multiple words or numbers split by different symbols like
+                                        " . , ; : " etc. we transform number(s) (if any) to words and pass on the words
+                                        that we get from splitting by the symbols
+                                        <br>&#8226; If none of the cases applies, the algorithm just assumes that the
+                                        input is a regular word and passes it on.
+                                        <br>
+                                        <br>
+                                        After checking for all the cases and recieving resulting strings , we load an <a
+                                            style="color:#484848;"
+                                            href="https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt">"English
+                                            to IPA" dictionary</a> and use a lookup function to see if the word is in
+                                        the dictionairy.
+                                        Upon being found, an IPA conversion is returned. If the word is not in the
+                                        dictionary, we look through the characters of the input string and return the
+                                        IPA conversion for each character.</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xs-1 col-sm-3 ml-sm-5 ml-sm-5 mt-lg-5 mt-md-5">
-                        <img src="\assets\keyboard_graphic.png" id="keyboardpng">
-                        </img>
+
                     </div>
 
 
@@ -166,7 +204,7 @@
 
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-xs-6">
-                                <img src="\assets\graphic_quiz_laptop.png" id="quizbild">
+                                <img class="mt-1" src="\assets\graphic_quiz_laptop.png" id="quizbild">
                                 </img>
                             </div>
                             <div class="col-md-8 col-lg-8 col-xs-6">
@@ -182,8 +220,9 @@
                                 <span class="font-weight-light font-italic align-left"> Start the quiz</span>
 
                                 <!-- Quiz Starts Dreieck - Collapsable -->
-                                <button class="btn" type="button" onclick="window.location.href='../1Lautsprache/Quiz.html'"
-                                    aria-expanded="false" aria-controls="collapseQuiz1">
+                                <button class="btn" type="button"
+                                    onclick="window.location.href='../1Lautsprache/Quiz.html'" aria-expanded="false"
+                                    aria-controls="collapseQuiz1">
                                     <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -217,21 +256,28 @@
                                 <h3>How to use?</h3>
                                 <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein-->
                                 <p>You are are now in the step of symbolic pre-processing. Here you can see your
-                                    pre-processed sentence from before, with additional explanation. You can hover over your prior input sentence to learn more about
+                                    pre-processed sentence from before, with additional explanation. You can hover over
+                                    your prior input sentence to learn more about
                                     the special transformation that was used.
-                                    Moreover, you can modify your sentence yourself with the IPA keyboard below and see what happens based on
+                                    Moreover, you can modify your sentence yourself with the IPA keyboard below and see
+                                    what happens based on
                                     your input.<br>
-                                    In order to grasp every concept and idea, we tried to give you as much visualisation in your journey through the speech generation process as possible. <br>
+                                    In order to grasp every concept and idea, we tried to give you as much visualisation
+                                    in your journey through the speech generation process as possible. <br>
                                     You’ll also have quiz parts at every section, to test your knowledge. Whether you
                                     work in depth or just play around is up to you!<br>
-                                    <h3>What is the IPA?</h3> 
-                                    One of the steps of pre-processing includes the translation of the text to phonetics. 
-                                    Phonetic transcription describes the representation of vocal sound as visual symbols or machine-readable code. 
-                                    While some languages have a strong relationship between orthography (the written word) and the pronounciation, 
-                                    others, like english for example, do not. The IPA (International Phonetic Alphabet) displays this standardized representation 
-                                    of speech sounds, so one can describe the pronounciation of a word, even in different variations such as accents or dialects.<br>  
-                                    <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
-                                        data-dismiss="modal">Close</button>
+                                <h3>What is the IPA?</h3>
+                                One of the steps of pre-processing includes the translation of the text to phonetics.
+                                Phonetic transcription describes the representation of vocal sound as visual symbols or
+                                machine-readable code.
+                                While some languages have a strong relationship between orthography (the written word)
+                                and the pronounciation,
+                                others, like english for example, do not. The IPA (International Phonetic Alphabet)
+                                displays this standardized representation
+                                of speech sounds, so one can describe the pronounciation of a word, even in different
+                                variations such as accents or dialects.<br>
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
                                 </p>
 
                             </div>
@@ -249,7 +295,7 @@
 
     <!------------------------------Der footer-------------------------->
     <div class="container-fluid my-5">
-         <div class="row">
+        <div class="row">
             <!--alles in eins statt 3 colums-->
 
 
@@ -269,7 +315,7 @@
                         <span class="font-weight-light">Back</span>
                     </a>
                 </div>
-            
+
                 <div class="float-right">
                     <a href="../2Fujisaki\fujisaki.html" class="btn" role="button">
                         <!--DER WEITER-text-->
@@ -324,7 +370,7 @@
     var inputSentence = sessionStorage.getItem("inputSentence");
     console.log(inputSentenceIPA);
     console.log(inputSentence);
-    
+
     document.getElementById('inputSentence').innerHTML = inputSentence;
     document.getElementById('inputSentenceIPA').innerHTML = "→ " + inputSentenceIPA;
 
@@ -335,7 +381,7 @@
 
     var woerter = inputSentence.split(" ", 3);
     var IPAwoerter = inputSentenceIPA.split(" ", 3);
-    
+
     for (let i = 0; i < 3; i++) {
         erklaerungstext += "<b>" + woerter[i] + "</b>";
         erklaerungstext += " → ";
@@ -350,157 +396,157 @@
     //Überschreibe Content des Popovers mit der Erklärung
     $('#inputSentence').popover('hide');
     $('#inputSentence').click(function () {
-        $('#inputSentence').attr('data-content',erklaerungstext);
-    $('#inputSentence').popover('show');
+        $('#inputSentence').attr('data-content', erklaerungstext);
+        $('#inputSentence').popover('show');
     });
-   
-function ipaElementsExplainer(outputIPAname){
+
+    function ipaElementsExplainer(outputIPAname) {
         var elementsString = "";
         let zaehler = 0;
         let n = 1; //Anzahl an auszugebenden elements
 
         //cases für alle buchstaben
-    if (outputIPAname.includes("ɪɹ") && zaehler < n) {
-      elementsString += "ɪɹ ➔ ear / ɪˈɹ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɪɹ") && zaehler < n) {
+            elementsString += "ɪɹ ➔ ear / ɪˈɹ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɛɹ") && zaehler < n) {
-      elementsString += "ɛɹ ➔ air / ɛˈɹ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɛɹ") && zaehler < n) {
+            elementsString += "ɛɹ ➔ air / ɛˈɹ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɔɹ") && zaehler < n) {
-      elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɔɹ") && zaehler < n) {
+            elementsString += "ɔɹ ➔ order / ɔˈɹdɚ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɑɹ") && zaehler < n) {
-      elementsString += "ɑɹ ➔ art / ɑˈɹt/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɑɹ") && zaehler < n) {
+            elementsString += "ɑɹ ➔ art / ɑˈɹt/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɔj") && zaehler < n) {
-      elementsString += "ɔj ➔ oil / ɔjˈl/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɔj") && zaehler < n) {
+            elementsString += "ɔj ➔ oil / ɔjˈl/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("tʃ") && zaehler < n) {
-      elementsString += "tʃ ➔ child / tʃajˈld/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("tʃ") && zaehler < n) {
+            elementsString += "tʃ ➔ child / tʃajˈld/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("dʒ") && zaehler < n) {
-      elementsString += "dʒ ➔ just / dʒʌˈst/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("dʒ") && zaehler < n) {
+            elementsString += "dʒ ➔ just / dʒʌˈst/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("i") && zaehler < n) {
-      elementsString += "i ➔ even / iˈvɪn/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("i") && zaehler < n) {
+            elementsString += "i ➔ even / iˈvɪn/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɪ") && zaehler < n) {
-      elementsString += "ɪ ➔ if / ɪf/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɪ") && zaehler < n) {
+            elementsString += "ɪ ➔ if / ɪf/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("u") && zaehler < n) {
-      elementsString += "u ➔ school / skuˈl//";
-      zaehler++;
-    }
+        if (outputIPAname.includes("u") && zaehler < n) {
+            elementsString += "u ➔ school / skuˈl//";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("æ") && zaehler < n) {
-      elementsString += "æ ➔ ask / æˈsk/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("æ") && zaehler < n) {
+            elementsString += "æ ➔ ask / æˈsk/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɑ") && zaehler < n) {
-      elementsString += "ɑ ➔ father / fɑˈðɚ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɑ") && zaehler < n) {
+            elementsString += "ɑ ➔ father / fɑˈðɚ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɛ") && zaehler < n) {
-      elementsString += "ɛ ➔ said / sɛˈd/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɛ") && zaehler < n) {
+            elementsString += "ɛ ➔ said / sɛˈd/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ʊ") && zaehler < n) {
-      elementsString += "ʊ ➔ good / ɡʊˈd/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ʊ") && zaehler < n) {
+            elementsString += "ʊ ➔ good / ɡʊˈd/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɔ") && zaehler < n) {
-      elementsString += "ɔ ➔ all / ɔˈl/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɔ") && zaehler < n) {
+            elementsString += "ɔ ➔ all / ɔˈl/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ʌ") && zaehler < n) {
-      elementsString += "ʌ ➔ other /ʌˈðɚ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ʌ") && zaehler < n) {
+            elementsString += "ʌ ➔ other /ʌˈðɚ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɚ") && zaehler < n) {
-      elementsString += "ɚ ➔ percent / pɚsɛˈnt/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɚ") && zaehler < n) {
+            elementsString += "ɚ ➔ percent / pɚsɛˈnt/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ŋ") && zaehler < n) {
-      elementsString += "ŋ ➔ thing / θɪˈŋ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ŋ") && zaehler < n) {
+            elementsString += "ŋ ➔ thing / θɪˈŋ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("θ") && zaehler < n) {
-      elementsString += "θ ➔ three / θɹiˈ//";
-      zaehler++;
-    }
+        if (outputIPAname.includes("θ") && zaehler < n) {
+            elementsString += "θ ➔ three / θɹiˈ//";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ð") && zaehler < n) {
-      elementsString += "ð ➔ there / ðɛˈɹ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ð") && zaehler < n) {
+            elementsString += "ð ➔ there / ðɛˈɹ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ʃ") && zaehler < n) {
-      elementsString += "ʃ ➔ she / ʃiˈ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ʃ") && zaehler < n) {
+            elementsString += "ʃ ➔ she / ʃiˈ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ʒ") && zaehler < n) {
-      elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ʒ") && zaehler < n) {
+            elementsString += "ʒ ➔ decision / dɪsɪˈʒʌn/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("j") && zaehler <n) {
-      elementsString += "j ➔ yet / jɛˈt/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("j") && zaehler < n) {
+            elementsString += "j ➔ yet / jɛˈt/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ɹ") && zaehler < n) {
-      elementsString += "ɹ ➔ right / ɹajˈt/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ɹ") && zaehler < n) {
+            elementsString += "ɹ ➔ right / ɹajˈt/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ej") && zaehler < n) {
-      elementsString += "ej ➔ able / ejˈbʌl/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ej") && zaehler < n) {
+            elementsString += "ej ➔ able / ejˈbʌl/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("ow") && zaehler < n) {
-      elementsString += "ow ➔ over / owˈvɚ/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("ow") && zaehler < n) {
+            elementsString += "ow ➔ over / owˈvɚ/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("aj") && zaehler < n) {
-      elementsString += "aj ➔ eyes / ajˈz/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("aj") && zaehler < n) {
+            elementsString += "aj ➔ eyes / ajˈz/";
+            zaehler++;
+        }
 
-    if (outputIPAname.includes("aw") && zaehler < n) {
-      elementsString += "aw ➔ out / awˈt/";
-      zaehler++;
-    }
+        if (outputIPAname.includes("aw") && zaehler < n) {
+            elementsString += "aw ➔ out / awˈt/";
+            zaehler++;
+        }
 
-    return elementsString;
+        return elementsString;
     }
 </script>
 
