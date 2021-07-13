@@ -149,3 +149,9 @@ select{
   background-color: #00c3cc;
   border-radius: 50%;
 }
+
+#fujisaki_asset{
+  position: relative;
+  top: 1.5em;
+  z-index: 1;
+}
