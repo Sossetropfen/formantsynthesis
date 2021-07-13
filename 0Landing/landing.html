@@ -28,31 +28,35 @@
   <!-- Weisse Box mit Input -->
   <div class="container" style="min-height:95vh">
     
-    <div class="row">
-      <!-- Landing pic -->
-      <img src="\assets\grafic_lp.png" id="landingbild">
-    </img>
+    <div class="row justify-content-center align-items-center ">
+      <!--div col aussen rum-->
+      <div class="col-xs-6 center-block text-center">
+          <!-- Landing pic -->
+          <img src="\assets\grafic_lp.png" id="landingbild" width="250em"
+           >
+          </img> 
+      <!-- Weisse Box mit Spektogramm -->
 
-      <div class="card d-flex p-2 mx-auto my-auto" style="width: 23rem;">
-
-        <div class="card-body">
-          <h5 class="card-title">Hello, my name is</h5>
-          <div class="form-group">
-
-            <div class="col-12">
-              <input autocomplete='off' type="text" class="form-control" maxlength='25' id="usrName" />
-            </div>
+        <div class="card pl-2" style="width: 23rem;">
+          <div class="card-body">
+             <h5 class="card-title">Hello, my name is</h5>
+              <div class="form-group">
+                <div class="col-12">
+                 <input autocomplete='off' type="text" class="form-control" maxlength='25' id="usrName" />
+               </div>
+             </div>
           </div>
         </div>
       </div>
- 
+    </div>
       <!-- Das Weiter Dreieck -->
       <svg id="dreieck" xmlns="http://www.w3.org/2000/svg" width="5rem" height="5rem" fill="#628BC8"
         class="bi bi-caret-right-fill" viewBox="0 0 16 16" onclick="namenwahl();">
         <path
           d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z" />
       </svg>
-    </div>
+    
+
   </div>
 
   <!-- Footer unten -->
@@ -70,6 +74,7 @@
         <span> <a href="">Copyright</a></span>
       </div>
     </div>
+  </div>
   </div>
 
 </body>
