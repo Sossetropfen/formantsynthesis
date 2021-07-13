@@ -118,6 +118,12 @@ body {
 .popover {
   white-space: pre-wrap;    
 }
+#desk{
+  max-width: 50%;
+  min-width:20%;
+  max-height: auto;
+  padding-bottom: 5%;
+}
 
 #generation{
   width:70%; 
@@ -153,5 +159,6 @@ select{
 #fujisaki_asset{
   position: relative;
   top: 1.5em;
+ 
   z-index: 1;
 }
