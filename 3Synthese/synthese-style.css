@@ -1,7 +1,3 @@
-*{
-  font-family: 'Roboto', sans-serif;
-  color: #484848;
-}
 .headerbild {
   width: 100%;
   max-width: 4000px;
@@ -9,6 +5,12 @@
   padding-top:20px;
   padding-bottom:20px;
 }
+
+  *{
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
+  }
+  
 body {
   background: #f3f3f3;
     height: 100%;
@@ -16,17 +18,43 @@ body {
     font-weight: 400;
     color: #484848;
   }
-
+  .headphone{
+    max-width: 200%;
+    max-height: auto;
+    margin-left: 23%;
+    margin-top: 5%;
+    z-index:1;
+  
+  }  
   #heading{
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
   }
   
+  #inputSentence{
+    color: #484848;
+
+  }
+
+
   .card-title {
     font-size: 48;
     text-align: center;
   }
-  
+
+  #quizbild{
+    max-width: 90%;
+    max-height: auto;
+    margin-top:30%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+  }  
+  #keyboardpng{
+     max-width: 200%;
+    height: auto;
+  } 
+
+
   .card {
     background-color: #81B3FF;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
@@ -39,13 +67,14 @@ body {
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 98px;
   }
-  
+ 
   .form-control {
     background: rgba(196, 196, 196, 0.5);
     mix-blend-mode: multiply;
     border-radius: 40px;
     text-align: center;
   }
+
   
   .form-control:focus {
     background: rgba(196, 196, 196, 0.33);
@@ -73,9 +102,50 @@ body {
     margin: 2rem;
     float: left;
 }
+.footer{
+  color: #484848;
+}
+
+.graubox{
+  background: rgba(196, 196, 196, 0.5);
+  mix-blend-mode: multiply;
+  border-radius: 40px;
+  padding-left: 2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.1rem;
+}
+
+.popover {
+  white-space: pre-wrap;    
+}
 
 #generation{
- width:70%; 
- border: 1px solid red;
- border-radius: 40px;
+  width:70%; 
+  border: 1px solid rgba(196, 196, 196);
+  border-radius: 40px;
+  padding-left: 1em;
+ }
+
+ input{
+  border: 1px solid rgba(196, 196, 196);
+  border-radius: 40px;
+  padding-left: 1em;
+ }
+
+select{
+  background: rgba(196, 196, 196, 0.2);
+  border: 1px solid rgba(196, 196, 196);
+  border-radius: 40px;
+  padding-left: 0.5em;
+
+ }
+
+ #oscilloscope {
+  display: block;
+  margin: 3em auto;
+  width: 50%;
+  max-width: 100%;
+  height: auto;
+  background-color: #00c3cc;
+  border-radius: 50%;
 }
