@@ -30,7 +30,7 @@ body {
   }
 
   .btn-info{
-    background-color: #81B3FF !important;
+    background-color: #5041d4 !important;
   }
 
 
@@ -69,7 +69,14 @@ body {
     background: rgba(196, 196, 196, 0.5);
   }
 
-  
+  #formelbild{
+    position: relative;
+    margin-left: 10%;
+    max-width: 70%;
+    margin-top:30%;
+    max-height: auto;
+  }
+
   .form-control:focus {
     background: rgba(196, 196, 196, 0.33);
     mix-blend-mode: multiply;
