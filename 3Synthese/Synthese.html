@@ -491,9 +491,15 @@
                                     <div class="card d-flex">
                                         <div class="card-body">
                                           <h5 class="card-title">PSOLA synthesis</h5>
+                                          <p class="small text-justify">Concatenative synthesises use recordings of real human speakers and chains these individual sounds in succession in order to recreate a speech signal. In addition to concatenating the phoneme recordings, the sound pieces can be manipulated in their length, fundamental frequency as well as their amplitude. In this way a more realistic speech signal generation is achieved and the concatenative synthesis outperforms the simple source-filter model used before. <br>
+
+                                            In the diagram you can see how individual parts of the speech signal are cut out (cf. a), b)). The pattern, in that the units are cut out, is equivalent to the pitch which again is the fundamental frequency of the open glottis. The units can then be modified in order to recreate certain characteristics of the human speech (cf. c)).
+                                            
+                                            The manipulated units are then added and overlapped (hence the name PSOLA - <i>pitch synchronous overlap</i>) and in this way a new speech signal is generated (cf. d)).
+                                            </p>
                                           <div class="col-12">
                                             <p class="graubox">
-                                                Infos zu Psola.
+                                                <i class="small text-left mr-4"> Cutting & Manipulating units</i>
                                                 <img class="img-fluid pr-3" src="/assets/psola_asset.png" alt="">                                               
                                             </p>
                                             <p class="small font-italic">(cf. Vary et al., 1998, p. 478)</p>
@@ -508,6 +514,12 @@
                                     <div class="card d-flex">
                                         <div class="card-body">
                                           <h5 class="card-title">HMM-based synthesis</h5>
+                                          <p class="small text-justify">The Hidden Markov model synthesis is separated into two steps. In the first step the model is trained by providing a human speech database. Based on this, excitation and spectral parameter extraction is trained. This training data must be labelled in order to successfully prepare the Hidden Markov model for the synthesis of step 2.
+                                            <br>
+                                            For synthesizing the speech signal and concatenating speech units the HMM finds the path across a parameter space and then selects the parameters which optimally fit your synthesis task. In this process, firstly the input text is analysed, labels are extracted and then the HMM generates an optimum set of parameters both for the excitation and for the spectral shaping. Based on those parameters a realistic speech signal is generated. 
+                                            
+                                            Moreover, the HMM-based synthesis needs fewer memory space than unit selection synthesis’ like the PSOLA method because its inventory is much smaller.
+                                            </p>
                                           <div class="col-12">
                                             <p class="graubox">
                                                 Infos zu hmm.
