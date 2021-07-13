@@ -263,11 +263,13 @@
                                             <option value="" selected>None</option>
                                             <option value="f1">f1 (female 1)</option>
                                             <option value="f2">f2 (female 2)</option>
+                                            <option value="m1">m1 (male 1)</option>
+                                            <option value="m2">m2 (male 2)</option>
+                                            
+                                        <!-- andere Stimmen
                                             <option value="f3">f3 (female 3)</option>
                                             <option value="f4">f4 (female 4)</option>
                                             <option value="f5">f5 (female 5)</option>
-                                            <option value="m1">m1 (male 1)</option>
-                                            <option value="m2">m2 (male 2)</option>
                                             <option value="m3">m3 (male 3)</option>
                                             <option value="m4">m4 (male 4)</option>
                                             <option value="m5">m5 (male 5)</option>
@@ -279,21 +281,25 @@
                                             <option value="klatt3">klatt3</option>
                                             <option value="whisper">whisper</option>
                                             <option value="whisperf">whisperf (female)</option>
+                                        -->
                                         </select></p>
                                 </form>
                                 <form onsubmit="return false">
                                     <p><strong>Voice:</strong> <select id="voiceSelect" class="form-select"
                                             onchange="loadVoice(this.options[this.selectedIndex].value);">
-                                            <option value="ca">ca - Catalan</option>
-                                            <option value="cs">cs - Czech</option>
-                                            <option class="font-weight-bold" value="de"> de - German</option>
-                                            <option value="el">el - Greek</option>
-                                            <option class="font-weight-bold" value="en/en" selected="selected">en - English</option>
                                             <option value="en/en-n">en-n - English, regional</option>
                                             <option value="en/en-rp">en-rp - English, regional</option>
                                             <option value="en/en-sc">en-sc - English, Scottish</option>
                                             <option value="en/en-us">en-us - English, US</option>
                                             <option value="en/en-wm">en-wm - English, regional</option>
+                                            <option class="font-weight-bold" value="en/en" selected="selected">en - English</option>
+                                            <option class="font-weight-bold" value="de"> de - German</option>
+                                            <option value="zh-yue">zh-yue - Cantonese Chinese</option>
+                                            
+                                        <!-- andere Sprachen    
+                                            <option value="ca">ca - Catalan</option>
+                                            <option value="cs">cs - Czech</option>
+                                            <option value="el">el - Greek</option>
                                             <option value="eo">eo - Esperanto</option>
                                             <option value="es">es - Spanish</option>
                                             <option value="es-la">es-la - Spanish, Latin America</option>
@@ -313,7 +319,7 @@
                                             <option value="sv">sv - Swedish</option>
                                             <option value="tr">tr - Turkish</option>
                                             <option value="zh">zh - Mandarin Chinese (Pinyin)</option>
-                                            <option value="zh-yue">zh-yue - Cantonese Chinese</option>
+                                        -->
                                         </select>
                                         <button class=" btn btn-primary ml-5 mt-2" type="submit" onclick="resetParameter();">Reset Parameters</button>
 
