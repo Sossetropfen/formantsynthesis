@@ -143,8 +143,8 @@ select{
  #oscilloscope {
   display: block;
   margin: 3em auto;
-  width: 50%;
-  max-width: 100%;
+  width: 25%;
+  max-width: 50%;
   height: auto;
   background-color: #00c3cc;
   border-radius: 50%;
