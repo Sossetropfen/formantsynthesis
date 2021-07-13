@@ -70,3 +70,12 @@ body {
     position: relative;
     z-index: -1;
   }
+
+  @media screen and (max-width: 568px) {
+
+    #info {
+      position: relative;
+      top: 77%;
+      left: 47%;
+    }
+  }
