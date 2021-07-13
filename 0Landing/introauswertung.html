@@ -27,31 +27,52 @@
   <div class="container " style="min-height:95vh">
     <!-- Alles beinhaltender Container damit seite immer volle hoehe hat -->
 
-    <!-- align-items-center zentriert alles in row vertikal, justify-content-center zentriert alles in row horizontal -->
-    <div class="row mx-auto align-items-center justify-content-center" style="min-height:30vh">
-      <!-- Weisse Box mit Name aus Landing-Input -->
-      <div class="card d-flex" style="width: 20rem;">
-        <div class="card-body">
-          <h5 class="card-title">Hello, my name is</h5>
-          <div class="col-12">
-            <p id="outputName" class="graubox">There was an error.</p>
+    <div class="row justify-content-center align-items-center">     
+      
+      <!-- Spalte 1, links-->
+      <div class="col-6 center-block text-center">
+
+        <!-- Weisse Box mit Name aus Landing-Input -->
+        <div class="card d-flex" style="width: 20rem;">
+          <div class="card-body">
+            <h5 class="card-title">Hello, my name is</h5>
+            <div class="col-12">
+              <p id="outputName" class="graubox">There was an error.</p>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- Weisse Box mit IPA Transformation -->
-      <div class="card d-flex" style="width: 20rem;">
-        <div class="card-body px-5">
-          <h6 class="card-title text-left px-4">Hello, my name is</h6>
-          <div class="col-12">
-            <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
+        
+        <!-- Weisse Box mit IPA Transformation -->
+        <div class="card d-flex" style="width: 20rem;">
+          <div class="card-body px-5">
+            <h6 class="card-title text-left px-4">Hello, my name is</h6>
+            <div class="col-12">
+              <p id="outputIPA" class="graubox text-left px-4">There was an error.</p>
+            </div>
+            <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
           </div>
-          <p class="text-left px-4 font-weight-light" id="IPAelements"></p>
         </div>
-      </div>
-    </div> <!-- obere row Ende -->
+      </div> <!-- Spalte 1, links, Ende-->
 
 
+      <!-- Spalte 2, rechts-->
+      <div class="col-xs-6 center-block text-center">
 
+        <img class=" headphonegirl_asset" src="/assets/headphonegirl_asset.png" width="200em"
+          viewBox="0 0 459 489"></img>
+
+        <!-- Weisse Box mit Spektogramm -->
+        <div class="card pl-2 spekto" style="width: 25rem;">
+          <div class="card-body px-4">
+            <div class="col-12">
+              <img src="/assets/fakeSpektogram.png" class="img-fluid rounded-lg mt-2 " alt="Image of a spectogram ">
+              <img src="/assets/fakewaveform.png" class="img-fluid rounded-lg mt-2 " alt="Image of a waveform ">
+            </div>
+          </div>
+        </div>
+
+      </div><!-- Spalte 2, rechts, Ende-->
+    </div> <!-- einzige row Ende-->
 
     <!-- InfoBox-SVG -->
     <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem" viewBox="0 0 87 89"
@@ -97,25 +118,6 @@
       </div>
     </div>
 
-
-    <div class="row mx-auto align-items-center justify-content-center" style="min-height:30vh">
-
-      <!-- Weisse Box mit Spektogramm -->
-      <div class="card d-flex p-2" style="width: 20rem;">
-        <div class="card-body px-4">
-          <div class="col-12">
-            <img src="/assets/fakeSpektogram.png" class="img-fluid rounded-lg mt-2 " alt="Image of a spectogram ">
-            <img src="/assets/fakewaveform.png" class="img-fluid rounded-lg mt-2 " alt="Image of a waveform ">
-          </div>
-        </div>
-      </div>
-
-      <img class=" headphonegirl_asset mr-5 " src="/assets/headphonegirl_asset.png" width="200em"
-        viewBox="0 0 459 489"></img>
-
-
-    </div> <!-- mittlere row Ende -->
-
     <div class="row mx-auto align-items-center">
       <div class="mx-auto">
         <p class="d-inline-flex text-light font-weight-light font-italic">How did all of this work? <br> Let´s take a
@@ -128,31 +130,6 @@
         </svg>
       </div>
     </div>
-
-    <!-- Sandbox IPA-Transformer --- Später wieder löschen 
-    <div id="js-text-to-ipa-form">
-      ​
-      <ul style="list-style-type: none;">
-        <li><textarea id="ipa-in" placeholder="Write text here" rows="4" cols="50"></textarea></li>
-        <li class="button"><button type="button" id="js-ipa-submit"
-            onClick="ConverterForm.convert('ipa-in', 'ipa-out', 'ipa-err')">Convert!</button></li>
-        <li><textarea readonly id="ipa-out" placeholder="aʊtpʊt gəʊz hɪə" rows="4" cols="50"></textarea></li>
-        ​
-      </ul>
-      ​
-      <ul style="list-style-type: none;">
-        <li><noscript>
-            <p>This converter will not work unless Javascript is enabled.</p>
-          </noscript></li>
-        <li>
-          <div id="ipa-err">
-            <p>Errors will go here if you make any. (This will be overwritten)</p>
-          </div>
-        </li>
-      </ul>
-      ​
-    </div> 
-    -->
 
   </div> <!-- Alles beinhaltender Container - Ende -->
 
