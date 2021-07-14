@@ -11,6 +11,7 @@ var questions = [];
    
    document.addEventListener("DOMContentLoaded", function(event) { 
      btnProvideQuestion();
+     
    });
    
    function Question(question,rightAnswer,wrongAnswer1,wrongAnswer2) {
@@ -25,8 +26,9 @@ var questions = [];
        return o;
    };
 
-   var count;   
-for(count=0; count<5;count++){
+
+
+for(let i=0; i<=questions.length; i++){
    function btnProvideQuestion() { 
      
        var randomNumber = Math.floor(Math.random()*questions.length);
@@ -59,27 +61,19 @@ for(count=0; count<5;count++){
            checkAnswer(answerC);
    }
    
-   function adjustScore(isCorrect) {
-     debugger;
-     if (isCorrect) {
-       currentScore++;
-     } else {
-       if (currentScore > 0) {
-         currentScore--;
-         }
-         
-     }
-     document.getElementById("score").innerHTML = currentScore;
 
-   }
-   
    function checkAnswer(answer) {  
      if (answer == randomQuestion.rightAnswer) {
-       adjustScore(true);
+       currentScore++;
        btnProvideQuestion();
+       
      } else { 
-        adjustScore(false);
+
         btnProvideQuestion();
-     }	  
+     }	 
+      
    } 
+   document.getElementById("score").innerHTML = currentScore;
 }
+document.getElementById('end').style.visibility="visible";
+
