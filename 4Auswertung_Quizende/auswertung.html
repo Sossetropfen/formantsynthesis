@@ -22,8 +22,8 @@
 </head>
 
 <body>
-     <!--Horizontale linie-->
-     <hr>
+    <!--Horizontale linie-->
+    <hr>
 
 
     <!--Hintergrund weiß-->
@@ -38,9 +38,9 @@
 
             <!--Überschrift-->
             <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
-            
-           
-                
+
+
+
             <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ml-xs-2 pt-2">
 
                 <h1>Quiz-Results</h1>
@@ -56,7 +56,7 @@
     <div class="container-fluid">
         <div class="row">
 
-            
+
             <!-- links - leer -->
             <div class="col-sm-2 col-md-2 col-lg-2"></div>
 
@@ -70,85 +70,108 @@
                     <div class="row justify-content-center align-items-center">
                         <div class="col center-block text-center">
 
+
                             <div class="card" id="card">
                                 <div class="card-body" id="card-body">
-
-                                    <!--Die Auwertung-->
-                                    <div class="container row p-5">
-                                        <div class="col-4">
-                                            <p>Overall</p>
-                                            <p>Text Pre-Processing</p>
-                                            <p>Prosody Generation</p>
-                                            <p>Signal Generation</p>
-                                        </div>
-                                        <div class="col-8">
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar" id="progressOverall"></div>
-                                            </div>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar" id="progressText"></div>
-                                            </div>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar" id="progressProsody"></div>
-                                            </div>
-                                            <div class="progress mb-4">
-                                                <div class="progress-bar" id="progressSignal"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Der retake Button-->
                                     <div class="row">
-                                        <div class="mx-auto">
-                                            <a href="../0Landing\landing.html" class="btn" role="button">
-                                                <!--DER WEITER-text-->
-                                                <span class="font-weight-light ">retake</span>
-                                                <!-- Das Weiter Dreieck -->
-                                                <button class="btn">
-                                                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path
-                                                            d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
-                                                            fill="#628BC8" />
-                                                    </svg>
-                                                </button>
-                                            </a>
+                                        <!--Die Auwertung-->
+                                        <div class="container row p-1">
+                                            <div class="col-4">
+                                                <p>Overall</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="progress mb-1">
+                                                    <div class="progress-bar" id="progressOverall"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container row p-1">
+                                            <div class="col-4">
+                                                <p>Text Pre-Processing</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar" id="progressText"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container row p-1">
+                                            <div class="col-4">
+                                                <p>Prosody Generation</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar" id="progressProsody"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="container row p-1">
+                                            <div class="col-4">
+                                                <p>Signal Generation</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="progress mb-4">
+                                                    <div class="progress-bar" id="progressSignal"></div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
                                 </div>
 
-
+                                <!--Der retake Button-->
+                                <div class="row">
+                                    <div class="mx-auto">
+                                        <a href="../0Landing\landing.html" class="btn" role="button">
+                                            <!--DER WEITER-text-->
+                                            <span class="font-weight-light ">retake</span>
+                                            <!-- Das Weiter Dreieck -->
+                                            <button class="btn">
+                                                <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                                        fill="#628BC8" />
+                                                </svg>
+                                            </button>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
+
                             <!-- laptop pic -->
                             <img src="/assets/graphic_quiz_laptop.png" id="laptop_asset">
-                            
 
-                        </div><!-- Spalte 2, rechts, Ende-->
+                        </div>
                     </div>
                 </div>
-
-
-                <!--Content unten drunter-->
-                <!-- interne rows für graphic/text-->
-
-                <div class="row">
-
-
-
-
-                </div>
-
-
             </div>
+        </div>
 
 
-            <!-- rechts -->
-            <div class=" col-sm-1 col-md-2 col-lg-2">
+        <!--Content unten drunter-->
+        <!-- interne rows für graphic/text-->
 
-            </div>
+        <div class="row">
+
+
+
 
         </div>
+
+
+    </div>
+
+
+    <!-- rechts -->
+    <div class=" col-sm-1 col-md-2 col-lg-2">
+
+    </div>
+
+    </div>
 
     </div>
 
