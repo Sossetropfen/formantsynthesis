@@ -2,41 +2,101 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Speech Synthesis - A learning experience!</title>
+    <meta charset="utf-8">
+    <title>Speech Synthesis - A learning experience!</title>
 
-  <!-- Bootstrap einbinden -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="auswertung-style.css" /> <!--das ist einfach das CSS aus Landing-->
+    <!-- Bootstrap einbinden -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="auswertung-style.css" />
 
-  <!-- GoogleFont einbinden -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> 
+    <!-- GoogleFont einbinden -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- JS Libraries for Plotting -->
+    <script src="https://unpkg.com/mathjs@9.4.2/lib/browser/math.js"></script>
+    <script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
+    <!--die Fujiaki.js-Einbindung <script src="fujisaki.js"></script> -->
+    <script src="fujisaki.js"></script>
 </head>
 
 <body>
 
+
+    <!--Hintergrund weiß-->
+
+    <!--Collumns (12) öffnen - wegen der Karte mit dem Info-Btn daneben-->
+    <!-- container nach überschrift und i anfangen um verschiebung zu vermeiden-->
+    <div class="container-fluid mt-5">
+        <div class="row">
+
+            <!-- links - leer -->
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
+
+            <!--Überschrift-->
+            <!--<div class="col-xs-8 col-sm-8 col-md-10 col-lg-10 ml-5 pl-5 ml-xs-2 pt-2">-->
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 ml-xs-2 pt-2">
+
+                <h1>Auswertung</h1>
+
+                <p>Here you can see how you scored in the MC-tests and reapeat try again to get better!</p>
+
+            </div>
+            <div class=" col-sm-1 col-md-1 col-lg-1">
+                <!-- Keine InfoBox-SVG -->
+                <!--
+                <svg type="button" data-toggle="modal" data-target="#infotextModal" width="4rem" height="4rem"
+                    viewBox="0 0 87 89" fill="none" xmlns="http://www.w3.org/2000/svg" id="info">
+                    <g filter="url(#filter0_d)">
+                        <rect x="4" width="79" height="81" rx="20" fill="#628BC8" />
+                    </g>
+                    <path d="M37.05 30.15V23.5H43.75V30.15H37.05ZM37.05 60V33.8H43.75V60H37.05Z" fill="white" />
+                    <defs>
+                        <filter id="filter0_d" x="0" y="0" width="87" height="89" filterUnits="userSpaceOnUse"
+                            color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
+                            <feOffset dy="4" />
+                            <feGaussianBlur stdDeviation="2" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+                -->
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid">
         <div class="row">
 
-            <!-- links - leer -->           
-            <div class="col-lg-3" ></div>
+
+            <!-- links - leer -->
+            <div class="col-sm-2 col-md-2 col-lg-2"></div>
+
+            <!-- Mitte - Hauptteil -->
+            <div class="col-xs-6 col-sm-8 col-md-8 col-lg-8">
 
 
-            <!-- Mitte - Hauptteil -->           
-            <div class="col-lg-6" >
-                
-                <!--Überschrift-->
-                <h1>Quiz Results</h1>
-                
-                
                 <!--Karte blau-->
-                <div class="container my-5" >
+                <div class="container my-5">
                     <div class="card " id="card">
                         <div class="card-body" id="card-body">
+
+                           <!--Die Auwertung-->
+                           <div class="container row">
+                            <div class="col-6">
+                                
+                            </div>
+                            </div>
+                            
+                            <!--Der retake Button-->
                             <div class="row">
-                                <div class="mx-auto">
+                                <div class="mx-auto">                                  
                                     <a href="../0Landing\landing.html" class="btn" role="button">
                                         <!--DER WEITER-text-->
                                         <span class="font-weight-light ">retake</span>
@@ -48,34 +108,136 @@
                                         </button>
                                     </a>
                                 </div>
-                            </div>
+                            </div> 
+
                         </div>
                     </div>
                 </div>
+
                 
+
+
                 <!--Content unten drunter-->
-                <div class="container">
-                    <div class="my-5">
-                        <h1 id="heading">Survey</h1>
-                        <p>blablabla</p>
-                    </div>
+                <!-- interne rows für graphic/text-->
+
+                <div class="row">
+                    
+
+
 
                 </div>
 
 
             </div>
 
-            
-            <!-- rechts - kein button mehr -> empty -->
-            <div class="col-lg-3" ></div>
+
+            <!-- rechts -->
+            <div class=" col-sm-1 col-md-2 col-lg-2">
+
+                <!-- Modal -->
+                <!--We don't need this
+                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog rounded-lg" role="document">
+                        <div class="modal-content rounded-lg">
+                            <div class="modal-body">
+                                <h3>How to use?</h3>
+                                <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein
+                                
+                                <p>In this step you're about to learn how the fujisaki model for prosody generation
+                                    works. Based on a given formular you have to set to linear
+                                    filters as an input. If you want to the exact meaning of a given single component
+                                    and if you want to further understand what the model does for the genration of
+                                    synthetic speech,
+                                    check out the explanation of the fujisaki model beneath the interactive box. But
+                                    first of all:<br>
+                                <h3>What exactly is prosody? </h3>
+                                Unlike the phonemes, prosody describes not one single segment but greater elements of
+                                speech. Under the term of prosody we can differentiate between such features
+                                as stress, intonation, tempo, pausing and rythm. Generally speaking, one could describe
+                                prosody as the melody of speech. <br>
+                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
+                                    data-dismiss="modal">Close</button>
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+
+
+            </div>
 
         </div>
-   
+
     </div>
 
-    <!------------------------------Der footer - kann leer bleiben-------------------------->
+
+    <!------------------------------Der footer-------------------------->
     <div class="container-fluid my-5">
+        <div class="row">
+            <!--alles in eins statt 3 colums-->
+            <!--We don't need this
+
+
+            <div class="col-lg-12 col-md-10 col-sm-10 ">
+                <div class="float-left">
+                    <!--DER back-bUTTON
+                    <a href="../1Lautsprache\Lautsprache.html" class="btn " role="button">
+                        <button class="btn">
+                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
+                                    fill="#628BC8" />
+                            </svg>
+                        </button>
+                        <!--DER WEITER-text
+                        <span class="font-weight-light">Back</span>
+                    </a>
+                </div>
+
+                <div class="float-right">
+                    <a href="../3Synthese\Synthese.html" class="btn" role="button">
+                        <!--DER WEITER-text
+                        <span class="font-weight-light ">Next</span>
+                        <!-- Das Weiter Dreieck 
+                        <button class="btn">
+                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                    fill="#628BC8" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            -->
+        
+        </div>
     </div>
+    <!-- Footer unten -->
+    <div class="container">
+        <div class="row">
+
+            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                <span class="small"><a class="btn" href="">Impressum</a></span>
+            </div>
+
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <span class="small"><a class="btn" href="">Data Privacy</a></span>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <span class="small"> <a class="btn" href="">Copyright</a></span>
+            </div>
+        </div>
+        <br>
+    </div>
+
+
 
 </body>
 
@@ -84,13 +246,5 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-<script>
-  
-    //Hier kommt Konstantins Script rein
-
-</script>
-
 
 </html>
