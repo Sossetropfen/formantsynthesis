@@ -27,8 +27,6 @@ var questions = [];
    };
 
 
-
-for(let i=0; i<=questions.length; i++){
    function btnProvideQuestion() { 
      
     var randomNumber = Math.floor(Math.random()*questions.length);
@@ -74,6 +72,6 @@ for(let i=0; i<=questions.length; i++){
       
    } 
    document.getElementById("score").innerHTML = currentScore;
-}
+
 document.getElementById('end').style.visibility="visible";
 
