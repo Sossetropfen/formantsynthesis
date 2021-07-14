@@ -2,6 +2,7 @@
 body {
     background-color: #81B3FF;
     height: 100%;
+    margin-top: 3em;
   }
   
   .card-title {
@@ -13,9 +14,7 @@ body {
   }
   
   .card {
-    margin-top: 2rem;
     margin-bottom: 2rem;
-    margin-right: 6rem;
     background: #FFFFFF;
     box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
     border-radius: 102px;
@@ -62,4 +61,21 @@ body {
   }
 
   .headphonegirl_asset{
+    position: relative;
+    top: 1.5em;
+    z-index: 1;
+  }
+
+  .spekto{
+    position: relative;
+    z-index: -1;
+  }
+
+  @media screen and (max-width: 568px) {
+
+    #info {
+      position: relative;
+      top: 77%;
+      left: 47%;
+    }
   }

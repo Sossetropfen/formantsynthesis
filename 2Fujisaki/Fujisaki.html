@@ -7,7 +7,7 @@
 
     <!-- Bootstrap einbinden -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lautsprache-style.css" />
+    <link rel="stylesheet" href="fujisaki-style.css" />
 
     <!-- GoogleFont einbinden -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,6 +113,9 @@
                                         <button class="btn btn-info" id="btn_bias" onclick="BiasInput()">enter bias
                                             level</button>
                                     </div>
+
+                                    <!-- Bild was so nach formeln aussieht-->
+                                    <img class="img-fluid" src="/assets/flow_asset.svg" id="formelbild">
                                 </div>
 
                                 <!--Phrase command Eingabe-->
@@ -221,8 +224,7 @@
                     <div class="my-5">
                         
                         <h1 id="heading">How does the Fujisaki Model work?</h1>
-                        <img class="img-responsive float-right mt-0" style="width: 11em;"
-                        src="/assets/fujisaki_asset.png"></img>   
+                        
                         <p>The Fujisaki-model is one method to generate the F<sub>0</sub> contour of speech signals.
                             This contour contributes important non-linguistic information used for prosody generation.
                             Such information can be the emotion and naturalness of the speaker. The model represents
@@ -242,8 +244,9 @@
 
 
                     <!--fette graphic in der Mitte-->
-                    
-                    <div class="col-md-10 col-lg-10 col-xs-10 mx-auto">
+                  
+
+                    <div class="row justify-content-center align-items-center">
                         <img class="img-fluid" style="border-radius: 40px;"  src="../assets\model_scheme_hinterleitner.png">
                         </img>
                         <p class="small font-italic ml-4 mt-1">Fujisaki model for the generation of F<sub>0</sub> contours.<br>
@@ -272,7 +275,7 @@
 
                         <div class="row">
                             <div class="col-md-4 col-lg-4 col-xs-6">
-                                <img src="\assets\graphic_quiz_laptop.png" id="quizbild">
+                                <img class="mt-1" src="\assets\graphic_quiz_laptop.png" id="quizbild">
                                 </img>
                             </div>
                             <div class="col-md-8 col-lg-8 col-xs-6">
