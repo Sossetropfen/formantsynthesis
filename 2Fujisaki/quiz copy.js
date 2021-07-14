@@ -38,8 +38,7 @@ const myQuestions = [
   const output = [];
 
   // for each question...
-  myQuestions.forEach(
-    (currentQuestion, questionNumber) => {
+  myQuestions.forEach((currentQuestion, questionNumber) => {
 
       // variable to store the list of possible answers
       const answers = [];
