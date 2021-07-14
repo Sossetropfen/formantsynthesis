@@ -5,14 +5,17 @@ var questions = [];
    questions[3] = new Question("How many legs does a spider have?", "8", "6", "4");
    questions[4] = new Question("Who is the king of the Netherlands?", "Willem-Alexander", "Willem-Alexzelf", "Willem-Alexniemand");
    questions[5] = new Question("What is 2-2?", "0", "2", "4");
+   var currentScore = 0;
    var randomQuestion;
    var answers = [];
    
-   
+  
    document.addEventListener("DOMContentLoaded", function(event) {
-    var currentScore = 0;
+    
      btnProvideQuestion();
    });
+
+   
    
    function Question(question,rightAnswer,wrongAnswer1,wrongAnswer2) {
        this.question = question;
@@ -20,6 +23,7 @@ var questions = [];
        this.wrongAnswer1 = wrongAnswer1;
        this.wrongAnswer2 = wrongAnswer2;
    };
+   
    
    function shuffle(o) {
        for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
@@ -50,12 +54,12 @@ var questions = [];
    }
    
    function answerB_clicked() {
-           var answerB = document.getElementById("answerB").value;
-     checkAnswer(answerB);
+      var answerB = document.getElementById("answerB").value;
+          checkAnswer(answerB);
    }
    function answerC_clicked() {
      var answerC = document.getElementById("answerC").value;
-         
+     
            checkAnswer(answerC);
    }
    
@@ -69,10 +73,10 @@ var questions = [];
 
         btnProvideQuestion();
      }	 
-      
+     document.getElementById("score").innerHTML = currentScore;
    } 
 
-document.getElementById("score").innerHTML = currentScore;
+
 
 document.getElementById('end').style.visibility="visible";
 
