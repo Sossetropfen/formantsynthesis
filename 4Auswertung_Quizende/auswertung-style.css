@@ -71,3 +71,13 @@ body {
   bottom: 2em;
 
 }
+
+hr{
+  height:4px;
+  border-width:0;
+  background-color:rgb(98, 139, 200, 0.7);
+}
+
+.container{
+  overflow: hidden;
+}
