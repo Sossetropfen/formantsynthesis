@@ -1,6 +1,6 @@
 var questions = [];
-   questions[0] = new Question("What is 1/4 of 100?", "25", "24", "23");
-   questions[1] = new Question("What color is blood?", "Red", "White", "Green");
+   questions[0] = new Question("What does PSOLA stand for?", "25", "24", "23");
+   questions[1] = new Question("Which synthesis has a smaller footprint / inventory?", "Red", "White", "Green");
    questions[2] = new Question("What color is grass?", "Green", "White", "Red");
    questions[3] = new Question("How many legs does a spider have?", "8", "6", "4");
    questions[4] = new Question("Who is the king of the Netherlands?", "Willem-Alexander", "Willem-Alexzelf", "Willem-Alexniemand");
