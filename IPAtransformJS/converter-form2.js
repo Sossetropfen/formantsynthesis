@@ -118,10 +118,13 @@ function convertText(str){
 			}
 			// ------------------------------------------
 			textToIpa(date, IPAText);
-		} else if (currentEl.split(":").length == 2 && !isNaN(currentEl.split(":")[0]) && !isNaN(currentEl.split(":")[1]) && currentEl.split(":")[0] >= 0 && currentEl.split(":")[0] < 25 && currentEl.split(":")[1] >= 0 && currentEl.split(":")[1] < 61){ // If input is two numbers divided by a ":" with first number in range 0 to 24 and the second number in range 0 to 60 then we suppose it is indicating a time
+		} else if (isTime(currentEl)){ // If input is two numbers divided by a ":" with first number in range 0 to 24 and the second number in range 0 to 60 then we suppose it is indicating a time
 			//split input by ":" gives an array of e.g. [11,09]
 			console.log("time");
 			var time = currentEl.split(":");
+            if(time[1].length == 3){
+                time[1] = time[1].slice(0,2);
+            }
 			//convert both elements of array to strings
 			var stunde = intToWords(time[0]).toString().split(" ");
 			var minute = intToWords(time[1]).toString().split(" ");
@@ -253,6 +256,26 @@ function isDate(input){
             }
         return false;
     }
+}
+
+function isTime(input){
+    if (input.split(":").length == 2 || input.split(":").length == 3 && input.split(":")[2] == ""){
+        var t = input.split(":");
+        if (!isNaN(t[0]) && t[0] > 0 && t[0] < 25){
+            if (!isNaN(t[1]) && t[1] >= 0 && t[1] < 61){
+               return true;
+            }
+            if(t[1].length == 3){
+                if (!isNaN(t[1].slice(0,2)) && (t[1][2] == "." || t[1][2] == "!" || t[1][2] == "?") && t[1].slice(0,2) >= 0 && t[1].slice(0,2) < 61){
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return false;
+    }
+    return false;
 }
 
 function convertMonth(month){
