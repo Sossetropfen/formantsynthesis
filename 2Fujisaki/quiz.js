@@ -6,13 +6,15 @@ var questions = [];
    questions[4] = new Question("Who is the king of the Netherlands?", "Willem-Alexander", "Willem-Alexzelf", "Willem-Alexniemand");
    questions[5] = new Question("What is 2-2?", "0", "2", "4");
    var currentScore = 0;
+   var scoreProsody = 0;
    var randomQuestion;
    var answers = [];
+   var counter = 0;
    
   
    document.addEventListener("DOMContentLoaded", function(event) {
-    
-     btnProvideQuestion();
+    document.getElementById('hid').style.visibility = "hidden";
+    btnProvideQuestion();
    });
 
    
@@ -32,6 +34,13 @@ var questions = [];
 
 
    function btnProvideQuestion() { 
+
+    
+    if(counter > 4){
+      document.getElementById('quizinhalt').style.visibility = "hidden";
+      document.getElementById('hid').style.visibility = "visible";
+    }
+    counter++;
      
     var randomNumber = Math.floor(Math.random()*questions.length);
     randomQuestion = questions[randomNumber]; //getQuestion
@@ -80,4 +89,4 @@ var questions = [];
 
 
 document.getElementById('end').style.visibility="visible";
-
+sessionStorage.setItem("scoreProsody", scoreProsody);
