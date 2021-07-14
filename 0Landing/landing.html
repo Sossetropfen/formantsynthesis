@@ -89,7 +89,6 @@
     //alert(inputName);
     var inputNameIPA = convertText(inputName);
     inputNameIPA = inputNameIPA.join(' ').replaceAll("/", "").replaceAll(",", "");
-    console.log(inputNameIPA);
     sessionStorage.setItem("inputNameIPA", inputNameIPA);
     sessionStorage.setItem("inputName", inputName);
     window.location.replace('introauswertung.html');

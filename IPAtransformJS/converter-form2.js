@@ -87,11 +87,12 @@ function convertText(str){
 	// Resulting array of IPA text words
 	var IPAText = [];
 	// Begin converting
+    str = str.replaceAll("\n", " ");
 	var englishTextArray = str.split(" ");
 	for (var i in englishTextArray) {
 		//console.log(englishTextArray[i]);
 		var currentEl = replaceSigns(englishTextArray[i]);
-		if (currentEl == ''){ //if the input is split by " " sometimes there is leftover elements which would be converted to zero, which we dont want
+		if (currentEl == '' || currentEl == ' '){ //if the input is split by " " sometimes there is leftover elements which would be converted to zero, which we dont want
 			console.log("upsi");  
 		} else if (isDate(currentEl)){
 			// Date if exactly 3 elements when split by ".": first a number between 1 and 31, then either a number with either 1 or 2 digits or a word with max 9 characters (september is the longest month with 9 characters), and then a number with < 4 digits 
@@ -144,10 +145,13 @@ function convertText(str){
 			var ordNrArr = ordinalInWord(number).split(" ");
 			//console.log(ordNrArr);
 			textToIpa(ordNrArr, IPAText);
-		} else if (currentEl.split(".").length == 2 && (isNumber(currentEl.split(".")[0]) || currentEl.split(".")[0] == '') && isNumber(currentEl.split(".")[1])){ //2 numbers divided by a . -> decimal numbers
+		} else if (isDecimal(currentEl)){ //2 numbers divided by a . -> decimal numbers
 			console.log("decimal");
 			var decimalArr = currentEl.split(".");
 			var el1 = intToWords(decimalArr[0]).toString().split(" "); //number before dot
+            if (isNaN(decimalArr[1])){
+                decimalArr[1] = decimalArr[1].slice(0,decimalArr[1].length-1);
+            }
 			var el2 = decimalArr[1]; //number after dot
 			var decimal = '';
 			if (el1 != 'zero'){ // regular output of numbers for the number before the dot
@@ -177,7 +181,14 @@ function convertText(str){
 			console.log("rest");
 			var arr = currentEl.split(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g);
 			//console.log(arr);
-			textToIpa(arr, IPAText);
+            for(var a = 0; a < arr.length; a++){
+                if(isNaN(arr[a])){
+                    textToIpa(arr[a], IPAText);
+                }
+                else{
+                    textToIpa(intToWords(arr[a]).toString().split(" "), IPAText);
+                }
+            }
 		} else {
 			//console.log(currentEl);
 			textToIpa(currentEl, IPAText);
@@ -262,7 +273,7 @@ function isTime(input){
     if (input.split(":").length == 2 || input.split(":").length == 3 && input.split(":")[2] == ""){
         var t = input.split(":");
         if (!isNaN(t[0]) && t[0] > 0 && t[0] < 25){
-            if (!isNaN(t[1]) && t[1] >= 0 && t[1] < 61){
+            if (!isNaN(t[1]) && t[1] >= 0 && t[1] < 61 && t[1].length == 2){
                return true;
             }
             if(t[1].length == 3){
@@ -272,6 +283,17 @@ function isTime(input){
                 return false;
             }
             return false;
+        }
+        return false;
+    }
+    return false;
+}
+
+function isDecimal(input){
+    if (input.split(".").length == 2 || (input.split(".").length == 3 && input.split(".")[2] == "")){
+        var dec = input.split(".");
+        if ((!isNaN(dec[0]) || dec[0] == "") && (!isNaN(dec[1]) || (!isNaN(dec[1].slice(0,dec[1].length-1)) && isNaN(dec[1][dec[1].length-1])))){
+            return true;
         }
         return false;
     }
