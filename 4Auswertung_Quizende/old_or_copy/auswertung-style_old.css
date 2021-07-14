@@ -1,0 +1,139 @@
+*{
+  font-family: 'Roboto', sans-serif;
+  color: #484848;
+}
+
+body {
+  background: #f3f3f3;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #484848;
+  }
+
+  #heading{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+  }
+  
+  .card-title {
+    font-size: 48;
+    text-align: center;
+  }
+  
+  .card {
+    background-color: #81B3FF;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 116px;
+    padding: 25px 35px 40px 35px;
+  }
+
+  .card-body {
+    border-radius: 98px;
+  }
+  
+  .form-control {
+    background: rgba(196, 196, 196, 0.5);
+    mix-blend-mode: multiply;
+    border-radius: 40px;
+    text-align: center;
+  }
+  
+  .form-control:focus {
+    background: rgba(196, 196, 196, 0.33);
+    mix-blend-mode: multiply;
+  }
+  
+  #dreieck {
+    position: fixed;
+    top: 45%;
+    left: 65%;
+      /* PROBLEM: Muss auf andere Art positioniert werden, da es sich sonst in die Box verschiebt */
+  
+  }
+  
+  #dreieck:hover {
+    fill: #456fad;
+  }
+  
+  a {
+    color: whitesmoke;
+    font-style: italic;
+  }
+  
+  #info{
+    margin: 2rem;
+    float: left;
+}
+
+/*--------Hier ist das CSS für die Runde Anzeige---
+
+.circular{
+  height:100px;
+  width: 100px;
+  position: relative;
+  transform:scale(2);
+}
+.circular .inner{
+  position: absolute;
+  z-index: 6;
+  top: 50%;
+  left: 50%;
+  height: 80px;
+  width: 80px;
+  margin: -40px 0 0 -40px;
+  background: #dde6f0;
+  border-radius: 100%;
+ 
+}
+.circular .number{
+  position: absolute;
+  top:50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  z-index:10;
+  font-size:18px;
+  font-weight:500;
+  color:#4158d0;
+}
+.circular .bar{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
+}
+.circle .bar .progress{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  -webkit-border-radius: 100%;
+  clip: rect(0px, 50px, 100px, 0px);
+  background: #4158d0;
+}
+.circle .left .progress{
+  z-index:1;
+  animation: left 4s linear both;
+}
+@keyframes left{
+  100%{
+    transform: rotate(180deg);
+  }
+}
+.circle .right {
+  transform: rotate(180deg);
+  z-index:3;
+ 
+}
+.circle .right .progress{
+  animation: right 4s linear both;
+  animation-delay:4s;
+}
+@keyframes right{
+  100%{
+    transform: rotate(180deg);
+  }
+}
+
+/*-------------------------------------------------*/
