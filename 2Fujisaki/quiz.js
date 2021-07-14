@@ -27,8 +27,6 @@ var questions = [];
    };
 
 
-
-
    function btnProvideQuestion() { 
      
     var randomNumber = Math.floor(Math.random()*questions.length);
