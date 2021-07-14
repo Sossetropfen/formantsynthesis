@@ -65,6 +65,7 @@ var questions = [];
    
 
    function checkAnswer(answer) {  
+
      if (answer == randomQuestion.rightAnswer) {
        currentScore++;
        btnProvideQuestion();
