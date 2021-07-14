@@ -119,6 +119,11 @@ body {
   white-space: pre-wrap;    
 }
 
+.progress{
+  border-radius: 40px !important;
+}
+
 .progress-bar{
   background-color: #628bc8;
+  
 }
