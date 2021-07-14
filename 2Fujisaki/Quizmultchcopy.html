@@ -26,32 +26,41 @@
 <body class="bg-transparent">     
     <div class="Container-fluid ">
 
-      <div class="flex">
+      <div class="row">
+        <!-- links - leer -->
+        <div class="col-sm-2 col-md-2 col-lg-2"></div>
+        <div class="col-md-2 col-lg-4 col-xs-2" id="quizinhalt">
+          
+
+      <div class="col-md-3 col-lg-4 col-xs-1 mt-3">
         <div id = "score2" class="field" style="visibility: hidden;">Score</div>
         <div id="score" class="field" style="visibility: hidden;"></div>
       </div>
-  <div class="flex">
-    <div class="field">Question</div>
+  <div class="col-md-2 col-lg-4 col-xs-1 mt-3">
     <div id="question" class="field"></div>
   </div>
-  <div class="flex">
-    <div class="field">Answer A</div>
+  <div class="col-md-2 col-lg-4 col-xs-1 mt-3">
     <button id="answerA" onclick="answerA_clicked()"></button>
   </div>
-  <div class="flex">
-    <div class="field">Answer B</div>
+  <div class="col-md-2 col-lg-4 col-xs-1 mt-3">
     <button id="answerB" onclick="answerB_clicked()"></button>
   </div>
-  <div class="flex">
-    <div class="field">Answer C</div>
+  <div class="col-md-2 col-lg-4 col-xs-1 mt-3">
     <button id="answerC" onclick="answerC_clicked()"></button>
   </div>
-  <div class="flex">
-    <input type="button" id="end" value="toggler" onClick="action();"/>
-  </div>
-   </div>
+
+</div>
+  <div class="col-md-4 col-lg-4 col-xs-1" id="hid" style="visibility: hidden;">
+  <a href="../3Synthese\Synthese.html">
+    <img src="../assets\next button small.png" id="btn-q" >
+ </a></div>
+
+
 
   
+   
+</div>
+</div>
    <!-- Footer unten -->
    <div class="container">
        <div class="row">

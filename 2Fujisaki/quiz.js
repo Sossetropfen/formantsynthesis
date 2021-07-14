@@ -1,18 +1,20 @@
 var questions = [];
-   questions[0] = new Question("What is 1/4 of 100?", "25", "24", "23");
-   questions[1] = new Question("What color is blood?", "Red", "White", "Green");
-   questions[2] = new Question("What color is grass?", "Green", "White", "Red");
-   questions[3] = new Question("How many legs does a spider have?", "8", "6", "4");
-   questions[4] = new Question("Who is the king of the Netherlands?", "Willem-Alexander", "Willem-Alexzelf", "Willem-Alexniemand");
-   questions[5] = new Question("What is 2-2?", "0", "2", "4");
+   questions[0] = new Question("What does PSOLA stand for?", "Pitch Synchronous Overlap and Add", "Processing Software of Language Artificiality", "Periodic Synthesis on Length and Amplitude");
+   questions[1] = new Question("Which synthesis has a smaller footprint / inventory?", "Hidden Markov-based synthesis ", "Unit-Selection synthesis ", "Hidden Markov-based synthesis ");
+   questions[2] = new Question("What is the function of a formant filter?", " A Formant filters represent the formant resonances of the human vocal tract. They filter frequencies except those that coincide with the needed phoneme", "Formant filters set the excitation signal with a fundamental frequency", "Formant filters reduces noise and errors in the final speech signal output");
+   questions[3] = new Question("What type of synthesis is not based on the source-filter-model?", "Articulatorysynthesis", "Formantsynthesis", "LPC synthesis");
+   questions[4] = new Question("'Pitch modulation' is part of wich model?", "Formant synthesis", "LPC synthesis", "parametric synthesis with source-filter model");
+   questions[5] = new Question("Which synthesis tries to accuratly simulate the vocal track?", "Articulatory synthesis", "formant synthesis", "parametric synthesis");
    var currentScore = 0;
+   var scoreProsody = 0;
    var randomQuestion;
    var answers = [];
+   var counter = 0;
    
   
    document.addEventListener("DOMContentLoaded", function(event) {
-    
-     btnProvideQuestion();
+    document.getElementById('hid').style.visibility = "hidden";
+    btnProvideQuestion();
    });
 
    
@@ -32,6 +34,13 @@ var questions = [];
 
 
    function btnProvideQuestion() { 
+
+    
+    if(counter > 4){
+      document.getElementById('quizinhalt').style.visibility = "hidden";
+      document.getElementById('hid').style.visibility = "visible";
+    }
+    counter++;
      
     var randomNumber = Math.floor(Math.random()*questions.length);
     randomQuestion = questions[randomNumber]; //getQuestion
@@ -80,4 +89,4 @@ var questions = [];
 
 
 document.getElementById('end').style.visibility="visible";
-
+sessionStorage.setItem("scoreProsody", scoreProsody);

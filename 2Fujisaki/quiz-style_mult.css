@@ -10,6 +10,23 @@ body {
     color: #484848;
   }
 
+  #answerA {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerB {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerC {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+
+  #quizinhalt {
+    position: relative;
+    text-align: center;
+    margin-left: 10%;
+    margin-bottom: 5%;
+  }
+
+  #hid {
+    max-width: 500%;
+    height: auto;
+    margin-top: 10%;
+  }
+
   span a {
     color: whitesmoke;
     font-style: italic;
