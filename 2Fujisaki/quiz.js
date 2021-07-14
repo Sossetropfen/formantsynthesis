@@ -28,11 +28,11 @@ var questions = [];
 
 
 
-
+for(let i=0; i<=questions.length; i++){
    function btnProvideQuestion() { 
      
-       var randomNumber = Math.floor(Math.random()*questions.length);
-       randomQuestion = questions[randomNumber]; //getQuestion
+    var randomNumber = Math.floor(Math.random()*questions.length);
+    randomQuestion = questions[randomNumber]; //getQuestion
      answers = [randomQuestion.rightAnswer, randomQuestion.wrongAnswer1, randomQuestion.wrongAnswer2];
      shuffle(answers);
      
@@ -74,6 +74,6 @@ var questions = [];
       
    } 
    document.getElementById("score").innerHTML = currentScore;
-
-
+}
+document.getElementById('end').style.visibility="visible";
 
