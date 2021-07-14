@@ -104,7 +104,7 @@
                                     <div id="bias">
                                         <h3>Bias Level</h3>
                                         <form id="form_bias">
-                                            <label for="bias_input">Enter the bias level, F<sub>b</sub>:</label>
+                                            <label for="bias_input">Enter bias level, F<sub>b</sub>:</label>
                                             <br>
                                             <input id="bias_input" class="form-control" value="0"></input>
                                         </form>
@@ -179,7 +179,15 @@
                                     </div>
 
                                 </div>
+                                
+                                <!--<div class="my-2 col-lg-12 ">
+                                    <button class="btn btn-info" id="btn_plot" onclick="show()">show values</button>
+                                </div>-->
 
+                                <div class="my-2 col-lg-12 ">
+                                    <button class="btn btn-info" id="btn_sample" onclick="loadSampleValues()">load sample values</button>
+                                </div>
+        
                                 <div class="my-2 col-lg-12 ">
                                     <button class="btn btn-info" id="btn_plot" onclick="plotAndUnhide()">show the
                                         F<sub style="color: whitesmoke">0</sub> contour</button>
@@ -440,15 +448,7 @@
 <script>
 
     function resetParameters(){
-        document.getElementById("bias_input").value = 0;
-        document.getElementById("A_pi_input").value = 0;
-        document.getElementById("T_0i_input").value = 0;
-        document.getElementById("a_i_input").value = 0;
-        document.getElementById("A_aj_input").value = 0;
-        document.getElementById("T_1j_input").value = 0;
-        document.getElementById("T_2j_input").value = 0;
-        document.getElementById("b_j_input").value = 0;
-        document.getElementById("v_j_input").value = 0;
+        reset();
 
         var plotsDiv = document.getElementById("divForPlots");
         plotsDiv.style.display = "none";
