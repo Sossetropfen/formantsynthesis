@@ -118,3 +118,7 @@ body {
 .popover {
   white-space: pre-wrap;    
 }
+
+.progress-bar{
+  background-color: #628bc8;
+}
