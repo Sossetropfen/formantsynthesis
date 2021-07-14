@@ -71,7 +71,7 @@ var questions = [];
      }	 
       
    } 
-   document.getElementById("score").innerHTML = currentScore;
+   document.getElementById('score').innerHTML = currentScore;
 
 document.getElementById('end').style.visibility="visible";
 
