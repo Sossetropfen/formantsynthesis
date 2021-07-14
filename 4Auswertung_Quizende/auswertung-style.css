@@ -1,10 +1,3 @@
-.headerbild {
-  width: 100%;
-  max-width: 4000px;
-  height: auto;
-  padding-top:20px;
-  padding-bottom:20px;
-}
 
   *{
     font-family: 'Roboto', sans-serif;
@@ -19,19 +12,6 @@ body {
     color: #484848;
   }
 
-  #heading{
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-  }
-  
-  #inputSentence{
-    color: #484848;
-
-  }
-
-  .btn-info{
-    background-color: #8e81ff !important;
-  }
 
 
   .card-title {
@@ -39,20 +19,9 @@ body {
     text-align: center;
   }
 
-  #quizbild{
-    max-width: 90%;
-    max-height: auto;
-    margin-top:30%;
-    margin-right: 15%;
-    margin-bottom: 5%;
-  }  
-  #keyboardpng{
-     max-width: 200%;
-    height: auto;
-  } 
-
-
   .card {
+    position: relative;
+    z-index: -1;
     background-color: #81B3FF;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border-radius: 116px;
@@ -63,36 +32,7 @@ body {
     background-color: #81B3FF;
     border-radius: 98px;
   }
- 
-  .form-control {
-    background: rgba(196, 196, 196, 0.5);
-  }
 
-  #formelbild{
-    position: relative;
-    margin-left: 10%;
-    max-width: 70%;
-    margin-top:30%;
-    max-height: auto;
-  }
-
-  .form-control:focus {
-    background: rgba(196, 196, 196, 0.33);
-    mix-blend-mode: multiply;
-  }
-  
-  #dreieck {
-    position: fixed;
-    top: 45%;
-    left: 65%;
-      /* PROBLEM: Muss auf andere Art positioniert werden, da es sich sonst in die Box verschiebt */
-  
-  }
-  
-  #dreieck:hover {
-    fill: #456fad;
-  }
-  
   a {
     color: whitesmoke;
     font-style: italic;
@@ -115,9 +55,6 @@ body {
   padding-bottom: 0.1rem;
 }
 
-.popover {
-  white-space: pre-wrap;    
-}
 
 .progress{
   border-radius: 40px !important;
@@ -126,4 +63,11 @@ body {
 .progress-bar{
   background-color: #628bc8;
   
+}
+
+#laptop_asset{
+  position: relative;
+  z-index: 1;
+  bottom: 2em;
+
 }
