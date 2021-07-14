@@ -10,6 +10,10 @@ body {
     color: #484848;
   }
 
+  #answerA {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerB {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerC {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+
   #quizinhalt {
     position: relative;
     text-align: center;
