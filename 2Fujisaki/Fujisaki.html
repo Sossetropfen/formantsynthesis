@@ -186,7 +186,7 @@
                                 </div>
 
                                 <div class="my-2 col-lg-12 ">
-                                    <button class="btn btn-info" id="btn_reset" onclick="reset()">reset</button>
+                                    <button class="btn btn-info" id="btn_reset" onclick="resetParameters()">reset</button>
                                 </div>
 
                             </div>
@@ -437,6 +437,21 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 <script>
+
+    function resetParameters(){
+        document.getElementById("bias_input").value = 0;
+        document.getElementById("A_pi_input").value = 0;
+        document.getElementById("T_0i_input").value = 0;
+        document.getElementById("a_i_input").value = 0;
+        document.getElementById("A_aj_input").value = 0;
+        document.getElementById("T_1j_input").value = 0;
+        document.getElementById("T_2j_input").value = 0;
+        document.getElementById("b_j_input").value = 0;
+        document.getElementById("v_j_input").value = 0;
+
+        var plotsDiv = document.getElementById("divForPlots");
+        plotsDiv.style.display = "none";
+    }
 
     function draw(mode, divName) {
         try {
