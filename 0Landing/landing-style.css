@@ -17,18 +17,13 @@ body {
 }
  
 #landingbild{
-  position:fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  top: 1.7em;
   z-index: 1;
 }
 .card {
-  /* Karte genau in die Mitte zentrieren */
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  z-index: -1;
   background: #FFFFFF;
   box-shadow: 10px 7px 6px rgba(0, 0, 0, 0.25);
   border-radius: 102px;
@@ -50,23 +45,8 @@ body {
   mix-blend-mode: multiply;
 }
 
-@media screen and (min-width:1200px) {
 
-  #dreieck {
-    position: fixed;
-    top: 45%;
-    left: 65%;
-    
-  }
-}
-@media screen and (max-width: 1199px) {
 
-  #dreieck {
-    position: fixed;
-    top: 77%;
-    left: 47%;
-  }
-}
 
 
 
