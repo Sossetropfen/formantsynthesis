@@ -21,7 +21,7 @@ body {
 
   .card {
     position: relative;
-    z-index: -1;
+    z-index: 1;
     background-color: #81B3FF;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25);
     border-radius: 116px;
@@ -67,7 +67,17 @@ body {
 
 #laptop_asset{
   position: relative;
-  z-index: 1;
+  z-index: 2;
   bottom: 2em;
 
+}
+
+hr{
+  height:4px;
+  border-width:0;
+  background-color:rgb(98, 139, 200, 0.7);
+}
+
+.container{
+  overflow: hidden;
 }
