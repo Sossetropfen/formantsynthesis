@@ -7,11 +7,11 @@ var questions = [];
    questions[5] = new Question("What is 2-2?", "0", "2", "4");
    var randomQuestion;
    var answers = [];
-   var currentScore = 0;
    
-   document.addEventListener("DOMContentLoaded", function(event) { 
+   
+   document.addEventListener("DOMContentLoaded", function(event) {
+    var currentScore = 0;
      btnProvideQuestion();
-     
    });
    
    function Question(question,rightAnswer,wrongAnswer1,wrongAnswer2) {
@@ -71,7 +71,8 @@ var questions = [];
      }	 
       
    } 
-   document.getElementById('score').innerHTML = currentScore;
+
+document.getElementById("score").innerHTML = currentScore;
 
 document.getElementById('end').style.visibility="visible";
 
