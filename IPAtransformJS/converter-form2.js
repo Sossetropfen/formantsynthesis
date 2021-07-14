@@ -182,11 +182,13 @@ function convertText(str){
 			var arr = currentEl.split(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g);
 			//console.log(arr);
             for(var a = 0; a < arr.length; a++){
-                if(isNaN(arr[a])){
-                    textToIpa(arr[a], IPAText);
-                }
-                else{
-                    textToIpa(intToWords(arr[a]).toString().split(" "), IPAText);
+                if (arr[a] != ""){
+                    if(isNaN(arr[a])){
+                        textToIpa(arr[a], IPAText);
+                    }
+                    else{
+                        textToIpa(intToWords(arr[a]).toString().split(" "), IPAText);
+                    }
                 }
             }
 		} else {
