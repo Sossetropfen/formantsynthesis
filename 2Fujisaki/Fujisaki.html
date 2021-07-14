@@ -163,11 +163,12 @@
                                             <br>
                                             <input id="T_2j_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="b_j_input">Enter b_j:</label>
+                                            <label class="mt-2" for="b_j_input">angular frequency of control mechanism 
+                                                to ith command, &beta;<sub>j</sub>:</label>
                                             <br>
                                             <input id="b_j_input" class="form-control" value="0"></input>
                                             <br>
-                                            <label class="mt-2" for="v_j_input">Enter v_j:</label>
+                                            <label class="mt-2" for="v_j_input">ceiling level of jth command, &gamma;<sub>j</sub>:</label>
                                             <br>
                                             <input id="v_j_input" class="form-control" value="0"></input>
                                         </form>
@@ -185,19 +186,7 @@
                                 </div>
 
                                 <div class="my-2 col-lg-12 ">
-                                    <button class="btn btn-info" id="btn_plot" onclick="reset()">reset</button>
-                                </div>
-
-                                <div class="pl-3 my-2">
-                                    <img class="img-fluid" src="../assets\fujisaki-formel.png" alt="formel">
-                                </div>
-
-                                <div class="pl-3 my-2">
-                                    <img class="img-fluid" src="../assets\fujisaki-g_pi.png" alt="formel">
-                                </div>
-
-                                <div class="pl-3 my-2">
-                                    <img class="img-fluid" src="../assets\fujisaki-g_ai.png" alt="formel">
+                                    <button class="btn btn-info" id="btn_reset" onclick="reset()">reset</button>
                                 </div>
 
                             </div>
@@ -225,7 +214,7 @@
                 <!-- interne rows für graphic/text-->
 
                 <div class="row">
-                    <div class="my-5">
+                    <div class="mt-5">
                         
                         <h1 id="heading">How does the Fujisaki Model work?</h1>
                         
@@ -245,8 +234,20 @@
                         </p>
                     </div>
 
-
-
+                    <div class="mb-5">
+                        <div class="pl-3 my-2">
+                            <img class="img-fluid" src="../assets\fujisaki-formel.png" alt="formel">
+                        </div>
+    
+                        <div class="pl-3 my-2">
+                            <img class="img-fluid" src="../assets\fujisaki-g_pi.png" alt="formel">
+                        </div>
+    
+                        <div class="pl-3 my-2">
+                            <img class="img-fluid" src="../assets\fujisaki-g_ai.png" alt="formel">
+                        </div>
+                    </div>
+                    
                     <!--fette graphic in der Mitte-->
                   
 
