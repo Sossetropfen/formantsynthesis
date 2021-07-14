@@ -84,61 +84,74 @@
 
                 <!--Karte blau-->
                 <div class="container my-5">
-                    <div class="card " id="card">
-                        <div class="card-body" id="card-body">
 
-                           <!--Die Auwertung-->
-                           <div class="container row p-5">
-                                <div class="col-4">
-                                    <p>Overall</p>
-                                    <p>Text Pre-Processing</p>
-                                    <p>Prosody Generation</p>
-                                    <p>Signal Generation</p>
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col center-block text-center">
+
+                            <div class="card" id="card">
+                                <div class="card-body" id="card-body">
+
+                                    <!--Die Auwertung-->
+                                    <div class="container row p-5">
+                                        <div class="col-4">
+                                            <p>Overall</p>
+                                            <p>Text Pre-Processing</p>
+                                            <p>Prosody Generation</p>
+                                            <p>Signal Generation</p>
+                                        </div>
+                                        <div class="col-8">
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" id="progressOverall"></div>
+                                            </div>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" id="progressText"></div>
+                                            </div>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" id="progressProsody"></div>
+                                            </div>
+                                            <div class="progress mb-4">
+                                                <div class="progress-bar" id="progressSignal"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!--Der retake Button-->
+                                    <div class="row">
+                                        <div class="mx-auto">
+                                            <a href="../0Landing\landing.html" class="btn" role="button">
+                                                <!--DER WEITER-text-->
+                                                <span class="font-weight-light ">retake</span>
+                                                <!-- Das Weiter Dreieck -->
+                                                <button class="btn">
+                                                    <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path
+                                                            d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                                            fill="#628BC8" />
+                                                    </svg>
+                                                </button>
+                                            </a>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <div class="col-8">
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" style="width:0%"></div>
-                                    </div> 
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" style="width:0%"></div>
-                                    </div>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" style="width:0%"></div>
-                                    </div>
-                                    <div class="progress mb-4">
-                                        <div class="progress-bar" style="width:0%"></div>
-                                    </div>
-                                </div>
+
+
                             </div>
+                            <!-- laptop pic -->
+                            <img src="/assets/graphic_quiz_laptop.png" id="laptop_asset">
                             
-                            <!--Der retake Button-->
-                            <div class="row">
-                                <div class="mx-auto">                                  
-                                    <a href="../0Landing\landing.html" class="btn" role="button">
-                                        <!--DER WEITER-text-->
-                                        <span class="font-weight-light ">retake</span>
-                                        <!-- Das Weiter Dreieck -->
-                                        <button class="btn">
-                                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z" fill="#628BC8"/>
-                                            </svg>
-                                        </button>
-                                    </a>
-                                </div>
-                            </div> 
 
-                        </div>
+                        </div><!-- Spalte 2, rechts, Ende-->
                     </div>
                 </div>
-
-                
 
 
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
 
                 <div class="row">
-                    
+
 
 
 
@@ -151,90 +164,12 @@
             <!-- rechts -->
             <div class=" col-sm-1 col-md-2 col-lg-2">
 
-                <!-- Modal -->
-                <!--We don't need this
-                <div class="modal fade" id="infotextModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog rounded-lg" role="document">
-                        <div class="modal-content rounded-lg">
-                            <div class="modal-body">
-                                <h3>How to use?</h3>
-                                <!--Dieser Teil muss noch hescheit befüllt werden. Genau genommen sollte am besten noch mehr Erklärung hinein
-                                
-                                <p>In this step you're about to learn how the fujisaki model for prosody generation
-                                    works. Based on a given formular you have to set to linear
-                                    filters as an input. If you want to the exact meaning of a given single component
-                                    and if you want to further understand what the model does for the genration of
-                                    synthetic speech,
-                                    check out the explanation of the fujisaki model beneath the interactive box. But
-                                    first of all:<br>
-                                <h3>What exactly is prosody? </h3>
-                                Unlike the phonemes, prosody describes not one single segment but greater elements of
-                                speech. Under the term of prosody we can differentiate between such features
-                                as stress, intonation, tempo, pausing and rythm. Generally speaking, one could describe
-                                prosody as the melody of speech. <br>
-                                <button type="button" class="btn btn-secondary btn-sm rounded-lg float-right mt-3"
-                                    data-dismiss="modal">Close</button>
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                -->
-
-
             </div>
 
         </div>
 
     </div>
 
-
-    <!------------------------------Der footer-------------------------->
-    <div class="container-fluid my-5">
-        <div class="row">
-            <!--alles in eins statt 3 colums-->
-            <!--We don't need this
-
-
-            <div class="col-lg-12 col-md-10 col-sm-10 ">
-                <div class="float-left">
-                    <!--DER back-bUTTON
-                    <a href="../1Lautsprache\Lautsprache.html" class="btn " role="button">
-                        <button class="btn">
-                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
-                                    fill="#628BC8" />
-                            </svg>
-                        </button>
-                        <!--DER WEITER-text
-                        <span class="font-weight-light">Back</span>
-                    </a>
-                </div>
-
-                <div class="float-right">
-                    <a href="../3Synthese\Synthese.html" class="btn" role="button">
-                        <!--DER WEITER-text
-                        <span class="font-weight-light ">Next</span>
-                        <!-- Das Weiter Dreieck 
-                        <button class="btn">
-                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
-                                    fill="#628BC8" />
-                            </svg>
-                        </button>
-                    </a>
-                </div>
-            </div>
-            -->
-        
-        </div>
-    </div>
     <!-- Footer unten -->
     <div class="container">
         <div class="row">
@@ -266,7 +201,17 @@
 
 <script>
 
-    
+    //var in_text = abfangen zb = 4 
+    var text_calc = (4 / 5) * 100;
+
+    var text_string = "width: " + text_calc.toString() + "%";
+
+
+
+    progressOverall.style = "width: 70%";
+    progressText.style = text_string;
+    progressProsody.style = "width: 70%";
+    progressSignal.style = "width: 70%";
 
 </script>
 
