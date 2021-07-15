@@ -61,10 +61,10 @@ function loadSampleValues(){
     A_aj = [0.2,0.3,0.4,0.5,0.3];
     T_1j = [0.25,1.25,2.25,3,4.6];
     T_2j = [0.75,1.75,2.6,3.2,4.85];
-    v_j = [1,1,1,1,1];
+    v_j = [100,100,100,100,100];
 
-    a_i = [2.5,3,3];
-    b_j = [1,1,1,1,1];
+    a_i = [3,3,3];
+    b_j = [10,10,10,10,10];
 }
 
 function reset(){
@@ -86,9 +86,14 @@ function reset(){
 
 function fct(t){
     if (bias <= 0){
+        //return accentCmds(t);
+        //return phraseCmds(t);
         return accentCmds(t)+phraseCmds(t);
     }
+    //return accentCmds(t);
+    //return phraseCmds(t);
     return Math.log(bias)+accentCmds(t)+phraseCmds(t);
+    //return Math.log(Math.log(bias)+accentCmds(t)+phraseCmds(t));
 }
 
 function accentCmds(t){

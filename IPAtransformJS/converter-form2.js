@@ -333,6 +333,9 @@ function convertMonth(month){
 }
 
 function ordinalInWord(cardinal) {
+    if(cardinal.length > 1 && cardinal < 10){
+        cardinal = cardinal[cardinal.length-1];
+    }
     var ordinals = [ 'zeroth', 'first','second','third','fourth', 'fifth','sixth','seventh','eighth','nineth','tenth','eleventh','twelfth','thirteenth','fourteenth','fifteenth','sixteenth','seventeenth','eighteenth','nineteenth','twentieth'];
     var tens = {
         20: 'twenty',
