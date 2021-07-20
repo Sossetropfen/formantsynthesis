@@ -1,0 +1,138 @@
+*{
+    font-family: 'Roboto', sans-serif;
+    color: #484848;
+  }
+  
+  body {
+      height: 100%;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 400;
+      color: #484848;
+    }
+  
+    #answerA {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+    #answerB {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+    #answerC {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  
+    #quizinhalt {
+      position: relative;
+      text-align: center;
+      margin-left: 10%;
+      margin-bottom: 5%;
+    }
+  
+    #hid {
+      max-width: 500%;
+      height: auto;
+      margin-top: 10%;
+    }
+  
+    span a {
+      color: whitesmoke;
+      font-style: italic;
+      font-family: 'Roboto', sans-serif;
+       }
+  
+       .flex { display:flex;}
+  
+       .field {
+         min-width: 200px;
+         min-height: 30px;
+         width: 30em;
+         height: 100%;
+         margin: 10px;
+       }
+       
+       button {
+        /* height: 40px; */
+        /* width: 200px; */
+         width: 30em;
+         height: 100%;
+         outline: none;
+         background: white;
+         border: black solid 2px;
+       }
+       
+       button:active {
+         background: blue;
+       }
+  
+  .footer{
+    color: #484848;
+  }
+  
+  
+  .popover {
+    white-space: pre-wrap;    
+  }
+  
+  hr{
+    height:4px;
+    border-width:0;
+    background-color:rgb(98, 139, 200, 0.7);
+  }
+  
+  .resetknopf{
+    margin-left: 5.5em;
+  }
+  
+  .extraInfo{	/* Extra info div*/
+    width:50em;
+    margin:0 auto;
+    border:0px solid #000; /*Um zu sehen mache border auf 1px*/
+    margin-top:0px;
+    padding:1em;
+    background:rgb(248, 245, 239, 0.9);
+    border-radius: 1em;
+   
+  }
+  
+  .weiss{
+    background-color: #fff;
+    background-color: rgb(255, 255, 255);
+    border-radius: 1em;
+  }
+  
+  #keinrandrechts{  
+    margin-right: 0;    /* Hatte davor seite zu breit gemacht so dass nach links und rechts gescrollt werden konnte */
+    margin-bottom: 2em; /* damit abstand unten zur extra info box */
+  }
+  
+  /* -------------------- AB HIER FÜR QUIZ ---------------------------------------------------*/
+  html { 
+    background: url(../assets/quizbackground.png) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  #dragScriptContainer{	/* BIG DIV containing HTML needed for the entire script */
+      width:45em;
+      margin:0 auto;
+      border:0px solid #000; /*Um zu sehen mache border auf 1px*/
+      height: 35em;
+      margin-top:20px;
+      padding:3px;
+      
+  
+  }
+  
+  
+  #questionDiv {
+      float:right;
+      max-height:100%;
+      width:15em;
+      padding:10px;
+      margin-left: 20%;
+  
+    }
+  
+  #answerDiv{	
+      float:left;
+      height:100%;
+      width:15em;
+      padding:10px;
+      margin-left: 20%;
+  }
+  

@@ -18,7 +18,7 @@ for(let i = questions.length-1; i>0; i--){
 
 
 var currentScore = 0;
-var scoreProsody = 0;
+var scoreSignal = 0;
 var randomQuestion;
 var answers = [];
 var counter = 0;
@@ -100,9 +100,9 @@ function checkAnswer(answer) {
 }
 
 function uebertrageScore() {
-  scoreProsody = currentScore;
-  //alert(scoreProsody);
-  sessionStorage.setItem("scoreProsody", scoreProsody);
+  scoreSignal = currentScore;
+  //alert(scoreSignal);
+  sessionStorage.setItem("scoreSignal", scoreSignal);
 }
 
 document.getElementById('end').style.visibility = "visible";  //Hier ist glaube ich noch falsche id drin?

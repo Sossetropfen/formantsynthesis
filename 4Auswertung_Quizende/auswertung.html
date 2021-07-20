@@ -45,7 +45,7 @@
 
                 <h1>Quiz-Results</h1>
 
-                <p>Here you can see how you scored in the MC-tests and reapeat to try again to get better!</p>
+                <p>Here you can see how you scored in the multiple choice tests and you can repeat the experience to try again to get better!</p>
 
             </div>
             <div class=" col-sm-1 col-md-1 col-lg-1">
@@ -125,7 +125,7 @@
                                 <!--Der retake Button-->
                                 <div class="row">
                                     <div class="mx-auto">
-                                        <a href="../0Landing\landing.html" class="btn" role="button">
+                                        <a href="../0Landing\landing.html" class="btn" role="button" onclick="resetScores()">
                                             <!--DER WEITER-text-->
                                             <span class="font-weight-light ">retake</span>
                                             <!-- Das Weiter Dreieck -->
@@ -206,18 +206,34 @@
 
 <script>
 
-    //var in_text = abfangen zb = 4 
-    var text_calc = (4 / 5) * 100;
+    //Fängt Variable von 1. Lautsprache Text to speech vom drag and drop quiz ab ab und schreibt so um dass in Prozentbar-Weite nutzbar ist. (kann nur 0% oder 100% sein)
+    var inText = sessionStorage.getItem("dragScore");
+    var textString = "width: " + inText.toString() + "%";
 
-    var text_string = "width: " + text_calc.toString() + "%";
+    //Fängt Variable von 2. Prosody ab und schreibt so um dass in Prozentbar-Weite nutzbar ist.
+    var inProsody = sessionStorage.getItem("scoreProsody");
+    var prosodyCalc = (inProsody / 5) * 100;
+    var prosodyString = "width: " + prosodyCalc.toString() + "%";
 
+    //Fängt Variable von 3. Speech Signal mc quiz ab und schreibt so um dass in Prozentbar-Weite nutzbar ist.
+    var inSignal = sessionStorage.getItem("scoreSignal");
+    var signalCalc = (inSignal / 5) * 100;
+    var signalString = "width: " + signalCalc.toString() + "%";
 
+    var totalScore = prosodyCalc/3 + inText/3 + signalCalc/3;
+    var totalString = "width: " + Math.ceil(totalScore) + "%";
 
-    progressOverall.style = "width: 70%";
-    progressText.style = text_string;
-    progressProsody.style = "width: 70%";
-    progressSignal.style = "width: 70%";
+    progressOverall.style = totalString;
+    progressText.style = textString;
+    progressProsody.style = prosodyString;
+    progressSignal.style = signalString;
+
+function resetScores(){
+    totalScore = 0;
+    sessionStorage.setItem("scoreProsody", 0);
+    sessionStorage.setItem("dragScore", 0);
+    sessionStorage.setItem("scoreSignal", 0);
+}
 
 </script>
-
 </html>

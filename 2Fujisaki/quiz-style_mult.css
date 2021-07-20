@@ -38,12 +38,16 @@ body {
      .field {
        min-width: 200px;
        min-height: 30px;
+       width: 30em;
+       height: 100%;
        margin: 10px;
      }
      
      button {
-       height: 40px;
-       width: 200px;
+      /* height: 40px; */
+      /* width: 200px; */
+       width: 30em;
+       height: 100%;
        outline: none;
        background: white;
        border: black solid 2px;

@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <div class="ml-5 mt-3 quiztitel text-center">
         <h1>Quiz</h1>
-        <h4 >Symbolic Pre-Processing Flowchart</h4>
+        <h4>Symbolic Pre-Processing Flowchart</h4>
     </div>
 
 </head>
@@ -42,10 +42,11 @@
         var shuffleAnswers = true;	/* Shuffle answers ? */
         var lockedAfterDrag = false;	/* Lock items after they have been dragged, i.e. the user get's only one shot for the correct answer */
         var istFertig = false; /*Zeigt an ob das quiz beendet ist*/
+        var dragScore = 0;
 
         function quizIsFinished() {
             // This function is called when everything is solved
-            istFertig = true; 
+            istFertig = true;
 
             for (let i = 1; i < 8; i++) {                       //Erstmal alle wieder verstecken
                 var infoText1 = document.getElementById(i);
@@ -54,6 +55,8 @@
 
             var infoText2 = document.getElementById("zusatz");         //dann die glueckwuensche und extra link anzeigen
             infoText2.style.display = "";
+
+            dragScore = 100;
         }
 
 
@@ -347,15 +350,15 @@
         }
 
         function zeigeInhalt(id) {
-            if(istFertig == false){
-            for (let i = 1; i < 8; i++) {                       //Erstmal alle wieder verstecken
-                var infoText1 = document.getElementById(i);
-                infoText1.style.display = "none";
-            }
+            if (istFertig == false) {
+                for (let i = 1; i < 8; i++) {                       //Erstmal alle wieder verstecken
+                    var infoText1 = document.getElementById(i);
+                    infoText1.style.display = "none";
+                }
 
-            var infoText = document.getElementById(id);         //dann das aktuelle anzeigen
-            infoText.style.display = "";
-            //alert(id);
+                var infoText = document.getElementById(id);         //dann das aktuelle anzeigen
+                infoText.style.display = "";
+                //alert(id);
             }
         }
 
@@ -364,51 +367,59 @@
 
         window.onload = initDragDropScript;
 
+        function uebertrageScore() {
+            //alert("Geht?");
+            //alert(dragScore);
+            sessionStorage.setItem("dragScore", dragScore);
+        }
+
     </script>
-    
+
     <hr>
 
     <div class="Container-fluid ">
         <div class="row" id="keinrandrechts">
-        <div id="answerDiv">
-            <p></p>
-            <p><br></p>
-            <div class="dragDropSmallBox" id="a1">Text pre-processing</div>
-            <div class="dragDropSmallBox" id="a2">Exception handling</div>
-            <div class="dragDropSmallBox" id="a3">Morphological analysis</div>
-            <div class="dragDropSmallBox" id="a4">Word intonation</div>
-            <div class="dragDropSmallBox" id="a5">Grapheme-to-phoneme</div>
-            <div class="dragDropSmallBox" id="a6">Word categories</div>
-            <div class="dragDropSmallBox" id="a7">Syntactic-prosodic analysis</div>
+            <div id="answerDiv">
+                <p></p>
+                <p><br></p>
+                <div class="dragDropSmallBox" id="a1">Text pre-processing</div>
+                <div class="dragDropSmallBox" id="a2">Exception handling</div>
+                <div class="dragDropSmallBox" id="a3">Morphological analysis</div>
+                <div class="dragDropSmallBox" id="a4">Word intonation</div>
+                <div class="dragDropSmallBox" id="a5">Grapheme-to-phoneme</div>
+                <div class="dragDropSmallBox" id="a6">Word categories</div>
+                <div class="dragDropSmallBox" id="a7">Syntactic-prosodic analysis</div>
 
-            <input style="vertical-align: bottom" type="button" class="btn btn-primary resetknopf"
-                onclick="dragDropResetForm();return false" value="Reset">
-            
-            <p></p>
+                <input style="vertical-align: bottom" type="button" class="btn btn-primary resetknopf"
+                    onclick="dragDropResetForm();return false" value="Reset">
+
+                <p></p>
+            </div>
+            <div class="spacer col-xs-1 col-sm-2 col-md-2 col-ld2"></div>
+
+            <div id="questionDiv">
+                <p class="text-center font-weight-bold weiss">Orthographic text<br>↓</p>
+
+                <div class="dragDropSmallBox" id="q1">Step 1</div>
+                <div class="destinationBox"></div>
+                <div class="dragDropSmallBox" id="q2">Step 2</div>
+                <div class="destinationBox"></div>
+                <div class="dragDropSmallBox" id="q3">Step 3</div>
+                <div class="destinationBox"></div>
+                <div class="dragDropSmallBox" id="q4">Step 4</div>
+                <div class="destinationBox"></div>
+                <div class="dragDropSmallBox" id="q5">Step 5</div>
+                <div class="destinationBox"></div>
+                <div class="dragDropSmallBox" id="q6">Step 6</div>
+                <div class="destinationBox"></div>
+                <div class="dragDropSmallBox" id="q7">Step 7</div>
+                <div class="destinationBox"></div>
+                <div>
+                    <p class="text-center font-weight-bold weiss pb-1">↓<br>Symbolic description</p>
+                </div>
+
+            </div>
         </div>
-        <div class="spacer col-xs-1 col-sm-2 col-md-2 col-ld2"></div>
-
-        <div id="questionDiv">
-            <p class="text-center font-weight-bold weiss">Orthographic text<br>↓</p>
-            
-            <div class="dragDropSmallBox" id="q1">Step 1</div>
-            <div class="destinationBox"></div>
-            <div class="dragDropSmallBox" id="q2">Step 2</div>
-            <div class="destinationBox"></div>
-            <div class="dragDropSmallBox" id="q3">Step 3</div>
-            <div class="destinationBox"></div>
-            <div class="dragDropSmallBox" id="q4">Step 4</div>
-            <div class="destinationBox"></div>
-            <div class="dragDropSmallBox" id="q5">Step 5</div>
-            <div class="destinationBox"></div>
-            <div class="dragDropSmallBox" id="q6">Step 6</div>
-            <div class="destinationBox"></div>
-            <div class="dragDropSmallBox" id="q7">Step 7</div>
-            <div class="destinationBox"></div>
-            <div><p class="text-center font-weight-bold weiss pb-1">↓<br>Symbolic description</p></div>
-
-        </div>
-    </div>
     </div>
     <div id="dragContent"></div>
 
@@ -423,103 +434,116 @@
 
     <div class="extraInfo" id="2" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>In this step, the input is checked for exceptions like foreign words (e.g. "déjà vu") that are pronounced in a different way.</p>
+        <p>In this step, the input is checked for exceptions like foreign words (e.g. "déjà vu") that are pronounced in
+            a different way.</p>
     </div>
 
     <div class="extraInfo" id="3" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>Here, the input words are analysed in regard to their morphology. The word gets separated into potential pre- and suffixes as well as the stem of the word. This structure analysis is helpful to obtain additional information on the correct pronunciation of the word.</p>
+        <p>Here, the input words are analysed in regard to their morphology. The word gets separated into potential pre-
+            and suffixes as well as the stem of the word. This structure analysis is helpful to obtain additional
+            information on the correct pronunciation of the word.</p>
     </div>
 
     <div class="extraInfo" id="4" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>The decomposition made in the previous step also helps to find the correct stress (relative emphasis, produced amongst others through loudness and vowel length) and intonation (= variation in spoken pitch).</p>
+        <p>The decomposition made in the previous step also helps to find the correct stress (relative emphasis,
+            produced amongst others through loudness and vowel length) and intonation (= variation in spoken pitch).</p>
     </div>
 
     <div class="extraInfo" id="5" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>This step includes the transformation and translation of all the graphemes (= the smallest units of writing that correspond with a sound) to their corresponding phonemes (= unit of sound that can distinguish one word from another).</p>
+        <p>This step includes the transformation and translation of all the graphemes (= the smallest units of writing
+            that correspond with a sound) to their corresponding phonemes (= unit of sound that can distinguish one word
+            from another).</p>
     </div>
 
     <div class="extraInfo" id="6" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>The classification of the input words into categories like noun, verb, subject, object etc. can further help to find the correct pronunciation, especially in regard to a word´s position and role in the full sentence.</p>
+        <p>The classification of the input words into categories like noun, verb, subject, object etc. can further help
+            to find the correct pronunciation, especially in regard to a word´s position and role in the full sentence.
+        </p>
     </div>
 
     <div class="extraInfo" id="7" style="display: none;">
         <h5>Did you know?:</h5>
-        <p>In this step the syntactic characteristics of the input phrase are analysed and therefore additional information about the prosody (= includes intonation, stress, and rhythm cues) of the output generated speech signal is extracted.</p>
+        <p>In this step the syntactic characteristics of the input phrase are analysed and therefore additional
+            information about the prosody (= includes intonation, stress, and rhythm cues) of the output generated
+            speech signal is extracted.</p>
     </div>
 
     <div class="extraInfo" id="zusatz" style="display: none;">
         <h5>Congratulations, you completed the flow chart!</h5>
-        <p>If you want to learn more about the first step of the speech signal generation, this <a href="https://epub.ub.uni-muenchen.de/13162/1/reichel_13162.pdf" target="_blank">paper on Text Pre-Processing</a> by Reichel & Pfitzinger could provide further insights. Check it out if you feel like it :)</p>
+        <p>If you want to learn more about the first step of the speech signal generation, this <a
+                href="https://epub.ub.uni-muenchen.de/13162/1/reichel_13162.pdf" target="_blank">paper on Text
+                Pre-Processing</a> by Reichel & Pfitzinger could provide further insights. Check it out if you feel like
+            it :)</p>
     </div>
 
 
     <!------------------------------Der footer-------------------------->
     <div class="container-fluid my-5">
         <div class="row">
-           <!--alles in eins statt 3 colums-->
+            <!--alles in eins statt 3 colums-->
 
 
-           <div class="col-lg-12 col-md-10 col-sm-10 ">
-               <div class="float-left">
-                   <!--DER back-bUTTON-->
-                   <a href="../0Landing\landing.html" class="btn " role="button">
-                       <button class="btn">
-                           <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
-                               xmlns="http://www.w3.org/2000/svg">
-                               <path
-                                   d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
-                                   fill="#628BC8" />
-                           </svg>
-                       </button>
-                       <!--DER WEITER-text-->
-                       <span class="font-weight-light">Back</span>
-                   </a>
-               </div>
-           
-               <div class="float-right">
-                   <a href="../2Fujisaki\fujisaki.html" class="btn" role="button">
-                       <!--DER WEITER-text-->
-                       <span class="font-weight-light ">Next</span>
-                       <!-- Das Weiter Dreieck -->
-                       <button class="btn">
-                           <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
-                               xmlns="http://www.w3.org/2000/svg">
-                               <path
-                                   d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
-                                   fill="#628BC8" />
-                           </svg>
-                       </button>
-                   </a>
-               </div>
-           </div>
+            <div class="col-lg-12 col-md-10 col-sm-10 ">
+                <div class="float-left">
+                    <!--DER back-bUTTON-->
+                    <a href="../0Landing\landing.html" class="btn " role="button">
+                        <button class="btn">
+                            <svg width="48" height="54" viewBox="0 0 48 54" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M2.99999 31.8003C-1.00001 29.4909 -1 23.7174 3 21.408L38.4062 0.966175C42.4062 -1.34322 47.4062 1.54353 47.4062 6.16233L47.4062 47.0459C47.4062 51.6647 42.4062 54.5515 38.4062 52.242L2.99999 31.8003Z"
+                                    fill="#628BC8" />
+                            </svg>
+                        </button>
+                        <!--DER WEITER-text-->
+                        <span class="font-weight-light">Back</span>
+                    </a>
+                </div>
 
-       </div>
-   </div>
-   
-   <!-- Footer unten -->
-   <div class="container">
-       <div class="row">
+                <div class="float-right">
+                    <a href="../2Fujisaki\fujisaki.html" class="btn" role="button" onclick="uebertrageScore()">
+                        <!--DER WEITER-text-->
+                        <span class="font-weight-light ">Next</span>
+                        <!-- Das Weiter Dreieck -->
+                        <button class="btn">
+                            <svg width="47" height="55" viewBox="0 0 47 55" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M43.6172 22.3797C47.4471 24.719 47.4471 30.281 43.6172 32.6204L9.37761 53.5346C5.37946 55.9768 0.25 53.0993 0.25 48.4142V6.58576C0.25 1.90075 5.37946 -0.976749 9.37761 1.4654L43.6172 22.3797Z"
+                                    fill="#628BC8" />
+                            </svg>
+                        </button>
+                    </a>
+                </div>
+            </div>
 
-           <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
-               <span class="small"><a class="btn" href="">Impressum</a></span>
-           </div>
+        </div>
+    </div>
 
-           <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-               <span class="small"><a class="btn" href="">Data Privacy</a></span>
-           </div>
+    <!-- Footer unten -->
+    <div class="container">
+        <div class="row">
 
-           <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-               <span class="small"> <a class="btn" href="">Copyright</a></span>
-           </div>
-       </div>
-       <br>
-   </div>
+            <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
+                <span class="small"><a class="btn" href="">Impressum</a></span>
+            </div>
 
-    
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <span class="small"><a class="btn" href="">Data Privacy</a></span>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                <span class="small"> <a class="btn" href="">Copyright</a></span>
+            </div>
+        </div>
+        <br>
+    </div>
+
+
 </body>
 
 </html>
