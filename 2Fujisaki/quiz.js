@@ -16,7 +16,6 @@ for(let i = questions.length-1; i>0; i--){
 
 //alert(JSON.stringify(questions));
 
-
 var currentScore = 0;
 var scoreProsody = 0;
 var randomQuestion;
