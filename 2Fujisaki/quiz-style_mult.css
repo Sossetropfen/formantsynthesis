@@ -10,9 +10,9 @@ body {
     color: #484848;
   }
 
-  #answerA {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
-  #answerB {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
-  #answerC {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerA {background-color: #e6924d; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerB {background-color: #e6924d; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
+  #answerC {background-color: #e6924d; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7); padding:2%;}
 
   #quizinhalt {
     position: relative;
@@ -39,22 +39,20 @@ body {
        min-width: 200px;
        min-height: 30px;
        width: 30em;
-       height: 100%;
+       height: auto;
        margin: 10px;
+       padding: 5%;
      }
      
      button {
       /* height: 40px; */
       /* width: 200px; */
-       width: 30em;
-       height: 100%;
-       outline: none;
        background: white;
-       border: black solid 2px;
+       border: rgb(0, 0, 0) solid 2px;
      }
      
      button:active {
-       background: blue;
+       background:#A1C3F7;
      }
 
 .footer{
