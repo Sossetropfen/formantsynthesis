@@ -1,6 +1,7 @@
 *{
   font-family: 'Roboto', sans-serif;
   color: #484848;
+  
 }
 
 body {
@@ -16,8 +17,8 @@ body {
 
   #quizinhalt {
     position: relative;
-    text-align: center;
-    margin-left: 10%;
+
+    margin-left: 15%;
     margin-bottom: 5%;
   }
 
@@ -36,11 +37,11 @@ body {
      .flex { display:flex;}
 
      .field {
-       min-width: 200px;
+
        min-height: 30px;
        width: 30em;
        height: auto;
-       margin: 10px;
+       margin: 2%;
        padding: 5%;
      }
      
