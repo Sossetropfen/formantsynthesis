@@ -3,12 +3,6 @@
     color: #484848;
   }
   
-  body {
-      height: 100%;
-      font-family: 'Roboto', sans-serif;
-      font-weight: 400;
-      color: #484848;
-    }
   
     #answerA {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
     #answerB {background-color: #F7974A; border-color: #FFCFD9; filter: drop-shadow(2px 5px 2px #A1C3F7);}
@@ -16,8 +10,7 @@
   
     #quizinhalt {
       position: relative;
-      text-align: center;
-      margin-left: 10%;
+      margin-left: 15%;
       margin-bottom: 5%;
     }
   
@@ -36,30 +29,30 @@
        .flex { display:flex;}
   
        .field {
-         min-width: 200px;
+  
          min-height: 30px;
          width: 30em;
-         height: 100%;
-         margin: 10px;
+         height: auto;
+         margin: 2%;
+         padding: 5%;
+         text-align: center;
        }
        
        button {
         /* height: 40px; */
         /* width: 200px; */
-         width: 30em;
-         height: 100%;
-         outline: none;
          background: white;
-         border: black solid 2px;
+         border: rgb(0, 0, 0) solid 2px;
        }
        
        button:active {
-         background: blue;
+         background:#A1C3F7;
        }
   
   .footer{
     color: #484848;
   }
+  
   
   
   .popover {
