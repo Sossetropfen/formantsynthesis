@@ -1,10 +1,10 @@
 var questions = [];
-questions[0] = new Question("What does PSOLA stand for?", "Pitch Synchronous Overlap and Add", "Processing Software of Language Artificiality", "Periodic Synthesis on Length and Amplitude");
-questions[1] = new Question("Which synthesis has a smaller footprint / inventory?", "Hidden Markov-based synthesis", "Unit-Selection synthesis", "They have a similar footprint");
-questions[2] = new Question("What is the function of a formant filter?", " A Formant filters represent the formant resonances of the human vocal tract. They filter frequencies except those that coincide with the needed phoneme", "Formant filters set the excitation signal with a fundamental frequency", "Formant filters reduces noise and errors in the final speech signal output");
-questions[3] = new Question("What type of synthesis is not based on the source-filter-model?", "Articulatory synthesis", "Formant synthesis", "LPC synthesis");
-questions[4] = new Question("'Pitch modulation' is part of which model?", "Formant synthesis", "LPC synthesis", "Parametric synthesis with source-filter model");
-questions[5] = new Question("Which synthesis tries to accurately simulate the vocal track?", "Articulatory synthesis", "Formant synthesis", "Parametric synthesis");
+questions[0] = new Question("What propertie counts to prosody?", "intonation", "pronounciation", "grammar");
+questions[1] = new Question("What aspects of prosody are set up via linear filters in the Fujisaki-Model?", " accent and speech commands", "fundamental and bias commands", "accent and speech control mechanics");
+questions[2] = new Question("What does the F<sub>b</sub>-contour represent?", " the bias level", "the fundamental frequency", "the accent commands");
+questions[3] = new Question("Wich of the following variables is irrelevant in the Fujisaki-Model-formular?", " end of ith phrase command T<sub>1j</sub>", "amplitude of jth accent command, A<sub>aj</sub>", "ceiling level of jth accent command, γ<sub>j</sub>");
+questions[4] = new Question("Choose the right definition for the term 'prosody':", " Under the term of prosody we can differentiate between such features as stress, intonation, tempo, pausing and rythm.", "Under the term of prosody we can differentiate between features of orthographatic description of speech sound and writing.", "Under the term of prosody we can differentiate between such features as pronounciation and right grammar.");
+questions[5] = new Question("Prosodic-Features can be represented by a F<sub>0</sub>?", "contour", "spectrum", "nothing");
 
 //SHUFFLE DAS ARRAY MIT DEN FRAGEN
 for(let i = questions.length-1; i>0; i--){
