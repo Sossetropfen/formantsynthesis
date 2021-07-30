@@ -22,25 +22,32 @@
 
 <body>
 
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+  <!-- Cookie-Modal -->
+  <div class="modal fade" id="cookieModal" tabindex="-1" role="dialog" aria-labelledby="cookieModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Cookie usage</h5>
+          <h5 class="modal-title" id="cookieModalLabel">Cookies</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>This site uses cookies to be able to track and process your input. No data is stored longer than your session. No second or third party cookies qre used.</p>
+          <p>
+            This Site does not collect any data other than the cookies needed for tracking your input during the session.<br>
+            <br>
+            Data tracked by these cookies will automatically vanish with the end of your session.<br>
+            <br>
+            There is no first, second or third party software involved in handling this data.<br>
+        </p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok!</button>
         </div>
       </div>
     </div>
-  </div>    
+  </div>
+   
  
   <!-- Weisse Box mit Input -->
   <div class="container" style="min-height:95vh">
@@ -127,6 +134,11 @@
       $('#dreieck').hide()
   });
 
+  //Cookie-Modal-Aufruf
+  $(window).on('load', function() {
+        $('#cookieModal').modal('show');
+    });
+  
 </script>
 
 
