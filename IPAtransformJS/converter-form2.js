@@ -1,4 +1,6 @@
 var IPADict = {};
+var processedText = "";
+var detectedCase = [false,false,false,false,false];//cases: [date, time, ordinal nr, decimal nr, number]
 
 function parseDict(lines) {
 	console.log('TextToIPA: Beginning parsing to dict...');
@@ -93,10 +95,9 @@ function convertText(str){
 		//console.log(englishTextArray[i]);
 		var currentEl = replaceSigns(englishTextArray[i]);
 		if (currentEl == '' || currentEl == ' '){ //if the input is split by " " sometimes there is leftover elements which would be converted to zero, which we dont want
-			console.log("upsi");  
+			//console.log("upsi");  
 		} else if (isDate(currentEl)){
 			// Date if exactly 3 elements when split by ".": first a number between 1 and 31, then either a number with either 1 or 2 digits or a word with max 9 characters (september is the longest month with 9 characters), and then a number with < 4 digits 
-			console.log("date");
 			var date = currentEl.split("."); //ordinal number, string (string abreviation) or number -> string, number
 			//day
 			date[0] = ordinalInWord(date[0]);
@@ -117,11 +118,10 @@ function convertText(str){
 			} else {
 				date[2] = intToWords(date[2]);
 			}
-			// ------------------------------------------
+			detectedCase[0]=true;
 			textToIpa(date, IPAText);
 		} else if (isTime(currentEl)){ // If input is two numbers divided by a ":" with first number in range 0 to 24 and the second number in range 0 to 60 then we suppose it is indicating a time
 			//split input by ":" gives an array of e.g. [11,09]
-			console.log("time");
 			var time = currentEl.split(":");
             if(time[1].length == 3){
                 time[1] = time[1].slice(0,2);
@@ -136,17 +136,14 @@ function convertText(str){
 				minute = 'o ' + minute;
 			}
 			var timeArr = stunde.concat(minute);
-			//---------------------------------------------
+			detectedCase[1]=true;
 			textToIpa(timeArr, IPAText);
 		} else if (currentEl.split(".").length == 2 && currentEl.split(".")[1] == '' && isNumber(currentEl.split(".")[0])) { // ordinal numbers
-			console.log("ordinal number");
 			var number = currentEl.split(".")[0];
-			//console.log(intToOrdinaryNr(number));
 			var ordNrArr = ordinalInWord(number).split(" ");
-			//console.log(ordNrArr);
+            detectedCase[2]=true;
 			textToIpa(ordNrArr, IPAText);
 		} else if (isDecimal(currentEl)){ //2 numbers divided by a . -> decimal numbers
-			console.log("decimal");
 			var decimalArr = currentEl.split(".");
 			var el1 = intToWords(decimalArr[0]).toString().split(" "); //number before dot
             if (isNaN(decimalArr[1])){
@@ -166,16 +163,15 @@ function convertText(str){
 				var c = (el2[b] == 0)?'o':intToWords(el2[b]);
 				decimal = decimal + ' ' + c;
 			}
-			//console.log(decimal);
+            detectedCase[3]=true;
 			textToIpa(decimal, IPAText);
 		}
 		// Lookup the word with TextToIPA. The first element will be the error
 		// with the word, the second element will be the converted word itself.
 		// We also strip punctuation and and case.
 		else if (isNumber(currentEl)){
-			console.log("number");
 			var IPANumArr = intToWords(currentEl).toString().split(" ");
-			//console.log(IPANumArr);
+            detectedCase[4]=true;
 			textToIpa(IPANumArr, IPAText);
 		} else if (currentEl.split(/[ !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g).length > 1) {
 			console.log("rest");
@@ -192,11 +188,10 @@ function convertText(str){
                 }
             }
 		} else {
-			//console.log(currentEl);
 			textToIpa(currentEl, IPAText);
 		}
 	}
-	return IPAText;
+	return [IPAText,processedText,detectedCase];
 }
 
 function textToIpa(str, IPAText) {
@@ -206,6 +201,7 @@ function textToIpa(str, IPAText) {
 	for (var i in str){
 		var c = str[i].split(" ");
 		for (var h in c){
+            processedText = (processedText.length==0)?(processedText=c[h]):(processedText=processedText+" "+c[h]);
 			var IPAWord = dictLookup(c[h].toLowerCase());
 			//var IPAWord = dictLookup(c[h].toLowerCase().replace(/[^\w\s]|_/g, '').replace(/\s+/g, ' '));
             if (IPAWord == 'undefined'){
@@ -218,7 +214,6 @@ function textToIpa(str, IPAText) {
 			IPAText.push(IPAWord);
 		}
 	}
-	//console.log("converting word " + str);
 }
 
 function isNumber(searchValue) {

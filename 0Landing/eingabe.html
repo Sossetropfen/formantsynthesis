@@ -144,7 +144,6 @@
     return (!str || str.length === 0);
   }
 
-
   // Fetche Satz aus Input
   function satzwahl() {
     var inputSentence = document.getElementById("inputSentence").value;
@@ -153,17 +152,13 @@
       inputSentence = "You did not enter anything.";
     }
 
-    console.log(inputSentence);
-
-    var inputTextIPA = convertText(inputSentence);
-    //alert(inputSentence);
-
-    inputTextIPA = inputTextIPA.join(' ').replaceAll("/", "").replaceAll(",", "");
-    //console.log(inputTextIPA);
-    //alert(inputTextIPA);
+    var converted = convertText(inputSentence);
+    var inputTextIPA = converted[0].join(' ').replaceAll("/", "").replaceAll(",", "");
+      
     sessionStorage.setItem("inputSentenceIPA", inputTextIPA);
-    sessionStorage.setItem("inputSentence", inputSentence);
-    window.location.replace('eingabe.html')
+    sessionStorage.setItem("inputSentence", converted[1]);
+    sessionStorage.setItem("casesIPA", converted[2]);
+    window.location.replace('eingabe.html');
   }
 </script>
 

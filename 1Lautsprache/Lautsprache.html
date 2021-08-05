@@ -379,8 +379,6 @@
 <script>
     var inputSentenceIPA = sessionStorage.getItem("inputSentenceIPA");
     var inputSentence = sessionStorage.getItem("inputSentence");
-    console.log(inputSentenceIPA);
-    console.log(inputSentence);
 
     document.getElementById('inputSentence').innerHTML = inputSentence;
     document.getElementById('inputSentenceIPA').innerHTML = "→ " + inputSentenceIPA;
@@ -403,6 +401,24 @@
         erklaerungstext += "\n";
     }
     erklaerungstext += "\n";
+    
+    //cases vom IPA converter:
+    var casesIPA = sessionStorage.getItem("casesIPA");
+    if (casesIPA[0] == true){//date
+        console.log("date");
+    }
+    if (casesIPA[1] == true){//time
+        console.log("time");
+    }
+    if (casesIPA[2] == true){//ordinal nr
+        console.log("ordinal");
+    }
+    if (casesIPA[3] == true){//decimal nr
+        console.log("decimal");
+    }
+    if (casesIPA[4] == true){//number
+        console.log("number");
+    }
 
     //Überschreibe Content des Popovers mit der Erklärung
     $('#inputSentence').popover('hide');

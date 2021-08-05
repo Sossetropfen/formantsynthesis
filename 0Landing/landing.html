@@ -114,11 +114,11 @@
   // Fetche Namen aus Input und displaye als alert
   function namenwahl() {
     var inputName = document.getElementById("usrName").value;
-    //alert(inputName);
-    var inputNameIPA = convertText(inputName);
+    var converted = convertText(inputName);
+    var inputNameIPA = converted[0];
     inputNameIPA = inputNameIPA.join(' ').replaceAll("/", "").replaceAll(",", "");
     sessionStorage.setItem("inputNameIPA", inputNameIPA);
-    sessionStorage.setItem("inputName", inputName);
+    sessionStorage.setItem("inputName", converted[1]);
     window.location.replace('introauswertung.html');
   }
 
