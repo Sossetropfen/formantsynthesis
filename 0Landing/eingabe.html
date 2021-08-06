@@ -20,6 +20,7 @@
   <script>
     //window.onload = loadDict("https://raw.githubusercontent.com/surrsurus/text-to-ipa/master/lib/ipadict.txt");
       window.onload = loadDict("https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt");
+      window.onload = loadAbbDict("../IPAtransformJS/abb_dict.txt");
   </script>
 
   <div class="container" style="min-height:95vh">
@@ -37,6 +38,8 @@
                 id="inputSentence"></textarea>
             </div>
           </div>
+            
+            <div><button onclick="c()">Convert</button></div>
 
           <div class="row">
             <div class="mx-auto">
@@ -134,6 +137,12 @@
 
 
 <script>
+    function c(){
+        var inputSentence = document.getElementById("inputSentence").value;
+        var conv = convertText(inputSentence);
+        console.log(conv);
+        console.log("hello world  hello".split(" "));
+    }
 
   // Abfangen, ob String leer ist funktionen
   function isBlank(str) {

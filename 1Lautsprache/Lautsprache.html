@@ -388,17 +388,23 @@
 
     var erklaerungstext = "Here is how we translated your sentence (showcased by the first 3 words):\n\n"
 
-    var woerter = inputSentence.split(" ", 3);
-    var IPAwoerter = inputSentenceIPA.split(" ", 3);
+    var woerter = inputSentence.split(" ");
+    var IPAwoerter = inputSentenceIPA.split(" ");
+    var c = 0;
 
-    for (let i = 0; i < 3; i++) {
-        erklaerungstext += "<b>" + woerter[i] + "</b>";
-        erklaerungstext += " → ";
-        erklaerungstext += IPAwoerter[i];
-        erklaerungstext += " | |  ";
-        erklaerungstext += ipaElementsExplainer(IPAwoerter[i]);         // Added ein Baustein-Erklärung (Code ist ganz unten weil lang)
+    for (let i = 0; i < woerter.length; i++) {
+        if (c == 3){
+            break;
+        } if (woerter[i] !== ""){
+            erklaerungstext += "<b>" + woerter[i] + "</b>";
+            erklaerungstext += " → ";
+            erklaerungstext += IPAwoerter[i];
+            erklaerungstext += " | |  ";
+            erklaerungstext += ipaElementsExplainer(IPAwoerter[i]);         // Added ein Baustein-Erklärung (Code ist ganz unten weil lang)
 
-        erklaerungstext += "\n";
+            erklaerungstext += "\n";
+            c++;
+        }
     }
     erklaerungstext += "\n";
     

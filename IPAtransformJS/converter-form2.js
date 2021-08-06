@@ -1,9 +1,10 @@
 var IPADict = {};
+var AbbDict = {};
 var processedText = "";
 var detectedCase = [false,false,false,false,false];//cases: [date, time, ordinal nr, decimal nr, number]
 
 function parseDict(lines) {
-	console.log('TextToIPA: Beginning parsing to dict...');
+	//console.log('TextToIPA: Beginning parsing to dict...');
 
 	// Fill out the IPA dict by
 	// 1) regexing the word and it's corresponding IPA translation into an array
@@ -13,14 +14,14 @@ function parseDict(lines) {
 		IPADict[arr[0]] = arr[1];
 	}
 
-	console.log('TextToIPA: Done parsing.');
+	//console.log('TextToIPA: Done parsing.');
 }
 
 function loadDict(location){
-	console.log('TextToIPA: Loading dict from ' + location + '...');
+	//console.log('TextToIPA: Loading dict from ' + location + '...');
 
 	if (typeof location !== 'string') {
-		console.log('TextToIPA Error: Location is not valid!');
+		//console.log('TextToIPA Error: Location is not valid!');
 	} else {
 
 		var txtFile = new XMLHttpRequest();
@@ -43,42 +44,49 @@ function loadDict(location){
 	}
 }
 
+function loadAbbDict(location){
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", location, true);
+    rawFile.onreadystatechange = function (){
+            if(rawFile.readyState === 4){
+                if(rawFile.status === 200 || rawFile.status == 0){
+                    parseAbbDict(rawFile.responseText.split('\n'));
+                }
+            }
+    };
+    rawFile.send(null);
+}
+
+function parseAbbDict(lines) {
+	console.log('Abb: Beginning parsing to dict...');
+
+	for (var i in lines) {
+		var arr = lines[i].split(/\s+/g);
+		AbbDict[arr[0]] = arr.slice(1).toString().replaceAll(",", " ");
+	}
+
+	console.log('Abb: Done parsing.');
+}
+
 function dictLookup(word) {
 	word = word.toLowerCase();
 		// It is possible to return undefined, so that case should not be ignored
         if ( typeof IPADict[word] != 'undefined' ) {
 
-		// Some words in english have multiple pronunciations (maximum of 4 in this dictionary)
-		// Therefore we use a trick to get all of them
-
-		// Resulting error, null since we don't know if this word has multiple
-		// pronunciations
-		var error = null;
-		// Text, defaults to the IPA word. We build on this if multiple
-		// pronunciations exist
-		var text = IPADict[word];
-
-		// Iterate from 1 - 3. There are no more than 3 extra pronunciations.
-		for (var i = 1; i < 4; i++) {
-			// See if pronunciation i exists...
-            if ( typeof IPADict[word + '(' + i + ')'] != 'undefined' ) {
-				// ...If it does we know that the error should be multi and the text
-				// is always itself plus the new pronunciation
-				error = 'multi';
-				text += ' OR ' + IPADict[word + '(' + i + ')'];
-				// ...Otherwise no need to keep iterating
-			} else {
-				break;
-            }
-		}
-
 		// Return the new word
-		return IPADict[word];
+		  return IPADict[word];
 
         // Otherwise the word isn't in the dictionary
         } else {
 			return 'undefined';
         }
+}
+
+function findAbbreviations(word){
+    if ( typeof AbbDict[word] != 'undefined' ) {
+        return AbbDict[word];
+    }
+    return word;
 }
 
 function convertText(str){
@@ -91,12 +99,23 @@ function convertText(str){
 	// Begin converting
     str = str.replaceAll("\n", " ");
 	var englishTextArray = str.split(" ");
+    console.log(englishTextArray);
 	for (var i in englishTextArray) {
 		//console.log(englishTextArray[i]);
 		var currentEl = replaceSigns(englishTextArray[i]);
+        
+        var abb = findAbbreviations(currentEl);
+        var abb2 = findAbbreviations(currentEl.toLocaleLowerCase());
+        
+        console.log(abb);
+        
 		if (currentEl == '' || currentEl == ' '){ //if the input is split by " " sometimes there is leftover elements which would be converted to zero, which we dont want
 			//console.log("upsi");  
-		} else if (isDate(currentEl)){
+		} else if (abb !== currentEl){
+            textToIpa(abb, IPAText);
+        } else if (abb2 !== currentEl){
+            textToIpa(abb2, IPAText);
+        } else if (isDate(currentEl)){
 			// Date if exactly 3 elements when split by ".": first a number between 1 and 31, then either a number with either 1 or 2 digits or a word with max 9 characters (september is the longest month with 9 characters), and then a number with < 4 digits 
 			var date = currentEl.split("."); //ordinal number, string (string abreviation) or number -> string, number
 			//day
