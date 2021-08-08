@@ -122,90 +122,117 @@
                                 of your input or check out the info box in the upper right corner.</p>
                         </div>
                     </div>
+
+                    <!--Cases abfangen und anzeigen die vorgekommen sind-->
+                    <div>
+                        <h5 id="casesheader" class="mt-4 casestext">Special cases found in your input:</h5>
+                        <span class="case" id="case0"><a href="#dateAnchor">date</a></span>
+                        <span class="case" id="case1"><a href="#timeAnchor">time</a></span>
+                        <span class="case" id="case2"><a href="#ordnrAnchor">ordinal number</a></span>
+                        <span class="case" id="case3"><a href="#decnrAnchor">decimal number</a></span>
+                        <span class="case" id="case4"><a href="#nrAnchor">number</a></span>
+                        <span class="case" id="case5"><a href="#abbrevAnchor">abbreviation</a></span>
+
+                        <p id="nocases"><br> It seems like your input did not trigger any of the cases for text that has
+                            to be transformed in a special way in order for it to be pronouncable. You will find more
+                            about the cases that are caught in the section below. If you want to see all cases in action, go back to the <a id="gobacklink" href="/0Landing/eingabe.html">input page</a> and enter: <br><br>
+                             <i>It is 9:00 on 01.03.21 and I am the 1. to go to university. I had 1 test and my score was 95.0!</i></p>
+                        <p id="casestext"><br> Our converter has detected some special text in your input and
+                            transformed it in a way that they are pronouncable. If you want to learn more about the
+                            different cases that are caught by our converter just click on the words above.</p>
+                    </div>
                 </div>
 
                 <!--Content unten drunter-->
                 <!-- interne rows für graphic/text-->
                 <div class="row">
-                            <div class="col-md-6 col-lg-8 col-xs-7">
-                                <div class="my-5">
-        
-                            
+                    <div class="col-md-6 col-lg-8 col-xs-7">
+                        <div class="my-5">
+
+
                             <h1 id="heading">How does this work?</h1>
                             <p>Let us quickly teach you how an IPA converter works. In this case, we will explain the
                                 converter that we implemented: <br>Firstly, the algorithm splits the input string
                                 wherever spaces (" ") are, leaving you with an array of all the elements that are
-                                seperated by a space. 
-                                
-                               <!--  <img class="img-responsive float-right" style="width: 20em;"
+                                seperated by a space.
+
+                                <!--  <img class="img-responsive float-right" style="width: 20em;"
                                 src="\assets\keyboard_graphic.png" id="keyboardpng">
                                 </img>
-                                --> </p>
-                                </div>
-                                </div>
-                                <div class="col-md-4 col-lg-3 col-xs-2 col-sm-12 ml-sm-1 mt-lg-4 mt-md-5">
-                                    <img src="\assets\keyboard_graphic.png" id="keyboardpng">
-                                    </img>
-            
-                                </div>
-                                <div class="col-md-10 col-lg-12 col-xs-8">
-                                Next, the converter looks through every element in this array, replaces common signs
-                                with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br><br>
-                                &#8226; <b>Date:</b> The input element can be split by "." and results in three elements
-                                in the form of day.month.year with day being a number between 1 and 31, month being a
-                                number between 1 and 12 or the name of the month or its abbreviation (e.g. "january" <->
-                                    "jan"), and year being a number with max. 4 elements.
-                                    If it´s a date the day has to be converted into an ordinal number, the month, if
-                                    given as number or abbreviation has to be converted to the name of the month and the
-                                    year has to be converted into a spoken number. However, if the number is lower than
-                                    2000, the number has to be spoken in two parts: 1984 <-> nineteen hundred eighty
-                                        four
-                                        <br>&#8226; <b>Time:</b> The input elements can be split by ":" and results in
-                                        two elements with the first one being a number between 0 and 24 and the second
-                                        one being a two-character number between 00 and 60.
-                                        The first element is just a regular number converted into a string . If the
-                                        second number is equal to zero an o'clock is added, if it is between 1 and 9 an
-                                        ' o ' is added (6:04 &#8658; six o four). <p></p></p>
-                                        <br>&#8226; <b>Regular Number:</b> Regular numbers are just converted to string
-                                        and passed to the next step.
-                                        <br>&#8226; <b>Ordinal Number:</b> The element can be split by "." and results
-                                        in two elements with the first one being a number and the second one being
-                                        empty. Then the number is being converted into a string. (EXAMPLE)
-                                        <br>&#8226; <b>Decimal Number:</b> The element can be split by "." and results
-                                        in two elements with the first one being either a number or just empty and the
-                                        second one being a number.
-                                        The numbers are converted to a string. In between the converted numbers a
-                                        "point" is added to signal the decimal nature of the original input. (EXAMPLE)
-                                        <br>
-                                        <br>&#8226; If we find multiple words or numbers split by different symbols like
-                                        " . , ; : " etc. we transform number(s) (if any) to words and pass on the words
-                                        that we get from splitting by the symbols
-                                        <br>&#8226; If none of the cases applies, the algorithm just assumes that the
-                                        input is a regular word and passes it on.
-                                        <br>
-                                        <br>
-                                        After checking for all the cases and recieving resulting strings , we load an <a
-                                            style="color:#484848;"
-                                            href="https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt">"English
-                                            to IPA" dictionary</a> and use a lookup function to see if the word is in
-                                        the dictionairy.
-                                        Upon being found, an IPA conversion is returned. If the word is not in the
-                                        dictionary, we look through the characters of the input string and return the
-                                        IPA conversion for each character.</p>
+                                -->
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-3 col-xs-2 col-sm-12 ml-sm-1 mt-lg-4 mt-md-5">
+                        <img src="\assets\keyboard_graphic.png" id="keyboardpng">
+                        </img>
 
-                                    </div> 
-                        
-                    
-                   
+                    </div>
+                    <div class="col-md-10 col-lg-12 col-xs-8">
+                        Next, the converter looks through every element in this array, replaces common signs
+                        with its word equivalent ("-" &#8658; minus) and checks for the following cases:<br><br>
+                        &#8226; <b><a id="dateAnchor">Date:</a></b> The input element can be split by "." and results in three elements
+                        in the form of day.month.year with day being a number between 1 and 31, month being a
+                        number between 1 and 12 or the name of the month or its abbreviation (e.g. "january" <->
+                            "jan"), and year being a number with max. 4 elements.
+                            If it´s a date the day has to be converted into an ordinal number. The month, if
+                            given as number or abbreviation has to be converted to the name of the month and the
+                            year has to be converted into a spoken number. However, if the number is lower than
+                            2000, the number has to be spoken in two parts: 1984 <-> nineteen hundred eighty
+                                four
+                                <br><br>&#8226; <b><a id="timeAnchor">Time:</a></b> The input elements can be split by ":" and results in
+                                two elements with the first one being a number between 0 and 24 and the second
+                                one being a two-character number between 00 and 59.
+                                The first element is just a regular number converted into a string . If the
+                                second number is equal to zero an o'clock is added, if it is between 1 and 9 an
+                                ' o ' is added (6:04 &#8658; six o four). <p></p>
+                                </p>
+                                <br>&#8226; <b><a id="nrAnchor">Regular Number:</a></b> Regular numbers are just converted to string
+                                and passed to the next step.
+                                <br>&#8226; <b> <a id="ordnrAnchor">Ordinal Number:</a></b> The element can be split by "." and results
+                                in two elements with the first one being a number and the second one being
+                                empty. Then the number is being converted into a string. (EXAMPLE)
+                                <br>&#8226; <b><a id="decnrAnchor">Decimal Number:</a></b> The element can be split by "." and results
+                                in two elements with the first one being either a number or just empty and the
+                                second one being a number.
+                                The numbers are converted to a string. In between the converted numbers a
+                                "point" is added to signal the decimal nature of the original input. (EXAMPLE)
+                                <br>
+                                <br>&#8226; If we find multiple words or numbers split by different symbols like
+                                " . , ; : " etc. we transform number(s) (if any) to words and pass on the words
+                                that we get from splitting by the symbols
+                                <br>&#8226; If none of the cases applies, the algorithm just assumes that the
+                                input is a regular word and passes it on.
+                                <br>
+                                <br>
+                                After checking for all the cases and receiving resulting strings , we load an <a
+                                    style="color:#484848;"
+                                    href="https://raw.githubusercontent.com/open-dict-data/ipa-dict/master/data/en_US.txt">"English
+                                    to IPA" dictionary</a> and use a lookup function to see if the word is in
+                                the dictionary.
+                                Upon being found, an IPA conversion is returned. If the word is not in the
+                                dictionary, we look through the characters of the input string and return the
+                                IPA conversion for each character.</p>
+
+                    </div>
+
+
+
                     <div class="col-md-10 col-lg-12 col-xs-8 my-5">
                         <h1 id="heading">What is symbolic pre-processing?</h1>
-                        <p>The conversion from grapheme to phoneme, here shown with the IPA is only one of the steps it takes 
-                            to pre-process text, so it is usable for the speech synthesis. The necessary pprocessing steps for 
+                        <p>The conversion from grapheme to phoneme, here shown with the IPA is only one of the steps it
+                            takes
+                            to pre-process text, so it is usable for the speech synthesis. The necessary pprocessing
+                            steps for
                             the input text is listed in lecture as the steps of symbolic pre-processing.
-                            After all text is brought into common form with numbers and abbreviations and such exceptions such aus 
-                            f.e. proper names made processable, the morphological analyses determines syntax, stress and intonation
-                            of the input. With these steps done, the input can be translated to phonemes as shown in our example, 
-                            although most times the phonemes will be represented in a machine-readable form. Also syntactic and 
+                            After all text is brought into common form with numbers and abbreviations and such
+                            exceptions such aus
+                            f.e. proper names made processable, the morphological analyses determines syntax, stress and
+                            intonation
+                            of the input. With these steps done, the input can be translated to phonemes as shown in our
+                            example,
+                            although most times the phonemes will be represented in a machine-readable form. Also
+                            syntactic and
                             prosodic features are analysed.
                         </p>
                     </div>
@@ -351,15 +378,16 @@
         <div class="row">
 
             <div class="col-lg-5 col-md-5 col-sm-4 col-xs-12">
-                <span class="small"><a class="btn" href="../1Lautsprache\impressum\imprint.html">Imprint</a></span>
+                <span class="small footerbar"><a class="btn" href="../1Lautsprache\impressum\imprint.html">Imprint</a></span>
             </div>
 
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                <span class="small"><a class="btn" href="../1Lautsprache\impressum\data_privacy.html">Data Privacy</a></span>
+                <span class="small footerbar"><a class="btn" href="../1Lautsprache\impressum\data_privacy.html">Data
+                        Privacy</a></span>
             </div>
 
             <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                <span class="small"> <a class="btn" href="../1Lautsprache\impressum\copyright.html">Copyright</a></span>
+                <span class="small footerbar"> <a class="btn" href="../1Lautsprache\impressum\copyright.html">Copyright</a></span>
             </div>
         </div>
         <br>
@@ -393,9 +421,9 @@
     var c = 0;
 
     for (let i = 0; i < woerter.length; i++) {
-        if (c == 3){
+        if (c == 3) {
             break;
-        } if (woerter[i] !== ""){
+        } if (woerter[i] !== "") {
             erklaerungstext += "<b>" + woerter[i] + "</b>";
             erklaerungstext += " → ";
             erklaerungstext += IPAwoerter[i];
@@ -407,23 +435,62 @@
         }
     }
     erklaerungstext += "\n";
-    
+
     //cases vom IPA converter:
-    var casesIPA = sessionStorage.getItem("casesIPA");
-    if (casesIPA[0] == true){//date
+    var casesIPA = sessionStorage.getItem("casesIPA");  //cases IPA ist kein Array sondern ein String
+    var casesArray = casesIPA.split(',');               // Teile auf sodass einzelne worte einzelne elemente sind
+
+    function mapObjectValues(obj = {}) {   // String mit false und true (in stringform) zu echtem boolean array
+        for (var key in obj) {
+            var val = obj[key];
+
+            if (val === "false") {
+                obj[key] = false;
+            }
+            else if (val === "true") {
+                obj[key] = true;
+            }
+        }
+    }
+
+    mapObjectValues(casesArray)    // Jetzt ist es ein echtes Array mit boolean werten
+
+    if (casesArray.includes(true)) {  //Sobald auch nur ein case abgefangen wurde, displaye den extra info text
+        var header = document.getElementById("casesheader");
+        header.style.display = "block";
+
+        var subtext = document.getElementById("casestext");
+        subtext.style.display = "block";
+
+        var nocasestext = document.getElementById("nocases");
+        nocasestext.style.display = "none";
+
+    }
+
+    if (casesArray[0] == true) {//date
         console.log("date");
+        var dateCase = document.getElementById("case0");
+        dateCase.style.display = "inline-block";
     }
-    if (casesIPA[1] == true){//time
+    if (casesArray[1] == true) {//time
         console.log("time");
+        var timeCase = document.getElementById("case1");
+        timeCase.style.display = "inline-block";
     }
-    if (casesIPA[2] == true){//ordinal nr
+    if (casesArray[2] == true) {//ordinal nr
         console.log("ordinal");
+        var ordnrCase = document.getElementById("case2");
+        ordnrCase.style.display = "inline-block";
     }
-    if (casesIPA[3] == true){//decimal nr
+    if (casesArray[3] == true) {//decimal nr
         console.log("decimal");
+        var decnrCase = document.getElementById("case3");
+        decnrCase.style.display = "inline-block";
     }
-    if (casesIPA[4] == true){//number
+    if (casesArray[4] == true) {//number
         console.log("number");
+        var nrCase = document.getElementById("case4");
+        nrCase.style.display = "inline-block";
     }
 
     //Überschreibe Content des Popovers mit der Erklärung
@@ -581,6 +648,27 @@
 
         return elementsString;
     }
+
+    //Macht das in same page link smooth scrolling ist
+
+    jQuery($ => {
+    // The speed of the scroll in milliseconds
+    const speed = 1000;
+
+    $('a[href*="#"]')
+      .filter((i, a) => a.getAttribute('href').startsWith('#') || a.href.startsWith(`${location.href}#`))
+      .unbind('click.smoothScroll')
+      .bind('click.smoothScroll', event => {
+        const targetId = event.currentTarget.getAttribute('href').split('#')[1];
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          event.preventDefault();
+          $('html, body').animate({ scrollTop: $(targetElement).offset().top }, speed);
+        }
+      });
+  });
+
 </script>
 
 
