@@ -1,7 +1,7 @@
 var IPADict = {};
 var AbbDict = {};
 var processedText = "";
-var detectedCase = [false,false,false,false,false];//cases: [date, time, ordinal nr, decimal nr, number]
+var detectedCase = [false,false,false,false,false,false];//cases: [date, time, ordinal nr, decimal nr, number, abbreviation]
 
 function parseDict(lines) {
 	//console.log('TextToIPA: Beginning parsing to dict...');
@@ -112,8 +112,10 @@ function convertText(str){
 		if (currentEl == '' || currentEl == ' '){ //if the input is split by " " sometimes there is leftover elements which would be converted to zero, which we dont want
 			//console.log("upsi");  
 		} else if (abb !== currentEl){
+            detectedCase[5]=true;
             textToIpa(abb, IPAText);
         } else if (abb2 !== currentEl){
+            detectedCase[5]=true;
             textToIpa(abb2, IPAText);
         } else if (isDate(currentEl)){
 			// Date if exactly 3 elements when split by ".": first a number between 1 and 31, then either a number with either 1 or 2 digits or a word with max 9 characters (september is the longest month with 9 characters), and then a number with < 4 digits 

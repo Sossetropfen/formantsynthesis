@@ -135,7 +135,7 @@
 
                         <p id="nocases"><br> It seems like your input did not trigger any of the cases that are checked in the text-to-IPA conversion. Some text inputs have to be transformed into their ortographic equivalent in order for them to be pronouncable. You will find more
                             about the cases that are caught in the section below. If you want to see all cases in action, go back to the <a id="gobacklink" href="/0Landing/eingabe.html">input page</a> and enter: <br><br>
-                             <i>It is 9:00 on 01.03.21 and I am the 1. to go to university. I had 1 test and my score was 95.0!</i></p>
+                             <i>It is 9:00 on 01.03.2021 and I am the 1. to go to uni. I had 1 test and my score was 95.0!</i></p>
                         <p id="casestext"><br> Our converter has detected some special text in your input and
                             transformed it in a way that they are pronouncable. If you want to learn more about the
                             different cases that are caught by our converter just click on the words above.</p>
@@ -487,6 +487,11 @@
     if (casesArray[4] == true) {//number
         console.log("number");
         var nrCase = document.getElementById("case4");
+        nrCase.style.display = "inline-block";
+    }
+    if (casesArray[5] == true) {//abbreviation
+        console.log("number");
+        var nrCase = document.getElementById("case5");
         nrCase.style.display = "inline-block";
     }
 
