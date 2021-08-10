@@ -21,12 +21,24 @@ function BiasInput(){
       document.getElementById("btn_bias").innerText = "change bias level";
 }
 
+function getBias(){
+    return bias;
+}
+
+function changeBias(n){
+    bias = n;
+}
+
 function PhraseInput(){
       phr_cmd++;
       A_pi.push(document.getElementById("A_pi_input").value);
       T_0i.push(document.getElementById("T_0i_input").value);
       a_i.push(document.getElementById("a_i_input").value);
       document.getElementById("btn_phrase").innerText = "add phrase command";
+}
+
+function getPhrases(){
+    return [phr_cmd, A_pi, T_0i, a_i];
 }
 
 function AccentInput(){
@@ -37,6 +49,23 @@ function AccentInput(){
       b_j.push(document.getElementById("b_j_input").value);
       v_j.push(document.getElementById("v_j_input").value);
       document.getElementById("btn_accent").innerText = "add accent command";
+}
+
+function getAccents(){
+    return [acc_cmd, A_aj, T_1j, T_2j, b_j, v_j];
+}
+
+function setAccPhr(a, b, c, d, e, f, g, h){
+    phr_cmd = a.length;
+    A_pi = a;
+    T_0i = b;
+    a_i = c;
+    acc_cmd = d.length;
+    A_aj = d;
+    T_1j = e;
+    T_2j = f;
+    b_j = g; 
+    v_j = h;
 }
 
 /*function show(){
