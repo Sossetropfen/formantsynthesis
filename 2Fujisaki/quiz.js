@@ -4,7 +4,7 @@ questions[1] = new Question("What aspects of prosody are set via linear filters 
 questions[2] = new Question("What does the F<sub>b</sub>-contour represent?", " The bias level", "The fundamental frequency", "The accent commands");
 questions[3] = new Question("Which of the following variables is irrelevant for the Fujisaki-Model formular?", " End of ith phrase command, T<sub>1j</sub>", "Amplitude of jth accent command, A<sub>aj</sub>", "Ceiling level of jth accent command, γ<sub>j</sub>");
 questions[4] = new Question("Choose the right definition for the term 'prosody':", " Under the term of prosody we can differentiate between such features as stress, intonation, tempo, pausing and rythm.", "Under the term of prosody we can differentiate between features of orthographic description of speech sound and writing.", "Under the term of prosody we can differentiate between such features as pronounciation and right grammar.");
-questions[5] = new Question("Prosodic features can be represented by a F<sub>0</sub>?", "Contour", "Spectrum", "None of the two");
+questions[5] = new Question("Wich Prosodic features can be represented by a F<sub>0</sub>?", "Contour", "Spectrum", "None of the two");
 
 //SHUFFLE DAS ARRAY MIT DEN FRAGEN
 for(let i = questions.length-1; i>0; i--){
