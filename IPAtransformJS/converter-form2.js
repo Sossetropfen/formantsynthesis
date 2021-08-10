@@ -105,7 +105,7 @@ function convertText(str){
 		var currentEl = replaceSigns(englishTextArray[i]);
         
         var abb = findAbbreviations(currentEl);
-        var abb2 = findAbbreviations(currentEl.toLocaleLowerCase());
+        //var abb2 = findAbbreviations(currentEl.toLocaleLowerCase());
         
         console.log(abb);
         
@@ -114,10 +114,10 @@ function convertText(str){
 		} else if (abb !== currentEl){
             detectedCase[5]=true;
             textToIpa(abb, IPAText);
-        } else if (abb2 !== currentEl){
+        } /*else if (abb2 !== currentEl){
             detectedCase[5]=true;
             textToIpa(abb2, IPAText);
-        } else if (isDate(currentEl)){
+        }*/ else if (isDate(currentEl)){
 			// Date if exactly 3 elements when split by ".": first a number between 1 and 31, then either a number with either 1 or 2 digits or a word with max 9 characters (september is the longest month with 9 characters), and then a number with < 4 digits 
 			var date = currentEl.split("."); //ordinal number, string (string abreviation) or number -> string, number
 			//day

@@ -723,6 +723,7 @@ ISP	internet service provider
 ISS	International Space Station
 ISSN	International Standard Serial Number
 IT	information technology
+IT.	information technology
 ital.	italics
 IU	International Unit
 IUD	intra-uterine device

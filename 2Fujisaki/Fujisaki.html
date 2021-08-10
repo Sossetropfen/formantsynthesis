@@ -179,35 +179,38 @@
                                     </div>
 
                                 </div>
+                                <div id="divCurrentValues" style="display: none; border: 2px rgba(0, 0, 0, .2); border-style: dashed; border-radius: 25px;" >
+                                    <div class="row p-3">
+                                    <h3 class="col-12">Current Values</h3>
+                                    <br>
+                                        <h5 class="col-12">Bias</h5>
+                                        <div id="biasCurrent" class="col col-12">
+                                            <input class="form-control col-12" type="text" id="currentBias">
+                                            <button class="btn btn-info my-3" onclick="resetBias()">delete</button>
+                                        </div>
+                                        <br>
+                                        <h5 class="col-12">Phrase Commands</h5><br>
+                                        <h8 class="col-12 mb-4">[magnitude, instant of occurrence, angular frequency]</h8><br>
+                                            <div id="phraseCurrent" class="col col-12">
 
-                                <div id="divCurrentValues" style="display: none;">
-                                    <h3>Current Values</h3>
-                                    <br>
-                                    <h5>Bias</h5>
-                                    <div id="biasCurrent">
-                                        <input class="form-control" type="text" id="currentBias">
-                                        <button class="btn btn-info" onclick="resetBias()">delete</button>
+                                            </div>
+                                        <br>
+                                        <h5 class="col-12">Accent Commands</h5><br>
+                                        <h8 class="col-12 mb-4">[amplitude, onset, end, angular frequency, ceiling level]</h8><br>
+                                        <div id="accentCurrent" class="col col-12">
+
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-info ml-3" onclick="changeValues()">change values</button>
+                                        <br>
                                     </div>
-                                    <br>
-                                    <h5>Phrase Commands</h5>
-                                    <div id="phraseCurrent">
-                                        
-                                    </div>
-                                    <br>
-                                    <h5>Accent Commands</h5>
-                                    <div id="accentCurrent">
-                                        
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-info" onclick="changeValues()">change values</button>
-                                    <br>
                                 </div>
                                 
                                 <!--<div class="my-2 col-lg-12 ">
                                     <button class="btn btn-info" id="btn_plot" onclick="show()">show values</button>
                                 </div>-->
 
-                                <div class="my-2 col-lg-12 ">
+                                <div class="my-2 col-lg-12 mt-4">
                                     <button class="btn btn-info" id="btn_sample" onclick="loadSampleValues()">load sample values</button>
                                 </div>
         
@@ -237,11 +240,11 @@
                     <h5>Total F<sub>0</sub> contour</h5>
                     <div id="plotTotal"></div>
                     <br>
-                    <h5>Accent Commands<h5>
-                    <div id="plotAccents"></div>
-                    <br>
                     <h5>Phrase Commands</h5>
                     <div id="plotPhrases"></div>
+                    <br>
+                    <h5>Accent Commands<h5>
+                    <div id="plotAccents"></div>
                 </div>
 
 
@@ -518,40 +521,47 @@
         var pDiv = document.createElement("div");
         var a = i+1;
         pDiv.appendChild(document.createTextNode("Phrase Command " + a + ":"));
+        pDiv.appendChild(document.createElement("br"));
+        var row = document.createElement("div");
+        row.classList.add("row","pl-3","mt-2");
         for(var j = 0; j < 3; j++){
             var phrInput = document.createElement("input");
             phrInput.type = "text";
             phrInput.id = "phr_"+j+"_"+i;
-            phrInput.className = "form-control";
+            phrInput.classList.add("form-control","col","col-xl-2","col-md-12","mr-1","my-1");
             phrInput.setAttribute('placeholder',cPhr[j+1][i]);
-            pDiv.append(phrInput);
+            row.appendChild(phrInput);
         }
+        pDiv.appendChild(row);
         var delBut = document.createElement("button");
-        delBut.classList.add("btn", "btn-info");
+        delBut.classList.add("btn", "btn-info","my-3");
         delBut.id = "delPhr_"+i;
-        delBut.appendChild(document.createTextNode("delete current phrase command"));
+        delBut.appendChild(document.createTextNode("delete phrase command "+(i+1)));
         delBut.setAttribute('onClick','removeElement("'+'phrDiv_'+i+'")');
         pDiv.appendChild(delBut);
         return pDiv;
     }
     
     function createInputAcc(i, cAcc){
-        var b = ["A_aj","T_1j","T_2j","b_j","v_j"];
         var pDiv = document.createElement("div");
         var a = i+1;
         pDiv.appendChild(document.createTextNode("Accent Command " + a + ":"));
+        pDiv.appendChild(document.createElement("br"));
+        var row = document.createElement("div");
+        row.classList.add("row","pl-3","mt-2");
         for(var j = 0; j < 5; j++){
             var accInput = document.createElement("input");
             accInput.id = "acc_"+j+"_"+i;
             accInput.type = "text";
-            accInput.className = "form-control";
+            accInput.classList.add("form-control","col","col-xl-2","col-md-12","mr-1","my-1");
             accInput.setAttribute('placeholder',cAcc[j+1][i]);
-            pDiv.append(accInput);
+            row.append(accInput);
         }
+        pDiv.appendChild(row);
         var delBut = document.createElement("button");
-        delBut.classList.add("btn", "btn-info");
+        delBut.classList.add("btn", "btn-info","my-3");
         delBut.id = "delAcc_"+i;
-        delBut.appendChild(document.createTextNode("delete current accent command"));
+        delBut.appendChild(document.createTextNode("delete accent command "+(i+1)));
         delBut.setAttribute('onClick','removeElement("'+'accDiv_'+i+'")');
         pDiv.appendChild(delBut);
         return pDiv;
@@ -570,31 +580,28 @@
         var A_pi = [];
         var T_0i = [];
         var a_i = [];
-        var phrD = document.getElementById("phraseCurrent");
-        var phrDivs = phrD.getElementsByTagName("div");
-        for (var i = 0; i < phrDivs.length; i=i+2){
-            var phrInp = phrDivs[i].getElementsByTagName("input");
-            for (var j = 0; j < 3; j++){
+        var phrD = document.getElementById("phraseCurrent").childNodes;
+        for (var i = 1; i < phrD.length; i++){
+            var phrInp = phrD[i].children[0].children[1].children;
+            for (var j = 0; j < phrInp.length; j++){
                 var h = (phrInp[j].value=="")?phrInp[j].placeholder:phrInp[j].value;
-                //console.log(a);
                 if (j % 3 == 0){
-                    A_pi[i/2] = h;
+                    A_pi[i-1] = h;
                 } else if (j % 3 == 1){
-                    T_0i[i/2] = h;
+                    T_0i[i-1] = h;
                 } else if (j % 3 == 2){
-                    a_i[i/2] = h;
-                }
-                
+                    a_i[i-1] = h;
+                }   
             }
         }
         
         
-        var A_aj = [];
+        /*var A_aj = [];
         var T_1j = [];
         var T_2j = [];
         var b_j = [];
         var v_j = [];
-        var accD = document.getElementById("accentCurrent");
+        var accD = document.getElementById("accentCurrent").childNodes;
         var accDivs = accD.getElementsByTagName("div");
         for (var i = 0; i < accDivs.length; i=i+2){
             var accInp = accDivs[i].getElementsByTagName("input");
@@ -613,9 +620,35 @@
                     v_j[i/2] = h;
                 }                
             }
+        }*/
+        
+        var A_aj = [];
+        var T_1j = [];
+        var T_2j = [];
+        var b_j = [];
+        var v_j = [];
+        var accD = document.getElementById("accentCurrent").childNodes;
+        for (var i = 1; i < accD.length; i++){
+            var accInp = accD[i].children[0].children[1].children;
+            for (var j = 0; j < accInp.length; j++){
+                var h = (accInp[j].value=="")?accInp[j].placeholder:accInp[j].value
+                //console.log(a);
+                if (j % 6 == 0){
+                    A_aj[i-1] = h;
+                } else if (j % 6 == 1){
+                    T_1j[i-1] = h;
+                } else if (j % 6 == 2){
+                    T_2j[i-1] = h;
+                } else if (j % 6 == 3){
+                    b_j[i-1] = h;
+                } else if (j % 6 == 4){
+                    v_j[i-1] = h;
+                }                
+            }
         }
         
         setAccPhr(A_pi, T_0i, a_i, A_aj, T_1j, T_2j, b_j, v_j);
+        show();
         
         document.getElementById("phraseCurrent").textContent = "";
         document.getElementById("accentCurrent").textContent = "";

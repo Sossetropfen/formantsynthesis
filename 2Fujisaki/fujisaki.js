@@ -68,7 +68,7 @@ function setAccPhr(a, b, c, d, e, f, g, h){
     v_j = h;
 }
 
-/*function show(){
+function show(){
     console.log(phr_cmd);
     console.log(A_pi);
     console.log(T_0i);
@@ -79,7 +79,7 @@ function setAccPhr(a, b, c, d, e, f, g, h){
     console.log(T_2j);
     console.log(v_j);
     console.log(b_j);
-}*/
+}
 
 function loadSampleValues(){
     phr_cmd = 3;
