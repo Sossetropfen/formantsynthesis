@@ -68,19 +68,6 @@ function setAccPhr(a, b, c, d, e, f, g, h){
     v_j = h;
 }
 
-function show(){
-    console.log(phr_cmd);
-    console.log(A_pi);
-    console.log(T_0i);
-    console.log(a_i);
-    console.log(acc_cmd);
-    console.log(A_aj);
-    console.log(T_1j);
-    console.log(T_2j);
-    console.log(v_j);
-    console.log(b_j);
-}
-
 function loadSampleValues(){
     phr_cmd = 3;
     acc_cmd = 5;
@@ -115,14 +102,9 @@ function reset(){
 
 function fct(t){
     if (bias <= 0){
-        //return accentCmds(t);
-        //return phraseCmds(t);
         return accentCmds(t)+phraseCmds(t);
     }
-    //return accentCmds(t);
-    //return phraseCmds(t);
     return Math.log(bias)+accentCmds(t)+phraseCmds(t);
-    //return Math.log(Math.log(bias)+accentCmds(t)+phraseCmds(t));
 }
 
 function accentCmds(t){
